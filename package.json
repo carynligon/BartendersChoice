@@ -37,7 +37,8 @@
   "babel": {
     "sourceType": "module",
     "presets": [
-      "es2015"
+      "es2015",
+      "react"
     ]
   },
   "author": "nicerhugs",
