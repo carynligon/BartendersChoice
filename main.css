@@ -13,23 +13,34 @@ form {
   form div {
     background: rgba(255, 255, 255, 0.7);
     margin: 5px;
+    padding: 10px 0;
     text-align: center;
     width: 100px;
     border-radius: 15px;
-    display: inline-block; }
+    display: inline-block;
+    vertical-align: top;
+    max-height: 200px;
+    overflow: scroll; }
     form div ul {
       display: inline;
       padding: 0;
       font-family: Avenir; }
       form div ul li {
         display: inline-block; }
+        form div ul li:first-child {
+          font-weight: bolder; }
+        form div ul li:first-child:hover {
+          background: none; }
+        form div ul li:hover {
+          background: rgba(69, 69, 69, 0.7); }
   form input {
     background: rgba(255, 255, 255, 0.7);
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     display: block;
     width: 100px;
-    margin: 0 auto; }
+    margin: 0 auto;
+    padding: 5px 0; }
 
 footer {
   position: fixed;
