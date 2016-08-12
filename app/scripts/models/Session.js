@@ -1,7 +1,11 @@
 import Backbone from 'backbone';
 
+import settings from '../settings';
+
 export default Backbone.Model.extend({
+  urlRoot: `https://baas.kinvey.com/user/${settings.appKey}/login`,
   defaults: {
-    age: 20
-  }
+    username: '',
+    age: 23
+  },
 });
