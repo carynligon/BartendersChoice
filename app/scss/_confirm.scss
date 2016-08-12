@@ -14,26 +14,40 @@ form {
   div {
     background: rgba($white, 0.7);
     margin: 5px;
+    padding: 10px 0;
     text-align: center;
     width: 100px;
     border-radius: 15px;
     display: inline-block;
+    vertical-align: top;
+    max-height: 200px;
+    overflow: scroll;
     ul {
       display: inline;
       padding: 0;
       font-family: Avenir;
       li {
         display: inline-block;
+        &:first-child {
+          font-weight: bolder;
+        }
+        &:first-child:hover {
+          background: none;
+        }
+        &:hover {
+          background: rgba($black, 0.7);
+        }
       }
     }
   }
   input {
     background: rgba($white, 0.7);
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
     display: block;
     width: 100px;
     margin: 0 auto;
+    padding: 5px 0;
   }
 }
 

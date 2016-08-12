@@ -1,4 +1,7 @@
 import React from 'react';
+import {hashHistory} from 'react-router';
+
+import store from '../store';
 
 export default React.createClass({
   getInitialState() {
@@ -23,6 +26,32 @@ export default React.createClass({
       yobList: !this.state.yobList
     });
   },
+  selectDate(e) {
+    e.target.parentElement.firstChild.innerText = e.target.innerText;
+  },
+  validateAge(e) {
+    e.preventDefault();
+    let month = document.getElementById('mobList').firstChild.innerText;
+    let day = document.getElementById('dobList').firstChild.innerText;
+    let year = document.getElementById('yobList').firstChild.innerText;
+    let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let currDate = new Date();
+    console.log(currDate.getFullYear());
+    let age = currDate.getFullYear() - year;
+    let monthDiff = currDate.getMonth() - months.indexOf(month);
+    if (monthDiff < 0 || (monthDiff === 0 && currDate.getDate() < day)) {
+      age--;
+    }
+    if (age >= 21) {
+      store.session.set({
+        age
+      });
+      hashHistory.push('/');
+    } else {
+      alert('You must be 21 to view this site');
+    }
+  },
   render() {
     let stylesMob;
     let stylesDob;
@@ -31,18 +60,18 @@ export default React.createClass({
     if (this.state.dobList === false) {stylesDob = {display: 'none'}} else {stylesDob = {display: 'block'}}
     if (this.state.yobList === false) {stylesYob = {display: 'none'}} else {stylesYob = {display: 'block'}}
 
+    let mobArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+    let months = mobArr.map((month,i) => {
+      return <li style={stylesMob} key={i} onClick={this.selectDate}>{month}</li>;
+    });
+
     let dobArr = [];
     for (var i = 1; i < 32; i++) {
       dobArr.push(i);
     }
     let days = dobArr.map((day,i) => {
-      return <li style={stylesDob} key={i}>{day}</li>;
-    });
-
-    let mobArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-    let months = mobArr.map((month,i) => {
-      return <li style={stylesMob} key={i}>{month}</li>;
+      return <li style={stylesDob} key={i} onClick={this.selectDate}>{day}</li>;
     });
 
     let yobArr = [];
@@ -50,7 +79,7 @@ export default React.createClass({
       yobArr.push(i);
     }
     let years = yobArr.map((year,i) => {
-      return <li style={stylesYob} key={i}>{year}</li>;
+      return <li style={stylesYob} key={i} onClick={this.selectDate}>{year}</li>;
     });
     return (
       <div className="confirm-page-wrapper">
@@ -59,7 +88,7 @@ export default React.createClass({
                 <source src="assets/video/Cocktails.mp4" type="video/mp4"/>
             </video>
         </div>
-        <form id="confirm-birthdate-form">
+        <form id="confirm-birthdate-form" onSubmit={this.validateAge}>
           <div id="mob-dropdown" onClick={this.dropdownMob}>
             <ul id="mobList">
               <li>Month</li>
