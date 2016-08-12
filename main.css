@@ -1,3 +1,46 @@
+video {
+  position: fixed;
+  top: 0;
+  object-fit: cover;
+  width: 100%; }
 
+form {
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  margin-top: 22%;
+  text-align: center; }
+  form div {
+    background: rgba(255, 255, 255, 0.7);
+    margin: 5px;
+    text-align: center;
+    width: 100px;
+    border-radius: 15px;
+    display: inline-block; }
+    form div ul {
+      display: inline;
+      padding: 0;
+      font-family: Avenir; }
+      form div ul li {
+        display: inline-block; }
+  form input {
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    border-radius: 15px;
+    display: block;
+    width: 100px;
+    margin: 0 auto; }
+
+footer {
+  position: fixed;
+  bottom: 50px;
+  width: 100%;
+  text-align: center; }
+
+body {
+  margin: 0; }
+
+li {
+  list-style: none; }
 
 /*# sourceMappingURL=main.css.map */
