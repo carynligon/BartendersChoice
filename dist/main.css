@@ -48,6 +48,12 @@ footer {
   width: 100%;
   text-align: center; }
 
+@media (min-width: 1170px) {
+  footer p {
+    opacity: 0; } }
+@media (max-width: 1171px) {
+  footer {
+    bottom: 5px; } }
 body {
   margin: 0; }
 

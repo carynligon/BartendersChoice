@@ -3,6 +3,7 @@ import React from 'react';
 import _ from 'underscore';
 
 import settings from '../settings';
+import session from '../models/Session';
 import store from '../store';
 
 export default React.createClass({
@@ -17,7 +18,6 @@ export default React.createClass({
   },
   render() {
     let data = _.toArray(this.state);
-    data.
     store.session.save({
       username: 'admin',
       password: '1234'
