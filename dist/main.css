@@ -54,6 +54,25 @@ footer {
 @media (max-width: 1171px) {
   footer {
     bottom: 5px; } }
+nav {
+  background: #ff7b68;
+  color: #fff;
+  padding: 25px 10px; }
+
+.drink-preview {
+  display: inline-block;
+  width: 300px;
+  height: 300px; }
+  .drink-preview img {
+    height: 300px;
+    width: 300px; }
+  .drink-preview h4 {
+    position: relative;
+    bottom: 63px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.7);
+    color: #454545; }
+
 body {
   margin: 0; }
 
