@@ -7,6 +7,7 @@ import Recipe from './components/Recipe';
 import Assessment from './components/Assessment';
 import AssessmentInfo from './components/AssessmentInfo';
 import SingleQuestion from './components/SingleQuestion';
+import Results from './components/Results';
 
 const router = (
   <Router history={hashHistory}>
@@ -15,7 +16,8 @@ const router = (
     <Route path="/recipe/:cocktail" component={Recipe}/>
     <Route path="/assessment" component={Assessment}>
       <IndexRoute component={AssessmentInfo}/>
-      <Route path="/assessment/:question" component={SingleQuestion}/>
+      <Route path="/assessment/question" component={SingleQuestion}/>
+      <Route path="/assessment/results" component={Results}/>
     </Route>
   </Router>
 );

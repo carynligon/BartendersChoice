@@ -10,20 +10,8 @@ export default Backbone.Model.extend({
     this.save({"deck_id": "core"}, {
       success: (model, data) => {
         let assessment_id = data.id;
-        console.log(assessment_id);
-        $.ajax({
-          url: `https://baas.kinvey.com/rpc/${settings.appKey}/custom/slides`,
-          type: 'POST',
-          data: {
-            assessment_id: assessment_id
-          },
-          success: (data) => {
-            data.forEach((question) => {
-              store.slides.create(question)
-            });
-            hashHistory.push('/assessment/1');
-          }
-        });
+        store.session.set('assessment_id', assessment_id);
+        store.slides.getSlides(assessment_id)
       }
     });
   }

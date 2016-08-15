@@ -6,7 +6,6 @@ import store from '../store';
 export default React.createClass({
   startAssessment() {
     store.assessment.newAssessment();
-    hashHistory.push('assessment/1');
   },
   render() {
     return(
