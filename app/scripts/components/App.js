@@ -14,20 +14,24 @@ export default React.createClass({
   getInitialState() {
     return {}
   },
+  listener() {
+    this.setState(store.cocktails.toJSON());
+  },
   componentDidMount() {
-    store.cocktails.on('update', () => {
-      this.setState(store.cocktails.toJSON());
-    });
+    store.cocktails.on('update', this.listener);
     store.cocktails.fetch();
+  },
+  componentWillUnmount() {
+    store.cocktails.off('update', this.listener);
   },
   render() {
     let data = _.toArray(this.state);
     let drinksWithImgs = data.filter((drink) => {
-      return drink.drink_strDrinkThumb !== null;
+      return drink.drink__strDrinkThumb !== null;
     });
     console.log(drinksWithImgs);
     let drinks = drinksWithImgs.map((drink,i) => {
-      return <DrinkPreview id={drink.idDrink} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} key={i}/>
+      return <DrinkPreview id={drink._id} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} key={i}/>
     });
     store.session.save({
       username: 'admin',
