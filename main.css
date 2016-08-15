@@ -73,6 +73,13 @@ nav {
     background: rgba(255, 255, 255, 0.7);
     color: #454545; }
 
+.assessment-section {
+  width: 80%;
+  text-align: center;
+  margin: 0 auto; }
+  .assessment-section img {
+    height: 100px; }
+
 body {
   margin: 0; }
 
