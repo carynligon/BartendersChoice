@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import Backbone from 'backbone';
 
 import store from '../store';
@@ -8,7 +9,21 @@ export default Backbone.Model.extend({
   newAssessment: function() {
     this.save({"deck_id": "core"}, {
       success: (model, data) => {
-        store.session.set({assessment_id: data.id});
+        let assessment_id = data.id;
+        console.log(assessment_id);
+        $.ajax({
+          url: `https://baas.kinvey.com/rpc/${settings.appKey}/custom/slides`,
+          type: 'POST',
+          data: {
+            assessment_id: assessment_id
+          },
+          success: (data) => {
+            data.forEach((question) => {
+              store.slides.create(question)
+            });
+            hashHistory.push('/assessment/1');
+          }
+        });
       }
     });
   }
