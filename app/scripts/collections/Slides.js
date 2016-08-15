@@ -50,7 +50,9 @@ export default Backbone.Collection.extend({
             assessment_id: assessment_id
           },
           success: (data) => {
-            console.log(data);
+            store.session.set({
+              personality: data
+            });
           }
         });
       }

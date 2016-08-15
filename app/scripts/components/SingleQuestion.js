@@ -26,7 +26,6 @@ export default React.createClass({
         }
       });
     }
-    console.log(store.slides);
     if (this.state.index === 48) {
       hashHistory.push('/assessment/results/')
     }
