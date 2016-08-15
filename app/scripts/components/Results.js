@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import React from 'react';
 
 import store from '../store';
@@ -10,12 +11,6 @@ export default React.createClass({
     };
   },
   compareScores() {
-    // if (this.state.drinks[0]) {
-    //   let rangeArr = this.state.drinks.reduce((prev, curr, i) => {
-    //     return Math.abs(curr[scoreNames[0]] - testScores[0]) <= 100;
-    //   });
-    //   console.log(rangeArr);
-    // }
   },
   listener() {
     this.setState({
@@ -36,10 +31,12 @@ export default React.createClass({
     let traits;
     let testScores = [];
     this.compareScores();
-    if (this.state.personality) {
-      console.log(this.state.results.personality_types.indexOf(personality_type.name === 'Rational'));
-      traits = this.state.personality.personality_types.map((type, i) => {
+    if (this.state.results.personality) {
+      let flatArr = _.flatten(this.state.results.personality.personality_types);
+      console.log(flatArr);
+      traits = this.state.results.personality.personality_types.map((type, i) => {
         testScores.push({trait: type.personality_type.name, score: type.score});
+        console.log(testScores);
         return (
           <li key={i}>
             <h5>{type.personality_type.name}</h5>
