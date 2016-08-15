@@ -19,7 +19,7 @@ export default React.createClass({
   },
   componentDidMount() {
     store.cocktails.on('update', this.listener);
-    store.cocktails.fetch();
+    store.cocktails.getCocktails();
   },
   componentWillUnmount() {
     store.cocktails.off('update', this.listener);
@@ -38,8 +38,6 @@ export default React.createClass({
       password: '1234'
     }, {
       success: (data) => {
-        console.log(data);
-        console.log(data.get('_kmd').authtoken);
         localStorage.setItem('authtoken', data.get('_kmd').authtoken);
       }
     });
@@ -49,6 +47,7 @@ export default React.createClass({
         <ul id="cocktail-list">
           {drinks}
         </ul>
+        {this.props.children}
       </main>
     );
   }

@@ -5,5 +5,15 @@ import Cocktail from '../models/Cocktail';
 
 export default Backbone.Collection.extend({
   url: `https://baas.kinvey.com/appdata/${settings.appKey}/Cocktails`,
-  model: Cocktail
+  model: Cocktail,
+  getCocktails: function() {
+    this.fetch({
+      success: (data) => {
+        console.log(data);
+        data.forEach((drink) => {
+          this.add(drink)
+        });
+      }
+    });
+  }
 });

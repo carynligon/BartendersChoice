@@ -1,11 +1,12 @@
 import React from 'react';
+import {Link} from 'react-router';
 
 export default React.createClass({
   render() {
     return(
       <nav>
         Home
-        Assessment
+        <Link to="/assessment">Assessment</Link>
         +
         Logout
       </nav>
