@@ -19,29 +19,16 @@ export default React.createClass({
       console.log(score);
       this.state.drinks.forEach((drink) => {
         if (Math.abs(drink[traitName] - score) <= 10) {
-          matches.push(drink);
+          matches.push(drink._id);
         }
       });
       console.log(matches);
-      let counter = 1;
-      function sliceMatch(drink) {
-        let index = matches.indexOf(drink);
-        matches.slice(index, 1);
-        counter ++;
-      }
-      matches.forEach((drink) => {
-        sliceMatch(drink);
-        if (counter === 7) {
-          console.log(drink);
+      let reducedMatch = matches.reduce((prev, curr) => {
+        if (prev === curr) {
+          return curr
         }
-        if (matches.indexOf(drink) !== -1) {
-          sliceMatch(drink);
-        }
-      });
-      // let reducedMatch = matches.filter((drink) => {
-      //   if (prev.drink_strDrink === curr.drink_strDrink)
-      // };
-      // console.log(reducedMatch);
+      }, matches[0]);
+      console.log(reducedMatch);
     });
   },
   listener() {
