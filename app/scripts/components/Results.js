@@ -12,23 +12,40 @@ export default React.createClass({
   },
   compareScores() {
     let matches = [];
-    this.state.results.personality.personality_types.forEach((trait) => {
+
+    this.state.results.personality.personality_types.forEach((trait, i) => {
       let traitName = trait.personality_type.name;
       console.log(traitName);
       let score = trait.score;
       console.log(score);
       this.state.drinks.forEach((drink) => {
-        if (Math.abs(drink[traitName] - score) <= 10) {
+        if (Math.abs(drink[traitName] - score) <= 20) {
           matches.push(drink._id);
         }
       });
-      console.log(matches);
-      let reducedMatch = matches.reduce((prev, curr) => {
-        if (prev === curr) {
-          return curr
+      let reducedMatch = matches.reduce((obj, curr) => {
+        // console.log(obj);
+        if (obj) {
+          if (obj[curr]) {
+            console.log('if ran');
+            obj[curr] = obj[curr] + 1;
+          } else {
+            console.log('else ran');
+            obj[curr] = 1;
+          }
         }
-      }, matches[0]);
-      console.log(reducedMatch);
+        return obj;
+      }, {});
+      let fullMatches = _.pairs(reducedMatch).filter((drink) => {
+        return drink[1] === _.max(reducedMatch);
+      });
+      if (i ===6) {
+        console.log(fullMatches);
+        let index = Math.floor(Math.random() * fullMatches.length);
+        let drinkId = fullMatches[index][0];
+        let drink = store.cocktails.get(drinkId);
+        console.log(drink);
+      }
     });
   },
   listener() {
