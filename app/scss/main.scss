@@ -1,3 +1,4 @@
+@import 'https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700|Slabo+27px';
 @import 'variables';
 @import 'confirm';
 @import 'drink-list';
@@ -5,6 +6,7 @@
 
 body {
   margin: 0;
+  font-family: 'Slabo 27px';
 }
 
 li {

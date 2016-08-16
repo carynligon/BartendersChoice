@@ -6,10 +6,14 @@ export default React.createClass({
     hashHistory.push(`/recipe/${e.target.parentElement.id}`);
   },
   render() {
+    let styles = {
+      backgroundImage: 'url(' + this.props.img + ')'
+    }
     return (
       <li className="drink-preview" id={this.props.id} onClick={this.viewRecipe}>
-        <img src={this.props.img}/>
-        <h4>{this.props.name}</h4>
+        <div className="drink-img" style={styles}>
+          <h4>{this.props.name}</h4>
+        </div>
       </li>
     );
   }

@@ -8,6 +8,7 @@ import store from '../store';
 
 import Nav from './Nav';
 import DrinkPreview from './DrinkPreview';
+import FilterBar from './FilterBar';
 
 
 export default React.createClass({
@@ -44,6 +45,7 @@ export default React.createClass({
     return (
       <main>
         <Nav/>
+        <FilterBar/>
         <ul id="cocktail-list">
           {drinks}
         </ul>
