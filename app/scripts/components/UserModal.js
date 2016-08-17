@@ -69,7 +69,7 @@ export default React.createClass({
         </form>
       );
     }
-    
+
     return(
       <div className="modal-container" style={this.containerStyles}>
         <div className="modal-content" style={this.contentStyles}>

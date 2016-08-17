@@ -1,0 +1,52 @@
+nav {
+  background: rgba($main, 0.7);
+  padding: 25px 10px;
+  a {
+    margin: 5px;
+    text-decoration: none;
+    color: $white;
+  }
+  #search-bar-container {
+    display: inline-block;
+    #search-input {
+      padding: 5px 3px 5px 23px;
+      font-size: 1rem;
+      width: 185px;
+    }
+    #search-icon-btn {
+      position: relative;
+      font-size: 1rem;
+      right: 214px;
+      background: none;
+      border: none;
+    }
+  }
+  #login-links {
+    float: right;
+  }
+  #user-info-link {
+    float: right;
+    position: relative;
+    bottom: 7px;
+    i {
+      font-size: 1.5rem;
+      background: white;
+      padding: 6px 9px;
+      border-radius: 50%;
+      color: rgba($main, 0.7);
+    }
+  }
+}
+
+#filter-options {
+  display: block;
+  padding: 0;
+  text-align: center;
+  background: #EEEEEE;
+  margin: 0;
+  padding: 15px 0;
+  li {
+    display: inline-block;
+    margin: 0 3%;
+  }
+}

@@ -7,6 +7,9 @@ export default React.createClass({
   getInitialState() {
     return {};
   },
+  sendBack() {
+    hashHistory.push('/');
+  },
   listener() {
     this.setState(store.cocktails.get(this.props.params.cocktail).toJSON());
   },

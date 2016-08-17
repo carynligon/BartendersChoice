@@ -6,7 +6,7 @@ import store from '../store';
 export default React.createClass({
   startAssessment() {
     if (store.session.get('username') === 'Anonymous') {
-      hashHistory.push('/assessment/login');
+      hashHistory.push('/assessment/profile');
     } else {
       store.assessment.newAssessment();
     }

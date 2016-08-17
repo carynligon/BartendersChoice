@@ -46,25 +46,3 @@ export default React.createClass({
     );
   }
 });
-
-
-// $.ajax({
-//   url: `https://baas.kinvey.com/rpc/${settings.appKey}/custom/cocktails`,
-//   type: 'POST',
-//   success: (data) => {
-//     console.log(data);
-//     data.drinks.forEach((drink) => {
-//       store.cocktails.create({
-//         drink
-//       }, {
-//         success: (resp) => {
-//           console.log(resp);
-//         }
-//       });
-//     });
-//     console.log(drinks);
-//   },
-//   error: (data) => {
-//     console.log(data);
-//   }
-// });
