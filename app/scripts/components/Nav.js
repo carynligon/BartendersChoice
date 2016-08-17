@@ -8,8 +8,8 @@ export default React.createClass({
         <nav>
           <Link to="/">Home</Link>
           <Link to="/assessment">Assessment</Link>
-          +
-          Logout
+          Login
+          Signup
         </nav>
       </header>
     );

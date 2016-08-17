@@ -68,7 +68,7 @@ nav {
   padding: 15px 0; }
   #filter-options li {
     display: inline-block;
-    margin-left: 3%; }
+    margin: 0 3%; }
 
 #cocktail-list {
   width: 100%;

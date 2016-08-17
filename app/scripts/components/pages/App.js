@@ -39,7 +39,7 @@ export default React.createClass({
       password: '1234'
     }, {
       success: (data) => {
-        localStorage.setItem('authtoken', data.get('_kmd').authtoken);
+        localStorage.setItem('authtoken', data.get('authtoken'));
       }
     });
     return (

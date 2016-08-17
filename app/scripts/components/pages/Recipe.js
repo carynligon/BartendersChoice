@@ -21,6 +21,7 @@ export default React.createClass({
     return(
       <main>
         <Nav/>
+        <input type="button" id="back-btn" value="back" onClick={this.sendBack}/>
         <h2>{this.state.drink__strDrink}</h2>
         <h4>Ingredients</h4>
         <ul>

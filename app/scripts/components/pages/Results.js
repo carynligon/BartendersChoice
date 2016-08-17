@@ -28,7 +28,6 @@ export default React.createClass({
         }
       });
       let reducedMatch = matches.reduce((obj, curr) => {
-        // console.log(obj);
         if (obj) {
           if (obj[curr]) {
             obj[curr] = obj[curr] + 1;
@@ -51,12 +50,6 @@ export default React.createClass({
       }
     });
   },
-  // listener() {
-  //   this.setState({
-  //     results: store.session.toJSON(),
-  //     drinks: store.cocktails.toJSON()
-  //   });
-  // },
   componentDidMount() {
     store.session.on('change update', this.compareScores);
     store.cocktails.fetch();
