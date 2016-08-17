@@ -1,6 +1,8 @@
 import Backbone from 'backbone';
+import {hashHistory} from 'react-router';
 
 import settings from '../settings';
+import store from '../store';
 
 export default Backbone.Model.extend({
   urlRoot: `https://baas.kinvey.com/user/${settings.appKey}/login`,
@@ -23,21 +25,21 @@ export default Backbone.Model.extend({
           url: `https://baas.kinvey.com/user/${settings.appKey}/_me`
       });
   },
-  login: function(e, username, password) {
+  login: function(username, password) {
     localStorage.clear();
-    e.preventDefault();
     store.session.save({
       username: username,
       password: password
     }, {
       success: function(model, response) {
+        console.log(response);
         window.localStorage.setItem('authtoken', response._kmd.authtoken);
         window.localStorage.setItem('username', response.username);
         model.unset('password');
         store.session.set({
           username: username,
-          password: password
-        })
+          authtoken: response._kmd.authtoken
+        });
         hashHistory.push('/');
       },
       error: function(response) {
@@ -49,10 +51,9 @@ export default Backbone.Model.extend({
       }
     });
   },
-  signup: function(e, firstName, lastName, username, password, email) {
+  signup: function(firstName, lastName, username, password, email) {
     localStorage.clear();
-    e.preventDefault();
-    store.userCollection.create({
+    store.users.create({
       username: username,
       password: password,
       email: email,
@@ -61,17 +62,17 @@ export default Backbone.Model.extend({
     }, {
       success: function(response) {
         console.log(response);
-        window.localStorage.setItem('authtoken', response.get('authtoken'));
+        window.localStorage.setItem('authtoken', response.get('_kmd').authtoken);
         window.localStorage.setItem('username', response.get('username'));
         response.unset('password');
         store.session.set({
           username: username,
-        })
+          authtoken: response.get('_kmd').authtoken
+        });
         hashHistory.push('/');
       },
       error: function(response) {
         console.log('error: ' + response);
-        localStorage.setItem('authtoken', settings.anonymousToken);
       }
     });
   },
@@ -81,6 +82,5 @@ export default Backbone.Model.extend({
     this.clear();
     localStorage.clear();
     hashHistory.push('/');
-    localStorage.setItem('authtoken', settings.anonymousToken);
   }
 });

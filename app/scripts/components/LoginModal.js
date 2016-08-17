@@ -1,7 +1,24 @@
 import React from 'react';
 import {Link} from 'react-router';
 
+import store from '../store';
+
 export default React.createClass({
+  login(e) {
+    e.preventDefault();
+    let username = this.refs.username.value;
+    let password = this.refs.password.value;
+    store.session.login(username, password)
+  },
+  signup(e) {
+    e.preventDefault();
+    let username = this.refs.username.value;
+    let password = this.refs.password.value;
+    let firstName = this.refs.firstName.value;
+    let lastName = this.refs.lastName.value;
+    let email = this.refs.email.value;
+    store.session.signup(firstName, lastName, username, password, email);
+  },
   containerStyles: {
     position: 'fixed',
     top: 0,
@@ -22,7 +39,7 @@ export default React.createClass({
     let form;
     if (this.props.route.path === '/login') {
       form = (
-        <form className="login-signup-form">
+        <form className="login-signup-form" onSubmit={this.login}>
           <input type="text" placeholder="username" id="username" ref="username"/>
           <input type="password" placeholder="password" id="password" ref="password"/>
           <input type="submit" value="submit" id="submit-login-btn"/>
@@ -31,9 +48,10 @@ export default React.createClass({
       );
     } else {
       form = (
-        <form className="login-signup-form">
+        <form className="login-signup-form" onSubmit={this.signup}>
           <input type="text" placeholder="firstName" id="firstName" ref="firstName"/>
           <input type="text" placeholder="lastName" id="lastName" ref="lastName"/>
+          <input type="email" placeholder="email" id="email" ref="email"/>
           <input type="text" placeholder="username" id="username" ref="username"/>
           <input type="password" placeholder="password" id="password" ref="password"/>
           <input type="password" placeholder="confirm password" id="confirm-password" ref="confirmPassword"/>

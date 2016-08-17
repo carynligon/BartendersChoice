@@ -34,14 +34,6 @@ export default React.createClass({
     let drinks = drinksWithImgs.map((drink,i) => {
       return <DrinkPreview id={drink._id} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} key={i}/>
     });
-    store.session.save({
-      username: 'admin',
-      password: '1234'
-    }, {
-      success: (data) => {
-        localStorage.setItem('authtoken', data.get('authtoken'));
-      }
-    });
     return (
       <main>
         <Nav/>
