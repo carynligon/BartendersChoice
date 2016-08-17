@@ -1,4 +1,47 @@
 @import "https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700|Slabo+27px";
+nav {
+  background: rgba(255, 60, 56, 0.7);
+  padding: 25px 10px; }
+  nav a {
+    margin: 5px;
+    text-decoration: none;
+    color: #fff; }
+  nav #search-bar-container {
+    display: inline-block; }
+    nav #search-bar-container #search-input {
+      padding: 5px 3px 5px 23px;
+      font-size: 1rem;
+      width: 185px; }
+    nav #search-bar-container #search-icon-btn {
+      position: relative;
+      font-size: 1rem;
+      right: 214px;
+      background: none;
+      border: none; }
+  nav #login-links {
+    float: right; }
+  nav #user-info-link {
+    float: right;
+    position: relative;
+    bottom: 7px; }
+    nav #user-info-link i {
+      font-size: 1.5rem;
+      background: white;
+      padding: 6px 9px;
+      border-radius: 50%;
+      color: rgba(255, 60, 56, 0.7); }
+
+#filter-options {
+  display: block;
+  padding: 0;
+  text-align: center;
+  background: #EEEEEE;
+  margin: 0;
+  padding: 15px 0; }
+  #filter-options li {
+    display: inline-block;
+    margin: 0 3%; }
+
 video {
   position: fixed;
   top: 0;
@@ -55,21 +98,6 @@ footer {
 @media (max-width: 1171px) {
   footer {
     bottom: 5px; } }
-nav {
-  background: rgba(255, 60, 56, 0.7);
-  padding: 25px 10px; }
-
-#filter-options {
-  display: block;
-  padding: 0;
-  text-align: center;
-  background: #EEEEEE;
-  margin: 0;
-  padding: 15px 0; }
-  #filter-options li {
-    display: inline-block;
-    margin: 0 3%; }
-
 #cocktail-list {
   width: 100%;
   display: flex;
@@ -90,7 +118,8 @@ nav {
       top: 80%;
       padding: 12px;
       background: rgba(255, 255, 255, 0.7);
-      color: #454545; }
+      color: #454545;
+      font-family: Raleway, sans-serif; }
 
 @media (max-width: 1200px) {
   #cocktail-list .drink-preview {
