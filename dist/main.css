@@ -48,13 +48,13 @@ video {
   object-fit: cover;
   width: 100%; }
 
-form {
+#confirm-birthdate-form {
   position: absolute;
   z-index: 5;
   width: 100%;
   margin-top: 22%;
   text-align: center; }
-  form div {
+  #confirm-birthdate-form div {
     background: rgba(255, 255, 255, 0.7);
     margin: 5px;
     padding: 10px 0;
@@ -65,19 +65,19 @@ form {
     vertical-align: top;
     max-height: 200px;
     overflow: scroll; }
-    form div ul {
+    #confirm-birthdate-form div ul {
       display: inline;
       padding: 0;
       font-family: Avenir; }
-      form div ul li {
+      #confirm-birthdate-form div ul li {
         display: inline-block; }
-        form div ul li:first-child {
+        #confirm-birthdate-form div ul li:first-child {
           font-weight: bolder; }
-        form div ul li:first-child:hover {
+        #confirm-birthdate-form div ul li:first-child:hover {
           background: none; }
-        form div ul li:hover {
+        #confirm-birthdate-form div ul li:hover {
           background: rgba(69, 69, 69, 0.7); }
-  form input {
+  #confirm-birthdate-form input {
     background: rgba(255, 255, 255, 0.7);
     border: none;
     border-radius: 10px;
@@ -186,6 +186,45 @@ footer {
     #question-section div #not-me:hover, #question-section div #yes-me:hover {
       background: #fff;
       color: #FF3C38; } }
+.login-signup-form {
+  text-align: center; }
+  .login-signup-form i {
+    font-size: 1rem;
+    margin-top: 1px; }
+  .login-signup-form .login-title {
+    margin-top: 23%;
+    letter-spacing: 1px;
+    font-family: Raleway, sans-serif; }
+  .login-signup-form .signup-title {
+    margin-top: 10%; }
+  .login-signup-form input {
+    width: 55%;
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+    padding-left: 5px;
+    margin: 0 0 10px 10px; }
+    .login-signup-form input:hover, .login-signup-form input:active, .login-signup-form input:focus {
+      outline: none;
+      box-shadow: 1px 3px 3px 1px rgba(255, 60, 56, 0.9); }
+  .login-signup-form input[type="submit"] {
+    width: 110px;
+    display: block;
+    margin: 0 auto;
+    background: black;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    padding: 5px 10px;
+    border: none;
+    box-shadow: 1px 2px 3px 1px rgba(69, 69, 69, 0.3); }
+    .login-signup-form input[type="submit"]:hover {
+      background: #FF3C38; }
+  .login-signup-form a {
+    color: #FF3C38;
+    font-weight: bolder; }
+    .login-signup-form a:hover {
+      color: #454545; }
+
 body {
   margin: 0;
   font-family: 'Slabo 27px'; }

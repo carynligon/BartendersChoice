@@ -20,17 +20,20 @@ export default React.createClass({
   },
   listener() {
     if (!localStorage.getItem('authtoken')) {
-      return {loggedIn: false}
+      this.setState({loggedIn: false});
     } else {
       if (localStorage.getItem('username') === 'Anonymous') {
-        return {loggedIn: false}
+        this.setState({loggedIn: false});
       } else {
-        return {loggedIn: true}
+        this.setState({loggedIn: true});
       }
     }
   },
   componentDidMount() {
-    store.session.on('change', this.listener);
+    store.session.on('change add update remove', this.listener);
+  },
+  componentWillUnmount() {
+    store.session.off('change add update remove', this.listener);
   },
   render() {
     let links;

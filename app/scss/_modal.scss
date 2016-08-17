@@ -1,0 +1,48 @@
+.login-signup-form {
+  text-align: center;
+  i {
+    font-size: 1rem;
+    margin-top: 1px;
+  }
+  .login-title {
+    margin-top: 23%;
+    letter-spacing: 1px;
+    font-family: Raleway, sans-serif;
+  }
+  .signup-title {
+    margin-top: 10%;
+  }
+  input {
+    width: 55%;
+    font-size: 0.8rem;
+    line-height: 1.3rem;
+    padding-left: 5px;
+    margin: 0 0 10px 10px;
+    &:hover, &:active, &:focus {
+      outline: none;
+      box-shadow: 1px 3px 3px 1px rgba($main ,0.9);
+    }
+  }
+  input[type="submit"] {
+    width: 110px;
+    display: block;
+    margin: 0 auto;
+    background: black;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    padding: 5px 10px;
+    border: none;
+    box-shadow: 1px 2px 3px 1px rgba($black ,0.3);
+    &:hover {
+      background: $main;
+    }
+  }
+  a {
+    color: $main;
+    font-weight: bolder;
+    &:hover {
+      color: $black;
+    }
+  }
+}
