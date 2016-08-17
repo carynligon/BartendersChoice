@@ -16,6 +16,17 @@ $(document).ajaxSend(function(evt, xhrAjax, jqueryAjax) {
 
 ReactDOM.render(router, document.getElementById('container'));
 
-if (store.session.get('age') < 21) {
+if (localStorage.getItem('authtoken')) {
+  store.session.retrieve();
+} else {
   hashHistory.push('/confirm');
+  store.session.save({
+    username: 'Anonymous',
+    password: '1234'
+  }, {
+    success: function(data) {
+      localStorage.setItem('authtoken', data.get('authtoken'));
+      localStorage.setItem('username', 'Anonymous');
+    }
+  });
 }

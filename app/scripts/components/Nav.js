@@ -7,10 +7,14 @@ import LoginModal from './LoginModal';
 
 export default React.createClass({
   getInitialState() {
-    if (!localStorage.getItem('authtoken')) {
+    if (!store.session.get('authtoken')) {
       return {loggedIn: false}
     } else {
-      return {loggedIn: true}
+      if (store.session.get('username') === 'Anonymous') {
+        return {loggedIn: false}
+      } else {
+        return {loggedIn: true}
+      }
     }
   },
   logout() {
@@ -20,6 +24,7 @@ export default React.createClass({
     });
   },
   render() {
+    console.log(store.session);
     let links;
     if (this.state.loggedIn === false) {
       links = (

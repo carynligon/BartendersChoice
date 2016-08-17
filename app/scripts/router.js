@@ -20,6 +20,8 @@ const router = (
     <Route path="/recipe/:cocktail" component={Recipe}/>
     <Route path="/assessment" component={Assessment}>
       <IndexRoute component={AssessmentInfo}/>
+      <Route path="/assessment/login" component={LoginModal}/>
+      <Route path="/assessment/signup" component={LoginModal}/>
       <Route path="/assessment/question" component={SingleQuestion}/>
       <Route path="/assessment/results" component={Results}/>
     </Route>

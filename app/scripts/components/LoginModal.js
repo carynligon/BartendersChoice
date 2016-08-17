@@ -37,13 +37,22 @@ export default React.createClass({
   },
   render() {
     let form;
-    if (this.props.route.path === '/login') {
+    let signupBtn = (<p>Need an account? <Link to="/signup">Sign up!</Link></p>);
+    let loginBtn = (<p>Have an account? <Link to="/login">Login!</Link></p>);
+
+    if (this.props.route.path === '/assessment/login') {
+      signupBtn = (<p>Need an account? <Link to="/assessment/signup">Sign up!</Link></p>)
+    } else if (this.props.route.path === '/assessment/signup') {
+      signupBtn = (<p>Need an account? <Link to="/assessment/login">Login!</Link></p>)
+    }
+
+    if (this.props.route.path === '/login' || this.props.route.path === '/assessment/login') {
       form = (
         <form className="login-signup-form" onSubmit={this.login}>
           <input type="text" placeholder="username" id="username" ref="username"/>
           <input type="password" placeholder="password" id="password" ref="password"/>
           <input type="submit" value="submit" id="submit-login-btn"/>
-          <p>Need an account? <Link to="/signup">Sign up!</Link></p>
+          {signupBtn}
         </form>
       );
     } else {
@@ -56,10 +65,11 @@ export default React.createClass({
           <input type="password" placeholder="password" id="password" ref="password"/>
           <input type="password" placeholder="confirm password" id="confirm-password" ref="confirmPassword"/>
           <input type="submit" value="submit" id="submit-login-btn"/>
-          <p>Have an account? <Link to="/login">Login!</Link></p>
+          {loginBtn}
         </form>
       );
     }
+    
     return(
       <div className="modal-container" style={this.containerStyles}>
         <div className="modal-content" style={this.contentStyles}>
