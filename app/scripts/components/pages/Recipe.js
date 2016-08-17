@@ -1,7 +1,7 @@
 import React from 'react';
 
-import store from '../store';
-import Nav from './Nav';
+import store from '../../store';
+import Nav from '../Nav';
 
 export default React.createClass({
   getInitialState() {

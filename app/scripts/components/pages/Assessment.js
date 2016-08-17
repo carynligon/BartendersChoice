@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Nav from './Nav';
+import Nav from '../Nav';
 
 export default React.createClass({
   render() {

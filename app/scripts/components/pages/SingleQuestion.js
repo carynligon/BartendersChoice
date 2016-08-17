@@ -1,7 +1,7 @@
 import React from 'react';
 import {hashHistory} from 'react-router';
 
-import store from '../store';
+import store from '../../store';
 
 export default React.createClass({
   getInitialState() {

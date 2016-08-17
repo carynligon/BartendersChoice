@@ -2,7 +2,7 @@ import _ from 'underscore';
 import React from 'react';
 import {Link} from 'react-router';
 
-import store from '../store';
+import store from '../../store';
 
 export default React.createClass({
   getInitialState() {

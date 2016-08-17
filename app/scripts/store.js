@@ -7,5 +7,6 @@ export default {
   session: new Session(),
   cocktails: new Cocktails(),
   assessment: new Assessment(),
-  slides: new Slides()
+  slides: new Slides(),
+  modalShowing: false
 }

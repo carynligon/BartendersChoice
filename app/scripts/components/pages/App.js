@@ -2,13 +2,13 @@ import $ from 'jquery';
 import React from 'react';
 import _ from 'underscore';
 
-import settings from '../settings';
-import session from '../models/Session';
-import store from '../store';
+import settings from '../../settings';
+import session from '../../models/Session';
+import store from '../../store';
 
-import Nav from './Nav';
-import DrinkPreview from './DrinkPreview';
-import FilterBar from './FilterBar';
+import Nav from '../Nav';
+import DrinkPreview from '../DrinkPreview';
+import FilterBar from '../FilterBar';
 
 
 export default React.createClass({
