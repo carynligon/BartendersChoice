@@ -221,7 +221,8 @@ footer {
       background: #FF3C38; }
   .login-signup-form a {
     color: #FF3C38;
-    font-weight: bolder; }
+    font-weight: bolder;
+    margin-left: 5px; }
     .login-signup-form a:hover {
       color: #454545; }
 
