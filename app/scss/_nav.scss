@@ -8,6 +8,8 @@ nav {
   }
   #search-bar-form {
     display: inline-block;
+    position: absolute;
+    z-index: 5;
     #search-input {
       padding: 5px 3px 5px 23px;
       font-size: 1rem;
@@ -27,26 +29,35 @@ nav {
       border: none;
     }
   }
-  #results-dropdown {
+  #dropdown-wrapper {
     position: absolute;
-    top: 54px;
-    padding: 0 10px;
-    margin: 0;
-    width: 211px;
-    box-sizing: border-box;
-    background: $gray;
-    h6 {
-      font-size: 1rem;
-      margin: 20px 0;
-      }
-    li {
-      border-top: 1px solid #e4dddd;
-      &:hover {
-        color: $main;
-        cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -3;
+    #results-dropdown {
+      position: absolute;
+      top: 35px;
+      padding: 0 10px;
+      margin: 0;
+      width: 211px;
+      overflow: scroll;
+      box-sizing: border-box;
+      background: $gray;
+      h6 {
+        font-size: 1rem;
+        margin: 20px 0;
+        }
+      li {
+        border-top: 1px solid #e4dddd;
+        &:hover {
+          color: $main;
+          cursor: pointer;
+          }
         }
       }
-    }
+  }
   }
   #login-links {
     float: right;

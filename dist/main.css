@@ -7,7 +7,9 @@ nav {
     text-decoration: none;
     color: #fff; }
   nav #search-bar-form {
-    display: inline-block; }
+    display: inline-block;
+    position: absolute;
+    z-index: 5; }
     nav #search-bar-form #search-input {
       padding: 5px 3px 5px 23px;
       font-size: 1rem;
@@ -23,22 +25,30 @@ nav {
       right: 214px;
       background: none;
       border: none; }
-  nav #results-dropdown {
+  nav #dropdown-wrapper {
     position: absolute;
-    top: 54px;
-    padding: 0 10px;
-    margin: 0;
-    width: 211px;
-    box-sizing: border-box;
-    background: #EEEEEE; }
-    nav #results-dropdown h6 {
-      font-size: 1rem;
-      margin: 20px 0; }
-    nav #results-dropdown li {
-      border-top: 1px solid #e4dddd; }
-      nav #results-dropdown li:hover {
-        color: #FF3C38;
-        cursor: pointer; }
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -3; }
+    nav #dropdown-wrapper #results-dropdown {
+      position: absolute;
+      top: 35px;
+      padding: 0 10px;
+      margin: 0;
+      width: 211px;
+      overflow: scroll;
+      box-sizing: border-box;
+      background: #EEEEEE; }
+      nav #dropdown-wrapper #results-dropdown h6 {
+        font-size: 1rem;
+        margin: 20px 0; }
+      nav #dropdown-wrapper #results-dropdown li {
+        border-top: 1px solid #e4dddd; }
+        nav #dropdown-wrapper #results-dropdown li:hover {
+          color: #FF3C38;
+          cursor: pointer; }
 
 #login-links {
   float: right; }
