@@ -15,7 +15,6 @@ $(document).ajaxSend(function(evt, xhrAjax, jqueryAjax) {
     }
 });
 
-
 $.ajax({
   url: `https://baas.kinvey.com/appdata/${settings.appKey}/Cocktails`,
   success: (data) => {
@@ -47,12 +46,13 @@ $.ajax({
         });
         (_.flatten(drinkIngredients)).forEach((drinkIngredient) => {
           ingredients.forEach((ingredient) => {
-            if (ingredient.ingredient === drinkIngredient.ingredient) {
+            if (ingredient.ingredient === drinkIngredient.ingredient.toLowerCase()) {
               drinkIngredient.ingredientID = ingredient._id;
             }
           });
         });
         (_.flatten(drinkIngredients)).forEach((ingredient) => {
+          console.log(ingredient);
           $.ajax({
             url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,
             type: 'POST',
@@ -75,7 +75,6 @@ $.ajax({
     });
   }
 });
-
 
 // ReactDOM.render(router, document.getElementById('container'));
 //

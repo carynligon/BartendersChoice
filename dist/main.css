@@ -6,13 +6,13 @@ nav {
     margin: 5px;
     text-decoration: none;
     color: #fff; }
-  nav #search-bar-container {
+  nav #search-bar-form {
     display: inline-block; }
-    nav #search-bar-container #search-input {
+    nav #search-bar-form #search-input {
       padding: 5px 3px 5px 23px;
       font-size: 1rem;
       width: 185px; }
-    nav #search-bar-container #search-icon-btn {
+    nav #search-bar-form #search-icon-btn {
       position: relative;
       font-size: 1rem;
       right: 214px;
