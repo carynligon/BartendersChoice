@@ -80,7 +80,6 @@ export default Backbone.Model.extend({
   logout: function() {
     this.save(null, {
       url: `https://baas.kinvey.com/user/${settings.appKey}/_logout`});
-    this.clear();
     localStorage.clear();
     hashHistory.push('/');
   }

@@ -30,11 +30,11 @@
   #not-me {
     margin-left: 2%;
     &:hover {
-      background: linear-gradient(80deg, rgba(#FF9145, 0.9), rgba(#FF3C38, 0.7));
+      background: linear-gradient(80deg, rgba(#FF9145, 0.9), rgba($main, 0.7));
       color: $white;
     }
   }
-  #yes-me {
+  #me {
     &:hover {
       background: linear-gradient(80deg, rgba($main, 0.9), rgba(#FF9145, 0.7));
       color: $white;

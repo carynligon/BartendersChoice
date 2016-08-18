@@ -30,7 +30,6 @@ export default React.createClass({
     let drinksWithImgs = data.filter((drink) => {
       return drink.drink__strDrinkThumb !== null;
     });
-    console.log(drinksWithImgs);
     let drinks = drinksWithImgs.map((drink,i) => {
       return <DrinkPreview id={drink._id} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} key={i}/>
     });

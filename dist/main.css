@@ -165,7 +165,7 @@ footer {
     #question-section #not-me:hover {
       background: linear-gradient(80deg, rgba(255, 145, 69, 0.9), rgba(255, 60, 56, 0.7));
       color: #fff; }
-  #question-section #yes-me:hover {
+  #question-section #me:hover {
     background: linear-gradient(80deg, rgba(255, 60, 56, 0.9), rgba(255, 145, 69, 0.7));
     color: #fff; }
 
