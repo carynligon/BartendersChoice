@@ -11,25 +11,48 @@ nav {
     nav #search-bar-form #search-input {
       padding: 5px 3px 5px 23px;
       font-size: 1rem;
-      width: 185px; }
+      width: 185px;
+      background: #EEEEEE;
+      border: none; }
+      nav #search-bar-form #search-input:focus {
+        border-bottom: none;
+        outline: none; }
     nav #search-bar-form #search-icon-btn {
       position: relative;
       font-size: 1rem;
       right: 214px;
       background: none;
       border: none; }
-  nav #login-links {
-    float: right; }
-  nav #user-info-link {
-    float: right;
-    position: relative;
-    bottom: 7px; }
-    nav #user-info-link i {
-      font-size: 1.5rem;
-      background: white;
-      padding: 6px 9px;
-      border-radius: 50%;
-      color: rgba(255, 60, 56, 0.7); }
+  nav #results-dropdown {
+    position: absolute;
+    top: 54px;
+    padding: 0 10px;
+    margin: 0;
+    width: 211px;
+    box-sizing: border-box;
+    background: #EEEEEE; }
+    nav #results-dropdown h6 {
+      font-size: 1rem;
+      margin: 20px 0; }
+    nav #results-dropdown li {
+      border-top: 1px solid #e4dddd; }
+      nav #results-dropdown li:hover {
+        color: #FF3C38;
+        cursor: pointer; }
+
+#login-links {
+  float: right; }
+
+#user-info-link {
+  float: right;
+  position: relative;
+  bottom: 7px; }
+  #user-info-link i {
+    font-size: 1.5rem;
+    background: white;
+    padding: 6px 9px;
+    border-radius: 50%;
+    color: rgba(255, 60, 56, 0.7); }
 
 #filter-options {
   display: block;
@@ -110,6 +133,8 @@ footer {
     width: calc(100% / 4);
     flex-direction: column;
     justify-content: space-between; }
+    #cocktail-list .drink-preview:hover {
+      cursor: pointer; }
     #cocktail-list .drink-preview div {
       height: 320px;
       background-size: cover; }
@@ -233,14 +258,28 @@ footer {
 
 #recipe-drink-img {
   height: 370px;
-  width: 300px;
+  width: 40%;
   background-repeat: no-repeat;
   background-size: contain;
-  display: inline-block; }
+  background-position: center;
+  float: right; }
 
 .ingredients {
   display: inline-block;
-  width: 45%; }
+  width: 45%;
+  margin-left: 5%; }
+  .ingredients h4 {
+    font-size: 1.5rem; }
+  .ingredients ul {
+    padding: 0 0 0 10px;
+    margin: 0; }
+
+.mixing-instructions {
+  width: 40%;
+  display: inline-block;
+  margin-left: 5%; }
+  .mixing-instructions h4 {
+    font-size: 1.5rem; }
 
 .ingredients-list {
   display: inline-block; }
