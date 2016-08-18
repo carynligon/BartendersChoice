@@ -10,6 +10,9 @@
     width: calc(100% / 4);
     flex-direction: column;
     justify-content: space-between;
+    &:hover {
+      cursor: pointer;
+    }
     div {
       height: 320px;
       background-size: cover;

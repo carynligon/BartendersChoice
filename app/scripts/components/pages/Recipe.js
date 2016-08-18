@@ -1,4 +1,5 @@
 import React from 'react';
+import {hashHistory} from 'react-router';
 
 import store from '../../store';
 import Nav from '../Nav';
@@ -20,11 +21,21 @@ export default React.createClass({
   componentWillUnmount() {
     store.cocktails.off('update', this.listener);
   },
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    this.setState(store.cocktails.get(nextProps.params.cocktail).toJSON());
+  },
   render() {
     console.log(this.state);
-    let background = {
-      background: 'url(' + this.state.drink__strDrinkThumb
- + ')'
+    let background;
+    if (this.state.drink__strDrinkThumb === null) {
+      background = {
+        backgroundImage: 'url(assets/images/Cocktail-icon.png)'
+      };
+    } else {
+      background = {
+        backgroundImage: 'url(' + this.state.drink__strDrinkThumb + ')'
+      }
     }
     return(
       <main>

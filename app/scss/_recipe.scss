@@ -5,15 +5,33 @@
 }
 #recipe-drink-img {
   height: 370px;
-  width: 300px;
+  width: 40%;
   background-repeat: no-repeat;
   background-size: contain;
-  display: inline-block;
+  background-position: center;
+  float: right;
 }
 
 .ingredients {
   display: inline-block;
   width: 45%;
+  margin-left: 5%;
+  h4 {
+    font-size: 1.5rem;
+  }
+  ul {
+    padding: 0 0 0 10px;
+    margin: 0;
+  }
+}
+
+.mixing-instructions {
+  width: 40%;
+  display: inline-block;
+  margin-left: 5%;
+  h4 {
+    font-size: 1.5rem;
+  }
 }
 
 .ingredients-list {

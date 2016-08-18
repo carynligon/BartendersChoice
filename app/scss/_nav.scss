@@ -12,6 +12,12 @@ nav {
       padding: 5px 3px 5px 23px;
       font-size: 1rem;
       width: 185px;
+      background: $gray;
+      border: none;
+      &:focus {
+        border-bottom: none;
+        outline: none;
+      }
     }
     #search-icon-btn {
       position: relative;
@@ -19,6 +25,27 @@ nav {
       right: 214px;
       background: none;
       border: none;
+    }
+  }
+  #results-dropdown {
+    position: absolute;
+    top: 54px;
+    padding: 0 10px;
+    margin: 0;
+    width: 211px;
+    box-sizing: border-box;
+    background: $gray;
+    h6 {
+      font-size: 1rem;
+      margin: 20px 0;
+      }
+    li {
+      border-top: 1px solid #e4dddd;
+      &:hover {
+        color: $main;
+        cursor: pointer;
+        }
+      }
     }
   }
   #login-links {
@@ -36,13 +63,12 @@ nav {
       color: rgba($main, 0.7);
     }
   }
-}
 
 #filter-options {
   display: block;
   padding: 0;
   text-align: center;
-  background: #EEEEEE;
+  background: $gray;
   margin: 0;
   padding: 15px 0;
   li {
