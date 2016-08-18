@@ -1,0 +1,21 @@
+.recipe-title {
+  font-size: 2.5rem;
+  font-family: Raleway, sans-serif;
+  text-align: center;
+}
+#recipe-drink-img {
+  height: 370px;
+  width: 300px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: inline-block;
+}
+
+.ingredients {
+  display: inline-block;
+  width: 45%;
+}
+
+.ingredients-list {
+  display: inline-block;
+}
