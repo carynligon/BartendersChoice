@@ -15,9 +15,6 @@ export default React.createClass({
       hashHistory.push(`/recipe/${e.target.parentElement.id}`);
     }
   },
-  closeDropdown() {
-    this.setState({results:''});
-  },
   performSearch(e) {
     e.preventDefault();
     let searchString = this.refs.searchQuery.value.toLowerCase();
@@ -49,13 +46,17 @@ export default React.createClass({
     });
   },
   render() {
-    let styles = {
-      height: '0px'
-    };
+    let styles;
     if (this.state.results !== '') {
       styles = {
         height: '240px'
       };
+      window.addEventListener('click', (e) => {
+        console.dir(e.target);
+        if (e.target.tagName !== 'H6') {
+          this.setState({results:''});
+        }
+      });
     }
     console.log(this.state.results);
     return(
@@ -64,11 +65,9 @@ export default React.createClass({
         <button id="search-icon-btn" onClick={this.performSearch}>
           <i className="fa fa-search" aria-hidden="true"></i>
         </button>
-        <div id="dropdown-wrapper" onClick={this.closeDropdown}>
           <ul id="results-dropdown" style={styles}>
             {this.state.results}
           </ul>
-        </div>
       </form>
     );
   }

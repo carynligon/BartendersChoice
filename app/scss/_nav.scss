@@ -29,13 +29,6 @@ nav {
       border: none;
     }
   }
-  #dropdown-wrapper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -3;
     #results-dropdown {
       position: absolute;
       top: 35px;
@@ -57,7 +50,6 @@ nav {
           }
         }
       }
-  }
   }
   #login-links {
     float: right;
