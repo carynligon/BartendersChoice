@@ -57,9 +57,16 @@ $.ajax({
             url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,
             type: 'POST',
             data: {
-              ingredient: ingredient.ingredient,
-              ingredientID: ingredient.ingredientID,
-              drinkID: ingredient.drinkId,
+              ingredient: {
+                _type: 'KinveyRef',
+                _id: ingredient.ingredientID,
+                _collection: 'Ingredients'
+              },
+              drink: {
+                _type: 'KinveyRef',
+                _id: ingredient.drinkId,
+                _collection: 'Cocktails'
+              },
               quantity: ingredient.quantity
             }
           });
