@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 
 import store from '../../store';
 
@@ -11,8 +11,14 @@ export default React.createClass({
     let username = this.refs.username.value;
     let password = this.refs.password.value;
     store.session.login(username, password)
+    if (this.props.location.pathname === '/assessment/login') {
+      hashHistory.push('/assessment');
+    } else {
+      hashHistory.push('/');
+    }
   },
   render() {
+    console.log(this.props.location);
     let signupBtn = (<p>Don't have an account?<Link to="/assessment/signup">Sign up!</Link></p>)
     if (this.props.route.path === '/login') {
       signupBtn = (<p>Don't have an account?<Link to="/signup">Sign up!</Link></p>);

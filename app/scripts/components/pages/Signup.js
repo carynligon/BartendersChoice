@@ -14,6 +14,11 @@ export default React.createClass({
     let lastName = this.refs.lastName.value;
     let email = this.refs.email.value;
     store.session.signup(firstName, lastName, username, password, email);
+    if (this.props.location.pathname === '/assessment/login') {
+      hashHistory.push('/assessment');
+    } else {
+      hashHistory.push('/');
+    }
   },
   render() {
     let loginBtn = (<p>Don't have an account?<Link to="/assessment/login">Sign in!</Link></p>)

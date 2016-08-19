@@ -20,8 +20,30 @@ export default React.createClass({
     let searchString = this.refs.searchQuery.value.toLowerCase();
     $.ajax({
       url: `https://baas.kinvey.com/appdata/${settings.appKey}/Ingredients`,
-      data: {query: JSON.stringify({"ingredient":{"$regex":("^.+"+searchString)+"|"+("^"+searchString)}})},
+      // data: {
+      //   query: JSON.stringify({
+      //     "ingredient":{
+      //       "$regex":("^.+"+searchString)+"|"+("^"+searchString)
+      //     }
+      //   })
+      // },
+      data: {
+        query: JSON.stringify({
+          "$or":[
+            {
+              "ingredient":{
+                "$regex":("^.+"+searchString)+"|"+("^"+searchString)
+              }
+            },{
+              "drink":{
+                "$regex":("^.+"+searchString)+"|"+("^"+searchString)
+              }
+            }
+          ]
+        })
+      },
       success: (data) => {
+        console.log(data);
         data.forEach((ingredient) => {
           $.ajax({
             url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,

@@ -32,7 +32,6 @@ export default Backbone.Model.extend({
       password: password
     }, {
       success: function(model, response) {
-        console.log(response);
         window.localStorage.setItem('authtoken', response._kmd.authtoken);
         window.localStorage.setItem('username', response.username);
         window.localStorage.setItem('ofAge', true);
@@ -42,7 +41,6 @@ export default Backbone.Model.extend({
           authtoken: response._kmd.authtoken,
           ofAge: true
         });
-        hashHistory.push('/');
       },
       error: function(response) {
         document.getElementById('username').style.color = '#f32424';
@@ -71,7 +69,6 @@ export default Backbone.Model.extend({
           username: username,
           authtoken: response.get('_kmd').authtoken
         });
-        hashHistory.push('/');
       },
       error: function(response) {
         console.log('error: ' + response);
