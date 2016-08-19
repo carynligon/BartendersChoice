@@ -6,6 +6,7 @@
 #recipe-drink-img {
   height: 370px;
   width: 40%;
+  margin-right: 5%;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -36,4 +37,16 @@
 
 .ingredients-list {
   display: inline-block;
+}
+
+#back-btn {
+  background: none;
+  margin: 2%;
+  border: none;
+  font-size: 0.9rem;
+  color: $black;
+  &:hover{
+    cursor: pointer;
+    color: $main;
+  }
 }

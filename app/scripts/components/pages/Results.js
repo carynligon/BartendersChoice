@@ -64,6 +64,7 @@ export default React.createClass({
     let drinkName;
     let drinkId;
     let drinkImg;
+    let background;
     if (this.state.results.personality) {
       if (this.state.matchedDrink) {
         drinkName = this.state.matchedDrink.drink__strDrink;
@@ -78,16 +79,25 @@ export default React.createClass({
             </li>
           );
         });
+        if (drinkImg === null) {
+          background = {
+            backgroundImage: 'url(assets/images/Cocktail-icon.png)'
+          };
+        } else {
+          background = {
+            backgroundImage: 'url(' + drinkImg + ')'
+          }
+        }
       }
     }
     return (
       <section id="results-section">
         <h3>Your Drink: {drinkName}</h3>
-        <img src={drinkImg}/>
-        <Link to={`recipe/${drinkId}`}>Recipe</Link>
+        <div id="drink-image-results" style={background}></div>
         <ul>
           {traits}
         </ul>
+        <Link to={`recipe/${drinkId}`}>Learn how to make this drink!</Link>
       </section>
     );
   }

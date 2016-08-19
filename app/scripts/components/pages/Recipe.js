@@ -40,7 +40,7 @@ export default React.createClass({
     return(
       <main>
         <Nav/>
-        <input type="button" id="back-btn" value="back" onClick={this.sendBack}/>
+        <button id="back-btn" onClick={this.sendBack}><i className="fa fa-arrow-left back-icon" aria-hidden="true"></i> back</button>
         <h2 className="recipe-title">{this.state.drink__strDrink}</h2>
         <div className="ingredients">
           <h4>Ingredients</h4>

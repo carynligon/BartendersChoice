@@ -26,8 +26,9 @@ export default React.createClass({
     if (this.state.windowWidth <= 500) {
       contentStyles = {
         background: 'white',
-        width: '100%',
-        height: '100%'
+        width: '280px',
+        height: '40vh',
+        margin: '0 auto'
       };
     } else {
       contentStyles = {

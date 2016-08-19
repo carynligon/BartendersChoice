@@ -8,8 +8,6 @@ nav {
   }
   #search-bar-form {
     display: inline-block;
-    position: absolute;
-    z-index: 5;
     #search-input {
       padding: 5px 3px 5px 23px;
       font-size: 1rem;
@@ -31,7 +29,7 @@ nav {
   }
     #results-dropdown {
       position: absolute;
-      top: 35px;
+      top: 54px;
       padding: 0 10px;
       margin: 0;
       width: 211px;

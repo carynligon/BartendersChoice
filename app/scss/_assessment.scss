@@ -5,6 +5,18 @@
   img{
     height: 100px;
   }
+  #start-assessment-btn {
+    background: none;
+    border: none;
+    background: $gray;
+    color: $main;
+    font-size: 1rem;
+    &:hover, &:focus {
+      background: $main;
+      color: $white;
+      outline: none;
+    }
+  }
 }
 
 #question-section {

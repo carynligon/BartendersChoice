@@ -1,4 +1,4 @@
-.login-signup-form {
+.login-signup-form, .user-info-form {
   text-align: center;
   i {
     font-size: 1rem;
@@ -27,7 +27,7 @@
     width: 110px;
     display: block;
     margin: 0 auto;
-    background: black;
+    background: $black;
     color: white;
     font-weight: bolder;
     letter-spacing: 0.5px;
@@ -44,6 +44,25 @@
     margin-left: 5px;
     &:hover {
       color: $black;
+    }
+  }
+}
+
+.user-info-form {
+  margin-top: 28%;
+  #logout-btn {
+    width: 200px;
+    margin: 10% auto 0 auto;
+    display: block;
+    background: $main;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    padding: 5px 10px;
+    border: none;
+    box-shadow: 1px 2px 3px 1px rgba($black ,0.3);
+    &:hover {
+      background: $black;
     }
   }
 }

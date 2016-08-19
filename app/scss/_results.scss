@@ -1,0 +1,41 @@
+#results-section{
+  margin-top: 50px;
+  h3 {
+    font-size: 2rem;
+    font-family: Raleway, sans-serif;
+    margin: 10px 0;
+    display: inline-block;
+  }
+  #drink-image-results {
+    height: 300px;
+    width: 300px;
+    background-size: contain;
+    float: left;
+  }
+  a {
+    font-size: 1.2rem;
+    font-family: Raleway, sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
+    color: $main;
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+    &:hover {
+      color: $black;
+    }
+  }
+  ul {
+    padding: 10px;
+    height: 250px;
+    overflow: scroll;
+    margin: 0 5% 0 0;
+    box-sizing: border-box;
+    h5 {
+      font-size: 1rem;
+      margin: 5px 0;
+      font-family: Raleway, sans-serif;
+      font-weight: bolder;
+    }
+  }
+}

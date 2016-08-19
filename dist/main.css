@@ -7,9 +7,7 @@ nav {
     text-decoration: none;
     color: #fff; }
   nav #search-bar-form {
-    display: inline-block;
-    position: absolute;
-    z-index: 5; }
+    display: inline-block; }
     nav #search-bar-form #search-input {
       padding: 5px 3px 5px 23px;
       font-size: 1rem;
@@ -27,7 +25,7 @@ nav {
       border: none; }
   nav #results-dropdown {
     position: absolute;
-    top: 35px;
+    top: 54px;
     padding: 0 10px;
     margin: 0;
     width: 211px;
@@ -162,13 +160,27 @@ footer {
 
   nav {
     background: #fff;
-    padding: 15px 10px; } }
+    padding: 15px 10px; }
+    nav a {
+      color: #FF3C38; }
+    nav #user-info-link {
+      bottom: 60px; } }
 .assessment-section {
   width: 80%;
   text-align: center;
   margin: 0 auto; }
   .assessment-section img {
     height: 100px; }
+  .assessment-section #start-assessment-btn {
+    background: none;
+    border: none;
+    background: #EEEEEE;
+    color: #FF3C38;
+    font-size: 1rem; }
+    .assessment-section #start-assessment-btn:hover, .assessment-section #start-assessment-btn:focus {
+      background: #FF3C38;
+      color: #fff;
+      outline: none; }
 
 #question-section {
   padding: 0 20px;
@@ -214,45 +226,61 @@ footer {
     #question-section div #not-me:hover, #question-section div #yes-me:hover {
       background: #fff;
       color: #FF3C38; } }
-.login-signup-form {
+.login-signup-form, .user-info-form {
   text-align: center; }
-  .login-signup-form i {
+  .login-signup-form i, .user-info-form i {
     font-size: 1rem;
     margin-top: 1px; }
-  .login-signup-form .login-title {
+  .login-signup-form .login-title, .user-info-form .login-title {
     margin-top: 23%;
     letter-spacing: 1px;
     font-family: Raleway, sans-serif; }
-  .login-signup-form .signup-title {
+  .login-signup-form .signup-title, .user-info-form .signup-title {
     margin-top: 10%; }
-  .login-signup-form input {
+  .login-signup-form input, .user-info-form input {
     width: 55%;
     font-size: 0.8rem;
     line-height: 1.3rem;
     padding-left: 5px;
     margin: 0 0 10px 10px; }
-    .login-signup-form input:hover, .login-signup-form input:active, .login-signup-form input:focus {
+    .login-signup-form input:hover, .login-signup-form input:active, .login-signup-form input:focus, .user-info-form input:hover, .user-info-form input:active, .user-info-form input:focus {
       outline: none;
       box-shadow: 1px 3px 3px 1px rgba(255, 60, 56, 0.9); }
-  .login-signup-form input[type="submit"] {
+  .login-signup-form input[type="submit"], .user-info-form input[type="submit"] {
     width: 110px;
     display: block;
     margin: 0 auto;
-    background: black;
+    background: #454545;
     color: white;
     font-weight: bolder;
     letter-spacing: 0.5px;
     padding: 5px 10px;
     border: none;
     box-shadow: 1px 2px 3px 1px rgba(69, 69, 69, 0.3); }
-    .login-signup-form input[type="submit"]:hover {
+    .login-signup-form input[type="submit"]:hover, .user-info-form input[type="submit"]:hover {
       background: #FF3C38; }
-  .login-signup-form a {
+  .login-signup-form a, .user-info-form a {
     color: #FF3C38;
     font-weight: bolder;
     margin-left: 5px; }
-    .login-signup-form a:hover {
+    .login-signup-form a:hover, .user-info-form a:hover {
       color: #454545; }
+
+.user-info-form {
+  margin-top: 28%; }
+  .user-info-form #logout-btn {
+    width: 200px;
+    margin: 10% auto 0 auto;
+    display: block;
+    background: #FF3C38;
+    color: white;
+    font-weight: bolder;
+    letter-spacing: 0.5px;
+    padding: 5px 10px;
+    border: none;
+    box-shadow: 1px 2px 3px 1px rgba(69, 69, 69, 0.3); }
+    .user-info-form #logout-btn:hover {
+      background: #454545; }
 
 .recipe-title {
   font-size: 2.5rem;
@@ -262,6 +290,7 @@ footer {
 #recipe-drink-img {
   height: 370px;
   width: 40%;
+  margin-right: 5%;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -286,6 +315,51 @@ footer {
 
 .ingredients-list {
   display: inline-block; }
+
+#back-btn {
+  background: none;
+  margin: 2%;
+  border: none;
+  font-size: 0.9rem;
+  color: #454545; }
+  #back-btn:hover {
+    cursor: pointer;
+    color: #FF3C38; }
+
+#results-section {
+  margin-top: 50px; }
+  #results-section h3 {
+    font-size: 2rem;
+    font-family: Raleway, sans-serif;
+    margin: 10px 0;
+    display: inline-block; }
+  #results-section #drink-image-results {
+    height: 300px;
+    width: 300px;
+    background-size: contain;
+    float: left; }
+  #results-section a {
+    font-size: 1.2rem;
+    font-family: Raleway, sans-serif;
+    font-weight: bolder;
+    text-decoration: none;
+    color: #FF3C38;
+    display: block;
+    text-align: center;
+    margin-top: 50px; }
+    #results-section a:hover {
+      color: #454545; }
+  #results-section ul {
+    padding: 10px;
+    height: 250px;
+    overflow: scroll;
+    margin: 0 5% 0 0;
+    box-sizing: border-box; }
+    #results-section ul h5 {
+      font-size: 1rem;
+      margin: 5px 0;
+      font-family: Raleway, sans-serif;
+      font-weight: bolder; }
 
 body {
   margin: 0;
