@@ -349,6 +349,41 @@ video {
       font-family: Raleway, sans-serif;
       font-weight: bolder; }
 
+#search-results-page ul {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0; }
+  #search-results-page ul .drink-preview {
+    display: flex;
+    width: calc(100% / 4);
+    flex-direction: column;
+    justify-content: space-between; }
+    #search-results-page ul .drink-preview:hover {
+      cursor: pointer; }
+    #search-results-page ul .drink-preview div {
+      height: 320px;
+      background-size: cover; }
+    #search-results-page ul .drink-preview h4 {
+      position: relative;
+      top: -6.5%;
+      padding: 289px 12px 12px 12px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(69, 69, 69, 0.1), rgba(69, 69, 69, 0.8));
+      color: #fff;
+      font-family: Raleway, sans-serif; }
+
+@media (max-width: 1200px) {
+  #search-results-page ul .drink-preview {
+    width: calc(100% / 3); } }
+@media (max-width: 800px) {
+  #search-results-page ul .drink-preview {
+    width: calc(100% / 2); } }
+@media (max-width: 550px) {
+  #search-results-page ul .drink-preview {
+    width: calc(100%);
+    margin: 20px 7%; } }
 body {
   margin: 0;
   font-family: 'Slabo 27px'; }

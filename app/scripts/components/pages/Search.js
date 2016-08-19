@@ -1,4 +1,6 @@
+import _ from 'underscore';
 import React from 'react';
+import {hashHistory} from 'react-router';
 
 import store from '../../store';
 
@@ -13,23 +15,39 @@ export default React.createClass({
       results: ''
     }
   },
+  viewRecipe(e) {
+    hashHistory.push(`/recipe/${e.target.parentElement.parentElement.id}`);
+  },
   listener() {
     this.setState({results: store.searchResults.toJSON()})
   },
   componentDidMount() {
     store.searchResults.on('update', this.listener);
   },
+  componentWillUnmount() {
+    store.searchResults.off('update', this.listener);
+  },
   componentWillReceiveProps(nextProps) {
     store.searchResults.getResults(nextProps.params.searchQuery);
   },
   render() {
-    console.log(this.state.results);
     let results;
+    let reduced;
     if (this.state.results !== '') {
       results = this.state.results.map((result, i) => {
+        let styles;
+        if (result.drink._obj.drink__strDrinkThumb !== null) {
+          styles = {
+            backgroundImage: 'url(' + result.drink._obj.drink__strDrinkThumb + ')'
+          }
+        } else {
+          styles = {
+            backgroundImage: 'url(assets/images/Cocktail-icon.png)'
+          }
+        }
         return (
           <li className="drink-preview" id={result.drink._obj._id} onClick={this.viewRecipe} key={i}>
-          <div className="drink-img">
+          <div className="drink-img" style={styles}>
             <h4>{result.drink._obj.drink__strDrink}</h4>
           </div>
         </li>

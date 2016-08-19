@@ -1,0 +1,63 @@
+#search-results-page {
+  ul {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0;
+    .drink-preview {
+      display: flex;
+      width: calc(100% / 4);
+      flex-direction: column;
+      justify-content: space-between;
+      &:hover {
+        cursor: pointer;
+      }
+      div {
+        height: 320px;
+        background-size: cover;
+      }
+      h4 {
+        position: relative;
+        top: -6.5%;
+        padding: 289px 12px 12px 12px;
+        background: linear-gradient(to bottom, rgba($white, 0.1), rgba($black, 0.1), rgba($black, 0.8));
+        color: $white;
+        font-family: Raleway, sans-serif;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 1200px) {
+  #search-results-page {
+    ul {
+      .drink-preview {
+        width: calc(100% / 3);
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  #search-results-page {
+    ul {
+      .drink-preview {
+        width: calc(100% / 2);
+      }
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  #search-results-page {
+    ul {
+      .drink-preview {
+        width: calc(100%);
+        margin: 20px 7%;
+      }
+    }
+  }
+}

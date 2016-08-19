@@ -28,6 +28,9 @@ export default Backbone.Collection.extend({
         })
       },
       success: (data) => {
+        data.reduce((retsf, curr, i) => {
+          console.log(retsf);
+        }, []);
         data.forEach((result) => {
           this.add(result);
         });
