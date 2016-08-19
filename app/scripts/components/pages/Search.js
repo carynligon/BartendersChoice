@@ -19,6 +19,9 @@ export default React.createClass({
   componentDidMount() {
     store.searchResults.on('update', this.listener);
   },
+  componentWillReceiveProps(nextProps) {
+    store.searchResults.getResults(nextProps.params.searchQuery);
+  },
   render() {
     console.log(this.state.results);
     let results;

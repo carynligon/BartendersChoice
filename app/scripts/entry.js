@@ -16,12 +16,27 @@ $(document).ajaxSend(function(evt, xhrAjax, jqueryAjax) {
 });
 
 ReactDOM.render(router, document.getElementById('container'));
-console.log(store.session);
 
 if (localStorage.getItem('authtoken') && localStorage.getItem('username') !== 'Anonymous') {
   store.session.retrieve();
 } else if (!localStorage.getItem('ofAge')){
   console.log('not of age');
+  store.session.save({
+    username: 'Anonymous',
+    password: '1234',
+    ofAge: true
+  }, {
+    success: function(data) {
+      console.log('success');
+      localStorage.setItem('authtoken', data.get('authtoken'));
+      store.session.set({
+        username: 'Anonymous',
+        password: '1234',
+        ofAge: true
+      });
+      localStorage.setItem('username', 'Anonymous');
+    }
+  });
   hashHistory.push('/confirm');
 } else {
   store.session.save({
@@ -30,6 +45,7 @@ if (localStorage.getItem('authtoken') && localStorage.getItem('username') !== 'A
     ofAge: true
   }, {
     success: function(data) {
+      console.log('success');
       localStorage.setItem('authtoken', data.get('authtoken'));
       store.session.set({
         username: 'Anonymous',
