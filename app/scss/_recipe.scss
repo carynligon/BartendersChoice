@@ -5,8 +5,8 @@
 }
 #recipe-drink-img {
   height: 370px;
-  width: 40%;
-  margin-right: 5%;
+  width: 30%;
+  margin-right: 20%;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -15,8 +15,8 @@
 
 .ingredients {
   display: inline-block;
-  width: 45%;
-  margin-left: 5%;
+  width: 30%;
+  margin-left: 20%;
   h4 {
     font-size: 1.5rem;
   }
@@ -27,9 +27,9 @@
 }
 
 .mixing-instructions {
-  width: 40%;
+  width: 30%;
   display: inline-block;
-  margin-left: 5%;
+  margin-left: 20%;
   h4 {
     font-size: 1.5rem;
   }
@@ -49,4 +49,8 @@
     cursor: pointer;
     color: $main;
   }
+}
+
+@media (max-width: 550px) {
+
 }

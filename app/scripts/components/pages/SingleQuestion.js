@@ -36,8 +36,10 @@ export default React.createClass({
     return(
       <section id="question-section">
         <h3>{currQuestion.get('question')}</h3>
-        <div id="me" onClick={this.nextQuestion}>ME</div>
-        <div id="not-me" onClick={this.nextQuestion}>NOT ME</div>
+        <div id="select-answer">
+          <div id="me" onClick={this.nextQuestion}>ME</div>
+          <div id="not-me" onClick={this.nextQuestion}>NOT ME</div>
+        </div>
       </section>
     );
   }

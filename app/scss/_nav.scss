@@ -77,3 +77,31 @@ nav {
     margin: 0 3%;
   }
 }
+
+@media (max-width: 550px) {
+  nav {
+    background: $white;
+    padding: 15px 10px;
+    a {
+      color: $main;
+    }
+    #login-links {
+    float: right;
+    position: relative;
+    bottom: 89px;
+    }
+    #search-bar-form {
+      width: 100%;
+    }
+    #search-input {
+      margin: 10px auto 0 auto;
+      display: block;
+    }
+    #results-dropdown {
+      top: 73px;
+    }
+  }
+#filter-options {
+  display: none;
+  }
+}

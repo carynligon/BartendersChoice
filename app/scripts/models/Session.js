@@ -7,8 +7,7 @@ import store from '../store';
 export default Backbone.Model.extend({
   urlRoot: `https://baas.kinvey.com/user/${settings.appKey}/login`,
   defaults: {
-    username: '',
-    age: 23
+    username: ''
   },
   parse: function(response) {
     if (response) {

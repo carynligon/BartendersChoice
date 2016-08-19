@@ -28,8 +28,9 @@
     font-weight: lighter;
     font-family: Raleway, sans-serif;
   }
-  div {
-    width: 49%;
+#not-me, #me {
+    width: 46%;
+    margin: 2%;
     display: inline-block;
     text-align: center;
     border: 1px solid $black;
@@ -39,17 +40,22 @@
     font-size: 1.5rem;
     letter-spacing: 1.5px;
   }
-  #not-me {
-    margin-left: 2%;
-    &:hover {
-      background: linear-gradient(80deg, rgba(#FF9145, 0.9), rgba($main, 0.7));
-      color: $white;
+  #select-answer {
+    width: 60%;
+    margin: 0 auto;
+    #not-me {
+      &:hover {
+        background: linear-gradient(80deg, rgba(#FF9145, 0.9), rgba($main, 0.7));
+        color: $white;
+        border: none;
+      }
     }
-  }
-  #me {
-    &:hover {
-      background: linear-gradient(80deg, rgba($main, 0.9), rgba(#FF9145, 0.7));
-      color: $white;
+    #me {
+      &:hover {
+        background: linear-gradient(80deg, rgba($main, 0.9), rgba(#FF9145, 0.7));
+        color: $white;
+        border: none;
+      }
     }
   }
 }
