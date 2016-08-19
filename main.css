@@ -66,62 +66,54 @@ nav {
     display: inline-block;
     margin: 0 3%; }
 
+@media (max-width: 550px) {
+  nav {
+    background: #fff;
+    padding: 15px 10px; }
+    nav a {
+      color: #FF3C38; }
+    nav #login-links {
+      float: right;
+      position: relative;
+      bottom: 89px; }
+    nav #search-bar-form {
+      width: 100%; }
+    nav #search-input {
+      margin: 10px auto 0 auto;
+      display: block; }
+    nav #results-dropdown {
+      top: 73px; }
+
+  #filter-options {
+    display: none; } }
 video {
   position: fixed;
   top: 0;
   object-fit: cover;
-  width: 100%; }
+  width: 100%;
+  height: 100vh; }
 
-#confirm-birthdate-form {
+#age-validation {
   position: absolute;
-  z-index: 5;
-  width: 100%;
-  margin-top: 22%;
-  text-align: center; }
-  #confirm-birthdate-form div {
-    background: rgba(255, 255, 255, 0.7);
-    margin: 5px;
-    padding: 10px 0;
-    text-align: center;
-    width: 100px;
-    border-radius: 15px;
-    display: inline-block;
-    vertical-align: top;
-    max-height: 200px;
-    overflow: scroll; }
-    #confirm-birthdate-form div ul {
-      display: inline;
-      padding: 0;
-      font-family: Avenir; }
-      #confirm-birthdate-form div ul li {
-        display: inline-block; }
-        #confirm-birthdate-form div ul li:first-child {
-          font-weight: bolder; }
-        #confirm-birthdate-form div ul li:first-child:hover {
-          background: none; }
-        #confirm-birthdate-form div ul li:hover {
-          background: rgba(69, 69, 69, 0.7); }
-  #confirm-birthdate-form input {
-    background: rgba(255, 255, 255, 0.7);
-    border: none;
-    border-radius: 10px;
-    display: block;
-    width: 100px;
-    margin: 0 auto;
-    padding: 5px 0; }
-
-footer {
-  position: fixed;
-  bottom: 50px;
+  top: 35%;
+  z-index: 3;
+  color: #fff;
+  font-size: 2rem;
+  font-family: Raleway, sans-serif;
   width: 100%;
   text-align: center; }
+  #age-validation input {
+    background: none;
+    border: 3px solid #fff;
+    font-size: 1rem;
+    color: #fff;
+    width: 150px;
+    margin: 10px;
+    padding: 12px; }
+    #age-validation input:hover {
+      background: #fff;
+      color: #454545; }
 
-@media (min-width: 1170px) {
-  footer p {
-    opacity: 0; } }
-@media (max-width: 1171px) {
-  footer {
-    bottom: 5px; } }
 #cocktail-list {
   width: 100%;
   display: flex;
@@ -156,15 +148,7 @@ footer {
 @media (max-width: 550px) {
   #cocktail-list .drink-preview {
     width: calc(100%);
-    margin: 20px 7%; }
-
-  nav {
-    background: #fff;
-    padding: 15px 10px; }
-    nav a {
-      color: #FF3C38; }
-    nav #user-info-link {
-      bottom: 60px; } }
+    margin: 20px 7%; } }
 .assessment-section {
   width: 80%;
   text-align: center;
@@ -190,8 +174,9 @@ footer {
     text-align: center;
     font-weight: lighter;
     font-family: Raleway, sans-serif; }
-  #question-section div {
-    width: 49%;
+  #question-section #not-me, #question-section #me {
+    width: 46%;
+    margin: 2%;
     display: inline-block;
     text-align: center;
     border: 1px solid #454545;
@@ -200,14 +185,17 @@ footer {
     padding: 60px;
     font-size: 1.5rem;
     letter-spacing: 1.5px; }
-  #question-section #not-me {
-    margin-left: 2%; }
-    #question-section #not-me:hover {
+  #question-section #select-answer {
+    width: 60%;
+    margin: 0 auto; }
+    #question-section #select-answer #not-me:hover {
       background: linear-gradient(80deg, rgba(255, 145, 69, 0.9), rgba(255, 60, 56, 0.7));
-      color: #fff; }
-  #question-section #me:hover {
-    background: linear-gradient(80deg, rgba(255, 60, 56, 0.9), rgba(255, 145, 69, 0.7));
-    color: #fff; }
+      color: #fff;
+      border: none; }
+    #question-section #select-answer #me:hover {
+      background: linear-gradient(80deg, rgba(255, 60, 56, 0.9), rgba(255, 145, 69, 0.7));
+      color: #fff;
+      border: none; }
 
 @media (max-width: 500px) {
   .assessment {
@@ -289,8 +277,8 @@ footer {
 
 #recipe-drink-img {
   height: 370px;
-  width: 40%;
-  margin-right: 5%;
+  width: 30%;
+  margin-right: 20%;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -298,8 +286,8 @@ footer {
 
 .ingredients {
   display: inline-block;
-  width: 45%;
-  margin-left: 5%; }
+  width: 30%;
+  margin-left: 20%; }
   .ingredients h4 {
     font-size: 1.5rem; }
   .ingredients ul {
@@ -307,9 +295,9 @@ footer {
     margin: 0; }
 
 .mixing-instructions {
-  width: 40%;
+  width: 30%;
   display: inline-block;
-  margin-left: 5%; }
+  margin-left: 20%; }
   .mixing-instructions h4 {
     font-size: 1.5rem; }
 
