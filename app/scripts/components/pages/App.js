@@ -31,7 +31,7 @@ export default React.createClass({
       return drink.drink__strDrinkThumb !== null;
     });
     let drinks = drinksWithImgs.map((drink,i) => {
-      return <DrinkPreview id={drink._id} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} key={i}/>
+      return <DrinkPreview id={drink._id} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} key={i}/>;
     });
     return (
       <main>

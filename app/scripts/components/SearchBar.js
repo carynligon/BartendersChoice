@@ -5,6 +5,8 @@ import {hashHistory} from 'react-router';
 import store from '../store';
 import settings from '../settings';
 
+import DrinkPreview from './DrinkPreview';
+
 export default React.createClass({
   getInitialState() {
     return {results:''};
@@ -17,55 +19,7 @@ export default React.createClass({
   },
   performSearch(e) {
     e.preventDefault();
-    let searchString = this.refs.searchQuery.value.toLowerCase();
-    $.ajax({
-      url: `https://baas.kinvey.com/appdata/${settings.appKey}/Ingredients`,
-      // data: {
-      //   query: JSON.stringify({
-      //     "ingredient":{
-      //       "$regex":("^.+"+searchString)+"|"+("^"+searchString)
-      //     }
-      //   })
-      // },
-      data: {
-        query: JSON.stringify({
-          "$or":[
-            {
-              "ingredient":{
-                "$regex":("^.+"+searchString)+"|"+("^"+searchString)
-              }
-            },{
-              "drink":{
-                "$regex":("^.+"+searchString)+"|"+("^"+searchString)
-              }
-            }
-          ]
-        })
-      },
-      success: (data) => {
-        console.log(data);
-        data.forEach((ingredient) => {
-          $.ajax({
-            url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,
-            data: {
-              query: JSON.stringify({"ingredient._id":ingredient._id}),
-              resolve: 'drink'
-            },
-            success: (data) => {
-              let results = data.map((drink, i) => {
-                return (
-                  <li key={i} onClick={this.routeToRecipe} id={drink.drink._obj._id}>
-                    <h6>{drink.drink._obj.drink__strDrink}</h6>
-                  </li>
-                );
-              });
-              console.log(results);
-              this.setState({results:results});
-            }
-          });
-        });
-      }
-    });
+    hashHistory.push(`/search/${this.refs.searchQuery.value}`);
   },
   render() {
     let styles;
@@ -80,7 +34,6 @@ export default React.createClass({
         }
       });
     }
-    console.log(this.state.results);
     return(
       <form id="search-bar-form" onSubmit={this.performSearch} autoComplete="off">
         <input type="text" id="search-input" placeholder="search..." ref="searchQuery"/>

@@ -11,6 +11,7 @@ import Assessment from './components/pages/Assessment';
 import AssessmentInfo from './components/AssessmentInfo';
 import SingleQuestion from './components/pages/SingleQuestion';
 import Results from './components/pages/Results';
+import Search from './components/pages/Search';
 
 const router = (
   <Router history={hashHistory}>
@@ -20,6 +21,7 @@ const router = (
       <Route path="/signup" component={Signup}/>
       <Route path="/user-info" component={UserInfo}/>
     </Route>
+    <Route path="/search/:searchQuery" component={Search}/>
     <Route path="/recipe/:cocktail" component={Recipe}/>
     <Route path="/assessment" component={Assessment}>
       <IndexRoute component={AssessmentInfo}/>

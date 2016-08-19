@@ -3,6 +3,7 @@ import Users from './collections/users';
 import Cocktails from './collections/Cocktails';
 import Assessment from './models/Assessment';
 import Slides from './collections/Slides';
+import SearchResults from './collections/SearchResults';
 
 export default {
   session: new Session(),
@@ -10,5 +11,6 @@ export default {
   assessment: new Assessment(),
   slides: new Slides(),
   users: new Users(),
-  modalShowing: false
+  modalShowing: false,
+  searchResults: new SearchResults()
 }
