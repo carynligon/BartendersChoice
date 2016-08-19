@@ -35,10 +35,12 @@ export default Backbone.Model.extend({
         console.log(response);
         window.localStorage.setItem('authtoken', response._kmd.authtoken);
         window.localStorage.setItem('username', response.username);
+        window.localStorage.setItem('ofAge', true);
         model.unset('password');
         store.session.set({
           username: username,
-          authtoken: response._kmd.authtoken
+          authtoken: response._kmd.authtoken,
+          ofAge: true
         });
         hashHistory.push('/');
       },
@@ -79,7 +81,23 @@ export default Backbone.Model.extend({
   logout: function() {
     this.save(null, {
       url: `https://baas.kinvey.com/user/${settings.appKey}/_logout`});
+    this.clear();
     localStorage.clear();
+    store.session.save({
+      username: 'Anonymous',
+      password: '1234',
+      ofAge: true
+    }, {
+      success: function(data) {
+        localStorage.setItem('authtoken', data.get('authtoken'));
+        store.session.set({
+          username: 'Anonymous',
+          password: '1234',
+          ofAge: true
+        });
+        localStorage.setItem('username', 'Anonymous');
+      }
+    });
     hashHistory.push('/');
   }
 });

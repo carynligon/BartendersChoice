@@ -8,33 +8,28 @@ import SearchBar from './SearchBar';
 
 export default React.createClass({
   getInitialState() {
-    if (!localStorage.getItem('authtoken')) {
-      return {loggedIn: false}
-    } else {
-      if (localStorage.getItem('username') === 'Anonymous') {
-        return {loggedIn: false}
-      } else {
-        return {loggedIn: true}
-      }
+    return {
+      authtoken: localStorage.getItem('authtoken'),
+      username: localStorage.getItem('username')
     }
   },
   listener() {
-    if (localStorage.getItem('username') === 'Anonymous') {
-      this.setState({loggedIn: false});
-    } else {
-      this.setState({loggedIn: true});
-    }
+    this.setState({
+      authtoken: store.session.get('authtoken'),
+      username: store.session.get('username')
+    });
   },
   componentDidMount() {
-    store.session.on('change add update', this.listener);
+    store.session.get();
+    store.session.on('change add update remove', this.listener);
   },
   componentWillUnmount() {
     store.session.off('change add update remove', this.listener);
   },
   render() {
+    console.log(this.state);
     let links;
-    console.log(this.state.loggedIn + ' ' + store.session);
-      if (this.state.loggedIn === false) {
+      if (this.state.username === 'Anonymous') {
         links = (
           <div id="login-links">
             <Link to="login">SIGN IN</Link>
