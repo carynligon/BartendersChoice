@@ -3,7 +3,7 @@ import {hashHistory} from 'react-router';
 
 export default React.createClass({
   viewRecipe(e) {
-    hashHistory.push(`/recipe/${e.target.parentElement.id}`);
+    hashHistory.push(`/recipe/${e.target.parentElement.parentElement.id}`);
   },
   render() {
     let styles = {
