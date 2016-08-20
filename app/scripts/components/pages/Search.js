@@ -34,7 +34,18 @@ export default React.createClass({
     let results;
     let reduced;
     if (this.state.results !== '') {
-      results = this.state.results.map((result, i) => {
+      reduced = this.state.results.reduce((rtsf, curr) => {
+        let newObj = {};
+        if (_.has(rtsf, curr.drinkName)) {
+          console.log(rtsf);
+          return rtsf;
+        } else {
+          rtsf[curr.drinkName] = curr;
+          return rtsf;
+        }
+      },{});
+      console.log(reduced);
+      results = _.toArray(reduced).map((result, i) => {
         let styles;
         if (result.drink._obj.drink__strDrinkThumb !== null) {
           styles = {
