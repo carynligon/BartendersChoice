@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import Backbone from 'backbone';
 import {hashHistory} from 'react-router';
 
@@ -22,7 +23,7 @@ export default Backbone.Model.extend({
   },
   retrieve: function() {
       this.fetch({
-          url: `https://baas.kinvey.com/user/${settings.appKey}/_me`
+          url: `https://baas.kinvey.com/user/${settings.appKey}/_me`,
       });
   },
   login: function(username, password) {
