@@ -1,17 +1,24 @@
-nav {
-  background: rgba($main, 0.7);
-  padding: 25px 10px;
-  a {
-    margin-right: 15px;
-    text-decoration: none;
-    color: $white;
-  }
+header {
+  background-image: url('assets/images/hero2.jpeg');
+  height: 560px;
+  background-size: cover;
+  background-position-y: -20px;
   #search-bar-form {
     display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 16%;
+    h2 {
+      font-size: 4rem;
+      font-family: Raleway, sans-serif;
+      color: $white;
+      margin: 0;
+    }
     #search-input {
-      padding: 5px 3px 5px 23px;
+      padding: 13px 3px 13px 25px;
+      box-sizing: border-box;
       font-size: 1rem;
-      width: 230px;
+      width: 50%;
       background: $gray;
       border: none;
       &:focus {
@@ -22,7 +29,7 @@ nav {
     #search-icon-btn {
       position: relative;
       font-size: 1rem;
-      right: 258px;
+      right: 50%;
       background: none;
       border: none;
     }
@@ -48,6 +55,16 @@ nav {
           }
         }
       }
+}
+
+nav {
+  padding: 25px 10px;
+  background: $white;
+  a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: $white;
+  }
   }
   #login-links {
     float: right;

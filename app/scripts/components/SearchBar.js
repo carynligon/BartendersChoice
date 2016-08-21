@@ -71,6 +71,7 @@ export default React.createClass({
     }
     return(
       <form id="search-bar-form" onSubmit={this.toSearchResults} autoComplete="off">
+        <h2>FIND A RECIPE</h2>
         <input type="text" id="search-input" onKeyUp={this.performSearch} placeholder="search..." ref="searchQuery"/>
         <button id="search-icon-btn" onClick={this.performSearch}>
           <i className="fa fa-search" aria-hidden="true"></i>

@@ -1,29 +1,36 @@
 @import "https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700|Slabo+27px";
-nav {
-  background: rgba(255, 60, 56, 0.7);
-  padding: 25px 10px; }
-  nav a {
-    margin-right: 15px;
-    text-decoration: none;
-    color: #fff; }
-  nav #search-bar-form {
-    display: inline-block; }
-    nav #search-bar-form #search-input {
-      padding: 5px 3px 5px 23px;
+header {
+  background-image: url("assets/images/hero2.jpeg");
+  height: 560px;
+  background-size: cover;
+  background-position-y: -20px; }
+  header #search-bar-form {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    margin-top: 16%; }
+    header #search-bar-form h2 {
+      font-size: 4rem;
+      font-family: Raleway, sans-serif;
+      color: #fff;
+      margin: 0; }
+    header #search-bar-form #search-input {
+      padding: 13px 3px 13px 25px;
+      box-sizing: border-box;
       font-size: 1rem;
-      width: 230px;
+      width: 50%;
       background: #EEEEEE;
       border: none; }
-      nav #search-bar-form #search-input:focus {
+      header #search-bar-form #search-input:focus {
         border-bottom: none;
         outline: none; }
-    nav #search-bar-form #search-icon-btn {
+    header #search-bar-form #search-icon-btn {
       position: relative;
       font-size: 1rem;
-      right: 258px;
+      right: 50%;
       background: none;
       border: none; }
-  nav #results-dropdown {
+  header #results-dropdown {
     position: absolute;
     top: 54px;
     padding: 0 10px;
@@ -32,14 +39,22 @@ nav {
     overflow: scroll;
     box-sizing: border-box;
     background: #EEEEEE; }
-    nav #results-dropdown h6 {
+    header #results-dropdown h6 {
       font-size: 1rem;
       margin: 20px 0; }
-    nav #results-dropdown li {
+    header #results-dropdown li {
       border-top: 1px solid #e4dddd; }
-      nav #results-dropdown li:hover {
+      header #results-dropdown li:hover {
         color: #FF3C38;
         cursor: pointer; }
+
+nav {
+  padding: 25px 10px;
+  background: #fff; }
+  nav a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #fff; }
 
 #login-links {
   float: right; }

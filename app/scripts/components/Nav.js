@@ -47,9 +47,9 @@ export default React.createClass({
         <nav>
           <Link to="/">Home</Link>
           <Link to="/assessment">Assessment</Link>
-          <SearchBar/>
           {links}
         </nav>
+        <SearchBar/>
       </header>
     );
   }
