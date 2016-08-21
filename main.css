@@ -33,8 +33,8 @@ header {
       border: none; }
   header #results-dropdown {
     position: absolute;
-    left: 0.65%;
-    bottom: 163px;
+    left: 0.9%;
+    top: 54px;
     padding: 0 10px;
     margin: 0;
     width: 380px;
