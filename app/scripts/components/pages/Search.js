@@ -10,7 +10,20 @@ import DrinkPreview from '../DrinkPreview';
 
 export default React.createClass({
   getInitialState() {
-    store.searchResults.getResults(this.props.params.searchQuery);
+    let filterArr = [];
+    if (this.props.params.searchQuery.indexOf('+')) {
+      let searchTerm = this.props.params.searchQuery.split('+')[0]
+      this.props.params.searchQuery.split('+').forEach((addedFilter, i) => {
+        if (i !== 0) {
+          filterArr.push(addedFilter);
+        }
+      });
+      if (searchTerm === 'x') {
+        store.searchResults.getResults('', filterArr);
+      } else {
+        store.searchResults.getResults(searchTerm, filterArr);
+      }
+    }
     return {
       results: ''
     }

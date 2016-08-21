@@ -24,6 +24,11 @@ export default Backbone.Collection.extend({
                 "$regex":("^.+"+searchString)+"|"+("^"+searchString)
               }
             }
+          ],
+          "$and":[
+            {
+              "skillLevel":"easy"
+            }
           ]
         })
       },
