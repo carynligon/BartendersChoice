@@ -1,14 +1,17 @@
 import React from 'react';
 
+import FilterFlavor from './FilterFlavor';
+import FilterDifficulty from './FilterDifficulty';
+import FilterAlcohol from './FilterAlcohol';
+
 export default React.createClass({
   render() {
     return(
-      <ul id="filter-options">
-        <li>Sour</li>
-        <li>Popular</li>
-        <li>Easy to Make</li>
-        <li>Tequila</li>
-      </ul>
+      <div id="filter-bar">
+        <FilterFlavor/>
+        <FilterDifficulty/>
+        <FilterAlcohol/>
+      </div>
     );
   }
 });

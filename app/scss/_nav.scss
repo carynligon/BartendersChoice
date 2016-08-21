@@ -1,13 +1,13 @@
 header {
-  background-image: url('assets/images/hero2.jpeg');
+  background-image: url('assets/images/hero.jpg');
   height: 560px;
   background-size: cover;
   background-position-y: -20px;
   #search-bar-form {
     display: inline-block;
-    width: 100%;
+    width: 380px;
+    height: 45px;
     text-align: center;
-    margin-top: 16%;
     h2 {
       font-size: 4rem;
       font-family: Raleway, sans-serif;
@@ -18,8 +18,8 @@ header {
       padding: 13px 3px 13px 25px;
       box-sizing: border-box;
       font-size: 1rem;
-      width: 50%;
-      background: $gray;
+      width: 100%;
+      background: rgba($gray, 0.8);
       border: none;
       &:focus {
         border-bottom: none;
@@ -29,23 +29,25 @@ header {
     #search-icon-btn {
       position: relative;
       font-size: 1rem;
-      right: 50%;
+      right: 177px;
+      bottom: 35px;
       background: none;
       border: none;
     }
   }
     #results-dropdown {
       position: absolute;
-      top: 54px;
+      left: 0.65%;
+      bottom: 163px;
       padding: 0 10px;
       margin: 0;
-      width: 211px;
+      width: 380px;
       overflow: scroll;
       box-sizing: border-box;
       background: $gray;
       h6 {
         font-size: 1rem;
-        margin: 20px 0;
+        margin: 10px 0;
         }
       li {
         border-top: 1px solid #e4dddd;
@@ -58,12 +60,29 @@ header {
 }
 
 nav {
-  padding: 25px 10px;
+  padding: 10px;
+  height: 40px;
   background: $white;
+  #show-filter-options {
+    position: relative;
+    bottom: 35px;
+    margin-left: 10px;
+    background: none;
+    border: 1px solid $main;
+    color: $main;
+    font-size: 1rem;
+    &:hover, &:active {
+      background: $main;
+      color: $white;
+      outline: none;
+    }
+  }
   a {
-    margin-right: 15px;
+    position: relative;
+    bottom: 37px;
+    margin: 0 15px;
     text-decoration: none;
-    color: $white;
+    color: $main;
   }
   }
   #login-links {

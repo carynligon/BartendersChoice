@@ -36,8 +36,8 @@ export default React.createClass({
     return (
       <main>
         <Nav/>
-        <FilterBar/>
         <ul id="cocktail-list">
+          <h2>FEATURED RECIPES</h2>
           {drinks}
         </ul>
         {this.props.children}

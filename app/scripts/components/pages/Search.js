@@ -68,7 +68,6 @@ export default React.createClass({
     return (
       <main id="search-results-page">
         <Nav/>
-        <FilterBar/>
         <ul id="result-list">
           {results}
         </ul>

@@ -50,6 +50,8 @@ export default React.createClass({
             });
           }
         });
+      } else if (searchString === '') {
+        this.setState({results: ''});
       }
     }
   },
@@ -60,7 +62,7 @@ export default React.createClass({
     let styles;
     if (this.state.results !== '') {
       styles = {
-        height: '240px'
+        height: '120px'
       };
       // window.addEventListener('click', (e) => {
       //   console.dir(e.target);
@@ -71,8 +73,7 @@ export default React.createClass({
     }
     return(
       <form id="search-bar-form" onSubmit={this.toSearchResults} autoComplete="off">
-        <h2>FIND A RECIPE</h2>
-        <input type="text" id="search-input" onKeyUp={this.performSearch} placeholder="search..." ref="searchQuery"/>
+        <input type="text" id="search-input" onKeyUp={this.performSearch} placeholder="SEARCH RECIPES..." ref="searchQuery"/>
         <button id="search-icon-btn" onClick={this.performSearch}>
           <i className="fa fa-search" aria-hidden="true"></i>
         </button>

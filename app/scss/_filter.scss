@@ -1,0 +1,27 @@
+#filter-bar {
+  background: $gray;
+  color: $main;
+  font-size: 1rem;
+  h6 {
+    font-size: 1rem;
+    margin: 0;
+  }
+  ul {
+    margin: 0;
+    display: inline-block;
+  }
+  #filter-flavor-wrapper, #filter-alcohol-wrapper {
+    display: inline-block;
+    width: 32%;
+    #flavor-profile-2, #alcohol-list-2 {
+      float: left;
+    }
+    li {
+      font-size: 0.8rem;
+    }
+  }
+  #filter-difficulty-wrapper {
+    display: inline-block;
+    width: 32%;
+  }
+}
