@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import Backbone from 'backbone';
 // import {hashHistory} from 'react-router';
 
@@ -13,8 +14,7 @@ export default Backbone.Collection.extend({
     console.log(filterArr);
     let flavors = ['sweet', 'salty', 'sour', 'spirit-forward', 'bitter', 'bubbly', 'fruity', 'creamy', 'spicy', 'dry'];
     let selectedFlavors = [];
-    let flavorSearch;
-    let alcohols = ['bourbon', 'rye', 'tequila', 'gin', 'vodka', 'other-alcohol']
+    let alcohols = ['bourbon', 'rye', 'tequila', 'gin', 'vodka', 'other-alcohol'];
     let queryParams;
     let skillLevel;
     if (filterArr) {
@@ -32,30 +32,24 @@ export default Backbone.Collection.extend({
               "skillLevel": "difficult"
             }
           } else if (flavors.indexOf(oneFilter) !== -1) {
-            selectedFlavors.push(oneFilter);
+            selectedFlavors.push({"tags": oneFilter});
           }
         });
       }
-      if (selectedFlavors !== []) {
-        flavorSearch = selectedFlavors.map((flavor) => {
-          return {
-            "tags": flavor
-          }
-        });
-      } else {
+      else {
       skillLevel = {
         "skillLevel":{
           "$regex":("^.+")
         }
       };
-      flavorSearch = {
+      selectedFlavors = {
         "tags":{
           "$regex":("^.+")
         }
       };
     }
     console.log(skillLevel);
-    console.log(flavorSearch);
+    console.log(selectedFlavors);
     this.fetch({
       data: {
         resolve: 'drink',
@@ -73,14 +67,13 @@ export default Backbone.Collection.extend({
           ],
           "$and": [
             skillLevel,
-            flavorSearch[0]
+            ...selectedFlavors
           ]
         })
       },
       success: (data) => {
         console.log(data);
         data.reduce((retsf, curr, i) => {
-          console.log(retsf);
         }, []);
         data.forEach((result) => {
           this.add(result);

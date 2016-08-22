@@ -20,7 +20,7 @@ export default React.createClass({
   },
   componentDidMount() {
     store.cocktails.on('update', this.listener);
-    store.cocktails.getCocktails();
+    // store.cocktails.getCocktails();
   },
   componentWillUnmount() {
     store.cocktails.off('update', this.listener);

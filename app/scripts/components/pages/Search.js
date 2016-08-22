@@ -40,7 +40,6 @@ export default React.createClass({
       reduced = this.state.results.reduce((rtsf, curr) => {
         let newObj = {};
         if (_.has(rtsf, curr.drinkName)) {
-          console.log(rtsf);
           return rtsf;
         } else {
           rtsf[curr.drinkName] = curr;

@@ -58,7 +58,6 @@ export default React.createClass({
         };
       reduced = this.state.results.reduce((rtsf, curr) => {
         if (_.has(rtsf, curr.drinkName)) {
-          console.log(rtsf);
           return rtsf;
         } else {
           rtsf[curr.drinkName] = curr;
@@ -66,7 +65,6 @@ export default React.createClass({
         }
       },{});
         results = _.toArray(reduced).map((drink, i) => {
-          console.log(drink.drink._obj.drink__strDrink);
           return (
             <li key={i} onClick={this.routeToRecipe} id={drink.drink._obj._id}>
               <h6>{drink.drink._obj.drink__strDrink}</h6>
