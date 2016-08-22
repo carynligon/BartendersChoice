@@ -408,30 +408,31 @@ video {
       font-family: Raleway, sans-serif;
       font-weight: bolder; }
 
-#search-results-page ul {
-  width: 100%;
+#search-results-page #result-list {
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
   text-align: center;
   padding: 0; }
-  #search-results-page ul .drink-preview {
+  #search-results-page #result-list .drink-preview {
     display: flex;
-    width: calc(100% / 4);
+    width: calc(100% / 3);
+    margin: 10px;
     flex-direction: column;
     justify-content: space-between; }
-    #search-results-page ul .drink-preview:hover {
-      cursor: pointer; }
-    #search-results-page ul .drink-preview div {
+    #search-results-page #result-list .drink-preview .drink-img {
       height: 320px;
       background-size: cover; }
-    #search-results-page ul .drink-preview h4 {
-      position: relative;
-      top: -6.5%;
-      padding: 289px 12px 12px 12px;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(69, 69, 69, 0.1), rgba(69, 69, 69, 0.8));
-      color: #fff;
-      font-family: Raleway, sans-serif; }
+      #search-results-page #result-list .drink-preview .drink-img:hover {
+        cursor: pointer; }
+      #search-results-page #result-list .drink-preview .drink-img h4 {
+        position: relative;
+        top: -6.5%;
+        padding: 289px 12px 12px 12px;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(69, 69, 69, 0.1), rgba(69, 69, 69, 0.8));
+        color: #fff;
+        font-family: Raleway, sans-serif; }
 
 @media (max-width: 1200px) {
   #search-results-page ul .drink-preview {
@@ -446,7 +447,9 @@ video {
 #filter-bar {
   background: #EEEEEE;
   color: #FF3C38;
-  font-size: 1rem; }
+  font-size: 1rem;
+  width: 50%;
+  float: right; }
   #filter-bar h6 {
     font-size: 1rem;
     margin: 0; }

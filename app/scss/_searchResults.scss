@@ -1,6 +1,6 @@
 #search-results-page {
-  ul {
-    width: 100%;
+  #result-list {
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -8,23 +8,24 @@
     padding: 0;
     .drink-preview {
       display: flex;
-      width: calc(100% / 4);
+      width: calc(100% / 3);
+      margin: 10px;
       flex-direction: column;
       justify-content: space-between;
-      &:hover {
-        cursor: pointer;
-      }
-      div {
+      .drink-img {
         height: 320px;
         background-size: cover;
-      }
-      h4 {
-        position: relative;
-        top: -6.5%;
-        padding: 289px 12px 12px 12px;
-        background: linear-gradient(to bottom, rgba($white, 0.1), rgba($black, 0.1), rgba($black, 0.8));
-        color: $white;
-        font-family: Raleway, sans-serif;
+        &:hover {
+          cursor: pointer;
+        }
+        h4 {
+          position: relative;
+          top: -6.5%;
+          padding: 289px 12px 12px 12px;
+          background: linear-gradient(to bottom, rgba($white, 0.1), rgba($black, 0.1), rgba($black, 0.8));
+          color: $white;
+          font-family: Raleway, sans-serif;
+        }
       }
     }
   }
