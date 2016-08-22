@@ -8,8 +8,27 @@ import SearchResult from '../models/SearchResult';
 export default Backbone.Collection.extend({
   url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,
   model: SearchResult,
-  getResults: function(q) {
+  getResults: function(q, filterArr) {
     let searchString = q;
+    let queryParams;
+    let skillLevel;
+    console.log(filterArr);
+    if (filterArr) {
+      filterArr.forEach((filterType) => {
+        if (filterType === 'simple' | filterType === 'medium' | filterType === 'difficult') {
+          skillLevel = {
+            "skillLevel":filterType
+          };
+        } else {
+          skillLevel = {
+            "skillLevel":("^*")
+          };
+        }
+        queryParams = ("$and": [
+          skillLevel
+        ])
+      });
+    }
     this.fetch({
       data: {
         resolve: 'drink',
@@ -25,11 +44,7 @@ export default Backbone.Collection.extend({
               }
             }
           ],
-          "$and":[
-            {
-              "skillLevel":"easy"
-            }
-          ]
+          queryParams
         })
       },
       success: (data) => {

@@ -5,12 +5,12 @@ export default React.createClass({
   FilterDifficulty() {
     console.log('changed slider');
     let difficulty;
-    if (this.refs.difficulty.value === 3) {
+    if (this.refs.difficulty.value === '3') {
       difficulty = 'difficult'
-    } else if (this.refs.difficulty.value === 2) {
+    } else if (this.refs.difficulty.value === '2') {
       difficulty = 'medium'
     } else {
-      difficulty = 'simple'
+      difficulty = 'easy'
     }
     if (document.getElementById('search-input').value !== '') {
       hashHistory.push(`/search/${document.getElementById('search-input').value}+${difficulty}`);
