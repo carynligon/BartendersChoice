@@ -47,8 +47,8 @@ export default React.createClass({
             <label htmlFor="vodka">Vodka</label>
           </li>
           <li>
-            <input type="radio" id="other-alcohol" onChange={this.filterAlcohol}/>
-            <label htmlFor="other-alcohol">Other</label>
+            <input type="radio" id="scotch" onChange={this.filterAlcohol}/>
+            <label htmlFor="scotch">Scotch</label>
           </li>
         </ul>
       </div>

@@ -1,0 +1,34 @@
+#how-it-works {
+  width: 95%;
+  margin: 0 auto;
+  h2 {
+    width: 100%;
+    font-family: Raleway, sans-serif;
+    margin-top: 60px;
+    text-align: center;
+    &::after {
+      margin-left: 8px;
+    }
+    &::before {
+      margin-right: 8px;
+    }
+    &::after, &::before {
+      position: relative;
+      bottom: 8px;
+      content: '';
+      display: inline-block;
+      width: 28%;
+      border-top: 1px solid $main;
+    }
+  }
+  div {
+    display: inline-block;
+    margin: 10px;
+    width: calc(100% /3 - 20px);
+    h5 {
+      font-size: 1.2rem;
+      font-weight: bolder;
+      font-family: Raleway, sans-serif;
+    }
+  }
+}

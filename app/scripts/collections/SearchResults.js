@@ -14,7 +14,8 @@ export default Backbone.Collection.extend({
     console.log(filterArr);
     let flavors = ['sweet', 'salty', 'sour', 'spirit-forward', 'bitter', 'bubbly', 'fruity', 'creamy', 'spicy', 'dry'];
     let selectedFlavors = [];
-    let alcohols = ['bourbon', 'rye', 'tequila', 'gin', 'vodka', 'other-alcohol'];
+    let selectedAlcohol;
+    let alcohols = ['bourbon', 'rye', 'tequila', 'gin', 'vodka', 'scotch'];
     let queryParams;
     let skillLevel;
     if (filterArr) {
@@ -33,6 +34,10 @@ export default Backbone.Collection.extend({
             }
           } else if (flavors.indexOf(oneFilter) !== -1) {
             selectedFlavors.push({"tags": oneFilter});
+          } else if (alcohols.indexOf(oneFilter) !== -1) {
+            selectedAlcohol = {
+              "ingredientName": oneFilter
+            }
           }
         });
       }
@@ -44,6 +49,11 @@ export default Backbone.Collection.extend({
       };
       selectedFlavors = {
         "tags":{
+          "$regex":("^.+")
+        }
+      };
+      selectedAlcohol = {
+        "ingredientName":{
           "$regex":("^.+")
         }
       };
@@ -67,7 +77,8 @@ export default Backbone.Collection.extend({
           ],
           "$and": [
             skillLevel,
-            ...selectedFlavors
+            ...selectedFlavors,
+            selectedAlcohol
           ]
         })
       },

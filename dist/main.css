@@ -1,12 +1,32 @@
 @import "https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700|Slabo+27px";
 header {
-  background-image: url("assets/images/hero-min.jpg");
-  height: 560px;
-  background-size: cover;
-  background-position-y: -20px; }
+  background: linear-gradient(to bottom, rgba(255, 60, 56, 0.9), rgba(255, 60, 56, 0.6));
+  height: 560px; }
+  header h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    text-align: center;
+    font-family: Raleway, sans-serif;
+    margin-top: 18%;
+    font-weight: 300; }
+  header #assessment-link {
+    color: #fff;
+    display: block;
+    width: 240px;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: Raleway, sans-serif;
+    padding: 7px;
+    border: 4px solid #fff; }
+    header #assessment-link:hover {
+      background: #fff;
+      color: #FF3C38; }
   header #search-bar-form {
     display: inline-block;
-    width: 380px;
+    width: 330px;
     height: 45px;
     text-align: center; }
     header #search-bar-form h2 {
@@ -27,7 +47,7 @@ header {
     header #search-bar-form #search-icon-btn {
       position: relative;
       font-size: 1rem;
-      right: 177px;
+      right: 152px;
       bottom: 35px;
       background: none;
       border: none; }
@@ -66,18 +86,28 @@ nav {
       background: #FF3C38;
       color: #fff;
       outline: none; }
+  nav #logo {
+    position: relative;
+    display: block;
+    text-align: center;
+    bottom: 74px; }
+    nav #logo img {
+      height: 50px;
+      opacity: 0.8; }
   nav a {
     position: relative;
-    bottom: 37px;
     margin: 0 15px;
     text-decoration: none;
     color: #FF3C38; }
   nav #custom-link {
-    position: static;
+    position: absolute;
+    top: 12px;
+    right: 58px;
     font-size: 1.5rem;
     font-weight: bolder;
     border: 1px solid #FF3C38;
-    padding: 2px 12px; }
+    padding: 2px 12px;
+    margin: 0; }
     nav #custom-link:hover {
       background: #FF3C38;
       color: #fff; }
@@ -86,9 +116,9 @@ nav {
   float: right; }
 
 #user-info-link {
-  float: right;
-  position: relative;
-  bottom: 7px; }
+  position: absolute;
+  top: 12px;
+  right: 0px; }
   #user-info-link i {
     font-size: 1.5rem;
     background: white;
@@ -467,6 +497,34 @@ video {
   #filter-bar #filter-difficulty-wrapper {
     display: inline-block;
     width: 32%; }
+
+#how-it-works {
+  width: 95%;
+  margin: 0 auto; }
+  #how-it-works h2 {
+    width: 100%;
+    font-family: Raleway, sans-serif;
+    margin-top: 60px;
+    text-align: center; }
+    #how-it-works h2::after {
+      margin-left: 8px; }
+    #how-it-works h2::before {
+      margin-right: 8px; }
+    #how-it-works h2::after, #how-it-works h2::before {
+      position: relative;
+      bottom: 8px;
+      content: '';
+      display: inline-block;
+      width: 28%;
+      border-top: 1px solid #FF3C38; }
+  #how-it-works div {
+    display: inline-block;
+    margin: 10px;
+    width: calc(100% /3 - 20px); }
+    #how-it-works div h5 {
+      font-size: 1.2rem;
+      font-weight: bolder;
+      font-family: Raleway, sans-serif; }
 
 body {
   margin: 0;

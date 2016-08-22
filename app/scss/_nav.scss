@@ -1,11 +1,34 @@
 header {
-  background-image: url('assets/images/hero-min.jpg');
+  background: linear-gradient(to bottom, rgba($main, 0.9), rgba($main, 0.6));
   height: 560px;
-  background-size: cover;
-  background-position-y: -20px;
+  h2 {
+    font-size: 2.5rem;
+    color: $white;
+    text-align: center;
+    font-family: Raleway, sans-serif;
+    margin-top: 18%;
+    font-weight: 300;
+  }
+  #assessment-link {
+    color: $white;
+    display: block;
+    width: 240px;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: Raleway, sans-serif;
+    padding: 7px;
+    border: 4px solid $white;
+    &:hover {
+      background: $white;
+      color: $main;
+    }
+  }
   #search-bar-form {
     display: inline-block;
-    width: 380px;
+    width: 330px;
     height: 45px;
     text-align: center;
     h2 {
@@ -29,7 +52,7 @@ header {
     #search-icon-btn {
       position: relative;
       font-size: 1rem;
-      right: 177px;
+      right: 152px;
       bottom: 35px;
       background: none;
       border: none;
@@ -77,19 +100,31 @@ nav {
       outline: none;
     }
   }
+  #logo {
+    position: relative;
+    display: block;
+    text-align: center;
+    bottom: 74px;
+    img {
+      height: 50px;
+      opacity: 0.8;
+    }
+  }
   a {
     position: relative;
-    bottom: 37px;
     margin: 0 15px;
     text-decoration: none;
     color: $main;
   }
   #custom-link {
-    position: static;
+    position: absolute;
+    top: 12px;
+    right: 58px;
     font-size: 1.5rem;
     font-weight: bolder;
     border: 1px solid $main;
     padding: 2px 12px;
+    margin: 0;
     &:hover {
       background: $main;
       color: $white;
@@ -100,9 +135,9 @@ nav {
     float: right;
   }
   #user-info-link {
-    float: right;
-    position: relative;
-    bottom: 7px;
+    position: absolute;
+    top: 12px;
+    right: 0px;
     i {
       font-size: 1.5rem;
       background: white;
