@@ -10,25 +10,21 @@ export default Backbone.Collection.extend({
   model: SearchResult,
   getResults: function(q, filterArr) {
     let searchString = q;
+    console.log(filterArr);
     let queryParams;
     let skillLevel;
-    console.log(filterArr);
     if (filterArr) {
-      filterArr.forEach((filterType) => {
-        if (filterType === 'simple' | filterType === 'medium' | filterType === 'difficult') {
-          skillLevel = {
-            "skillLevel":filterType
-          };
-        } else {
-          skillLevel = {
-            "skillLevel":("^*")
-          };
+      skillLevel = {
+        "skillLevel": filterArr
+      };
+    } else {
+      skillLevel = {
+        "skillLevel":{
+          "$regex":("^.+")
         }
-        queryParams = ("$and": [
-          skillLevel
-        ])
-      });
+      };
     }
+    console.log(searchString);
     this.fetch({
       data: {
         resolve: 'drink',
@@ -44,7 +40,9 @@ export default Backbone.Collection.extend({
               }
             }
           ],
-          queryParams
+          "$and": [
+            skillLevel
+          ]
         })
       },
       success: (data) => {

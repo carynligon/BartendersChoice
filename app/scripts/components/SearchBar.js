@@ -21,6 +21,7 @@ export default React.createClass({
   performSearch(e) {
     e.preventDefault();
     let searchString = this.refs.searchQuery.value;
+    console.log('search from SearchBar: ' + searchString);
     if (e.which === 13) {
       this.toSearchResults();
     } else {
@@ -30,9 +31,13 @@ export default React.createClass({
     }
   },
   toSearchResults() {
-    hashHistory.push(`/search/${this.refs.searchQuery.value}`);
+    hashHistory.push({
+      pathname: 'search',
+      query: {q: this.refs.searchQuery.value}
+    })
   },
   listener() {
+    console.log('search results changed');
     this.setState({results: store.searchResults.toJSON()})
   },
   componentDidMount() {
@@ -42,7 +47,7 @@ export default React.createClass({
     store.searchResults.off('update', this.listener);
   },
   render() {
-    console.log(this.state);
+    console.log('state from SearchBar: ' + this.state);
     let styles;
     let reduced;
     let results;

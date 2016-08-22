@@ -13,16 +13,25 @@ export default React.createClass({
       difficulty = 'easy'
     }
     if (document.getElementById('search-input').value !== '') {
-      hashHistory.push(`/search/${document.getElementById('search-input').value}+${difficulty}`);
+      hashHistory.push({
+        pathname: 'search',
+        query: {
+          q: document.getElementById('search-input').value,
+          filter: [difficulty]
+        }
+      });
     } else {
-      hashHistory.push(`/search/x+${difficulty}`);
+      hashHistory.push({
+        pathname: 'search',
+        query: {filter: [difficulty]}
+      });
     }
   },
   render() {
     return (
       <div id="filter-difficulty-wrapper">
         <h6>Difficulty</h6>
-        <input type="range" min="1" max="3" onChange={this.FilterDifficulty} ref='difficulty'/>
+        <input type="range" min="1" max="3" onClick={this.FilterDifficulty} ref='difficulty'/>
       </div>
     );
   }

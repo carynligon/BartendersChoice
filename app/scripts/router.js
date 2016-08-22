@@ -22,7 +22,7 @@ const router = (
       <Route path="/signup" component={Signup}/>
       <Route path="/user-info" component={UserInfo}/>
     </Route>
-    <Route path="/search/:searchQuery" component={Search}/>
+    <Route path="/search" component={Search}/>
     <Route path="/recipe/:cocktail" component={Recipe}/>
     <Route path="/assessment" component={Assessment}>
       <IndexRoute component={AssessmentInfo}/>

@@ -4,14 +4,16 @@ import Nav from '../Nav';
 
 export default React.createClass({
   getInitialState() {
-    return {ingredients: []}
+    return {}
   },
   newIngredient(e) {
     e.preventDefault();
     let newIngredient = this.refs.newIngredient.value;
+    console.log(newIngredient);
     this.setState({ingredients: this.state.ingredients.push(newIngredient)});
   },
   render() {
+    console.log(this.state.ingredients);
     let ingredientsList;
     if (this.state.ingredients.length > 0) {
       ingredientsList = this.state.ingredients.map((ingredient, i) => {

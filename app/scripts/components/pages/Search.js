@@ -10,20 +10,6 @@ import DrinkPreview from '../DrinkPreview';
 
 export default React.createClass({
   getInitialState() {
-    let filterArr = [];
-    if (this.props.params.searchQuery.indexOf('+')) {
-      let searchTerm = this.props.params.searchQuery.split('+')[0]
-      this.props.params.searchQuery.split('+').forEach((addedFilter, i) => {
-        if (i !== 0) {
-          filterArr.push(addedFilter);
-        }
-      });
-      if (searchTerm === 'x') {
-        store.searchResults.getResults('', filterArr);
-      } else {
-        store.searchResults.getResults(searchTerm, filterArr);
-      }
-    }
     return {
       results: ''
     }
@@ -36,12 +22,16 @@ export default React.createClass({
   },
   componentDidMount() {
     store.searchResults.on('update', this.listener);
+    let filterArr = this.props.location.query.filter;
+    let searchString = this.props.location.query.q;
+    console.log(filterArr);
+    store.searchResults.getResults(searchString, filterArr);
   },
   componentWillUnmount() {
     store.searchResults.off('update', this.listener);
   },
   componentWillReceiveProps(nextProps) {
-    store.searchResults.getResults(nextProps.params.searchQuery);
+    store.searchResults.getResults(nextProps.location.query.q, this.props.location.query.filter);
   },
   render() {
     let results;
