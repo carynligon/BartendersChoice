@@ -47,6 +47,7 @@ export default React.createClass({
         links = (
           <div id="login-links">
             <Link to="user-info" id="user-info-link"><i className="fa fa-user user-icon" aria-hidden="true"></i></Link>
+            <Link to="custom" id="custom-link">+</Link>
           </div>
         );
       }

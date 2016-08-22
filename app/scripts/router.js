@@ -12,6 +12,7 @@ import AssessmentInfo from './components/AssessmentInfo';
 import SingleQuestion from './components/pages/SingleQuestion';
 import Results from './components/pages/Results';
 import Search from './components/pages/Search';
+import Custom from './components/pages/Custom';
 
 const router = (
   <Router history={hashHistory}>
@@ -31,6 +32,7 @@ const router = (
       <Route path="/assessment/question" component={SingleQuestion}/>
       <Route path="/assessment/results" component={Results}/>
     </Route>
+    <Route path="/custom" component={Custom}/>
   </Router>
 );
 

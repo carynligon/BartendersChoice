@@ -84,6 +84,17 @@ nav {
     text-decoration: none;
     color: $main;
   }
+  #custom-link {
+    position: static;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    border: 1px solid $main;
+    padding: 2px 12px;
+    &:hover {
+      background: $main;
+      color: $white;
+    }
+  }
   }
   #login-links {
     float: right;
