@@ -1,6 +1,6 @@
 @import "https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700|Slabo+27px";
 header {
-  background-image: url("assets/images/hero.jpg");
+  background-image: url("assets/images/hero-min.jpg");
   height: 560px;
   background-size: cover;
   background-position-y: -20px; }
