@@ -11,20 +11,51 @@ export default Backbone.Collection.extend({
   getResults: function(q, filterArr) {
     let searchString = q;
     console.log(filterArr);
+    let flavors = ['sweet', 'salty', 'sour', 'spirit-forward', 'bitter', 'bubbly', 'fruity', 'creamy', 'spicy', 'dry'];
+    let selectedFlavors = [];
+    let flavorSearch;
+    let alcohols = ['bourbon', 'rye', 'tequila', 'gin', 'vodka', 'other-alcohol']
     let queryParams;
     let skillLevel;
     if (filterArr) {
-      skillLevel = {
-        "skillLevel": filterArr
-      };
-    } else {
+      filterArr.forEach((oneFilter) => {
+        if (oneFilter === '1') {
+          skillLevel = {
+            "skillLevel": "easy"
+          }
+        } else if (oneFilter === '2') {
+          skillLevel = {
+            "skillLevel": "medium"
+          }
+        } else if (oneFilter === '3') {
+            skillLevel = {
+              "skillLevel": "difficult"
+            }
+          } else if (flavors.indexOf(oneFilter) !== -1) {
+            selectedFlavors.push(oneFilter);
+          }
+        });
+      }
+      if (selectedFlavors !== []) {
+        flavorSearch = selectedFlavors.map((flavor) => {
+          return {
+            "tags": flavor
+          }
+        });
+      } else {
       skillLevel = {
         "skillLevel":{
           "$regex":("^.+")
         }
       };
+      flavorSearch = {
+        "tags":{
+          "$regex":("^.+")
+        }
+      };
     }
-    console.log(searchString);
+    console.log(skillLevel);
+    console.log(flavorSearch);
     this.fetch({
       data: {
         resolve: 'drink',
@@ -41,7 +72,8 @@ export default Backbone.Collection.extend({
             }
           ],
           "$and": [
-            skillLevel
+            skillLevel,
+            flavorSearch[0]
           ]
         })
       },
