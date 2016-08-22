@@ -72,6 +72,15 @@ nav {
     margin: 0 15px;
     text-decoration: none;
     color: #FF3C38; }
+  nav #custom-link {
+    position: static;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    border: 1px solid #FF3C38;
+    padding: 2px 12px; }
+    nav #custom-link:hover {
+      background: #FF3C38;
+      color: #fff; }
 
 #login-links {
   float: right; }
