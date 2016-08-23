@@ -48,7 +48,6 @@ export default Backbone.Collection.extend({
       drink__strMeasure9: ingredientQuantities[8]
     }, {
       success: (data) => {
-        console.log(data);
         let drinkId = data.get('_id');
         let drinkName = data.get('drink__strDrink');
         ingredients.forEach((ingredient, i) => {

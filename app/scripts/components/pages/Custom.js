@@ -48,7 +48,7 @@ export default React.createClass({
     e.preventDefault();
     let file = this.refs.file.files[0];
     let reader = new FileReader();
-    let url = reader.readAsDataURL(file, 0.5);
+    let url = reader.readAsDataURL(file);
     reader.onloadend = function() {
       this.setState({
         image: [reader.result]
@@ -59,9 +59,6 @@ export default React.createClass({
     }
   },
   showPreview(e) {
-    this.setState({
-      preview: true
-    });
     let difficulty;
     if (this.refs.difficulty.value === '1') {
       difficulty = 'easy';
@@ -78,13 +75,26 @@ export default React.createClass({
       ingredients: this.state.ingredients,
       ingredientQuantities: this.state.ingredientQuantities
     }
+    this.setState({cocktail})
     store.customCocktails.createCocktail(cocktail);
     e.preventDefault();
+  },
+  listener() {
+    store.customCocktails.forEach((cocktail) => {
+      console.log(cocktail.id);
+    })
+    this.setState({cocktails: store.customCocktails.models[0].get('_id'), preview: true});
+  },
+  componentDidMount() {
+    store.customCocktails.on('update', this.listener);
+  },
+  componentWillUnmount() {
+    store.customCocktails.off('update', this.listener);
   },
   render() {
     let modal;
     if (this.state.preview) {
-      modal = <CustomPreview info={this.state}/>
+      modal = <CustomPreview info={this.state.cocktail}/>
     }
     console.log(this.state);
     let zippedIngredients = _.zip(this.state.ingredients, this.state.ingredientQuantities);
