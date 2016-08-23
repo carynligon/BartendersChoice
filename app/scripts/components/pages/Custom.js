@@ -48,7 +48,7 @@ export default React.createClass({
     e.preventDefault();
     let file = this.refs.file.files[0];
     let reader = new FileReader();
-    let url = reader.readAsDataURL(file);
+    let url = reader.readAsDataURL(file, 0.5);
     reader.onloadend = function() {
       this.setState({
         image: [reader.result]

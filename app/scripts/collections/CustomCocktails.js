@@ -49,8 +49,9 @@ export default Backbone.Collection.extend({
     }, {
       success: (data) => {
         console.log(data);
-        let drinkId = data._id;
-        ingredients.forEach((ingredient) => {
+        let drinkId = data.get('_id');
+        let drinkName = data.get('drink__strDrink');
+        ingredients.forEach((ingredient, i) => {
           if (ingredient !== null) {
             $.ajax({
               url: `https://baas.kinvey.com/appdata/${settings.appKey}/Ingredients?query={"ingredient":"${ingredient.toLowerCase()}"}`,
@@ -62,6 +63,53 @@ export default Backbone.Collection.extend({
                     type: 'POST',
                     data: {
                       ingredient: ingredient.toLowerCase()
+                    },
+                    success: (data) => {
+                      console.log(data);
+                      $.ajax({
+                        url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,
+                        type: 'POST',
+                        data: {
+                          ingredientName: ingredient.toLowerCase(),
+                          ingredient: {
+                            _type: 'KinveyRef',
+                            _id: data._id,
+                            _collection: 'Ingredients'
+                          },
+                          drink: {
+                            _type: 'KinveyRef',
+                            _id: drinkId,
+                            _collection: 'Cocktails'
+                          },
+                          drinkName: drinkName,
+                          quantity: cocktailObj.ingredientQuantities[i],
+                          skillLevel: cocktailObj.difficulty
+                        },
+                        success: (data) => {
+                          console.log(data);
+                        }
+                      });
+                    }
+                  });
+                } else {
+                  $.ajax({
+                    url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,
+                    type: 'POST',
+                    data: {
+                      ingredientName: ingredient.toLowerCase(),
+                      ingredient: {
+                        _type: 'KinveyRef',
+                        _id: data._id,
+                        _collection: 'Ingredients'
+                      },
+                      drink: {
+                        _type: 'KinveyRef',
+                        _id: drinkId,
+                        _collection: 'Cocktails'
+                      },
+                      drinkName: drinkName,
+                      quantity: cocktailObj.ingredientQuantities[i],
+                      skillLevel: cocktailObj.difficulty
                     },
                     success: (data) => {
                       console.log(data);
