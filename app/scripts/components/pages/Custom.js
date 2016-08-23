@@ -60,13 +60,25 @@ export default React.createClass({
   },
   showPreview(e) {
     this.setState({
-      name: this.refs.name.value,
-      difficulty: this.refs.difficulty.value,
-      instructions: this.refs.instructions.value,
-      glass: this.refs.cocktailGlass.value,
       preview: true
     });
-    store.customCocktails.createCocktail(this.state);
+    let difficulty;
+    if (this.refs.difficulty.value === '1') {
+      difficulty = 'easy';
+    } else if (this.refs.difficulty.value === '2') {
+      difficulty = 'medium';
+    } else if (this.refs.difficulty.value === '3') {
+      difficulty = 'difficult';
+    }
+    let cocktail = {
+      name: this.refs.name.value,
+      difficulty: difficulty,
+      instructions: this.refs.instructions.value,
+      glass: this.refs.cocktailGlass.value,
+      ingredients: this.state.ingredients,
+      ingredientQuantities: this.state.ingredientQuantities
+    }
+    store.customCocktails.createCocktail(cocktail);
     e.preventDefault();
   },
   render() {
@@ -79,13 +91,15 @@ export default React.createClass({
     let ingredientsList;
     if (this.state.ingredients) {
       ingredientsList = zippedIngredients.map((ingredient, i) => {
-        return (
-          <li key={i}>
-            <p className="ingredient-name">{ingredient[0]}</p>
-            <p className="ingredient-quantity">{ingredient[1]}</p>
-            <button id="delete-btn" className={ingredient} onClick={this.deleteIngredient}><i className="fa fa-times delete-icon" aria-hidden="true"></i></button>
-          </li>
-        );
+        if (ingredient[0] !== null) {
+          return (
+            <li key={i}>
+              <p className="ingredient-name">{ingredient[0]}</p>
+              <p className="ingredient-quantity">{ingredient[1]}</p>
+              <button id="delete-btn" className={ingredient} onClick={this.deleteIngredient}><i className="fa fa-times delete-icon" aria-hidden="true"></i></button>
+            </li>
+          );
+        }
       });
     }
     return (
