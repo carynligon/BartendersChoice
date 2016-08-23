@@ -1,6 +1,8 @@
 import _ from 'underscore';
 import React from 'react';
 
+import store from '../../store';
+
 import Nav from '../Nav';
 import CustomPreview from '../CustomPreview';
 
@@ -61,14 +63,16 @@ export default React.createClass({
       name: this.refs.name.value,
       difficulty: this.refs.difficulty.value,
       instructions: this.refs.instructions.value,
+      glass: this.refs.cocktailGlass.value,
       preview: true
     });
+    store.customCocktails.createCocktail(this.state);
     e.preventDefault();
   },
   render() {
     let modal;
     if (this.state.preview) {
-      modal = <CustomPreview info={this.state} showing={true}/>
+      modal = <CustomPreview info={this.state}/>
     }
     console.log(this.state);
     let zippedIngredients = _.zip(this.state.ingredients, this.state.ingredientQuantities);
@@ -101,6 +105,9 @@ export default React.createClass({
 
           <label htmlFor="cocktail-instructions">Mixing Instructions</label>
           <input type="text" id="cocktail-instructions" ref="instructions"/>
+
+          <label htmlFor="cocktail-glass">Serving Glass</label>
+          <input type="text" id="cocktail-glass" ref="cocktailGlass"/>
 
           <ul id="ingredients-list">
             {ingredientsList}

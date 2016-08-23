@@ -1,8 +1,9 @@
+import _ from 'underscore';
 import React from 'react';
 
 export default React.createClass({
   getInitialState() {
-    return {showing: this.props.showing}
+    return {showing: true}
   },
   closeModal() {
     this.setState({showing: false});
@@ -24,6 +25,7 @@ export default React.createClass({
     overflow: 'scroll'
   },
   render() {
+    console.log(this.state);
     console.log(this.props);
     let containerStyles;
     let contentStyles;
@@ -34,9 +36,11 @@ export default React.createClass({
       containerStyles = {display: 'none'};
       contentStyles = {display: 'none'};
     }
+
     return (
       <div className="modal-container" style={containerStyles} onClick={this.closeModal}>
         <div className="modal-content" style={contentStyles}>
+          <h3>{this.props.info.name}</h3>
         </div>
       </div>
     );
