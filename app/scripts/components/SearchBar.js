@@ -37,7 +37,6 @@ export default React.createClass({
     })
   },
   listener() {
-    console.log('search results changed');
     this.setState({results: store.searchResults.toJSON()})
   },
   componentDidMount() {
@@ -47,7 +46,6 @@ export default React.createClass({
     store.searchResults.off('update', this.listener);
   },
   render() {
-    console.log('state from SearchBar: ' + this.state);
     let styles;
     let reduced;
     let results;
