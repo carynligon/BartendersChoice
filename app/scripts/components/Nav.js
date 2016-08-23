@@ -57,19 +57,15 @@ export default React.createClass({
         showFilter;
       }
     return(
-      <header>
-        <nav>
-          <SearchBar/>
-          <button id="show-filter-options" onClick={this.showFilter}>
-            <i className="fa fa-filter filter-icon" aria-hidden="true"></i>
-          </button>
-          <Link id="logo" to="/"><img src="assets/images/logo.png"/></Link>
-          {links}
-        </nav>
+      <nav>
+        <SearchBar/>
+        <button id="show-filter-options" onClick={this.showFilter}>
+          <i className="fa fa-filter filter-icon" aria-hidden="true"></i>
+        </button>
+        <Link id="logo" to="/"><img src="assets/images/logo.png"/></Link>
+        {links}
         {showFilter}
-        <h2>Where Mixology Meets Psychology</h2>
-        <Link to="/assessment" id="assessment-link">Find your new drink</Link>
-      </header>
+      </nav>
     );
   }
 });

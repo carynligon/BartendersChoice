@@ -6,7 +6,7 @@ import settings from '../../settings';
 import session from '../../models/Session';
 import store from '../../store';
 
-import Nav from '../Nav';
+import Header from '../Header';
 import DrinkPreview from '../DrinkPreview';
 import FilterBar from '../FilterBar';
 
@@ -20,7 +20,13 @@ export default React.createClass({
   },
   componentDidMount() {
     store.cocktails.on('update', this.listener);
-    store.cocktails.getCocktails();
+    store.cocktails.fetch({
+      data: JSON.stringify({
+        query: {drink__strDrinkThumb:{
+          "$regex": "^http"
+        }}
+      })
+    });
   },
   componentWillUnmount() {
     store.cocktails.off('update', this.listener);
@@ -42,7 +48,7 @@ export default React.createClass({
     }
     return (
       <main>
-        <Nav/>
+        <Header/>
         <section id="how-it-works">
           <h2>How it Works</h2>
           <div id="about-cocktails">

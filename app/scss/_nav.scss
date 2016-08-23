@@ -6,7 +6,7 @@ header {
     color: $white;
     text-align: center;
     font-family: Raleway, sans-serif;
-    margin-top: 18%;
+    margin-top: 170px;
     font-weight: 300;
   }
   #assessment-link {
@@ -26,6 +26,7 @@ header {
       color: $main;
     }
   }
+}
   #search-bar-form {
     display: inline-block;
     width: 330px;
@@ -80,12 +81,12 @@ header {
           }
         }
       }
-}
 
 nav {
   padding: 10px;
   height: 40px;
   background: $white;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
   #show-filter-options {
     position: relative;
     bottom: 35px;
@@ -102,9 +103,8 @@ nav {
   }
   #logo {
     position: relative;
-    display: block;
     text-align: center;
-    bottom: 74px;
+    bottom: 16px;
     img {
       height: 50px;
       opacity: 0.8;
@@ -123,7 +123,7 @@ nav {
     font-size: 1.5rem;
     font-weight: bolder;
     border: 1px solid $main;
-    padding: 2px 12px;
+    padding: 1px 12px 2px 12px;
     margin: 0;
     &:hover {
       background: $main;

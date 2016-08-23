@@ -40,6 +40,33 @@ export default Backbone.Collection.extend({
             }
           }
         });
+        let flavorChecker = [];
+        let alcoholChecker = [];
+        flavors.forEach((flavor) => {
+          if (filterArr.indexOf(flavor) !== -1) {
+            flavorChecker.push(flavor)
+          }
+        });
+        if (flavorChecker === []) {
+          selectedFlavors = {
+            "tags":{
+              "$regex":("^.+")
+            }
+          };
+        }
+        alcohols.forEach((alcohol) => {
+          if (filterArr.indexOf(alcohol) !== -1) {
+            alcoholChecker.push(alcohol)
+          }
+        });
+        if (alcoholChecker.length === 0) {
+          console.log('no alcohol specified');
+          selectedAlcohol = {
+            "ingredientName":{
+              "$regex":("^.+")
+            }
+          };
+        }
       }
       else {
       skillLevel = {
