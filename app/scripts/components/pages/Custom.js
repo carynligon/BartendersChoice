@@ -116,32 +116,46 @@ export default React.createClass({
       <main id="custom-cocktail-page">
         <Nav/>
         <form id="custom-cocktail-form">
-          <h2>Submit your own cocktail!</h2>
+          <h2>ADD YOUR OWN COCKTAIL</h2>
 
-          <label htmlFor="cocktail-name">Name of cocktail</label>
-          <input type="text" id="cocktail-name" ref="name"/>
+          <div id="cocktail-name-wrapper">
+            <label htmlFor="cocktail-name">Name of cocktail</label>
+            <input type="text" id="cocktail-name" autocomplete="off" ref="name"/>
+          </div>
 
-          <label htmlFor="image-uploader">Upload an image</label>
-          <input type="file" id="image-uploader" accept="image/*" ref="file" onChange={this.uploadImg}/>
+          <div id="image-uploader-wrapper">
+            <label htmlFor="image-uploader">Upload an image</label>
+            <input type="file" id="image-uploader" accept="image/*" ref="file" onChange={this.uploadImg}/>
+          </div>
 
-          <label htmlFor="cocktail-difficulty">How hard is it to make?</label>
-          <input type="range" id="cocktail-difficulty" min="1" max="3" ref="difficulty"/>
+          <div id="cocktail-difficulty-wrapper">
+            <label htmlFor="cocktail-difficulty">How hard is it to make?</label>
+            <input type="range" id="cocktail-difficulty" min="1" max="3" ref="difficulty"/>
+          </div>
 
-          <label htmlFor="cocktail-instructions">Mixing Instructions</label>
-          <input type="text" id="cocktail-instructions" ref="instructions"/>
+          <div id="cocktail-instructions-wrapper">
+            <label htmlFor="cocktail-instructions">Mixing Instructions</label>
+            <input type="text" id="cocktail-instructions" autocomplete="off" ref="instructions"/>
+          </div>
 
-          <label htmlFor="cocktail-glass">Serving Glass</label>
-          <input type="text" id="cocktail-glass" ref="cocktailGlass"/>
+          <div id="cocktail-glass-wrapper">
+            <label htmlFor="cocktail-glass">Serving Glass</label>
+            <input type="text" id="cocktail-glass" autocomplete="off" ref="cocktailGlass"/>
+          </div>
 
           <ul id="ingredients-list">
             {ingredientsList}
           </ul>
 
-          <label htmlFor="new-ingredient">Ingredient</label>
-          <input type="text" id="new-ingredient" ref="newIngredient"/>
+          <div id="new-ingredient-wrapper">
+            <label htmlFor="new-ingredient">Ingredient</label>
+            <input type="text" id="new-ingredient" autocomplete="off" ref="newIngredient"/>
+          </div>
 
-          <label htmlFor="new-ingredient-quantity">Quantity</label>
-          <input type="text" id="new-ingredient-quantity" ref="newIngredientQuantity" onKeyUp={this.pressedEnter}/>
+          <div id="new-ingredient-quantity-wrapper">
+            <label htmlFor="new-ingredient-quantity">Quantity</label>
+            <input type="text" id="new-ingredient-quantity" autocomplete="off" ref="newIngredientQuantity" onKeyUp={this.pressedEnter}/>
+          </div>
 
           <input type="button" id="add-ingredient" value="Add" onClick={this.newIngredient}/>
           <input type="submit" id="submit-cocktail" value="submit" onClick={this.showPreview}/>

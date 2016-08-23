@@ -1,0 +1,51 @@
+#custom-cocktail-form {
+  width: 70%;
+  margin: 120px auto;
+  font-size: 1.1rem;
+  border: 1px solid $gray;
+  h2 {
+    font-family: Raleway;
+    font-weight: lighter;
+    text-align: center;
+    color: $white;
+    background: $main;
+    font-size: 1.7rem;
+    letter-spacing: -0.7px;
+    position: relative;
+    bottom: 45px;
+    width: 350px;
+    margin: 30px auto;
+  }
+  #cocktail-name, #cocktail-instructions {
+    display: block;
+    width: 90%;
+    margin: 15px auto;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+  #new-ingredient-wrapper, #new-ingredient-quantity-wrapper {
+    display: inline-block;
+    width: 30%;
+  }
+  #submit-cocktail {
+    display: block;
+    margin: 20px auto 5px auto;
+    background: $main;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
+    color: $white;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    &:hover {
+      background: none;
+      color: $main;
+    }
+  }
+  div {
+    margin: 5px 0;
+  }
+  label {
+    margin: 0 25px;
+  }
+}

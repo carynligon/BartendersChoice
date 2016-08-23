@@ -6,7 +6,7 @@ header {
     color: $white;
     text-align: center;
     font-family: Raleway, sans-serif;
-    margin-top: 170px;
+    padding-top: 170px;
     font-weight: 300;
   }
   #assessment-link {
@@ -83,6 +83,9 @@ header {
       }
 
 nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
   padding: 10px;
   height: 40px;
   background: $white;
