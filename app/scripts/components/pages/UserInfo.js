@@ -11,12 +11,8 @@ export default React.createClass({
   render() {
     return(
       <UserModal>
-        <form className="user-info-form">
-          <label htmlFor="nickname">nickname</label>
-          <input type="text" placeholder={store.session.get('firstName')} id="nickname" />
-          <input type="submit" value="submit" id="submit-nickname"/>
-          <input type="button" value="logout" id="logout-btn" onClick={this.logout}/>
-        </form>
+        <h3>Hi {store.session.get('firstName')}!</h3>
+        <input type="button" value="logout" id="logout-btn" onClick={this.logout}/>
       </UserModal>
     );
   }
