@@ -42,12 +42,16 @@ export default React.createClass({
   listener() {
     store.savedForLaterCollection.forEach((drink) => {
       if (drink.get('drink')._id === this.props.id) {
-        this.setState({saveBookmark: true, saveBookmarkModel: drink});
+        if (drink.get('userId') === store.session.get('userId')) {
+          this.setState({saveBookmark: true, saveBookmarkModel: drink});
+        }
       }
     });
     store.favorites.forEach((drink) => {
       if (drink.get('drink')._id === this.props.id) {
-        this.setState({saveFavorite: true, saveFavoriteModel: drink});
+        if (drink.get('userId') === store.session.get('userId')) {
+          this.setState({saveFavorite: true, saveFavoriteModel: drink});
+        }
       }
     });
   },

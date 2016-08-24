@@ -40,18 +40,20 @@ export default React.createClass({
   listener() {
     this.setState({results: store.searchResults.toJSON()})
   },
+  listenToClicks(e) {
+    if (e.target.id !== 'results-dropdown' && e.target.id !== 'search-input') {
+      if (!this.state.hide) {
+        this.setState({hide: true});
+      }
+    }
+  },
   componentDidMount() {
     store.searchResults.on('update', this.listener);
-    window.addEventListener('click', (e) => {
-      if (e.target.id !== 'results-dropdown' && e.target.id !== 'search-input') {
-        if (!this.state.hide) {
-          this.setState({hide: true});
-        }
-      }
-    });
+    document.querySelector('body').addEventListener('click', this.listenToClicks);
   },
   componentWillUnmount() {
     store.searchResults.off('update', this.listener);
+    document.querySelector('body').removeEventListener('click', this.listenToClicks);
   },
   render() {
     let styles;
