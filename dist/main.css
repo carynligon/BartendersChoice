@@ -192,37 +192,42 @@ video {
       color: #454545; }
 
 #cocktail-list {
+  margin: 0 auto; }
+
+#result-list {
+  margin: 150px auto 0 auto; }
+
+#cocktail-list, #result-list {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
   text-align: center;
   padding: 0; }
-  #cocktail-list h2 {
+  #cocktail-list h2, #result-list h2 {
     width: 100%;
     font-family: Raleway, sans-serif;
     margin-top: 30px; }
-    #cocktail-list h2::after {
+    #cocktail-list h2::after, #result-list h2::after {
       margin-left: 8px; }
-    #cocktail-list h2::before {
+    #cocktail-list h2::before, #result-list h2::before {
       margin-right: 8px; }
-    #cocktail-list h2::after, #cocktail-list h2::before {
+    #cocktail-list h2::after, #cocktail-list h2::before, #result-list h2::after, #result-list h2::before {
       position: relative;
       bottom: 8px;
       content: '';
       display: inline-block;
       width: 30%;
       border-top: 1px solid #FF3C38; }
-  #cocktail-list .drink-preview {
+  #cocktail-list .drink-preview, #result-list .drink-preview {
     display: flex;
     width: calc(100% / 3 - 20px);
     margin: 10px;
     flex-direction: column;
     justify-content: space-between; }
-    #cocktail-list .drink-preview div {
+    #cocktail-list .drink-preview div, #result-list .drink-preview div {
       height: 319px;
       background-size: cover; }
-    #cocktail-list .drink-preview h4 {
+    #cocktail-list .drink-preview h4, #result-list .drink-preview h4 {
       position: relative;
       top: 232px;
       padding: 10px;
@@ -230,9 +235,9 @@ video {
       color: #fff;
       font-family: Raleway, sans-serif;
       margin: 0; }
-      #cocktail-list .drink-preview h4:hover {
+      #cocktail-list .drink-preview h4:hover, #result-list .drink-preview h4:hover {
         cursor: pointer; }
-    #cocktail-list .drink-preview .bookmark-icon {
+    #cocktail-list .drink-preview .bookmark-icon, #result-list .drink-preview .bookmark-icon {
       font-size: 3rem;
       position: relative;
       right: 37%;
@@ -240,30 +245,30 @@ video {
       color: #454545;
       transition: opacity 0.5s;
       transition: color 0.5s; }
-      #cocktail-list .drink-preview .bookmark-icon:hover {
+      #cocktail-list .drink-preview .bookmark-icon:hover, #result-list .drink-preview .bookmark-icon:hover {
         color: #FF3C38;
         cursor: pointer; }
-    #cocktail-list .drink-preview .favorite-icon {
+    #cocktail-list .drink-preview .favorite-icon, #result-list .drink-preview .favorite-icon {
       font-size: 2rem;
       position: relative;
       left: 39%;
       top: -5px;
       color: #FF3C38;
       transition: transform 0.5s; }
-      #cocktail-list .drink-preview .favorite-icon:hover {
+      #cocktail-list .drink-preview .favorite-icon:hover, #result-list .drink-preview .favorite-icon:hover {
         transform: scale(1.1);
         cursor: pointer; }
 
 @media (max-width: 1200px) {
-  #cocktail-list .drink-preview {
+  #cocktail-list .drink-preview, #result-list .drink-preview {
     width: calc(100% / 2 - 20px); } }
 @media (max-width: 800px) {
-  #cocktail-list .drink-preview {
+  #cocktail-list .drink-preview, #result-list .drink-preview {
     width: calc(100%); } }
 @media (max-width: 550px) {
-  #cocktail-list {
+  #cocktail-list, #result-list {
     width: 100%; }
-    #cocktail-list .drink-preview {
+    #cocktail-list .drink-preview, #result-list .drink-preview {
       width: calc(100%);
       margin: 20px 7%; } }
 .assessment-section {
@@ -466,42 +471,6 @@ video {
       font-family: Raleway, sans-serif;
       font-weight: bolder; }
 
-#search-results-page #result-list {
-  width: 80%;
-  margin: 150px auto 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-  padding: 0; }
-  #search-results-page #result-list .drink-preview {
-    display: flex;
-    width: calc(100% / 3 - 20px);
-    margin: 10px;
-    flex-direction: column;
-    justify-content: space-between; }
-    #search-results-page #result-list .drink-preview .drink-img {
-      height: 320px;
-      background-size: cover; }
-      #search-results-page #result-list .drink-preview .drink-img:hover {
-        cursor: pointer; }
-      #search-results-page #result-list .drink-preview .drink-img h4 {
-        position: relative;
-        top: -6.5%;
-        padding: 289px 12px 12px 12px;
-        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(69, 69, 69, 0.1), rgba(69, 69, 69, 0.8));
-        color: #fff;
-        font-family: Raleway, sans-serif; }
-
-@media (max-width: 1200px) {
-  #search-results-page ul .drink-preview {
-    width: calc(100% / 2 - 20px); } }
-@media (max-width: 800px) {
-  #search-results-page ul .drink-preview {
-    width: calc(100% - 20px); } }
-@media (max-width: 550px) {
-  #search-results-page ul .drink-preview {
-    width: calc(100%);
-    margin: 20px 7%; } }
 #filter-bar {
   background: #EEEEEE;
   color: #FF3C38;

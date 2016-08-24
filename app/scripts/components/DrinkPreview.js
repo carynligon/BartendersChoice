@@ -62,8 +62,15 @@ export default React.createClass({
     store.favorites.off('update remove', this.listener);
   },
   render() {
-    let styles = {
-      backgroundImage: 'url(' + this.props.img + ')'
+    let styles;
+    if (this.props.img !== null) {
+      styles = {
+        backgroundImage: 'url(' + this.props.img + ')'
+      };
+    } else {
+      styles = {
+        backgroundImage: 'url(assets/images/Cocktail-icon.png)'
+      };
     }
     let display;
     if (this.state.bookmark) {

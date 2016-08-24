@@ -11,7 +11,6 @@ export default Backbone.Collection.extend({
   model: SearchResult,
   getResults: function(q, filterArr) {
     let searchString = q;
-    console.log(filterArr);
     let flavors = ['sweet', 'salty', 'sour', 'spirit-forward', 'bitter', 'bubbly', 'fruity', 'creamy', 'spicy', 'dry'];
     let selectedFlavors = [];
     let selectedAlcohol;
@@ -60,7 +59,6 @@ export default Backbone.Collection.extend({
           }
         });
         if (alcoholChecker.length === 0) {
-          console.log('no alcohol specified');
           selectedAlcohol = {
             "ingredientName":{
               "$regex":("^.+")
@@ -85,8 +83,6 @@ export default Backbone.Collection.extend({
         }
       };
     }
-    console.log(skillLevel);
-    console.log(selectedFlavors);
     this.fetch({
       data: {
         resolve: 'drink',
@@ -110,7 +106,6 @@ export default Backbone.Collection.extend({
         })
       },
       success: (data) => {
-        console.log(data);
         data.reduce((retsf, curr, i) => {
         }, []);
         data.forEach((result) => {

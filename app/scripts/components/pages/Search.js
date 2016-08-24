@@ -24,7 +24,6 @@ export default React.createClass({
     store.searchResults.on('update', this.listener);
     let filterArr = this.props.location.query.filter;
     let searchString = this.props.location.query.q;
-    console.log(filterArr);
     store.searchResults.getResults(searchString, filterArr);
   },
   componentWillUnmount() {
@@ -34,7 +33,6 @@ export default React.createClass({
     store.searchResults.getResults(nextProps.location.query.q, this.props.location.query.filter);
   },
   render() {
-    console.log(this.state);
     let results;
     let reduced;
     if (this.state.results !== '') {

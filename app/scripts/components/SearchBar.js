@@ -44,15 +44,16 @@ export default React.createClass({
     store.searchResults.on('update', this.listener);
     window.addEventListener('click', (e) => {
       if (e.target.id !== 'results-dropdown' && e.target.id !== 'search-input') {
-        this.setState({hide: true});
+        if (!this.state.hide) {
+          this.setState({hide: true});
+        }
       }
-    })
+    });
   },
   componentWillUnmount() {
     store.searchResults.off('update', this.listener);
   },
   render() {
-    console.log(this.state);
     let styles;
     let reduced;
     let results;

@@ -1,8 +1,15 @@
 #cocktail-list {
+  margin: 0 auto;
+}
+
+#result-list {
+  margin: 150px auto 0 auto;
+}
+
+#cocktail-list, #result-list {
   width: 80%;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
   text-align: center;
   padding: 0;
   h2 {
@@ -75,7 +82,7 @@
 }
 
 @media (max-width: 1200px) {
-  #cocktail-list {
+  #cocktail-list, #result-list {
     .drink-preview {
       width: calc(100% / 2 - 20px);
     }
@@ -83,7 +90,7 @@
 }
 
 @media (max-width: 800px) {
-  #cocktail-list {
+  #cocktail-list, #result-list {
     .drink-preview {
       width: calc(100%);
     }
@@ -91,7 +98,7 @@
 }
 
 @media (max-width: 550px) {
-  #cocktail-list {
+  #cocktail-list, #result-list {
     width: 100%;
     .drink-preview {
       width: calc(100%);
