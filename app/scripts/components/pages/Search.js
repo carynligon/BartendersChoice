@@ -48,23 +48,9 @@ export default React.createClass({
       },{});
       console.log(reduced);
       results = _.toArray(reduced).map((result, i) => {
-        let styles;
-        if (result.drink._obj.drink__strDrinkThumb !== null) {
-          styles = {
-            backgroundImage: 'url(' + result.drink._obj.drink__strDrinkThumb + ')'
-          }
-        } else {
-          styles = {
-            backgroundImage: 'url(assets/images/Cocktail-icon.png)'
-          }
-        }
         return (
-          <li className="drink-preview" id={result.drink._obj._id} onClick={this.viewRecipe} key={i}>
-          <div className="drink-img" style={styles}>
-            <h4>{result.drink._obj.drink__strDrink}</h4>
-          </div>
-        </li>
-      );
+          <DrinkPreview id={result.drink._obj._id} img={result.drink._obj.drink__strDrinkThumb} name={result.drink._obj.drink__strDrink}/>
+        )
       });
     }
     return (
