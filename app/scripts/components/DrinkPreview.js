@@ -26,6 +26,19 @@ export default React.createClass({
       store.savedForLaterCollection.bookmark(cocktail, store.session);
     }
   },
+  addFavorite() {
+    if (this.state.saveFavorite) {
+      console.log(this.state);
+      this.state.saveFavoriteModel.destroy({
+        success: () => {
+          this.setState({saveFavorite: false});
+        }
+      });
+    } else {
+      let cocktail = store.cocktails.get(this.props.id);
+      store.favorites.favorite(cocktail, store.session);
+    }
+  },
   listener() {
     store.savedForLaterCollection.forEach((drink) => {
       if (drink.get('drink')._id === this.props.id) {
@@ -33,16 +46,24 @@ export default React.createClass({
         this.setState({saveBookmark: true, saveBookmarkModel: drink});
       }
     });
+    store.favorites.forEach((drink) => {
+      if (drink.get('drink')._id === this.props.id) {
+        console.log(drink);
+        this.setState({saveFavorite: true, saveFavoriteModel: drink});
+      }
+    });
   },
   componentDidMount() {
     store.savedForLaterCollection.on('update remove', this.listener);
+    store.favorites.on('update remove', this.listener);
     store.savedForLaterCollection.fetch();
+    store.favorites.fetch();
   },
   componentWillUnmount() {
     store.savedForLaterCollection.off('update remove', this.listener);
+    store.favorites.off('update remove', this.listener);
   },
   render() {
-    console.log(this.state);
     let styles = {
       backgroundImage: 'url(' + this.props.img + ')'
     }
@@ -61,11 +82,17 @@ export default React.createClass({
         opacity: '0'
       };
     }
+    let heart;
+    if (this.state.saveFavorite) {
+      heart = (<i className="fa fa-heart favorite-icon" aria-hidden="true" onClick={this.addFavorite}></i>);
+    } else {
+      heart = (<i className="fa fa-heart-o favorite-icon" aria-hidden="true" onClick={this.addFavorite}></i>)
+    }
     return (
       <li className="drink-preview" id={this.props.id} onMouseOver={this.showBookmark} onMouseOut={this.showBookmark}>
         <div className="drink-img" style={styles}>
           <i className="fa fa-bookmark bookmark-icon" aria-hidden="true" style={display} onClick={this.addBookmark}></i>
-          <i className="fa fa-heart-o favorite-icon" aria-hidden="true"></i>
+          {heart}
           <h4 onClick={this.viewRecipe}>{this.props.name}</h4>
         </div>
       </li>

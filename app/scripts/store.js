@@ -6,6 +6,7 @@ import Slides from './collections/Slides';
 import SearchResults from './collections/SearchResults';
 import CustomCocktails from './collections/CustomCocktails';
 import SavedForLaterCollection from './collections/SavedForLaterCollection';
+import Favorites from './collections/Favorites';
 
 export default {
   session: new Session(),
@@ -16,5 +17,6 @@ export default {
   modalShowing: false,
   searchResults: new SearchResults(),
   customCocktails: new CustomCocktails(),
-  savedForLaterCollection: new SavedForLaterCollection()
+  savedForLaterCollection: new SavedForLaterCollection(),
+  favorites: new Favorites()
 }
