@@ -107,7 +107,7 @@ nav {
   nav #custom-link {
     position: absolute;
     top: 12px;
-    right: 58px;
+    right: 68px;
     font-size: 1.5rem;
     font-weight: bolder;
     border: 1px solid #FF3C38;
@@ -123,7 +123,8 @@ nav {
 #user-info-link {
   position: absolute;
   top: 12px;
-  right: 0px; }
+  right: 10px;
+  margin-left: 10px; }
   #user-info-link i {
     font-size: 1.5rem;
     background: white;
@@ -218,18 +219,40 @@ video {
     margin: 10px;
     flex-direction: column;
     justify-content: space-between; }
-    #cocktail-list .drink-preview:hover {
-      cursor: pointer; }
     #cocktail-list .drink-preview div {
-      height: 320px;
+      height: 319px;
       background-size: cover; }
     #cocktail-list .drink-preview h4 {
       position: relative;
-      top: -6.5%;
-      padding: 289px 12px 12px 12px;
+      top: 232px;
+      padding: 10px;
       background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(69, 69, 69, 0.1), rgba(69, 69, 69, 0.8));
       color: #fff;
-      font-family: Raleway, sans-serif; }
+      font-family: Raleway, sans-serif;
+      margin: 0; }
+      #cocktail-list .drink-preview h4:hover {
+        cursor: pointer; }
+    #cocktail-list .drink-preview .bookmark-icon {
+      font-size: 3rem;
+      position: relative;
+      right: 37%;
+      top: -3px;
+      color: #454545;
+      transition: opacity 0.5s;
+      transition: color 0.5s; }
+      #cocktail-list .drink-preview .bookmark-icon:hover {
+        color: #FF3C38;
+        cursor: pointer; }
+    #cocktail-list .drink-preview .favorite-icon {
+      font-size: 2rem;
+      position: relative;
+      left: 39%;
+      top: -5px;
+      color: #FF3C38;
+      transition: transform 0.5s; }
+      #cocktail-list .drink-preview .favorite-icon:hover {
+        transform: scale(1.1);
+        cursor: pointer; }
 
 @media (max-width: 1200px) {
   #cocktail-list .drink-preview {
