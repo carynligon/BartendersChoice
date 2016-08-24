@@ -5,6 +5,7 @@ import Assessment from './models/Assessment';
 import Slides from './collections/Slides';
 import SearchResults from './collections/SearchResults';
 import CustomCocktails from './collections/CustomCocktails';
+import SavedForLaterCollection from './collections/SavedForLaterCollection';
 
 export default {
   session: new Session(),
@@ -14,5 +15,6 @@ export default {
   users: new Users(),
   modalShowing: false,
   searchResults: new SearchResults(),
-  customCocktails: new CustomCocktails()
+  customCocktails: new CustomCocktails(),
+  savedForLaterCollection: new SavedForLaterCollection()
 }

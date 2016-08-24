@@ -122,7 +122,7 @@ nav {
   #custom-link {
     position: absolute;
     top: 12px;
-    right: 58px;
+    right: 68px;
     font-size: 1.5rem;
     font-weight: bolder;
     border: 1px solid $main;
@@ -140,7 +140,8 @@ nav {
   #user-info-link {
     position: absolute;
     top: 12px;
-    right: 0px;
+    right: 10px;
+    margin-left: 10px;
     i {
       font-size: 1.5rem;
       background: white;

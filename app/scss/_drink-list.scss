@@ -30,20 +30,46 @@
     margin: 10px;
     flex-direction: column;
     justify-content: space-between;
-    &:hover {
-      cursor: pointer;
-    }
     div {
-      height: 320px;
+      height: 319px;
       background-size: cover;
     }
     h4 {
       position: relative;
-      top: -6.5%;
-      padding: 289px 12px 12px 12px;
+      top: 232px;
+      padding: 10px;
       background: linear-gradient(to bottom, rgba($white, 0.1), rgba($black, 0.1), rgba($black, 0.8));
       color: $white;
       font-family: Raleway, sans-serif;
+      margin: 0;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .bookmark-icon {
+      font-size: 3rem;
+      position: relative;
+      right: 37%;
+      top: -3px;
+      color: $black;
+      transition: opacity 0.5s;
+      transition: color 0.5s;
+      &:hover {
+        color: $main;
+        cursor: pointer;
+      }
+    }
+    .favorite-icon {
+      font-size: 2rem;
+      position: relative;
+      left: 39%;
+      top: -5px;
+      color: $main;
+      transition: transform 0.5s;
+      &:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+      }
     }
   }
 }

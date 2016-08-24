@@ -16,7 +16,9 @@ export default React.createClass({
     return {}
   },
   listener() {
-    this.setState(store.cocktails.toJSON());
+    this.setState({
+      cocktails: store.cocktails.toJSON(),
+    });
   },
   componentDidMount() {
     store.cocktails.on('update', this.listener);
@@ -32,7 +34,7 @@ export default React.createClass({
     store.cocktails.off('update', this.listener);
   },
   render() {
-    let data = _.toArray(this.state);
+    let data = _.toArray(this.state.cocktails);
     let drinksWithImgs = data.filter((drink, i) => {
       return drink.drink__strDrinkThumb !== null;
     });
@@ -43,7 +45,7 @@ export default React.createClass({
     let drinks;
     if (randomDrinks[0] !== undefined) {
       drinks = randomDrinks.map((drink,i) => {
-        return <DrinkPreview id={drink._id} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} key={i}/>;
+        return <DrinkPreview id={drink._id} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} key={i} saved={this.state.bookmarked}/>;
       });
     }
     return (
