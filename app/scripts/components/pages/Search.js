@@ -34,6 +34,7 @@ export default React.createClass({
     store.searchResults.getResults(nextProps.location.query.q, this.props.location.query.filter);
   },
   render() {
+    console.log(this.state);
     let results;
     let reduced;
     if (this.state.results !== '') {
@@ -46,10 +47,9 @@ export default React.createClass({
           return rtsf;
         }
       },{});
-      console.log(reduced);
       results = _.toArray(reduced).map((result, i) => {
         return (
-          <DrinkPreview id={result.drink._obj._id} img={result.drink._obj.drink__strDrinkThumb} name={result.drink._obj.drink__strDrink}/>
+          <DrinkPreview id={result.drink._obj._id} img={result.drink._obj.drink__strDrinkThumb} name={result.drink._obj.drink__strDrink} key={i}/>
         )
       });
     }

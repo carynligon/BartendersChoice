@@ -10,11 +10,10 @@ import DrinkPreview from './DrinkPreview';
 
 export default React.createClass({
   getInitialState() {
-    return {results: ''}
+    return {};
   },
   routeToRecipe(e) {
     if (e.target.parentElement.id !== 'results-dropdown') {
-      this.setState({results: ''});
       hashHistory.push(`/recipe/${e.target.parentElement.id}`);
     }
   },
@@ -23,9 +22,11 @@ export default React.createClass({
     let searchString = this.refs.searchQuery.value;
     console.log('search from SearchBar: ' + searchString);
     if (e.which === 13) {
+      this.setState({hide: true});
       this.toSearchResults();
     } else {
       if (searchString.length >= 3) {
+        this.setState({hide: false});
         store.searchResults.getResults(searchString);
       }
     }
@@ -41,19 +42,27 @@ export default React.createClass({
   },
   componentDidMount() {
     store.searchResults.on('update', this.listener);
+    window.addEventListener('click', (e) => {
+      if (e.target.id !== 'results-dropdown' && e.target.id !== 'search-input') {
+        this.setState({hide: true});
+      }
+    })
   },
   componentWillUnmount() {
     store.searchResults.off('update', this.listener);
   },
   render() {
+    console.log(this.state);
     let styles;
     let reduced;
     let results;
+    if (this.state.hide) {
+      styles = {
+        height: '0px'
+      };
+    }
     if (this.state.results) {
       if (this.state.results.length >= 1) {
-        styles = {
-          height: '120px'
-        };
       reduced = this.state.results.reduce((rtsf, curr) => {
         if (_.has(rtsf, curr.drinkName)) {
           return rtsf;

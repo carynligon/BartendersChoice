@@ -468,10 +468,9 @@ video {
 
 #search-results-page #result-list {
   width: 80%;
-  margin: 0 auto;
+  margin: 150px auto 0 auto;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 auto;
   text-align: center;
   padding: 0; }
   #search-results-page #result-list .drink-preview {
