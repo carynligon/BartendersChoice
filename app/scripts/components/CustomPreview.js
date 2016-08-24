@@ -26,7 +26,6 @@ export default React.createClass({
     overflow: 'scroll'
   },
   render() {
-    console.log(this.state);
     console.log(this.props);
     let containerStyles;
     let contentStyles;
@@ -41,8 +40,8 @@ export default React.createClass({
     return (
       <div className="modal-container" style={containerStyles} onClick={this.closeModal}>
         <div className="modal-content" style={contentStyles}>
-          <h3>{this.props.info.name}</h3>
-          <Link to={`recipe/${this.props.info.cocktailId}`}>Click to see your recipe</Link>
+          <h3>{this.props.name}</h3>
+          <Link to={`recipe/${this.props.id}`}>Click to see your recipe</Link>
         </div>
       </div>
     );

@@ -49,6 +49,7 @@ export default Backbone.Collection.extend({
     }, {
       success: (data) => {
         let drinkId = data.get('_id');
+        this.set({_id: drinkId});
         let drinkName = data.get('drink__strDrink');
         ingredients.forEach((ingredient, i) => {
           if (ingredient !== null) {

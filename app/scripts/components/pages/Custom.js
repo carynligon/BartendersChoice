@@ -80,10 +80,13 @@ export default React.createClass({
     e.preventDefault();
   },
   listener() {
+    let cocktailId;
+    let cocktailName;
     store.customCocktails.forEach((cocktail) => {
-      console.log(cocktail.id);
+      cocktailId = cocktail.id;
+      cocktailName = cocktail.get('drink__strDrink');
     })
-    this.setState({cocktails: store.customCocktails.models[0].get('_id'), preview: true});
+    this.setState({cocktailId: cocktailId, cocktailName: cocktailName, preview: true});
   },
   componentDidMount() {
     store.customCocktails.on('update', this.listener);
@@ -93,8 +96,8 @@ export default React.createClass({
   },
   render() {
     let modal;
-    if (this.state.preview) {
-      modal = <CustomPreview info={this.state.cocktail}/>
+    if (this.state.cocktailId) {
+      modal = <CustomPreview id={this.state.cocktailId} name={this.state.cocktailName}/>
     }
     console.log(this.state);
     let zippedIngredients = _.zip(this.state.ingredients, this.state.ingredientQuantities);
@@ -119,28 +122,28 @@ export default React.createClass({
           <h2>ADD YOUR OWN COCKTAIL</h2>
 
           <div id="cocktail-name-wrapper">
-            <label htmlFor="cocktail-name">Name of cocktail</label>
-            <input type="text" id="cocktail-name" autocomplete="off" ref="name"/>
+            <label htmlFor="cocktail-name">Name of cocktail:</label>
+            <input type="text" id="cocktail-name" autoComplete="off" ref="name"/>
           </div>
 
           <div id="image-uploader-wrapper">
-            <label htmlFor="image-uploader">Upload an image</label>
+            <label htmlFor="image-uploader">Upload image <i className="fa fa-upload upload-icon" aria-hidden="true"></i></label>
             <input type="file" id="image-uploader" accept="image/*" ref="file" onChange={this.uploadImg}/>
           </div>
 
           <div id="cocktail-difficulty-wrapper">
-            <label htmlFor="cocktail-difficulty">How hard is it to make?</label>
+            <label htmlFor="cocktail-difficulty">How hard is it to make?:</label>
             <input type="range" id="cocktail-difficulty" min="1" max="3" ref="difficulty"/>
           </div>
 
           <div id="cocktail-instructions-wrapper">
-            <label htmlFor="cocktail-instructions">Mixing Instructions</label>
-            <input type="text" id="cocktail-instructions" autocomplete="off" ref="instructions"/>
+            <label htmlFor="cocktail-instructions">Mixing Instructions:</label>
+            <input type="text" id="cocktail-instructions" autoComplete="off" ref="instructions"/>
           </div>
 
           <div id="cocktail-glass-wrapper">
-            <label htmlFor="cocktail-glass">Serving Glass</label>
-            <input type="text" id="cocktail-glass" autocomplete="off" ref="cocktailGlass"/>
+            <label htmlFor="cocktail-glass">Serving Glass:</label>
+            <input type="text" id="cocktail-glass" autoComplete="off" ref="cocktailGlass"/>
           </div>
 
           <ul id="ingredients-list">
@@ -148,13 +151,13 @@ export default React.createClass({
           </ul>
 
           <div id="new-ingredient-wrapper">
-            <label htmlFor="new-ingredient">Ingredient</label>
-            <input type="text" id="new-ingredient" autocomplete="off" ref="newIngredient"/>
+            <label htmlFor="new-ingredient">Ingredient:</label>
+            <input type="text" id="new-ingredient" autoComplete="off" ref="newIngredient"/>
           </div>
 
           <div id="new-ingredient-quantity-wrapper">
-            <label htmlFor="new-ingredient-quantity">Quantity</label>
-            <input type="text" id="new-ingredient-quantity" autocomplete="off" ref="newIngredientQuantity" onKeyUp={this.pressedEnter}/>
+            <label htmlFor="new-ingredient-quantity">Quantity:</label>
+            <input type="text" id="new-ingredient-quantity" autoComplete="off" ref="newIngredientQuantity" onKeyUp={this.pressedEnter}/>
           </div>
 
           <input type="button" id="add-ingredient" value="Add" onClick={this.newIngredient}/>

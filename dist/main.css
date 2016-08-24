@@ -556,24 +556,72 @@ video {
     padding: 10px; }
   #custom-cocktail-form #new-ingredient-wrapper, #custom-cocktail-form #new-ingredient-quantity-wrapper {
     display: inline-block;
-    width: 30%; }
+    width: 40%; }
+    #custom-cocktail-form #new-ingredient-wrapper label, #custom-cocktail-form #new-ingredient-quantity-wrapper label {
+      margin: 0 5px 0 0; }
+    #custom-cocktail-form #new-ingredient-wrapper input, #custom-cocktail-form #new-ingredient-quantity-wrapper input {
+      width: 65%;
+      font-size: 0.9rem;
+      padding: 10px;
+      box-sizing: border-box; }
+  #custom-cocktail-form #new-ingredient-wrapper {
+    margin-left: 25px; }
+  #custom-cocktail-form #cocktail-glass-wrapper input {
+    display: block;
+    width: 90%;
+    margin: 15px auto;
+    font-size: 0.9rem;
+    padding: 10px; }
+  #custom-cocktail-form #cocktail-difficulty-wrapper {
+    margin-top: 25px; }
+    #custom-cocktail-form #cocktail-difficulty-wrapper input {
+      display: block;
+      width: 50%;
+      margin: 5px auto; }
+  #custom-cocktail-form #image-uploader-wrapper {
+    margin-top: 25px; }
+    #custom-cocktail-form #image-uploader-wrapper input {
+      width: 0.1px;
+      height: 0.1px;
+      opacity: 0; }
+    #custom-cocktail-form #image-uploader-wrapper label {
+      background: #fff;
+      color: #FF3C38;
+      border: 2px solid #FF3C38;
+      padding: 10px;
+      font-size: 0.9rem; }
+      #custom-cocktail-form #image-uploader-wrapper label:hover {
+        background: #FF3C38;
+        color: #fff; }
   #custom-cocktail-form #submit-cocktail {
     display: block;
     margin: 20px auto 5px auto;
-    background: #FF3C38;
+    background: #fff;
+    border: 2px solid #FF3C38;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
-    color: #fff;
+    color: #FF3C38;
     padding: 5px 10px;
     font-size: 1rem;
-    border: none;
     outline: none; }
     #custom-cocktail-form #submit-cocktail:hover {
-      background: none;
-      color: #FF3C38; }
+      color: #fff;
+      background: #FF3C38; }
   #custom-cocktail-form div {
     margin: 5px 0; }
   #custom-cocktail-form label {
     margin: 0 25px; }
+
+#ingredients-list p {
+  display: inline-block;
+  margin: 0 5px; }
+#ingredients-list #delete-btn {
+  padding: 0 0 10px 0;
+  background: none;
+  border: none;
+  color: #FF3C38; }
+  #ingredients-list #delete-btn:hover {
+    color: #454545;
+    cursor: pointer; }
 
 body {
   margin: 0;
