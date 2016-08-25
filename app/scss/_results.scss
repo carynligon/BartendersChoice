@@ -1,15 +1,17 @@
 #results-section{
-  margin-top: 50px;
+  margin: 150px auto;
+  width: 70%;
   h3 {
     font-size: 2rem;
     font-family: Raleway, sans-serif;
-    margin: 10px 0;
+    margin: 5px 10px;
     display: inline-block;
   }
   #drink-image-results {
     height: 300px;
-    width: 300px;
-    background-size: contain;
+    width: 40%;
+    margin-right: 3%;
+    background-size: cover;
     float: left;
   }
   a {
@@ -28,8 +30,11 @@
   ul {
     padding: 10px;
     height: 250px;
+    width: 52%;
+    display: inline-block;
     overflow: scroll;
     margin: 0 5% 0 0;
+    border: 1px solid $gray;
     box-sizing: border-box;
     h5 {
       font-size: 1rem;

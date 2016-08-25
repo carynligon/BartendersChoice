@@ -10,7 +10,7 @@ import DrinkPreview from './DrinkPreview';
 
 export default React.createClass({
   getInitialState() {
-    return {};
+    return {hide: true};
   },
   routeToRecipe(e) {
     if (e.target.parentElement.id !== 'results-dropdown') {
@@ -62,6 +62,10 @@ export default React.createClass({
     if (this.state.hide) {
       styles = {
         height: '0px'
+      };
+    } else {
+      styles = {
+        height: '200px'
       };
     }
     if (this.state.results) {

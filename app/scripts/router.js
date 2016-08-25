@@ -18,15 +18,11 @@ const router = (
   <Router history={hashHistory}>
     <Route path="/confirm" component={Confirm}/>
     <Route path="/" component={App}>
-      <Route path="/login" component={Login}/>
-      <Route path="/signup" component={Signup}/>
     </Route>
     <Route path="/search" component={Search}/>
     <Route path="/recipe/:cocktail" component={Recipe}/>
     <Route path="/assessment" component={Assessment}>
       <IndexRoute component={AssessmentInfo}/>
-      <Route path="/assessment/login" component={Login}/>
-      <Route path="/assessment/signup" component={Signup}/>
       <Route path="/assessment/question" component={SingleQuestion}/>
       <Route path="/assessment/results" component={Results}/>
     </Route>
@@ -34,5 +30,6 @@ const router = (
     <Route path="/me" component={UserDashboard}/>
   </Router>
 );
+
 
 export default router;

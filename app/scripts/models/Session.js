@@ -96,6 +96,6 @@ export default Backbone.Model.extend({
         localStorage.setItem('username', 'Anonymous');
       }
     });
-    hashHistory.push('/');
+    hashHistory.push('/confirm');
   }
 });

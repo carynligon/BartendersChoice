@@ -13,15 +13,23 @@ import FilterBar from '../FilterBar';
 
 export default React.createClass({
   getInitialState() {
-    return {}
+    return {fetch6: false}
   },
   listener() {
     this.setState({
       cocktails: store.cocktails.toJSON(),
     });
   },
+  handleResize() {
+    if (window.innerWidth >= 1050) {
+      this.setState({
+        fetch6: true
+      });
+    }
+  },
   componentDidMount() {
     store.cocktails.on('update', this.listener);
+    window.addEventListener('resize', this.handleResize);
     store.cocktails.fetch({
       data: JSON.stringify({
         query: {drink__strDrinkThumb:{
@@ -39,9 +47,15 @@ export default React.createClass({
       return drink.drink__strDrinkThumb !== null;
     });
     let randomDrinks = [];
-    _(4).times(function() {
-      randomDrinks.push(drinksWithImgs[Math.floor(Math.random() * drinksWithImgs.length)]);
-    });
+    if (this.state.fetch6) {
+      _(6).times(function() {
+        randomDrinks.push(drinksWithImgs[Math.floor(Math.random() * drinksWithImgs.length)]);
+      });
+    } else {
+      _(4).times(function() {
+        randomDrinks.push(drinksWithImgs[Math.floor(Math.random() * drinksWithImgs.length)]);
+      });
+    }
     let drinks;
     if (randomDrinks[0] !== undefined) {
       drinks = randomDrinks.map((drink,i) => {

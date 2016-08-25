@@ -10,19 +10,12 @@ export default React.createClass({
     e.preventDefault();
     let username = this.refs.username.value;
     let password = this.refs.password.value;
-    store.session.login(username, password)
-    if (this.props.location.pathname === '/assessment/login') {
-      hashHistory.push('/assessment');
-    } else {
-      hashHistory.push('/');
-    }
+    store.session.login(username, password);
+    this.props.hideModal();
   },
   render() {
-    console.log(this.props.location);
-    let signupBtn = (<p>Don't have an account?<Link to="/assessment/signup">Sign up!</Link></p>)
-    if (this.props.route.path === '/login') {
-      signupBtn = (<p>Don't have an account?<Link to="/signup">Sign up!</Link></p>);
-    }
+    console.log(this.props);
+    let signupBtn = (<p>Don't have an account?<span id="signup-btn" onClick={this.showSignup}>Sign up!</span></p>)
     return(
       <UserModal>
         <form className="login-signup-form" onSubmit={this.login}>

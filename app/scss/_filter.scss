@@ -2,8 +2,13 @@
   background: $gray;
   color: $main;
   font-size: 1rem;
-  width: 50%;
-  float: right;
+  width: 70%;
+  position: relative;
+  bottom: 19px;
+  right: 7px;
+  height: 130px;
+  padding: 0 0 15px 0;
+  box-sizing: border-box;
   h6 {
     font-size: 1rem;
     margin: 0;
@@ -11,10 +16,14 @@
   ul {
     margin: 0;
     display: inline-block;
+    padding: 0;
   }
   #filter-flavor-wrapper, #filter-alcohol-wrapper {
     display: inline-block;
-    width: 32%;
+    float: left;
+    box-sizing: border-box;
+    width: 33%;
+    padding: 10px 20px;
     #flavor-profile-2, #alcohol-list-2 {
       float: left;
     }
@@ -24,6 +33,24 @@
   }
   #filter-difficulty-wrapper {
     display: inline-block;
-    width: 32%;
+    float: left;
+    width: 33%;
+    padding: 10px 20px;
+    border-right: 1px solid darken($gray, 5%);
+    border-left: 1px solid darken($gray, 5%);
+    height: 130px;
+    box-sizing: border-box;
+  }
+  input[type="button"] {
+    background: $main;
+    color: $white;
+    font-size: 0.8rem;
+    padding: 7px;
+    float: right;
+    margin-right: 10px;
+    &:hover {
+      background: $white;
+      color: $main;
+    }
   }
 }

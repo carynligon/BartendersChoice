@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link, hashHistory} from 'react-router';
+import _ from 'underscore';
 
 import store from '../store';
 
@@ -13,7 +14,13 @@ export default React.createClass({
   componentDidMount() {
     window.addEventListener('resize', this.handleResize);
   },
+  closeModal(e) {
+    if (e.target.className === 'modal-container') {
+      this.props.hideModal();
+    }
+  },
   render() {
+    console.log(this.props);
     let containerStyles = {
       position: 'fixed',
       top: 0,
@@ -41,7 +48,7 @@ export default React.createClass({
       };
     }
     return(
-      <div className="modal-container" style={containerStyles}>
+      <div className="modal-container" style={containerStyles} onClick={this.closeModal}>
         <div className="modal-content" style={contentStyles}>
           {this.props.children}
         </div>

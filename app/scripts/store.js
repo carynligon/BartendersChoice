@@ -20,5 +20,6 @@ export default {
   customCocktails: new CustomCocktails(),
   savedForLaterCollection: new SavedForLaterCollection(),
   favorites: new Favorites(),
-  allIngredients: new AllIngredients()
+  allIngredients: new AllIngredients(),
+  showModal: false
 }

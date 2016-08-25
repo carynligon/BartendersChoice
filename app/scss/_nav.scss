@@ -65,7 +65,7 @@ header {
       top: 54px;
       padding: 0 10px;
       margin: 0;
-      width: 380px;
+      width: 330px;
       overflow: scroll;
       box-sizing: border-box;
       background: $gray;
@@ -136,6 +136,7 @@ nav {
   }
   #login-links {
     float: right;
+    margin-right: 3%;
   }
   #user-info-link {
     position: absolute;
@@ -148,6 +149,9 @@ nav {
       padding: 6px 9px;
       border-radius: 50%;
       color: rgba($main, 0.7);
+      &:hover {
+        color: $black;
+      }
     }
   }
 

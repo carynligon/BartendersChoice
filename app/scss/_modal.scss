@@ -1,5 +1,9 @@
 .login-signup-form, .user-info-form {
   text-align: center;
+  h2 {
+    padding: 0;
+    color: $black;
+  }
   i {
     font-size: 1rem;
     margin-top: 1px;

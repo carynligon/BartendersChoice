@@ -21,7 +21,7 @@
 
 #question-section {
   padding: 0 20px;
-  margin: 0 auto;
+  margin: 150px auto;
   h3 {
     font-size: 3.5rem;
     text-align: center;
@@ -48,6 +48,7 @@
         background: linear-gradient(80deg, rgba(#FF9145, 0.9), rgba($main, 0.7));
         color: $white;
         border: none;
+        cursor: pointer;
       }
     }
     #me {
@@ -55,6 +56,7 @@
         background: linear-gradient(80deg, rgba($main, 0.9), rgba(#FF9145, 0.7));
         color: $white;
         border: none;
+        cursor: pointer;
       }
     }
   }

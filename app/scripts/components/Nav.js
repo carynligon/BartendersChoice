@@ -4,6 +4,7 @@ import {Link} from 'react-router';
 import store from '../store';
 
 import UserModal from './UserModal';
+import Login from './pages/Login';
 import SearchBar from './SearchBar';
 import FilterBar from './FilterBar';
 
@@ -12,7 +13,9 @@ export default React.createClass({
     return {
       authtoken: localStorage.getItem('authtoken'),
       username: localStorage.getItem('username'),
-      showFilter: false
+      showFilter: false,
+      showModal: false,
+      login: true
     }
   },
   listener() {
@@ -21,6 +24,18 @@ export default React.createClass({
       username: store.session.get('username'),
       showFilter: false
     });
+  },
+  showModal() {
+    this.setState({showModal: true});
+  },
+  showSignup() {
+    this.setState({signup: true, login: false});
+  },
+  showLogin() {
+    this.setState({signup: false, login: true});
+  },
+  hideModal() {
+    this.setState({showModal: false});
   },
   showFilter() {
     this.setState({
@@ -37,12 +52,18 @@ export default React.createClass({
   render() {
     let links;
     let showFilter;
-      if (this.state.username === 'Anonymous') {
-        links = (
-          <div id="login-links">
-            <Link to="login">SIGN IN</Link>
-          </div>
-        );
+    let showModal;
+    if (this.state.showModal && this.state.login) {
+      showModal = (<UserModal hideModal={this.hideModal} showModal={this.showModal} login={true}><Login hideModal={this.hideModal}/></UserModal>);
+    } else if (this.state.showModal && this.state.sigup) {
+      showModal = (<UserModal hideModal={this.hideModal} showModal={this.showModal} login={false}><Signup/></UserModal>);
+    }
+    if (this.state.username === 'Anonymous') {
+      links = (
+        <div id="login-links">
+          <p onClick={this.showModal}>SIGN IN</p>
+        </div>
+      );
       } else {
         links = (
           <div id="login-links">
@@ -65,6 +86,7 @@ export default React.createClass({
         <Link id="logo" to="/"><img src="assets/images/logo.png"/></Link>
         {links}
         {showFilter}
+        {showModal}
       </nav>
     );
   }
