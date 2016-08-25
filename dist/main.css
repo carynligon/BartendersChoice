@@ -231,7 +231,7 @@ video {
       position: relative;
       top: 232px;
       padding: 10px;
-      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(69, 69, 69, 0.1), rgba(69, 69, 69, 0.8));
+      background: linear-gradient(to bottom, rgba(69, 69, 69, 0.2), rgba(69, 69, 69, 0.4), rgba(69, 69, 69, 0.8));
       color: #fff;
       font-family: Raleway, sans-serif;
       margin: 0; }
@@ -405,6 +405,20 @@ video {
   background-size: contain;
   background-position: center;
   float: right; }
+  #recipe-drink-img i {
+    font-size: 2rem; }
+  #recipe-drink-img .favorite-icon {
+    color: #FF3C38;
+    position: relative;
+    left: 8%;
+    top: 92%; }
+  #recipe-drink-img .bookmark-icon {
+    position: relative;
+    left: 15px;
+    top: 92%;
+    color: #454545; }
+    #recipe-drink-img .bookmark-icon:hover {
+      color: #FF3C38; }
 
 .ingredients {
   display: inline-block;
@@ -613,6 +627,9 @@ video {
   #ingredients-list #delete-btn:hover {
     color: #454545;
     cursor: pointer; }
+
+#select-view {
+  margin-top: 150px; }
 
 body {
   margin: 0;

@@ -121,9 +121,10 @@ export default React.createClass({
             <li>{this.state.cocktail.drink__strIngredient8} {this.state.cocktail.drink__strMeasure8}</li>
           </ul>
         </div>
-        <div id="recipe-drink-img" style={background}></div>
-        <i className="fa fa-bookmark bookmark-icon" aria-hidden="true" style={display} onClick={this.addBookmark}></i>
-        {heart}
+        <div id="recipe-drink-img" style={background}>
+          <i className="fa fa-bookmark bookmark-icon" aria-hidden="true" style={display} onClick={this.addBookmark}></i>
+          {heart}
+        </div>
         <div className="mixing-instructions">
           <h4>Mixing Instructions</h4>
           <p>{this.state.cocktail.drink__strInstructions}</p>

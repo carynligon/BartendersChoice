@@ -11,6 +11,24 @@
   background-size: contain;
   background-position: center;
   float: right;
+  i {
+    font-size: 2rem;
+  }
+  .favorite-icon {
+    color: $main;
+    position: relative;
+    left: 8%;
+    top: 92%;
+  }
+  .bookmark-icon {
+    position: relative;
+    left: 15px;
+    top: 92%;
+    color: $black;
+    &:hover {
+      color: $main;
+    }
+  }
 }
 
 .ingredients {

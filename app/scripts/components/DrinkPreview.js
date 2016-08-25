@@ -5,7 +5,10 @@ import store from '../store';
 
 export default React.createClass({
   getInitialState() {
-    return {bookmark: false};
+    return {
+      bookmark: false,
+      user: store.users.get(store.session.get('userId'))
+    };
   },
   viewRecipe(e) {
     hashHistory.push(`/recipe/${e.target.parentElement.parentElement.id}`);
@@ -66,6 +69,7 @@ export default React.createClass({
     store.favorites.off('update remove', this.listener);
   },
   render() {
+    console.log(this.state);
     let styles;
     if (this.props.img !== null) {
       styles = {

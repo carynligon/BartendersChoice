@@ -17,6 +17,8 @@ $(document).ajaxSend(function(evt, xhrAjax, jqueryAjax) {
 
 ReactDOM.render(router, document.getElementById('container'));
 
+store.users.fetch();
+
 if (localStorage.getItem('authtoken') && localStorage.getItem('username') !== 'Anonymous') {
   store.session.retrieve();
 } else if (!localStorage.getItem('ofAge')){

@@ -7,6 +7,8 @@ export default Backbone.Model.extend({
   idAttribute: '_id',
   defaults: {
     username: '',
-    authtoken: ''
+    authtoken: '',
+    favorites: [],
+    bookmarks: []
   },
 });
