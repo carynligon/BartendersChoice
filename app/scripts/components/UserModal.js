@@ -14,6 +14,9 @@ export default React.createClass({
   componentDidMount() {
     window.addEventListener('resize', this.handleResize);
   },
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+  },
   closeModal(e) {
     if (e.target.className === 'modal-container') {
       this.props.hideModal();

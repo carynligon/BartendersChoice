@@ -55,7 +55,7 @@ header {
 
 #results-dropdown {
   position: absolute;
-  left: 0.9%;
+  left: 10px;
   top: 54px;
   padding: 0 10px;
   margin: 0;
@@ -120,6 +120,13 @@ nav {
 #login-links {
   float: right;
   margin-right: 3%; }
+  #login-links p {
+    color: #FF3C38;
+    font-weight: bolder;
+    text-decoration: underline; }
+    #login-links p:hover {
+      color: #454545;
+      cursor: pointer; }
 
 #user-info-link {
   position: absolute;
@@ -275,9 +282,9 @@ video {
       width: calc(100%);
       margin: 20px 7%; } }
 .assessment-section {
-  width: 80%;
+  width: 60%;
   text-align: center;
-  margin: 0 auto; }
+  margin: 150px auto; }
   .assessment-section img {
     height: 100px; }
   .assessment-section #start-assessment-btn {

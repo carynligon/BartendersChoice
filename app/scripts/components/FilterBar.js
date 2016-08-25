@@ -24,6 +24,7 @@ export default React.createClass({
         filter: filterArr
     }
   });
+  this.props.showFilter();
   },
   render() {
     return(

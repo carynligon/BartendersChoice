@@ -20,16 +20,8 @@ export default React.createClass({
       cocktails: store.cocktails.toJSON(),
     });
   },
-  handleResize() {
-    if (window.innerWidth >= 1050) {
-      this.setState({
-        fetch6: true
-      });
-    }
-  },
   componentDidMount() {
     store.cocktails.on('update', this.listener);
-    window.addEventListener('resize', this.handleResize);
     store.cocktails.fetch({
       data: JSON.stringify({
         query: {drink__strDrinkThumb:{
@@ -46,16 +38,11 @@ export default React.createClass({
     let drinksWithImgs = data.filter((drink, i) => {
       return drink.drink__strDrinkThumb !== null;
     });
+    console.log(drinksWithImgs);
     let randomDrinks = [];
-    if (this.state.fetch6) {
-      _(6).times(function() {
-        randomDrinks.push(drinksWithImgs[Math.floor(Math.random() * drinksWithImgs.length)]);
-      });
-    } else {
-      _(4).times(function() {
-        randomDrinks.push(drinksWithImgs[Math.floor(Math.random() * drinksWithImgs.length)]);
-      });
-    }
+    _(6).times(function() {
+      randomDrinks.push(drinksWithImgs[Math.floor(Math.random() * drinksWithImgs.length)]);
+    });
     let drinks;
     if (randomDrinks[0] !== undefined) {
       drinks = randomDrinks.map((drink,i) => {

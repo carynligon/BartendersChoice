@@ -73,7 +73,7 @@ export default React.createClass({
         );
       }
       if (this.state.showFilter) {
-        showFilter = (<FilterBar/>);
+        showFilter = (<FilterBar hideFilter={this.showFilter}/>);
       } else {
         showFilter;
       }

@@ -61,7 +61,7 @@ header {
   }
     #results-dropdown {
       position: absolute;
-      left: 0.9%;
+      left: 10px;
       top: 54px;
       padding: 0 10px;
       margin: 0;
@@ -137,6 +137,15 @@ nav {
   #login-links {
     float: right;
     margin-right: 3%;
+    p {
+      color: $main;
+      font-weight: bolder;
+      text-decoration: underline;
+      &:hover {
+        color: $black;
+        cursor: pointer;
+      }
+    }
   }
   #user-info-link {
     position: absolute;
