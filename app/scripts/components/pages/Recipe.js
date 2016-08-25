@@ -1,8 +1,11 @@
 import React from 'react';
+import _ from 'underscore';
 import {hashHistory} from 'react-router';
 
 import store from '../../store';
+
 import Nav from '../Nav';
+import SimilarDrinks from '../SimilarDrinks';
 
 export default React.createClass({
   getInitialState() {
@@ -17,6 +20,56 @@ export default React.createClass({
   },
   listener() {
     this.setState({cocktail: store.cocktails.get(this.props.params.cocktail).toJSON()});
+    store.allIngredients.fetch({
+      data: {
+        query: JSON.stringify({
+          drinkName: this.state.cocktail.drink__strDrink.toLowerCase()
+        })
+      },
+      success: (data) => {
+        let drinkName = data.models[0].get('drinkName');
+        let flavors = data.models[0].get('tags');
+        this.setState({tags: flavors})
+        let index = Math.floor(Math.random() * flavors.length);
+        store.allIngredients.fetch({
+          data: {
+            resolve: "drink",
+            query: JSON.stringify({
+              tags: flavors[index]
+            })
+          },
+          success: (data) => {
+            let resultsArr = [];
+            function findRandomModels() {
+              _(3).times(function getRandom () {
+                let resultsIndex = Math.floor(Math.random() * data.models.length);
+                let random = data.models[resultsIndex].get('drink')._obj;
+                if (resultsArr.indexOf(random) === -1 && random.drink__strDrink !== drinkName.toLowerCase()) {
+                  console.log(random);
+                  resultsArr.push(random);
+                } else {
+                  getRandom();
+                }
+              });
+            }
+            findRandomModels();
+            let resultIDs = [];
+            resultsArr.forEach((result) => {
+              resultIDs.push(result._id)
+            });
+            console.log(resultIDs);
+            let unique = _.uniq(resultIDs);
+            if (unique.length !== 3) {
+              findRandomModels()
+            } else {
+              this.setState({
+                similar: resultsArr
+              });  
+            }
+          }
+        });
+      }
+    });
   },
   updateSaved() {
     store.favorites.forEach((drink) => {
@@ -36,7 +89,6 @@ export default React.createClass({
   },
   addFavorite() {
     if (this.state.favorite) {
-      console.log(this.state);
       this.state.favoriteModel.destroy({
         success: () => {
           this.setState({favorite: false});
@@ -49,7 +101,6 @@ export default React.createClass({
   },
   addBookmark() {
     if (this.state.bookmark) {
-      console.log(this.state);
       this.state.bookmarkModel.destroy({
         success: () => {
           this.setState({bookmark: false});
@@ -72,35 +123,38 @@ export default React.createClass({
     store.cocktails.off('update', this.listener);
   },
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     this.setState({cocktail: store.cocktails.get(nextProps.params.cocktail).toJSON()});
   },
   render() {
-    let display;
-    if (this.state.bookmark) {
-      display = {
-        color: '#FF3C38'
-      }
-    } else {
-      display = {
-        color: '#454545'
-      };
-    }
-    let heart;
-    if (this.state.favorite) {
-      heart = (<i className="fa fa-heart favorite-icon" aria-hidden="true" onClick={this.addFavorite}></i>);
-    } else {
-      heart = (<i className="fa fa-heart-o favorite-icon" aria-hidden="true" onClick={this.addFavorite}></i>)
-    }
     console.log(this.state);
+    let display;
+    let heart;
     let background;
-    if (this.state.cocktail.drink__strDrinkThumb === null) {
-      background = {
-        backgroundImage: 'url(assets/images/Cocktail-icon.png)'
-      };
-    } else {
-      background = {
-        backgroundImage: 'url(' + this.state.cocktail.drink__strDrinkThumb + ')'
+    let similarDrinks;
+    if (this.state.cocktail) {
+      similarDrinks = (<SimilarDrinks similar={this.state.similar}/>);
+      if (this.state.bookmark) {
+        display = {
+          color: '#FF3C38'
+        }
+      } else {
+        display = {
+          color: '#454545'
+        };
+      }
+      if (this.state.favorite) {
+        heart = (<i className="fa fa-heart favorite-icon" aria-hidden="true" onClick={this.addFavorite}></i>);
+      } else {
+        heart = (<i className="fa fa-heart-o favorite-icon" aria-hidden="true" onClick={this.addFavorite}></i>)
+      }
+      if (this.state.cocktail.drink__strDrinkThumb === null) {
+        background = {
+          backgroundImage: 'url(assets/images/Cocktail-icon.png)'
+        };
+      } else {
+        background = {
+          backgroundImage: 'url(' + this.state.cocktail.drink__strDrinkThumb + ')'
+        }
       }
     }
     return(
@@ -129,6 +183,7 @@ export default React.createClass({
           <h4>Mixing Instructions</h4>
           <p>{this.state.cocktail.drink__strInstructions}</p>
         </div>
+        {similarDrinks}
       </main>
     );
   }

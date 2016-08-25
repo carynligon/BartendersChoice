@@ -7,6 +7,7 @@ import SearchResults from './collections/SearchResults';
 import CustomCocktails from './collections/CustomCocktails';
 import SavedForLaterCollection from './collections/SavedForLaterCollection';
 import Favorites from './collections/Favorites';
+import AllIngredients from './collections/AllIngredients';
 
 export default {
   session: new Session(),
@@ -18,5 +19,6 @@ export default {
   searchResults: new SearchResults(),
   customCocktails: new CustomCocktails(),
   savedForLaterCollection: new SavedForLaterCollection(),
-  favorites: new Favorites()
+  favorites: new Favorites(),
+  allIngredients: new AllIngredients()
 }

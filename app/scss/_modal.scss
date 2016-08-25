@@ -47,22 +47,3 @@
     }
   }
 }
-
-.user-info-form {
-  margin-top: 28%;
-  #logout-btn {
-    width: 200px;
-    margin: 10% auto 0 auto;
-    display: block;
-    background: $main;
-    color: white;
-    font-weight: bolder;
-    letter-spacing: 0.5px;
-    padding: 5px 10px;
-    border: none;
-    box-shadow: 1px 2px 3px 1px rgba($black ,0.3);
-    &:hover {
-      background: $black;
-    }
-  }
-}

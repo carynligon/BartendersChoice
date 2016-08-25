@@ -1,10 +1,25 @@
+#dashboard-page {
+  #logout-btn {
+    margin-top: 100px;
+    background: $main;
+    border: none;
+    color: $white;
+    font-size: 1rem;
+    padding: 5px 15px;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
+    &:hover {
+      background: $black;
+    }
+  }
+}
+
 #dashboard {
   width: 80%;
   margin: 0 auto;
 }
 
 #select-view {
-  margin-top: 150px;
+  margin-top: 180px;
   width: 30%;
   float: left;
   padding: 0;
@@ -27,8 +42,15 @@
   width: 66%;
   float: left;
   padding: 0;
-  margin: 150px 0 0 4%;
+  margin: 180px 0 0 4%;
   box-sizing: border-box;
+  li {
+    border-bottom: 2px solid $gray;
+    padding: 15px 0;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
   .saved-item-img {
     width: 50%;
     height: 230px;
