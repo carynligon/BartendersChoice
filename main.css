@@ -376,22 +376,6 @@ video {
     .login-signup-form a:hover, .user-info-form a:hover {
       color: #454545; }
 
-.user-info-form {
-  margin-top: 28%; }
-  .user-info-form #logout-btn {
-    width: 200px;
-    margin: 10% auto 0 auto;
-    display: block;
-    background: #FF3C38;
-    color: white;
-    font-weight: bolder;
-    letter-spacing: 0.5px;
-    padding: 5px 10px;
-    border: none;
-    box-shadow: 1px 2px 3px 1px rgba(69, 69, 69, 0.3); }
-    .user-info-form #logout-btn:hover {
-      background: #454545; }
-
 .recipe-title {
   font-size: 2.5rem;
   font-family: Raleway, sans-serif;
@@ -449,6 +433,11 @@ video {
   #back-btn:hover {
     cursor: pointer;
     color: #FF3C38; }
+
+#similar-drinks {
+  width: 400px;
+  margin: 100px auto 0 auto;
+  padding: 0; }
 
 #results-section {
   margin-top: 50px; }
@@ -628,12 +617,23 @@ video {
     color: #454545;
     cursor: pointer; }
 
+#dashboard-page #logout-btn {
+  margin-top: 100px;
+  background: #FF3C38;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  padding: 5px 15px;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1); }
+  #dashboard-page #logout-btn:hover {
+    background: #454545; }
+
 #dashboard {
   width: 80%;
   margin: 0 auto; }
 
 #select-view {
-  margin-top: 150px;
+  margin-top: 180px;
   width: 30%;
   float: left;
   padding: 0;
@@ -653,8 +653,13 @@ video {
   width: 66%;
   float: left;
   padding: 0;
-  margin: 150px 0 0 4%;
+  margin: 180px 0 0 4%;
   box-sizing: border-box; }
+  #preview-selected-item li {
+    border-bottom: 2px solid #EEEEEE;
+    padding: 15px 0; }
+    #preview-selected-item li:last-child {
+      border-bottom: none; }
   #preview-selected-item .saved-item-img {
     width: 50%;
     height: 230px;
