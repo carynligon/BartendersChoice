@@ -69,7 +69,6 @@ export default React.createClass({
     store.favorites.off('update remove', this.listener);
   },
   render() {
-    console.log(this.state);
     let styles;
     if (this.props.img !== null) {
       styles = {

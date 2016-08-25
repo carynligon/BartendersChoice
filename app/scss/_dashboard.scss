@@ -1,3 +1,49 @@
+#dashboard {
+  width: 80%;
+  margin: 0 auto;
+}
+
 #select-view {
   margin-top: 150px;
+  width: 30%;
+  float: left;
+  padding: 0;
+  border: 2px solid $gray;
+  box-sizing: border-box;
+  li {
+    padding: 10px 0;
+    text-align: center;
+    font-family: Raleway, sans-serif;
+    font-size: 1.2rem;
+    &:hover {
+      background: $main;
+      color: $white;
+      cursor: pointer;
+    }
+  }
+}
+
+#preview-selected-item {
+  width: 66%;
+  float: left;
+  padding: 0;
+  margin: 150px 0 0 4%;
+  box-sizing: border-box;
+  .saved-item-img {
+    width: 50%;
+    height: 230px;
+    background-size: cover;
+    display: inline-block;
+  }
+  .saved-item-data {
+    width: 50%;
+    float: right;
+    h3 {
+      text-align: center;
+    }
+    a {
+      text-align: center;
+      display: block;
+    }
+  }
 }

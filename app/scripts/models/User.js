@@ -10,5 +10,5 @@ export default Backbone.Model.extend({
     authtoken: '',
     favorites: [],
     bookmarks: []
-  },
+  }
 });

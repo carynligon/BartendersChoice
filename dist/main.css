@@ -628,8 +628,46 @@ video {
     color: #454545;
     cursor: pointer; }
 
+#dashboard {
+  width: 80%;
+  margin: 0 auto; }
+
 #select-view {
-  margin-top: 150px; }
+  margin-top: 150px;
+  width: 30%;
+  float: left;
+  padding: 0;
+  border: 2px solid #EEEEEE;
+  box-sizing: border-box; }
+  #select-view li {
+    padding: 10px 0;
+    text-align: center;
+    font-family: Raleway, sans-serif;
+    font-size: 1.2rem; }
+    #select-view li:hover {
+      background: #FF3C38;
+      color: #fff;
+      cursor: pointer; }
+
+#preview-selected-item {
+  width: 66%;
+  float: left;
+  padding: 0;
+  margin: 150px 0 0 4%;
+  box-sizing: border-box; }
+  #preview-selected-item .saved-item-img {
+    width: 50%;
+    height: 230px;
+    background-size: cover;
+    display: inline-block; }
+  #preview-selected-item .saved-item-data {
+    width: 50%;
+    float: right; }
+    #preview-selected-item .saved-item-data h3 {
+      text-align: center; }
+    #preview-selected-item .saved-item-data a {
+      text-align: center;
+      display: block; }
 
 body {
   margin: 0;
