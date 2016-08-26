@@ -3,6 +3,7 @@ import {Router, Route, hashHistory, IndexRoute} from 'react-router';
 
 import Confirm from './components/pages/Confirm';
 import App from './components/pages/App';
+import NotFound from './components/pages/NotFound';
 import Login from './components/pages/Login';
 import Signup from './components/pages/Signup';
 import UserDashboard from './components/pages/UserDashboard';
@@ -28,6 +29,7 @@ const router = (
     </Route>
     <Route path="/custom" component={Custom}/>
     <Route path="/me" component={UserDashboard}/>
+    <Route path="*" component={NotFound}/>
   </Router>
 );
 
