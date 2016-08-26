@@ -7,7 +7,7 @@ header {
     color: #fff;
     text-align: center;
     font-family: Raleway, sans-serif;
-    padding-top: 170px;
+    padding-top: 220px;
     font-weight: 300; }
   header #assessment-link {
     color: #fff;
@@ -74,6 +74,7 @@ header {
 
 nav {
   position: fixed;
+  z-index: 5;
   width: 100%;
   top: 0;
   padding: 10px;
@@ -91,7 +92,8 @@ nav {
     nav #show-filter-options:hover, nav #show-filter-options:active {
       background: #FF3C38;
       color: #fff;
-      outline: none; }
+      outline: none;
+      cursor: pointer; }
   nav #logo {
     position: relative;
     text-align: center;
@@ -111,7 +113,7 @@ nav {
     font-size: 1.5rem;
     font-weight: bolder;
     border: 1px solid #FF3C38;
-    padding: 1px 12px 2px 12px;
+    padding: 0px 12px 2px 12px;
     margin: 0; }
     nav #custom-link:hover {
       background: #FF3C38;
@@ -199,7 +201,8 @@ video {
     padding: 12px; }
     #age-validation input:hover {
       background: #fff;
-      color: #454545; }
+      color: #454545;
+      cursor: pointer; }
 
 #cocktail-list {
   margin: 0 auto; }
@@ -610,6 +613,14 @@ video {
   #custom-cocktail-page #new-recipe-link:hover {
     color: #FF3C38;
     text-decoration: underline; }
+#custom-cocktail-page #add-ingredient {
+  background: none;
+  border: 1px solid #FF3C38;
+  color: #FF3C38; }
+  #custom-cocktail-page #add-ingredient:hover {
+    background: #FF3C38;
+    color: #fff;
+    cursor: pointer; }
 
 #custom-cocktail-form {
   width: 70%;
@@ -672,7 +683,8 @@ video {
       font-size: 0.9rem; }
       #custom-cocktail-form #image-uploader-wrapper label:hover {
         background: #FF3C38;
-        color: #fff; }
+        color: #fff;
+        cursor: pointer; }
   #custom-cocktail-form #submit-cocktail {
     display: block;
     margin: 20px auto 5px auto;
@@ -685,7 +697,8 @@ video {
     outline: none; }
     #custom-cocktail-form #submit-cocktail:hover {
       color: #fff;
-      background: #FF3C38; }
+      background: #FF3C38;
+      cursor: pointer; }
   #custom-cocktail-form div {
     margin: 5px 0; }
   #custom-cocktail-form label {
@@ -712,7 +725,8 @@ video {
   padding: 5px 15px;
   box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1); }
   #dashboard-page #logout-btn:hover {
-    background: #454545; }
+    background: #454545;
+    cursor: pointer; }
 
 #dashboard {
   width: 80%;
