@@ -455,7 +455,7 @@ video {
     color: #FF3C38; }
 
 #similar-drinks {
-  margin: 100px auto;
+  margin: 150px auto;
   padding: 0;
   text-align: center; }
   #similar-drinks h4 {
@@ -601,13 +601,13 @@ video {
   text-align: center;
   font-size: 2.2rem;
   margin-top: 150px; }
-#custom-cocktail-page a {
+#custom-cocktail-page #new-recipe-link {
   text-align: center;
   display: block;
   color: #FF3C38;
   font-size: 1.4rem;
   text-decoration: none; }
-  #custom-cocktail-page a:hover {
+  #custom-cocktail-page #new-recipe-link:hover {
     color: #FF3C38;
     text-decoration: underline; }
 
