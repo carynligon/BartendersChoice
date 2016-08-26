@@ -6,6 +6,8 @@ import store from '../../store';
 
 import Nav from '../Nav';
 import SimilarDrinks from '../SimilarDrinks';
+import UserModal from '../UserModal';
+import Login from './Login';
 
 export default React.createClass({
   getInitialState() {
@@ -89,28 +91,41 @@ export default React.createClass({
       }
     });
   },
+  hideModal() {
+    this.setState({loggedIn: true});
+  },
   addFavorite() {
-    if (this.state.favorite) {
-      this.state.favoriteModel.destroy({
-        success: () => {
-          this.setState({favorite: false});
-        }
-      });
+    if (localStorage.getItem('username') !== 'Anonymous') {
+      this.setState({loggedIn: true});
+      if (this.state.favorite) {
+        this.state.favoriteModel.destroy({
+          success: () => {
+            this.setState({favorite: false});
+          }
+        });
+      } else {
+        let cocktail = store.cocktails.get(this.props.params.cocktail);
+        store.favorites.favorite(cocktail, store.session);
+      }
     } else {
-      let cocktail = store.cocktails.get(this.props.params.cocktail);
-      store.favorites.favorite(cocktail, store.session);
+      this.setState({loggedIn: false});
     }
   },
   addBookmark() {
-    if (this.state.bookmark) {
-      this.state.bookmarkModel.destroy({
-        success: () => {
-          this.setState({bookmark: false});
-        }
-      });
+    if (localStorage.getItem('username') !== 'Anonymous') {
+      this.setState({loggedIn: true});
+      if (this.state.bookmark) {
+        this.state.bookmarkModel.destroy({
+          success: () => {
+            this.setState({bookmark: false});
+          }
+        });
+      } else {
+        let cocktail = store.cocktails.get(this.props.params.cocktail);
+        store.savedForLaterCollection.bookmark(cocktail, store.session);
+      }
     } else {
-      let cocktail = store.cocktails.get(this.props.params.cocktail);
-      store.savedForLaterCollection.bookmark(cocktail, store.session);
+      this.setState({loggedIn: false});
     }
   },
   componentDidMount() {
@@ -189,6 +204,7 @@ export default React.createClass({
           <p>{this.state.cocktail.drink__strInstructions}</p>
         </div>
         {similarDrinks}
+        {login}
       </main>
     );
   }
