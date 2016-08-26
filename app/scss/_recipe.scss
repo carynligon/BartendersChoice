@@ -5,28 +5,34 @@
 }
 #recipe-drink-img {
   height: 370px;
-  width: 30%;
+  width: 25%;
   margin-right: 20%;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   float: right;
-  i {
-    font-size: 2rem;
-  }
-  .favorite-icon {
-    color: $main;
+  #recipe-icons {
     position: relative;
-    left: 8%;
-    top: 92%;
-  }
-  .bookmark-icon {
-    position: relative;
-    left: 15px;
-    top: 92%;
-    color: $black;
-    &:hover {
+    top: 102%;
+    .bookmark-icon {
+      font-size: 1.5rem;
+      color: $black;
+      transition: opacity 0.5s;
+      transition: color 0.5s;
+      &:hover {
+        color: $main;
+        cursor: pointer;
+      }
+    }
+    .favorite-icon {
+      font-size: 1.5rem;
       color: $main;
+      transition: transform 0.5s;
+      margin-left: 5px;
+      &:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+      }
     }
   }
 }
@@ -70,7 +76,34 @@
 }
 
 #similar-drinks {
-  width: 400px;
-  margin: 100px auto 0 auto;
+  margin: 100px auto;
   padding: 0;
+  text-align: center;
+  h4 {
+    font-size: 1.3rem;
+    font-family: Raleway, sans-serif;
+    &::before, &::after{
+      content: '';
+      width: 240px;
+      height: 0;
+      border-top: 1px solid $main;
+      display:inline-block;
+      position: relative;
+      bottom: 5px;
+      margin: 0 3px;
+    }
+  }
+  li {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    a {
+      color: $black;
+      text-decoration: none;
+      &:hover {
+        color: $main;
+        text-decoration: underline;
+      }
+    }
+  }
 }

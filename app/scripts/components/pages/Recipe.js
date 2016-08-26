@@ -64,7 +64,7 @@ export default React.createClass({
             } else {
               this.setState({
                 similar: resultsArr
-              });  
+              });
             }
           }
         });
@@ -121,6 +121,8 @@ export default React.createClass({
   },
   componentWillUnmount() {
     store.cocktails.off('update', this.listener);
+    store.favorites.off('update', this.updateSaved);
+    store.savedForLaterCollection.off('update', this.updateSaved);
   },
   componentWillReceiveProps(nextProps) {
     this.setState({cocktail: store.cocktails.get(nextProps.params.cocktail).toJSON()});
@@ -137,10 +139,6 @@ export default React.createClass({
         display = {
           color: '#FF3C38'
         }
-      } else {
-        display = {
-          color: '#454545'
-        };
       }
       if (this.state.favorite) {
         heart = (<i className="fa fa-heart favorite-icon" aria-hidden="true" onClick={this.addFavorite}></i>);
@@ -176,8 +174,10 @@ export default React.createClass({
           </ul>
         </div>
         <div id="recipe-drink-img" style={background}>
-          <i className="fa fa-bookmark bookmark-icon" aria-hidden="true" style={display} onClick={this.addBookmark}></i>
-          {heart}
+          <div id="recipe-icons">
+            <i className="fa fa-bookmark bookmark-icon" aria-hidden="true" style={display} onClick={this.addBookmark}></i>
+            {heart}
+          </div>
         </div>
         <div className="mixing-instructions">
           <h4>Mixing Instructions</h4>

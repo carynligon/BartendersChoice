@@ -1,3 +1,22 @@
+#custom-cocktail-page {
+  h3 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-top: 150px;
+  }
+  a {
+    text-align: center;
+    display: block;
+    color: $main;
+    font-size: 1.4rem;
+    text-decoration: none;
+    &:hover {
+      color: $main;
+      text-decoration: underline;
+    }
+  }
+}
+
 #custom-cocktail-form {
   width: 70%;
   margin: 120px auto;

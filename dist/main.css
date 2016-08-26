@@ -398,26 +398,31 @@ video {
 
 #recipe-drink-img {
   height: 370px;
-  width: 30%;
+  width: 25%;
   margin-right: 20%;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   float: right; }
-  #recipe-drink-img i {
-    font-size: 2rem; }
-  #recipe-drink-img .favorite-icon {
-    color: #FF3C38;
+  #recipe-drink-img #recipe-icons {
     position: relative;
-    left: 8%;
-    top: 92%; }
-  #recipe-drink-img .bookmark-icon {
-    position: relative;
-    left: 15px;
-    top: 92%;
-    color: #454545; }
-    #recipe-drink-img .bookmark-icon:hover {
-      color: #FF3C38; }
+    top: 102%; }
+    #recipe-drink-img #recipe-icons .bookmark-icon {
+      font-size: 1.5rem;
+      color: #454545;
+      transition: opacity 0.5s;
+      transition: color 0.5s; }
+      #recipe-drink-img #recipe-icons .bookmark-icon:hover {
+        color: #FF3C38;
+        cursor: pointer; }
+    #recipe-drink-img #recipe-icons .favorite-icon {
+      font-size: 1.5rem;
+      color: #FF3C38;
+      transition: transform 0.5s;
+      margin-left: 5px; }
+      #recipe-drink-img #recipe-icons .favorite-icon:hover {
+        transform: scale(1.1);
+        cursor: pointer; }
 
 .ingredients {
   display: inline-block;
@@ -450,9 +455,31 @@ video {
     color: #FF3C38; }
 
 #similar-drinks {
-  width: 400px;
-  margin: 100px auto 0 auto;
-  padding: 0; }
+  margin: 100px auto;
+  padding: 0;
+  text-align: center; }
+  #similar-drinks h4 {
+    font-size: 1.3rem;
+    font-family: Raleway, sans-serif; }
+    #similar-drinks h4::before, #similar-drinks h4::after {
+      content: '';
+      width: 240px;
+      height: 0;
+      border-top: 1px solid #FF3C38;
+      display: inline-block;
+      position: relative;
+      bottom: 5px;
+      margin: 0 3px; }
+  #similar-drinks li {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center; }
+    #similar-drinks li a {
+      color: #454545;
+      text-decoration: none; }
+      #similar-drinks li a:hover {
+        color: #FF3C38;
+        text-decoration: underline; }
 
 #results-section {
   margin: 150px auto;
@@ -569,6 +596,20 @@ video {
       font-size: 1.2rem;
       font-weight: bolder;
       font-family: Raleway, sans-serif; }
+
+#custom-cocktail-page h3 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-top: 150px; }
+#custom-cocktail-page a {
+  text-align: center;
+  display: block;
+  color: #FF3C38;
+  font-size: 1.4rem;
+  text-decoration: none; }
+  #custom-cocktail-page a:hover {
+    color: #FF3C38;
+    text-decoration: underline; }
 
 #custom-cocktail-form {
   width: 70%;

@@ -20,6 +20,7 @@ export default React.createClass({
     }
     return (
       <ul id="similar-drinks">
+        <h4>Similar drinks you might like:</h4>
         {similarDrinkLI}
       </ul>
     );
