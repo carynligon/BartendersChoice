@@ -161,6 +161,29 @@ export default React.createClass({
             <input type="text" id="new-ingredient-quantity" autoComplete="off" ref="newIngredientQuantity" onKeyUp={this.pressedEnter}/>
           </div>
 
+          <div id="flavor-profile-wrapper">
+            <label htmlFor="custom-sweet">sweet</label>
+            <input type="checkbox" id="custom-sweet"/>
+            <label htmlFor="custom-bubbly">bubbly</label>
+            <input type="checkbox" id="custom-bubbly"/>
+            <label htmlFor="custom-fruity">fruity</label>
+            <input type="checkbox" id="custom-fruity"/>
+            <label htmlFor="custom-creamy">creamy</label>
+            <input type="checkbox" id="custom-creamy"/>
+            <label htmlFor="custom-spicy">spicy</label>
+            <input type="checkbox" id="custom-spicy"/>
+            <label htmlFor="custom-dry">dry</label>
+            <input type="checkbox" id="custom-dry"/>
+            <label htmlFor="custom-sour">sour</label>
+            <input type="checkbox" id="custom-sour"/>
+            <label htmlFor="custom-salty">salty</label>
+            <input type="checkbox" id="custom-salty"/>
+            <label htmlFor="custom-spirit-forward">spirit-forward</label>
+            <input type="checkbox" id="custom-spirit-forward"/>
+            <label htmlFor="custom-bitter">bitter</label>
+            <input type="checkbox" id="custom-bitter"/>
+          </div>
+
           <input type="button" id="add-ingredient" value="Add" onClick={this.newIngredient}/>
           <input type="submit" id="submit-cocktail" value="submit" onClick={this.showPreview}/>
         </form>

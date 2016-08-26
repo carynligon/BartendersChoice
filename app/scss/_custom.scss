@@ -127,6 +127,26 @@
   label {
     margin: 0 25px;
   }
+  #flavor-profile-wrapper {
+    width: 80%;
+    margin: 0 auto;
+    background: $gray;
+    text-align: center;
+    label {
+      margin: 10px 0;
+      padding: 0 15px;
+      background: darken($gray, 5%);
+      &:hover {
+        background: $main;
+        color: $white;
+        cursor: pointer;
+      }
+    }
+    input {
+      width: 0;
+      margin: 15px 5px 9px 5px;
+    }
+  }
 }
 #ingredients-list {
   p {
