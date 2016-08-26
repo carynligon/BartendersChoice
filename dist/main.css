@@ -216,15 +216,15 @@ video {
   flex-wrap: wrap;
   text-align: center;
   padding: 0; }
-  #cocktail-list h2, #result-list h2 {
+  #cocktail-list .app-titles, #result-list .app-titles {
     width: 100%;
     font-family: Raleway, sans-serif;
     margin-top: 30px; }
-    #cocktail-list h2::after, #result-list h2::after {
+    #cocktail-list .app-titles::after, #result-list .app-titles::after {
       margin-left: 8px; }
-    #cocktail-list h2::before, #result-list h2::before {
+    #cocktail-list .app-titles::before, #result-list .app-titles::before {
       margin-right: 8px; }
-    #cocktail-list h2::after, #cocktail-list h2::before, #result-list h2::after, #result-list h2::before {
+    #cocktail-list .app-titles::after, #cocktail-list .app-titles::before, #result-list .app-titles::after, #result-list .app-titles::before {
       position: relative;
       bottom: 8px;
       content: '';
@@ -237,7 +237,7 @@ video {
     margin: 10px;
     flex-direction: column;
     justify-content: space-between; }
-    #cocktail-list .drink-preview div, #result-list .drink-preview div {
+    #cocktail-list .drink-preview .drink-img, #result-list .drink-preview .drink-img {
       height: 319px;
       background-size: cover; }
     #cocktail-list .drink-preview h4, #result-list .drink-preview h4 {

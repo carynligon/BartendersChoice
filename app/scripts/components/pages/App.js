@@ -63,7 +63,7 @@ export default React.createClass({
       <main>
         <Header/>
         <section id="how-it-works">
-          <h2>How it Works</h2>
+          <h2 className="app-titles">How it Works</h2>
           <div id="about-cocktails">
             <h5>The Cocktails</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
@@ -78,7 +78,7 @@ export default React.createClass({
           </div>
         </section>
         <ul id="cocktail-list">
-          <h2>FEATURED RECIPES</h2>
+          <h2 className="app-titles">FEATURED RECIPES</h2>
           {drinks}
         </ul>
         {this.props.children}

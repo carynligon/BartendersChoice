@@ -16,19 +16,18 @@ import Custom from './components/pages/Custom';
 
 const router = (
   <Router history={hashHistory}>
-    <Route path="/confirm" component={Confirm}>
-      <Route path="/" component={App}>
-      </Route>
-      <Route path="/search" component={Search}/>
-      <Route path="/recipe/:cocktail" component={Recipe}/>
-      <Route path="/assessment" component={Assessment}>
-        <IndexRoute component={AssessmentInfo}/>
-        <Route path="/assessment/question" component={SingleQuestion}/>
-        <Route path="/assessment/results" component={Results}/>
-      </Route>
-      <Route path="/custom" component={Custom}/>
-      <Route path="/me" component={UserDashboard}/>
+    <Route path="/confirm" component={Confirm}/>
+    <Route path="/" component={App}>
     </Route>
+    <Route path="/search" component={Search}/>
+    <Route path="/recipe/:cocktail" component={Recipe}/>
+    <Route path="/assessment" component={Assessment}>
+      <IndexRoute component={AssessmentInfo}/>
+      <Route path="/assessment/question" component={SingleQuestion}/>
+      <Route path="/assessment/results" component={Results}/>
+    </Route>
+    <Route path="/custom" component={Custom}/>
+    <Route path="/me" component={UserDashboard}/>
   </Router>
 );
 

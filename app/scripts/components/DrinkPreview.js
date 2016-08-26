@@ -39,16 +39,21 @@ export default React.createClass({
     }
   },
   addFavorite() {
-    if (this.state.saveFavorite) {
-      console.log(this.state);
-      this.state.saveFavoriteModel.destroy({
-        success: () => {
-          this.setState({saveFavorite: false});
-        }
-      });
+    if (this.props.loggedIn) {
+      this.setState({loggedIn: true});
+      if (this.state.saveFavorite) {
+        console.log(this.state);
+        this.state.saveFavoriteModel.destroy({
+          success: () => {
+            this.setState({saveFavorite: false});
+          }
+        });
+      } else {
+        let cocktail = store.cocktails.get(this.props.id);
+        store.favorites.favorite(cocktail, store.session);
+      }
     } else {
-      let cocktail = store.cocktails.get(this.props.id);
-      store.favorites.favorite(cocktail, store.session);
+      this.setState({loggedIn: false});
     }
   },
   listener() {
@@ -82,10 +87,9 @@ export default React.createClass({
     store.session.off('update remove', this.checkLogIn);
   },
   render() {
-    console.log(this.props);
     let login;
     if (!this.state.loggedIn) {
-      login = (<Login hideModal={this.hideModal}/>)
+      login = (<UserModal hideModal={this.hideModal}><Login hideModal={this.hideModal}/></UserModal>);
     }
     let styles;
     if (this.props.img !== null) {

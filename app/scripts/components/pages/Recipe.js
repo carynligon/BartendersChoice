@@ -12,7 +12,8 @@ export default React.createClass({
     return {
       cocktail: '',
       favorite: false,
-      bookmark: false
+      bookmark: false,
+      loggedIn: true
     };
   },
   sendBack() {
@@ -133,6 +134,10 @@ export default React.createClass({
     let heart;
     let background;
     let similarDrinks;
+    let login;
+    if (!this.state.loggedIn) {
+      login = (<UserModal hideModal={this.hideModal}><Login hideModal={this.hideModal}/></UserModal>);
+    }
     if (this.state.cocktail) {
       similarDrinks = (<SimilarDrinks similar={this.state.similar}/>);
       if (this.state.bookmark) {
