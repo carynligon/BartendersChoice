@@ -15,6 +15,16 @@
       text-decoration: underline;
     }
   }
+  #add-ingredient {
+    background: none;
+    border: 1px solid $main;
+    color: $main;
+    &:hover {
+      background: $main;
+      color: $white;
+      cursor: pointer;
+    }
+  }
 }
 
 #custom-cocktail-form {
@@ -91,6 +101,7 @@
       &:hover {
         background: $main;
         color: $white;
+        cursor: pointer;
       }
     }
   }
@@ -107,6 +118,7 @@
     &:hover {
       color: $white;
       background: $main;
+      cursor: pointer;
     }
   }
   div {

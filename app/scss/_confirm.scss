@@ -26,6 +26,7 @@ video {
     &:hover {
       background: $white;
       color: $black;
+      cursor: pointer;
     }
   }
 }

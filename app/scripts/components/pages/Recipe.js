@@ -45,7 +45,6 @@ export default React.createClass({
                 let resultsIndex = Math.floor(Math.random() * data.models.length);
                 let random = data.models[resultsIndex].get('drink')._obj;
                 if (resultsArr.indexOf(random) === -1 && random.drink__strDrink !== drinkName.toLowerCase()) {
-                  console.log(random);
                   resultsArr.push(random);
                 } else {
                   getRandom();
@@ -57,7 +56,6 @@ export default React.createClass({
             resultsArr.forEach((result) => {
               resultIDs.push(result._id)
             });
-            console.log(resultIDs);
             let unique = _.uniq(resultIDs);
             if (unique.length !== 3) {
               findRandomModels()
@@ -74,14 +72,17 @@ export default React.createClass({
   updateSaved() {
     store.favorites.forEach((drink) => {
       if (drink.get('drink')._id === this.props.params.cocktail) {
-        if (drink.get('userId') === store.session.get('userId')) {
+        if (drink.get('username') === store.session.get('username')) {
+          console.log(drink.get('username') + ' ' + store.session.get('username'));
           this.setState({favorite: true, favoriteModel: drink});
         }
       }
     });
     store.savedForLaterCollection.forEach((drink) => {
       if (drink.get('drink')._id === this.props.params.cocktail) {
-        if (drink.get('userId') === store.session.get('userId')) {
+        if (drink.get('username') === store.session.get('username')) {
+          console.log(store.session);
+          console.log(drink.get('username') + ' ' + store.session.get('username'));
           this.setState({bookmark: true, bookmarkModel: drink});
         }
       }
@@ -128,7 +129,6 @@ export default React.createClass({
     this.setState({cocktail: store.cocktails.get(nextProps.params.cocktail).toJSON()});
   },
   render() {
-    console.log(this.state);
     let display;
     let heart;
     let background;

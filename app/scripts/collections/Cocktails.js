@@ -9,7 +9,6 @@ export default Backbone.Collection.extend({
   getCocktails: function() {
     this.fetch({
       success: (data) => {
-        console.log(data);
         data.forEach((drink) => {
           this.add(drink)
         });

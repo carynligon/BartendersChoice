@@ -8,7 +8,6 @@ import DrinkPreview from './DrinkPreview';
 
 export default React.createClass({
   render() {
-    console.log(this.props);
     let similarDrinks;
     let similarDrinkLI;
     if (this.props.similar) {

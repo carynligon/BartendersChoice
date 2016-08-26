@@ -6,7 +6,7 @@ header {
     color: $white;
     text-align: center;
     font-family: Raleway, sans-serif;
-    padding-top: 170px;
+    padding-top: 220px;
     font-weight: 300;
   }
   #assessment-link {
@@ -84,6 +84,7 @@ header {
 
 nav {
   position: fixed;
+  z-index: 5;
   width: 100%;
   top: 0;
   padding: 10px;
@@ -102,6 +103,7 @@ nav {
       background: $main;
       color: $white;
       outline: none;
+      cursor: pointer;
     }
   }
   #logo {
@@ -126,7 +128,7 @@ nav {
     font-size: 1.5rem;
     font-weight: bolder;
     border: 1px solid $main;
-    padding: 1px 12px 2px 12px;
+    padding: 0px 12px 2px 12px;
     margin: 0;
     &:hover {
       background: $main;

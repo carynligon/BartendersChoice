@@ -45,14 +45,14 @@ export default React.createClass({
   listener() {
     store.savedForLaterCollection.forEach((drink) => {
       if (drink.get('drink')._id === this.props.id) {
-        if (drink.get('userId') === store.session.get('userId')) {
+        if (drink.get('username') === store.session.get('username')) {
           this.setState({saveBookmark: true, saveBookmarkModel: drink});
         }
       }
     });
     store.favorites.forEach((drink) => {
       if (drink.get('drink')._id === this.props.id) {
-        if (drink.get('userId') === store.session.get('userId')) {
+        if (drink.get('username') === store.session.get('username')) {
           this.setState({saveFavorite: true, saveFavoriteModel: drink});
         }
       }

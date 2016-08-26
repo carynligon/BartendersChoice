@@ -20,7 +20,6 @@ export default React.createClass({
   performSearch(e) {
     e.preventDefault();
     let searchString = this.refs.searchQuery.value;
-    console.log('search from SearchBar: ' + searchString);
     if (e.which === 13) {
       this.setState({hide: true});
       this.toSearchResults();
