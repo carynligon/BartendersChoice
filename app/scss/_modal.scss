@@ -40,6 +40,7 @@
     box-shadow: 1px 2px 3px 1px rgba($black ,0.3);
     &:hover {
       background: $main;
+      cursor: pointer;
     }
   }
   a {

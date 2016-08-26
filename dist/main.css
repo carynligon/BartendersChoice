@@ -386,7 +386,8 @@ video {
     border: none;
     box-shadow: 1px 2px 3px 1px rgba(69, 69, 69, 0.3); }
     .login-signup-form input[type="submit"]:hover, .user-info-form input[type="submit"]:hover {
-      background: #FF3C38; }
+      background: #FF3C38;
+      cursor: pointer; }
   .login-signup-form a, .user-info-form a {
     color: #FF3C38;
     font-weight: bolder;

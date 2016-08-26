@@ -13,7 +13,11 @@ import FilterBar from '../FilterBar';
 
 export default React.createClass({
   getInitialState() {
-    return {fetch6: false}
+    if (localStorage.getItem('username') === 'Anonymous') {
+      return {loggedIn: false}
+    } else {
+      return {loggedIn: true}
+    }
   },
   listener() {
     this.setState({
@@ -21,6 +25,12 @@ export default React.createClass({
     });
   },
   componentDidMount() {
+    if (localStorage.getItem('username') === 'Anonymous') {
+      this.setState({loggedIn: false});
+    } else {
+      console.log(store.session);
+      this.setState({loggedIn: true});
+    }
     store.cocktails.on('update', this.listener);
     store.cocktails.fetch({
       data: JSON.stringify({
@@ -46,7 +56,7 @@ export default React.createClass({
     let drinks;
     if (randomDrinks[0] !== undefined) {
       drinks = randomDrinks.map((drink,i) => {
-        return <DrinkPreview id={drink._id} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} key={i}/>;
+        return <DrinkPreview id={drink._id} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} loggedIn={this.state.loggedIn} key={i}/>;
       });
     }
     return (

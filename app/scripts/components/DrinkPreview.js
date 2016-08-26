@@ -3,11 +3,15 @@ import {hashHistory} from 'react-router';
 
 import store from '../store';
 
+import UserModal from './UserModal';
+import Login from './pages/Login';
+
 export default React.createClass({
   getInitialState() {
     return {
       bookmark: false,
-      user: store.users.get(store.session.get('userId'))
+      user: store.users.get(store.session.get('userId')),
+      loggedIn: true
     };
   },
   viewRecipe(e) {
@@ -17,16 +21,21 @@ export default React.createClass({
     this.setState({bookmark: !this.state.bookmark});
   },
   addBookmark() {
-    if (this.state.saveBookmark) {
-      console.log(this.state);
-      this.state.saveBookmarkModel.destroy({
-        success: () => {
-          this.setState({saveBookmark: false});
-        }
-      });
+    if (this.props.loggedIn) {
+      this.setState({loggedIn: true});
+      if (this.state.saveBookmark) {
+        console.log(this.state);
+        this.state.saveBookmarkModel.destroy({
+          success: () => {
+            this.setState({saveBookmark: false});
+          }
+        });
+      } else {
+        let cocktail = store.cocktails.get(this.props.id);
+        store.savedForLaterCollection.bookmark(cocktail, store.session);
+      }
     } else {
-      let cocktail = store.cocktails.get(this.props.id);
-      store.savedForLaterCollection.bookmark(cocktail, store.session);
+      this.setState({loggedIn: false});
     }
   },
   addFavorite() {
@@ -58,6 +67,9 @@ export default React.createClass({
       }
     });
   },
+  hideModal() {
+    this.setState({loggedIn: true});
+  },
   componentDidMount() {
     store.savedForLaterCollection.on('update remove', this.listener);
     store.favorites.on('update remove', this.listener);
@@ -67,8 +79,14 @@ export default React.createClass({
   componentWillUnmount() {
     store.savedForLaterCollection.off('update remove', this.listener);
     store.favorites.off('update remove', this.listener);
+    store.session.off('update remove', this.checkLogIn);
   },
   render() {
+    console.log(this.props);
+    let login;
+    if (!this.state.loggedIn) {
+      login = (<Login hideModal={this.hideModal}/>)
+    }
     let styles;
     if (this.props.img !== null) {
       styles = {
@@ -95,6 +113,7 @@ export default React.createClass({
       };
     }
     let heart;
+    let icons;
     if (this.state.saveFavorite) {
       heart = (<i className="fa fa-heart favorite-icon" aria-hidden="true" onClick={this.addFavorite}></i>);
     } else {
@@ -107,6 +126,7 @@ export default React.createClass({
           {heart}
           <h4 onClick={this.viewRecipe}>{this.props.name}</h4>
         </div>
+        {login}
       </li>
     );
   }
