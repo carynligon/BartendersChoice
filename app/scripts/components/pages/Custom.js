@@ -35,14 +35,15 @@ export default React.createClass({
     e.preventDefault();
     let ingredient;
     if (e.target.id === 'delete-btn') {
-      ingredient = e.target.previousSibling.textContent;
+      ingredient = e.target.previousSibling.previousSibling.textContent;
     }
     if (e.target.className === 'fa fa-times delete-icon') {
-      ingredient = e.target.parentElement.previousSibling.textContent;
+      ingredient = e.target.parentElement.previousSibling.previousSibling.textContent;
     }
-    console.log(ingredient);
-    let removedIngredients = _.without(this.state.ingredients, ingredient);
-    this.setState({ingredients: removedIngredients});
+    let index = this.state.ingredients.indexOf(ingredient);
+    this.state.ingredients.splice(index, 1);
+    this.state.ingredientQuantities.splice(index, 1);
+    this.setState({ingredients: this.state.ingredients, ingredientQuantities: this.state.ingredientQuantities})
   },
   uploadImg(e) {
     e.preventDefault();

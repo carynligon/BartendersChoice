@@ -41,7 +41,7 @@ export default React.createClass({
       <div className="modal-container" style={containerStyles} onClick={this.closeModal}>
         <div className="modal-content" style={contentStyles}>
           <h3>{this.props.name}</h3>
-          <Link to={`recipe/${this.props.id}`}>Click to see your recipe</Link>
+          <Link id="new-recipe-link" to={`recipe/${this.props.id}`}>Click to see your recipe</Link>
         </div>
       </div>
     );
