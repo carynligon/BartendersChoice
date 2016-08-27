@@ -132,6 +132,14 @@
     margin: 0 auto;
     background: $gray;
     text-align: center;
+    input {
+      width: 0;
+      margin: 15px 5px 9px 5px;
+      &:checked + label {
+        background: $main;
+        color: $white;
+      }
+    }
     label {
       margin: 10px 0;
       padding: 0 15px;
@@ -141,10 +149,6 @@
         color: $white;
         cursor: pointer;
       }
-    }
-    input {
-      width: 0;
-      margin: 15px 5px 9px 5px;
     }
   }
 }

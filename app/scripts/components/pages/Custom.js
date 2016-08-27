@@ -8,7 +8,20 @@ import CustomPreview from '../CustomPreview';
 
 export default React.createClass({
   getInitialState() {
-    return {preview: false}
+    return {
+      preview: false,
+      sweet: false,
+      bubbly: false,
+      fruity: false,
+      creamy: false,
+      spicy: false,
+      dry: false,
+      sour: false,
+      salty: false,
+      spiritForward: false,
+      bitter: false,
+      tags: []
+    }
   },
   newIngredient(e) {
     if (e) {
@@ -26,6 +39,18 @@ export default React.createClass({
   pressedEnter(e) {
     if (e.which === 13) {
       this.newIngredient();
+    }
+  },
+  changeStatus(e) {
+    let flavor;
+    if (e.target.id !== 'custom-spirit-forward') {
+      flavor = e.target.id.split('-')[1];
+    } else {
+      flavor = 'spirit-forward';
+    }
+    console.log(flavor);
+    if (e.target.checked === true) {
+      this.setState({tags: this.state.tags.concat(flavor)});
     }
   },
   componentWillReceiveProps(nextProps) {
@@ -74,7 +99,8 @@ export default React.createClass({
       instructions: this.refs.instructions.value,
       glass: this.refs.cocktailGlass.value,
       ingredients: this.state.ingredients,
-      ingredientQuantities: this.state.ingredientQuantities
+      ingredientQuantities: this.state.ingredientQuantities,
+      flavorNotes: this.state.tags
     }
     this.setState({cocktail})
     store.customCocktails.createCocktail(cocktail);
@@ -96,11 +122,11 @@ export default React.createClass({
     store.customCocktails.off('update', this.listener);
   },
   render() {
+    console.log(this.state);
     let modal;
     if (this.state.cocktailId) {
       modal = <CustomPreview id={this.state.cocktailId} name={this.state.cocktailName}/>
     }
-    console.log(this.state);
     let zippedIngredients = _.zip(this.state.ingredients, this.state.ingredientQuantities);
     let ingredientsList;
     if (this.state.ingredients) {
@@ -162,26 +188,26 @@ export default React.createClass({
           </div>
 
           <div id="flavor-profile-wrapper">
+            <input type="checkbox" id="custom-sweet" onChange={this.changeStatus}/>
             <label htmlFor="custom-sweet">sweet</label>
-            <input type="checkbox" id="custom-sweet"/>
+            <input type="checkbox" id="custom-bubbly" onChange={this.changeStatus}/>
             <label htmlFor="custom-bubbly">bubbly</label>
-            <input type="checkbox" id="custom-bubbly"/>
+            <input type="checkbox" id="custom-fruity" onChange={this.changeStatus}/>
             <label htmlFor="custom-fruity">fruity</label>
-            <input type="checkbox" id="custom-fruity"/>
+            <input type="checkbox" id="custom-creamy" onChange={this.changeStatus}/>
             <label htmlFor="custom-creamy">creamy</label>
-            <input type="checkbox" id="custom-creamy"/>
+            <input type="checkbox" id="custom-spicy" onChange={this.changeStatus}/>
             <label htmlFor="custom-spicy">spicy</label>
-            <input type="checkbox" id="custom-spicy"/>
+            <input type="checkbox" id="custom-dry" onChange={this.changeStatus}/>
             <label htmlFor="custom-dry">dry</label>
-            <input type="checkbox" id="custom-dry"/>
+            <input type="checkbox" id="custom-sour" onChange={this.changeStatus}/>
             <label htmlFor="custom-sour">sour</label>
-            <input type="checkbox" id="custom-sour"/>
+            <input type="checkbox" id="custom-salty" onChange={this.changeStatus}/>
             <label htmlFor="custom-salty">salty</label>
-            <input type="checkbox" id="custom-salty"/>
+            <input type="checkbox" id="custom-spirit-forward" onChange={this.changeStatus}/>
             <label htmlFor="custom-spirit-forward">spirit-forward</label>
-            <input type="checkbox" id="custom-spirit-forward"/>
+            <input type="checkbox" id="custom-bitter" onChange={this.changeStatus}/>
             <label htmlFor="custom-bitter">bitter</label>
-            <input type="checkbox" id="custom-bitter"/>
           </div>
 
           <input type="button" id="add-ingredient" value="Add" onClick={this.newIngredient}/>

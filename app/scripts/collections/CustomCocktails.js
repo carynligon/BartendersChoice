@@ -83,7 +83,8 @@ export default Backbone.Collection.extend({
                           },
                           drinkName: drinkName,
                           quantity: cocktailObj.ingredientQuantities[i],
-                          skillLevel: cocktailObj.difficulty
+                          skillLevel: cocktailObj.difficulty,
+                          tags: cocktailObj.flavorNotes
                         },
                         success: (data) => {
                           console.log(data);
