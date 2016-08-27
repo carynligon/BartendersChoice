@@ -69,7 +69,7 @@ export default Backbone.Collection.extend({
                       $.ajax({
                         url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,
                         type: 'POST',
-                        data: {
+                        data: JSON.stringify({
                           ingredientName: ingredient.toLowerCase(),
                           ingredient: {
                             _type: 'KinveyRef',
@@ -85,7 +85,7 @@ export default Backbone.Collection.extend({
                           quantity: cocktailObj.ingredientQuantities[i],
                           skillLevel: cocktailObj.difficulty,
                           tags: cocktailObj.flavorNotes
-                        },
+                        }),
                         success: (data) => {
                           console.log(data);
                         }
@@ -110,7 +110,8 @@ export default Backbone.Collection.extend({
                       },
                       drinkName: drinkName,
                       quantity: cocktailObj.ingredientQuantities[i],
-                      skillLevel: cocktailObj.difficulty
+                      skillLevel: cocktailObj.difficulty,
+                      tags: cocktailObj.flavorNotes
                     },
                     success: (data) => {
                       console.log(data);
