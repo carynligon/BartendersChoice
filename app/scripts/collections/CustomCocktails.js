@@ -3,6 +3,7 @@ import Backbone from 'backbone';
 import _ from 'underscore';
 
 import settings from '../settings';
+import store from '../store';
 
 import CustomCocktail from '../models/CustomCocktail';
 
@@ -84,7 +85,8 @@ export default Backbone.Collection.extend({
                           drinkName: drinkName,
                           quantity: cocktailObj.ingredientQuantities[i],
                           skillLevel: cocktailObj.difficulty,
-                          tags: cocktailObj.flavorNotes
+                          tags: cocktailObj.flavorNotes,
+                          submittedBy: store.session.get('username')
                         }),
                         success: (data) => {
                           console.log(data);
@@ -111,7 +113,8 @@ export default Backbone.Collection.extend({
                       drinkName: drinkName,
                       quantity: cocktailObj.ingredientQuantities[i],
                       skillLevel: cocktailObj.difficulty,
-                      tags: cocktailObj.flavorNotes
+                      tags: cocktailObj.flavorNotes,
+                      submittedBy: store.session.get('username')
                     },
                     success: (data) => {
                       console.log(data);
