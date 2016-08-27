@@ -709,6 +709,12 @@ video {
     margin: 0 auto;
     background: #EEEEEE;
     text-align: center; }
+    #custom-cocktail-form #flavor-profile-wrapper input {
+      width: 0;
+      margin: 15px 5px 9px 5px; }
+      #custom-cocktail-form #flavor-profile-wrapper input:checked + label {
+        background: #FF3C38;
+        color: #fff; }
     #custom-cocktail-form #flavor-profile-wrapper label {
       margin: 10px 0;
       padding: 0 15px;
@@ -717,9 +723,6 @@ video {
         background: #FF3C38;
         color: #fff;
         cursor: pointer; }
-    #custom-cocktail-form #flavor-profile-wrapper input {
-      width: 0;
-      margin: 15px 5px 9px 5px; }
 
 #ingredients-list p {
   display: inline-block;
