@@ -1,6 +1,8 @@
+import $ from 'jquery';
 import Backbone from 'backbone';
 
 import settings from '../settings';
+import store from '../store';
 
 import Favorite from '../models/Favorite';
 
@@ -23,5 +25,18 @@ export default Backbone.Collection.extend({
         console.log(data);
       }
     });
+  },
+  getDrinks() {
+    console.log(store.session.get('username'));
+    // this.fetch({
+    //   data: {
+    //     query: JSON.stringify({
+    //       username: username
+    //     })
+    //   },
+    //   success: (data) => {
+    //     console.log(data);
+    //   }
+    // });
   }
 });

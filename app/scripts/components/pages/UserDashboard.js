@@ -39,15 +39,20 @@ export default React.createClass({
   setYours() {
     this.setState({selected: 'Yours'});
   },
+  setSession() {
+    this.setState({username: store.session.get('username')});
+  },
   componentDidMount() {
     store.favorites.on('update', this.updateFavorites);
     store.savedForLaterCollection.on('update', this.updateBookmarks);
     store.allIngredients.on('update', this.updateYours);
+    this.setSession();
+    store.session.on('change', this.setSession);
     store.favorites.fetch({
       data: {
         "resolve": "drink",
         "query": JSON.stringify({
-          "username": store.session.get('username')
+          "username": this.state.username
         })
       }
     });
@@ -55,7 +60,7 @@ export default React.createClass({
       data: {
         "resolve": "drink",
         "query": JSON.stringify({
-          "username": store.session.get('username')
+          "username": this.state.username
         })
       }
     });
@@ -63,7 +68,7 @@ export default React.createClass({
       data: {
         "resolve": "drink",
         "query": JSON.stringify({
-          "submittedBy": store.session.get('username')
+          "submittedBy": this.state.username
         })
       }
     });
@@ -74,65 +79,74 @@ export default React.createClass({
     store.allIngredients.off('update', this.updateYours);
   },
   render() {
+    console.log(this.state);
     let savedItems;
     let viewAll;
     let viewFavorites;
     let viewBookmarks;
     let viewYours;
-    if (this.state.selected === 'All' && this.state.favorites !== [] && this.state.bookmarks !== []) {
-      viewAll = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setAll}>All</li>);
-      viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
-      viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
-      viewYours = (<li onClick={this.setYours}>Your Recipes</li>);
-      savedItems = this.state.favorites.concat(this.state.bookmarks).map((drink, i) => {
-        return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._id} key={i}/>);
-      });
-    } else if (this.state.selected === 'Favorites' && this.state.favorites !== []) {
-      viewFavorites = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setFavorites}>Favorites</li>);
-      viewAll = (<li onClick={this.setAll}>All</li>);
-      viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
-      viewYours = (<li onClick={this.setYours}>Your Recipes</li>);
-      console.log(this.state.favorites);
-      savedItems = this.state.favorites.map((drink, i) => {
-        return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
-      });
-    } else if (this.state.selected === 'Saved' && this.state.bookmarks !== []) {
-      viewBookmarks = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setBookmarks}>Saved</li>);
-      viewAll = (<li onClick={this.setAll}>All</li>);
-      viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
-      viewYours = (<li onClick={this.setYours}>Your Recipes</li>);
-      savedItems = this.state.bookmarks.map((drink, i) => {
-        return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
-      });
-    } else if (this.state.selected === 'Yours' && this.state.custom !== []) {
-      viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
-      viewAll = (<li onClick={this.setAll}>All</li>);
-      viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
-      viewYours = (<li onClick={this.setYours} style={{background:'#FF3C38', color:'#fff'}}>Your Recipes</li>);
-      let drinkArr = [];
-      let reduced;
-      let toReduce = this.state.custom.map((drink, i) => {
-        drinkArr.push(drink.drink._obj);
-        console.log(drinkArr);
-        let ids = []
-        reduced = drinkArr.reduce((rtsf, curr, i) => {
-          if (i === 0) {
-            rtsf.push(curr);
-            ids.push(curr._id);
-          } else {
-            if (ids.indexOf(curr._id) === -1) {
-              rtsf.push(curr);
-              ids.push(curr._id);
-            }
+    if (this.state.username) {
+      if (this.state.selected === 'All' && this.state.favorites !== [] && this.state.bookmarks !== []) {
+        viewAll = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setAll}>All</li>);
+        viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
+        viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
+        viewYours = (<li onClick={this.setYours}>Your Recipes</li>);
+        savedItems = this.state.favorites.concat(this.state.bookmarks).map((drink, i) => {
+          if (drink.username === this.state.username) {
+            return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._id} key={i}/>);
           }
-          return rtsf;
-        },[]);
         });
-        console.log(reduced);
-        savedItems = reduced.map((drink, i) => {
-          console.log(drink);
-          return (<SavedItem name={drink.drink__strDrink} id={drink._id} key={i} edit={true}/>);
+      } else if (this.state.selected === 'Favorites' && this.state.favorites !== []) {
+        viewFavorites = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setFavorites}>Favorites</li>);
+        viewAll = (<li onClick={this.setAll}>All</li>);
+        viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
+        viewYours = (<li onClick={this.setYours}>Your Recipes</li>);
+        console.log(this.state.favorites);
+        savedItems = this.state.favorites.map((drink, i) => {
+          if (drink.username === this.state.username) {
+            return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
+          }
         });
+      } else if (this.state.selected === 'Saved' && this.state.bookmarks !== []) {
+        viewBookmarks = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setBookmarks}>Saved</li>);
+        viewAll = (<li onClick={this.setAll}>All</li>);
+        viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
+        viewYours = (<li onClick={this.setYours}>Your Recipes</li>);
+        savedItems = this.state.bookmarks.map((drink, i) => {
+          if (drink.username === this.state.username) {
+            return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
+          }
+        });
+      } else if (this.state.selected === 'Yours' && this.state.custom !== []) {
+        viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
+        viewAll = (<li onClick={this.setAll}>All</li>);
+        viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
+        viewYours = (<li onClick={this.setYours} style={{background:'#FF3C38', color:'#fff'}}>Your Recipes</li>);
+        let drinkArr = [];
+        let reduced;
+        let toReduce = this.state.custom.map((drink, i) => {
+          drinkArr.push(drink);
+          let ids = []
+          reduced = drinkArr.reduce((rtsf, curr, i) => {
+            if (i === 0 && curr.submittedBy === this.state.username) {
+              console.log(curr);
+              rtsf.push(curr);
+              ids.push(curr.drink._id);
+            } else {
+              if (ids.indexOf(curr.drink._id) === -1 && curr.submittedBy === this.state.username) {
+                rtsf.push(curr);
+                ids.push(curr.drink._id);
+              }
+            }
+            return rtsf;
+          },[]);
+          });
+          console.log(reduced);
+          savedItems = reduced.map((drink, i) => {
+            console.log(drink);
+            return (<SavedItem name={drink.drink__strDrink} id={drink._id} key={i} edit={true}/>);
+          });
+      }
     }
     return (
       <main id="dashboard-page">

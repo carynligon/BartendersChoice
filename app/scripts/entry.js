@@ -21,6 +21,7 @@ store.users.fetch();
 
 if (localStorage.getItem('authtoken') && localStorage.getItem('username') !== 'Anonymous') {
   store.session.retrieve();
+  console.log(store.session);
 } else if (!localStorage.getItem('ofAge')){
   console.log('not of age');
   store.session.save({
