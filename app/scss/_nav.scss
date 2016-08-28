@@ -190,8 +190,8 @@ nav {
       right: 2.5rem;
       width: 1rem;
       height: 0.125rem;
-      border-top: 0.375rem double $black;
-      border-bottom: 0.125rem solid $black;
+      border-top: 0.375rem double $main;
+      border-bottom: 0.125rem solid $main;
     }
     #search-input {
       width: 0;
@@ -200,6 +200,7 @@ nav {
     #search-icon-btn {
       left: 45%;
       bottom: -7px;
+      color: $main;
     }
   }
   nav {
@@ -227,9 +228,9 @@ nav {
   }
 
   header {
-    height: 330px;
+    height: 360px;
     h2 {
-      padding-top: 95px;
+      padding-top: 110px;
       font-size: 2rem;
     }
   }

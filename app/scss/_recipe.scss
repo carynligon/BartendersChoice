@@ -107,3 +107,66 @@
     }
   }
 }
+
+@media (max-width: 300px) {
+  .recipe-title {
+    padding: 20px 0 10px 0;
+    margin: 20px 0;
+    font-weight: 300;
+  }
+  .ingredients {
+    display: block;
+    width: 95%;
+    margin: 0 auto;
+    h4 {
+      text-align: center;
+      margin: 5px;
+    }
+    ul {
+      margin-bottom: 30px;
+      li {
+        line-height: 1.5rem;
+      }
+    }
+  }
+  #recipe-drink-img {
+    display: block;
+    width: 100%;
+    margin: 0 auto 50px auto;
+    #recipe-icons {
+      padding-left: 5%;
+      .favorite-icon {
+        margin-left: 5%;
+      }
+    }
+  }
+  .mixing-instructions {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    line-height: 1.5rem;
+    h4 {
+      margin: 0;
+      border-top: 4px solid $gray;
+      padding-top: 20px;
+      text-align: center;
+    }
+  }
+  #similar-drinks {
+    background: $gray;
+    padding: 5px 0 25px 0;
+    margin: 0;
+    h4 {
+      font-size: 1rem;
+    }
+    h4::before {
+      width: 0;
+    }
+    h4::after {
+      width: 0;
+    }
+    li {
+      width: 100%;
+    }
+  }
+}

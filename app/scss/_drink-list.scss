@@ -103,6 +103,12 @@
     .drink-preview {
       width: calc(100%);
       margin: 20px 7%;
+      .favorite-icon {
+        left: 33%;
+      }
+      .bookmark-icon {
+        right: 32%;
+      }
     }
   }
 }

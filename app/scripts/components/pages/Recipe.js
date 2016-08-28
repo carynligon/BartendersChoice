@@ -180,6 +180,12 @@ export default React.createClass({
         <Nav/>
         <button id="back-btn" onClick={this.sendBack}><i className="fa fa-arrow-left back-icon" aria-hidden="true"></i> back</button>
         <h2 className="recipe-title">{this.state.cocktail.drink__strDrink}</h2>
+        <div id="recipe-drink-img" style={background}>
+          <div id="recipe-icons">
+            <i className="fa fa-bookmark bookmark-icon" aria-hidden="true" style={display} onClick={this.addBookmark}></i>
+            {heart}
+          </div>
+        </div>
         <div className="ingredients">
           <h4>Ingredients</h4>
           <ul className="ingredients-list">
@@ -192,12 +198,6 @@ export default React.createClass({
             <li>{this.state.cocktail.drink__strIngredient7} {this.state.cocktail.drink__strMeasure7}</li>
             <li>{this.state.cocktail.drink__strIngredient8} {this.state.cocktail.drink__strMeasure8}</li>
           </ul>
-        </div>
-        <div id="recipe-drink-img" style={background}>
-          <div id="recipe-icons">
-            <i className="fa fa-bookmark bookmark-icon" aria-hidden="true" style={display} onClick={this.addBookmark}></i>
-            {heart}
-          </div>
         </div>
         <div className="mixing-instructions">
           <h4>Mixing Instructions</h4>
