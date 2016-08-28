@@ -25,6 +25,7 @@ export default React.createClass({
     this.setState({bookmarks: store.savedForLaterCollection.toJSON()});
   },
   updateYours() {
+    console.log(store.allIngredients);
     this.setState({custom: store.allIngredients.toJSON()});
   },
   setAll() {
@@ -124,6 +125,7 @@ export default React.createClass({
         let reduced;
         let toReduce = this.state.custom.map((drink, i) => {
           if (drink.submittedBy) {
+            console.log(drink);
             drinkArr.push(drink);
           }
           let ids = []
@@ -131,16 +133,18 @@ export default React.createClass({
             if (i === 0 && curr.submittedBy === this.state.username) {
               rtsf.push(curr);
               ids.push(curr.drink._id);
-            } else {
-              if (ids.indexOf(curr.drink._id) === -1 && curr.submittedBy === this.state.username && curr.drink._obj) {
+              return rtsf;
+            } else if (ids.indexOf(curr.drink._id) === -1 && curr.submittedBy === this.state.username && curr.drink._obj !== null) {
                 rtsf.push(curr);
                 ids.push(curr.drink._id);
+                return rtsf;
               }
-            }
+            console.log(rtsf);
             return rtsf;
           },[]);
           });
           savedItems = reduced.map((drink, i) => {
+            console.log(drink);
             return (<SavedItem name={drink.drinkName} id={drink.drink._id} key={i} edit={true}/>);
           });
       }

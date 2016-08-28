@@ -24,7 +24,7 @@ export default Backbone.Model.extend({
       }
       _.object(ingredientKeys, ingredients);
       this.save({
-        _id: origModel.get('_id'),
+        _id: origModel._id,
         drink__strDrink: cocktailObj.name,
         drink__strGlass: cocktailObj.glass,
         drink__strInstructions: cocktailObj.instructions,
@@ -61,6 +61,7 @@ export default Backbone.Model.extend({
             model.destroy({
               success: (data) => {
                 cocktailObj.ingredients.forEach((ingredient) => {
+                  console.log(ingredient);
                   if (ingredient !== null) {
                     $.ajax({
                       url: `https://baas.kinvey.com/appdata/${settings.appKey}/Ingredients?query={"ingredient":"${ingredient.toLowerCase()}"}`,

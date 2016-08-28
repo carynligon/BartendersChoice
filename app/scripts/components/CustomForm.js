@@ -8,8 +8,8 @@ export default React.createClass({
     return {
       ingredients: [],
       ingredientQuantities: [],
-      currCocktail: this.props.cocktail,
-      id: this.props.cocktail._id,
+      currCocktail: this.props.cocktail.toJSON(),
+      id: this.props.id,
       tags: [],
       ingredientModels: this.props.ingredients
     }
@@ -77,6 +77,7 @@ export default React.createClass({
   },
   componentDidMount() {
     this.props.ingredients.forEach((ingredient) => {
+      console.log(ingredient);
       this.setState({
         ingredients: this.state.ingredients.concat(ingredient.ingredientName),
         ingredientQuantities: this.state.ingredientQuantities.concat(ingredient.quantity)

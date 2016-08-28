@@ -17,6 +17,8 @@ export default React.createClass({
     this.setState({ingredients: store.allIngredients.toJSON()});
   },
   setCocktail() {
+    console.log(store.cocktails);
+    console.log(this.props.id);
     this.setState({cocktail: store.cocktails.get(this.props.id)})
   },
   componentDidMount() {
@@ -37,6 +39,7 @@ export default React.createClass({
   },
   render() {
     console.log(this.state);
+    console.log(this.props);
     let containerStyles = {
       position: 'fixed',
       top: 0,
@@ -57,7 +60,7 @@ export default React.createClass({
     let ingredients;
     let form;
     let styles;
-    if (this.state.ingredients) {
+    if (this.state.ingredients && this.state.cocktail) {
       ingredients = this.state.ingredients.map((ingredient,i) => {
         return (
           <li className="cocktail-ingredient" key={i}>
@@ -66,7 +69,7 @@ export default React.createClass({
           </li>
         )
       });
-      form = (<CustomForm name={this.props.name} cocktail={this.state.cocktail} img={this.state.cocktail.drink__strDrinkThumb} instructions={this.state.cocktail.drink__strInstructions} glass={this.state.cocktail.drink__strGlass} ingredients={this.state.ingredients}/>);
+      form = (<CustomForm name={this.props.name} cocktail={this.state.cocktail} id={this.props.id} img={this.state.cocktail.drink__strDrinkThumb} instructions={this.state.cocktail.drink__strInstructions} glass={this.state.cocktail.drink__strGlass} ingredients={this.state.ingredients}/>);
       if (this.state.cocktail.drink__strDrinkThumb === null || this.state.cocktail.drink__strDrinkThumb === undefined) {
         styles = {
           backgroundImage: 'url(assets/images/Cocktail-icon.png)'
