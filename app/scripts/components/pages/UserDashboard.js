@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'underscore';
 
 import store from '../../store';
 import Nav from '../Nav';
@@ -91,6 +92,7 @@ export default React.createClass({
       viewAll = (<li onClick={this.setAll}>All</li>);
       viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
       viewYours = (<li onClick={this.setYours}>Your Recipes</li>);
+      console.log(this.state.favorites);
       savedItems = this.state.favorites.map((drink, i) => {
         return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
       });

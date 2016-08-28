@@ -1,12 +1,15 @@
+import $ from 'jquery';
 import Backbone from 'backbone';
 import _ from 'underscore';
 
 import settings from '../settings';
+import store from '../store';
 
 export default Backbone.Model.extend({
   urlRoot: `https://baas.kinvey.com/appdata/${settings.appKey}/Cocktails`,
   idAttribute: '_id',
-  updateCocktail(model, cocktailObj) {
+  updateCocktail(origModel, cocktailObj) {
+      console.log(origModel);
       console.log(cocktailObj);
       let ingredients = cocktailObj.ingredients;
       let ingredientQuantities = cocktailObj.ingredientQuantities;
@@ -21,7 +24,7 @@ export default Backbone.Model.extend({
       }
       _.object(ingredientKeys, ingredients);
       this.save({
-        _id: model._id,
+        _id: origModel._id,
         drink__strDrink: cocktailObj.name,
         drink__strGlass: cocktailObj.glass,
         drink__strInstructions: cocktailObj.instructions,
@@ -44,6 +47,89 @@ export default Backbone.Model.extend({
         drink__strMeasure7: ingredientQuantities[6],
         drink__strMeasure8: ingredientQuantities[7],
         drink__strMeasure9: ingredientQuantities[8]
-      });
-    }
-  });
+      }, {
+        success: (data) => {
+          console.log(data);
+          store.allIngredients.forEach((model) => {
+            model.destroy({
+              success: (data) => {
+                cocktailObj.ingredients.forEach((ingredient) => {
+                  if (ingredient !== null) {
+                    $.ajax({
+                      url: `https://baas.kinvey.com/appdata/${settings.appKey}/Ingredients?query={"ingredient":"${ingredient.toLowerCase()}"}`,
+                      success: (data) => {
+                        console.log(data);
+                        if (data.length === 0) {
+                          $.ajax({
+                            url: `https://baas.kinvey.com/appdata/${settings.appKey}/Ingredients`,
+                            type: 'POST',
+                            data: {
+                              ingredient: ingredient.toLowerCase()
+                            },
+                            success: (data) => {
+                              console.log(data);
+                              $.ajax({
+                                url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,
+                                type: 'POST',
+                                data: JSON.stringify({
+                                  ingredientName: ingredient.toLowerCase(),
+                                  ingredient: {
+                                    _type: 'KinveyRef',
+                                    _id: data._id,
+                                    _collection: 'Ingredients'
+                                  },
+                                  drink: {
+                                    _type: 'KinveyRef',
+                                    _id: origModel._id,
+                                    _collection: 'Cocktails'
+                                  },
+                                  drinkName: cocktailObj.name,
+                                  quantity: cocktailObj.ingredientQuantities[i],
+                                  skillLevel: cocktailObj.difficulty,
+                                  tags: cocktailObj.flavorNotes,
+                                  submittedBy: store.session.get('username')
+                                }),
+                                success: (data) => {
+                                  console.log(data);
+                                }
+                              });
+                            }
+                          });
+                        } else {
+                          $.ajax({
+                            url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,
+                            type: 'POST',
+                            data: {
+                              ingredientName: ingredient.toLowerCase(),
+                              ingredient: {
+                                _type: 'KinveyRef',
+                                _id: data._id,
+                                _collection: 'Ingredients'
+                              },
+                              drink: {
+                                _type: 'KinveyRef',
+                                _id: origModel._id,
+                                _collection: 'Cocktails'
+                              },
+                              drinkName: cocktailObj.name,
+                              quantity: cocktailObj.ingredientQuantities[i],
+                              skillLevel: cocktailObj.difficulty,
+                              tags: cocktailObj.flavorNotes,
+                              submittedBy: store.session.get('username')
+                            },
+                            success: (data) => {
+                              console.log(data);
+                            }
+                          });
+                        }
+                      }
+                  });
+                }
+              });
+            }
+          });
+        });
+      }
+    })
+  }
+});
