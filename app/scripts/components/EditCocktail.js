@@ -6,7 +6,7 @@ import CustomForm from './CustomForm';
 
 export default React.createClass({
   getInitialState() {
-    return {cocktail: store.cocktails.get(this.props.id).toJSON()}
+    return {}
   },
   closeModal(e) {
     if (e.target.className === 'modal-container') {
@@ -16,8 +16,8 @@ export default React.createClass({
   updateIngredients() {
     this.setState({ingredients: store.allIngredients.toJSON()});
   },
-  changeStatus() {
-
+  setCocktail() {
+    this.setState({cocktail: store.cocktails.get(this.props.id)})
   },
   componentDidMount() {
     store.allIngredients.on('update', this.updateIngredients);
@@ -29,6 +29,8 @@ export default React.createClass({
         })
       }
     });
+    store.cocktails.on('update', this.setCocktail);
+    store.cocktails.fetch();
   },
   componentWillUnmount() {
     store.allIngredients.off('update', this.updateIngredients);
@@ -54,6 +56,7 @@ export default React.createClass({
       };
     let ingredients;
     let form;
+    let styles;
     if (this.state.ingredients) {
       ingredients = this.state.ingredients.map((ingredient,i) => {
         return (
@@ -64,15 +67,14 @@ export default React.createClass({
         )
       });
       form = (<CustomForm name={this.props.name} cocktail={this.state.cocktail} img={this.state.cocktail.drink__strDrinkThumb} instructions={this.state.cocktail.drink__strInstructions} glass={this.state.cocktail.drink__strGlass} ingredients={this.state.ingredients}/>);
-    }
-    let styles;
-    if (this.state.cocktail.drink__strDrinkThumb === null || this.state.cocktail.drink__strDrinkThumb === undefined) {
-      styles = {
-        backgroundImage: 'url(assets/images/Cocktail-icon.png)'
-      }
-    } else {
-      styles = {
-        backgroundImage: 'url(' + this.state.cocktail.drink__strDrinkThumb + ')'
+      if (this.state.cocktail.drink__strDrinkThumb === null || this.state.cocktail.drink__strDrinkThumb === undefined) {
+        styles = {
+          backgroundImage: 'url(assets/images/Cocktail-icon.png)'
+        }
+      } else {
+        styles = {
+          backgroundImage: 'url(' + this.state.cocktail.drink__strDrinkThumb + ')'
+        }
       }
     }
     return (

@@ -79,7 +79,6 @@ export default React.createClass({
     store.allIngredients.off('update', this.updateYours);
   },
   render() {
-    console.log(this.state);
     let savedItems;
     let viewAll;
     let viewFavorites;
@@ -101,7 +100,6 @@ export default React.createClass({
         viewAll = (<li onClick={this.setAll}>All</li>);
         viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
         viewYours = (<li onClick={this.setYours}>Your Recipes</li>);
-        console.log(this.state.favorites);
         savedItems = this.state.favorites.map((drink, i) => {
           if (drink.username === this.state.username) {
             return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
@@ -129,7 +127,6 @@ export default React.createClass({
           let ids = []
           reduced = drinkArr.reduce((rtsf, curr, i) => {
             if (i === 0 && curr.submittedBy === this.state.username) {
-              console.log(curr);
               rtsf.push(curr);
               ids.push(curr.drink._id);
             } else {
@@ -141,10 +138,8 @@ export default React.createClass({
             return rtsf;
           },[]);
           });
-          console.log(reduced);
           savedItems = reduced.map((drink, i) => {
-            console.log(drink);
-            return (<SavedItem name={drink.drink__strDrink} id={drink._id} key={i} edit={true}/>);
+            return (<SavedItem name={drink.drinkName} id={drink.drink._id} key={i} edit={true}/>);
           });
       }
     }
