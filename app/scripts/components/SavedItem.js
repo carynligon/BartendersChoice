@@ -14,7 +14,6 @@ export default React.createClass({
     this.setState({showModal: true})
   },
   render() {
-    console.log(this.props);
     let modal;
     if (this.state.showModal) {
       modal = (<EditCocktail id={this.props.id} name={this.props.name} hideModal={this.hideModal}/>);

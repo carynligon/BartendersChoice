@@ -123,14 +123,16 @@ export default React.createClass({
         let drinkArr = [];
         let reduced;
         let toReduce = this.state.custom.map((drink, i) => {
-          drinkArr.push(drink);
+          if (drink.submittedBy) {
+            drinkArr.push(drink);
+          }
           let ids = []
           reduced = drinkArr.reduce((rtsf, curr, i) => {
             if (i === 0 && curr.submittedBy === this.state.username) {
               rtsf.push(curr);
               ids.push(curr.drink._id);
             } else {
-              if (ids.indexOf(curr.drink._id) === -1 && curr.submittedBy === this.state.username) {
+              if (ids.indexOf(curr.drink._id) === -1 && curr.submittedBy === this.state.username && curr.drink._obj) {
                 rtsf.push(curr);
                 ids.push(curr.drink._id);
               }

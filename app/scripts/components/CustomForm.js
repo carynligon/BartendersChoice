@@ -9,7 +9,8 @@ export default React.createClass({
       ingredients: [],
       ingredientQuantities: [],
       currCocktail: this.props.cocktail,
-      id: this.props.cocktail._id
+      id: this.props.cocktail._id,
+      tags: []
     }
   },
   changeStatus(e) {
