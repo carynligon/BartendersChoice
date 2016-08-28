@@ -1,8 +1,23 @@
 import React from 'react';
 import {Link} from 'react-router';
 
+import EditCocktail from './EditCocktail';
+
 export default React.createClass({
+  getInitialState() {
+    return {showModal: false}
+  },
+  hideModal() {
+    this.setState({showModal: false})
+  },
+  editCocktail() {
+    this.setState({showModal: true})
+  },
   render() {
+    let modal;
+    if (this.state.showModal) {
+      modal = (<EditCocktail id={this.props.id} name={this.props.name} hideModal={this.hideModal}/>);
+    }
     let style;
     if (this.props.img !== null && this.props.img !== undefined) {
       style = {
@@ -15,7 +30,7 @@ export default React.createClass({
     }
     let editbtn;
     if (this.props.edit) {
-      editbtn = (<input type="button" id="edit-btn" value="edit"/>)
+      editbtn = (<input type="button" id="edit-btn" value="edit" onClick={this.editCocktail}/>)
     }
     return (
       <li>
@@ -25,6 +40,7 @@ export default React.createClass({
           <Link to={`recipe/${this.props.id}`}>View Recipe</Link>
           {editbtn}
         </div>
+        {modal}
       </li>
     );
   }

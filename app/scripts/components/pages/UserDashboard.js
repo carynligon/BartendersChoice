@@ -73,13 +73,12 @@ export default React.createClass({
     store.allIngredients.off('update', this.updateYours);
   },
   render() {
-    console.log(store.favorites);
     let savedItems;
     let viewAll;
     let viewFavorites;
     let viewBookmarks;
     let viewYours;
-    if (this.state.selected === 'All' && this.state.favorites) {
+    if (this.state.selected === 'All' && this.state.favorites !== [] && this.state.bookmarks !== []) {
       viewAll = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setAll}>All</li>);
       viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
       viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
@@ -87,7 +86,7 @@ export default React.createClass({
       savedItems = this.state.favorites.concat(this.state.bookmarks).map((drink, i) => {
         return (<SavedItem name={drink.drink._obj.drink__strDrink} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._id} key={i}/>);
       });
-    } else if (this.state.selected === 'Favorites' && this.state.favorites) {
+    } else if (this.state.selected === 'Favorites' && this.state.favorites !== []) {
       viewFavorites = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setFavorites}>Favorites</li>);
       viewAll = (<li onClick={this.setAll}>All</li>);
       viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
@@ -95,7 +94,7 @@ export default React.createClass({
       savedItems = this.state.favorites.map((drink, i) => {
         return (<SavedItem name={drink.drink._obj.drink__strDrink} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
       });
-    } else if (this.state.selected === 'Saved' && this.state.bookmarks) {
+    } else if (this.state.selected === 'Saved' && this.state.bookmarks !== []) {
       viewBookmarks = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setBookmarks}>Saved</li>);
       viewAll = (<li onClick={this.setAll}>All</li>);
       viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
@@ -103,7 +102,7 @@ export default React.createClass({
       savedItems = this.state.bookmarks.map((drink, i) => {
         return (<SavedItem name={drink.drink._obj.drink__strDrink} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
       });
-    } else if (this.state.selected === 'Yours' && this.state.custom) {
+    } else if (this.state.selected === 'Yours' && this.state.custom !== []) {
       viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
       viewAll = (<li onClick={this.setAll}>All</li>);
       viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
