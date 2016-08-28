@@ -179,30 +179,76 @@ nav {
   }
 }
 
-@media (max-width: 550px) {
-  nav {
-    background: $white;
-    padding: 15px 10px;
-    a {
-      color: $main;
-    }
-    #login-links {
-    float: right;
-    position: relative;
-    bottom: 89px;
-    }
-    #search-bar-form {
-      width: 100%;
+@media (max-width: 300px) {
+  #search-bar-form {
+    width: 65%;
+    margin-left: 8%;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 1.5rem;
+      right: 2.5rem;
+      width: 1rem;
+      height: 0.125rem;
+      border-top: 0.375rem double $black;
+      border-bottom: 0.125rem solid $black;
     }
     #search-input {
-      margin: 10px auto 0 auto;
-      display: block;
+      width: 0;
+      padding: 0;
     }
-    #results-dropdown {
-      top: 73px;
+    #search-icon-btn {
+      left: 45%;
+      bottom: -7px;
     }
   }
-#filter-options {
-  display: none;
+  nav {
+    height: 33px;
+    a {
+      margin: 0;
+    }
+    #show-filter-options {
+      display: none;
+    }
+    #logo {
+      float: left;
+      bottom: 0;
+      margin-left: 2%;
+      img {
+        height: 35px;
+      }
+    }
+    #custom-link {
+      display: none;
+    }
+  }
+  #user-info-link {
+    display: none;
+  }
+
+  header {
+    height: 330px;
+    h2 {
+      padding-top: 95px;
+      font-size: 2rem;
+    }
+  }
+
+  #how-it-works {
+    border-bottom: 1px solid $gray;
+    h2 {
+      display: none;
+    }
+  #about-cocktails, #about-traitify, #about-match {
+      display: block;
+      width: 95%;
+      margin: 0 auto;
+    }
+  }
+
+  #cocktail-list {
+    .app-titles {
+      display: none;
+    }
   }
 }
