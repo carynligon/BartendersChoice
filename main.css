@@ -155,25 +155,60 @@ nav {
     display: inline-block;
     margin: 0 3%; }
 
-@media (max-width: 550px) {
-  nav {
-    background: #fff;
-    padding: 15px 10px; }
-    nav a {
-      color: #FF3C38; }
-    nav #login-links {
-      float: right;
-      position: relative;
-      bottom: 89px; }
-    nav #search-bar-form {
-      width: 100%; }
-    nav #search-input {
-      margin: 10px auto 0 auto;
-      display: block; }
-    nav #results-dropdown {
-      top: 73px; }
+@media (max-width: 300px) {
+  #search-bar-form {
+    width: 65%;
+    margin-left: 8%; }
+    #search-bar-form::after {
+      content: "";
+      position: absolute;
+      top: 1.5rem;
+      right: 2.5rem;
+      width: 1rem;
+      height: 0.125rem;
+      border-top: 0.375rem double #454545;
+      border-bottom: 0.125rem solid #454545; }
+    #search-bar-form #search-input {
+      width: 0;
+      padding: 0; }
+    #search-bar-form #search-icon-btn {
+      left: 45%;
+      bottom: -7px; }
 
-  #filter-options {
+  nav {
+    height: 33px; }
+    nav a {
+      margin: 0; }
+    nav #show-filter-options {
+      display: none; }
+    nav #logo {
+      float: left;
+      bottom: 0;
+      margin-left: 2%; }
+      nav #logo img {
+        height: 35px; }
+    nav #custom-link {
+      display: none; }
+
+  #user-info-link {
+    display: none; }
+
+  header {
+    height: 330px; }
+    header h2 {
+      padding-top: 95px;
+      font-size: 2rem; }
+
+  #how-it-works {
+    border-bottom: 1px solid #EEEEEE; }
+    #how-it-works h2 {
+      display: none; }
+    #how-it-works #about-cocktails, #how-it-works #about-traitify, #how-it-works #about-match {
+      display: block;
+      width: 95%;
+      margin: 0 auto; }
+
+  #cocktail-list .app-titles {
     display: none; } }
 video {
   position: fixed;
