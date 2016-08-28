@@ -2,6 +2,8 @@ import React from 'react';
 
 import store from '../store';
 
+import CustomForm from './CustomForm';
+
 export default React.createClass({
   getInitialState() {
     return {cocktail: store.cocktails.get(this.props.id).toJSON()}
@@ -80,40 +82,7 @@ export default React.createClass({
     return (
       <div className="modal-container" style={containerStyles} onClick={this.closeModal}>
         <div className="modal-content" style={contentStyles}>
-        <form id="edit-cocktail-form">
-          <input type="text" id="cocktail-name" defaultValue={this.props.name}></input>
-          <div id="cocktail-image" style={styles}></div>
-          <input type="file" id="image-uploader" accept="image/*" ref="file" onChange={this.uploadImg}/>
-          <input type="range" id="cocktail-difficulty" min="1" max="3"/>
-          <input type="text" id="cocktail-instructions" defaultValue={this.state.cocktail.drink__strInstructions}></input>
-          <input type="text" id="cocktail-glass" defaultValue={this.state.cocktail.drink__strGlass}></input>
-          <ul id="cocktail-ingredients">
-            {ingredients}
-          </ul>
-          <div id="flavor-profile-wrapper">
-            <input type="checkbox" id="custom-sweet" onChange={this.changeStatus}/>
-            <label htmlFor="custom-sweet">sweet</label>
-            <input type="checkbox" id="custom-bubbly" onChange={this.changeStatus}/>
-            <label htmlFor="custom-bubbly">bubbly</label>
-            <input type="checkbox" id="custom-fruity" onChange={this.changeStatus}/>
-            <label htmlFor="custom-fruity">fruity</label>
-            <input type="checkbox" id="custom-creamy" onChange={this.changeStatus}/>
-            <label htmlFor="custom-creamy">creamy</label>
-            <input type="checkbox" id="custom-spicy" onChange={this.changeStatus}/>
-            <label htmlFor="custom-spicy">spicy</label>
-            <input type="checkbox" id="custom-dry" onChange={this.changeStatus}/>
-            <label htmlFor="custom-dry">dry</label>
-            <input type="checkbox" id="custom-sour" onChange={this.changeStatus}/>
-            <label htmlFor="custom-sour">sour</label>
-            <input type="checkbox" id="custom-salty" onChange={this.changeStatus}/>
-            <label htmlFor="custom-salty">salty</label>
-            <input type="checkbox" id="custom-spirit-forward" onChange={this.changeStatus}/>
-            <label htmlFor="custom-spirit-forward">spirit-forward</label>
-            <input type="checkbox" id="custom-bitter" onChange={this.changeStatus}/>
-            <label htmlFor="custom-bitter">bitter</label>
-          </div>
-          <input type="submit" id="submit-changes-btn" value="Submit"/>
-        </form>
+        <CustomForm name={this.props.name} img={this.state.cocktail.drink__strDrinkThumb} instructions={this.state.cocktail.drink__strInstructions} glass={this.state.cocktail.drink__strGlass} ingredients={this.state.ingredients}/>
         </div>
       </div>
     );
