@@ -109,9 +109,30 @@ export default React.createClass({
       viewAll = (<li onClick={this.setAll}>All</li>);
       viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
       viewYours = (<li onClick={this.setYours} style={{background:'#FF3C38', color:'#fff'}}>Your Recipes</li>);
-      savedItems = this.state.custom.map((drink, i) => {
-        return (<SavedItem name={drink.drinkName} id={drink.drink._id} key={i} edit={true}/>);
-      });
+      let drinkArr = [];
+      let reduced;
+      let toReduce = this.state.custom.map((drink, i) => {
+        drinkArr.push(drink.drink._obj);
+        console.log(drinkArr);
+        let ids = []
+        reduced = drinkArr.reduce((rtsf, curr, i) => {
+          if (i === 0) {
+            rtsf.push(curr);
+            ids.push(curr._id);
+          } else {
+            if (ids.indexOf(curr._id) === -1) {
+              rtsf.push(curr);
+              ids.push(curr._id);
+            }
+          }
+          return rtsf;
+        },[]);
+        });
+        console.log(reduced);
+        savedItems = reduced.map((drink, i) => {
+          console.log(drink);
+          return (<SavedItem name={drink.drink__strDrink} id={drink._id} key={i} edit={true}/>);
+        });
     }
     return (
       <main id="dashboard-page">
