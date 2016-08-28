@@ -10,7 +10,8 @@ export default React.createClass({
       ingredientQuantities: [],
       currCocktail: this.props.cocktail,
       id: this.props.cocktail._id,
-      tags: []
+      tags: [],
+      ingredientModels: this.props.ingredients
     }
   },
   changeStatus(e) {
@@ -69,9 +70,10 @@ export default React.createClass({
       glass: this.refs.cocktailGlass.value,
       ingredients: this.state.ingredients,
       ingredientQuantities: this.state.ingredientQuantities,
-      flavorNotes: this.state.tags
+      flavorNotes: this.state.tags,
+      ingredientModels: this.props.ingredients
     }
-    store.editCocktail.updateCocktail(this.state.currCocktail, cocktail);
+    store.editCocktail.updateCocktail(this.state.currCocktail, cocktail, this.state.ingredientModels);
   },
   componentDidMount() {
     this.props.ingredients.forEach((ingredient) => {

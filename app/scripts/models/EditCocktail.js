@@ -8,7 +8,7 @@ import store from '../store';
 export default Backbone.Model.extend({
   urlRoot: `https://baas.kinvey.com/appdata/${settings.appKey}/Cocktails`,
   idAttribute: '_id',
-  updateCocktail(origModel, cocktailObj) {
+  updateCocktail(origModel, cocktailObj, currIngredients) {
       console.log(origModel);
       console.log(cocktailObj);
       let ingredients = cocktailObj.ingredients;
@@ -24,7 +24,7 @@ export default Backbone.Model.extend({
       }
       _.object(ingredientKeys, ingredients);
       this.save({
-        _id: origModel._id,
+        _id: origModel.get('_id'),
         drink__strDrink: cocktailObj.name,
         drink__strGlass: cocktailObj.glass,
         drink__strInstructions: cocktailObj.instructions,
@@ -49,8 +49,15 @@ export default Backbone.Model.extend({
         drink__strMeasure9: ingredientQuantities[8]
       }, {
         success: (data) => {
-          console.log(data);
-          store.allIngredients.forEach((model) => {
+          currIngredients.forEach((ingredient) => {
+            $.ajax({
+              url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients/${ingredient._id}`,
+              type: 'DELETE'
+            });
+          });
+          console.log(store.allIngredients);
+          store.allIngredients.models.forEach((model) => {
+            console.log(model);
             model.destroy({
               success: (data) => {
                 cocktailObj.ingredients.forEach((ingredient) => {
