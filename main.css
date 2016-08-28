@@ -166,14 +166,15 @@ nav {
       right: 2.5rem;
       width: 1rem;
       height: 0.125rem;
-      border-top: 0.375rem double #454545;
-      border-bottom: 0.125rem solid #454545; }
+      border-top: 0.375rem double #FF3C38;
+      border-bottom: 0.125rem solid #FF3C38; }
     #search-bar-form #search-input {
       width: 0;
       padding: 0; }
     #search-bar-form #search-icon-btn {
       left: 45%;
-      bottom: -7px; }
+      bottom: -7px;
+      color: #FF3C38; }
 
   nav {
     height: 33px; }
@@ -194,9 +195,9 @@ nav {
     display: none; }
 
   header {
-    height: 330px; }
+    height: 360px; }
     header h2 {
-      padding-top: 95px;
+      padding-top: 110px;
       font-size: 2rem; }
 
   #how-it-works {
@@ -239,6 +240,13 @@ video {
       color: #454545;
       cursor: pointer; }
 
+@media (max-width: 300px) {
+  #age-validation {
+    font-size: 1.5rem;
+    top: 19%; }
+    #age-validation input {
+      width: 100px;
+      margin: 5px; } }
 #cocktail-list {
   margin: 0 auto; }
 
@@ -318,7 +326,11 @@ video {
     width: 100%; }
     #cocktail-list .drink-preview, #result-list .drink-preview {
       width: calc(100%);
-      margin: 20px 7%; } }
+      margin: 20px 7%; }
+      #cocktail-list .drink-preview .favorite-icon, #result-list .drink-preview .favorite-icon {
+        left: 33%; }
+      #cocktail-list .drink-preview .bookmark-icon, #result-list .drink-preview .bookmark-icon {
+        right: 32%; } }
 .assessment-section {
   width: 60%;
   text-align: center;
@@ -520,6 +532,56 @@ video {
         color: #FF3C38;
         text-decoration: underline; }
 
+@media (max-width: 300px) {
+  .recipe-title {
+    padding: 20px 0 10px 0;
+    margin: 20px 0;
+    font-weight: 300; }
+
+  .ingredients {
+    display: block;
+    width: 95%;
+    margin: 0 auto; }
+    .ingredients h4 {
+      text-align: center;
+      margin: 5px; }
+    .ingredients ul {
+      margin-bottom: 30px; }
+      .ingredients ul li {
+        line-height: 1.5rem; }
+
+  #recipe-drink-img {
+    display: block;
+    width: 100%;
+    margin: 0 auto 50px auto; }
+    #recipe-drink-img #recipe-icons {
+      padding-left: 5%; }
+      #recipe-drink-img #recipe-icons .favorite-icon {
+        margin-left: 5%; }
+
+  .mixing-instructions {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    line-height: 1.5rem; }
+    .mixing-instructions h4 {
+      margin: 0;
+      border-top: 4px solid #EEEEEE;
+      padding-top: 20px;
+      text-align: center; }
+
+  #similar-drinks {
+    background: #EEEEEE;
+    padding: 5px 0 25px 0;
+    margin: 0; }
+    #similar-drinks h4 {
+      font-size: 1rem; }
+    #similar-drinks h4::before {
+      width: 0; }
+    #similar-drinks h4::after {
+      width: 0; }
+    #similar-drinks li {
+      width: 100%; } }
 #results-section {
   margin: 150px auto;
   width: 70%; }
