@@ -53,6 +53,7 @@ export default React.createClass({
         overflow: 'scroll'
       };
     let ingredients;
+    let form;
     if (this.state.ingredients) {
       ingredients = this.state.ingredients.map((ingredient,i) => {
         return (
@@ -62,12 +63,7 @@ export default React.createClass({
           </li>
         )
       });
-      this.state.ingredients.forEach((ingredient) => {
-        ingredient.tags.forEach((tag) => {
-          let id = 'custom-' + tag;
-          document.getElementById(id).checked = true;
-        });
-      });
+      form = (<CustomForm name={this.props.name} cocktail={this.state.cocktail} img={this.state.cocktail.drink__strDrinkThumb} instructions={this.state.cocktail.drink__strInstructions} glass={this.state.cocktail.drink__strGlass} ingredients={this.state.ingredients}/>);
     }
     let styles;
     if (this.state.cocktail.drink__strDrinkThumb === null || this.state.cocktail.drink__strDrinkThumb === undefined) {
@@ -82,7 +78,7 @@ export default React.createClass({
     return (
       <div className="modal-container" style={containerStyles} onClick={this.closeModal}>
         <div className="modal-content" style={contentStyles}>
-        <CustomForm name={this.props.name} img={this.state.cocktail.drink__strDrinkThumb} instructions={this.state.cocktail.drink__strInstructions} glass={this.state.cocktail.drink__strGlass} ingredients={this.state.ingredients}/>
+          {form}
         </div>
       </div>
     );

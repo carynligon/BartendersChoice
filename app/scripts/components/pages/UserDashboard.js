@@ -84,7 +84,7 @@ export default React.createClass({
       viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
       viewYours = (<li onClick={this.setYours}>Your Recipes</li>);
       savedItems = this.state.favorites.concat(this.state.bookmarks).map((drink, i) => {
-        return (<SavedItem name={drink.drink._obj.drink__strDrink} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._id} key={i}/>);
+        return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._id} key={i}/>);
       });
     } else if (this.state.selected === 'Favorites' && this.state.favorites !== []) {
       viewFavorites = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setFavorites}>Favorites</li>);
@@ -92,7 +92,7 @@ export default React.createClass({
       viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
       viewYours = (<li onClick={this.setYours}>Your Recipes</li>);
       savedItems = this.state.favorites.map((drink, i) => {
-        return (<SavedItem name={drink.drink._obj.drink__strDrink} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
+        return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
       });
     } else if (this.state.selected === 'Saved' && this.state.bookmarks !== []) {
       viewBookmarks = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setBookmarks}>Saved</li>);
@@ -100,7 +100,7 @@ export default React.createClass({
       viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
       viewYours = (<li onClick={this.setYours}>Your Recipes</li>);
       savedItems = this.state.bookmarks.map((drink, i) => {
-        return (<SavedItem name={drink.drink._obj.drink__strDrink} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
+        return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
       });
     } else if (this.state.selected === 'Yours' && this.state.custom !== []) {
       viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
@@ -108,7 +108,7 @@ export default React.createClass({
       viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
       viewYours = (<li onClick={this.setYours} style={{background:'#FF3C38', color:'#fff'}}>Your Recipes</li>);
       savedItems = this.state.custom.map((drink, i) => {
-        return (<SavedItem name={drink.drink._obj.drink__strDrink} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i} edit={true}/>);
+        return (<SavedItem name={drink.drinkName} id={drink.drink._id} key={i} edit={true}/>);
       });
     }
     return (

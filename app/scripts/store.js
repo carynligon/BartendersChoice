@@ -8,6 +8,7 @@ import CustomCocktails from './collections/CustomCocktails';
 import SavedForLaterCollection from './collections/SavedForLaterCollection';
 import Favorites from './collections/Favorites';
 import AllIngredients from './collections/AllIngredients';
+import EditCocktail from './models/EditCocktail';
 
 export default {
   session: new Session(),
@@ -21,5 +22,6 @@ export default {
   savedForLaterCollection: new SavedForLaterCollection(),
   favorites: new Favorites(),
   allIngredients: new AllIngredients(),
-  showModal: false
+  showModal: false,
+  editCocktail: new EditCocktail()
 }

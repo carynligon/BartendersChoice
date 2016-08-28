@@ -1,19 +1,15 @@
 import React from 'react';
 import _ from 'underscore';
 
+import store from '../store';
+
 export default React.createClass({
   getInitialState() {
     return {
       ingredients: [],
-      ingredientQuantities: []
-    }
-  },
-  componentDidMount() {
-    if (this.props.ingredients) {
-      ingredients = this.props.ingredients.forEach((ingredient,i) => {
-        this.setState({ingredients: this.state.ingredients.push(ingredient.ingredientName)});
-        this.setState({ingredientQuantities: this.state.ingredientQuantities.push(ingredient.quantity)});
-      });
+      ingredientQuantities: [],
+      currCocktail: this.props.cocktail,
+      id: this.props.cocktail._id
     }
   },
   changeStatus(e) {
@@ -28,8 +24,19 @@ export default React.createClass({
       this.setState({tags: this.state.tags.concat(flavor)});
     }
   },
-  deleteIngredient() {
-
+  deleteIngredient(e) {
+    e.preventDefault();
+    let ingredient;
+    if (e.target.id === 'delete-btn') {
+      ingredient = e.target.previousSibling.previousSibling.textContent;
+    }
+    if (e.target.className === 'fa fa-times delete-icon') {
+      ingredient = e.target.parentElement.previousSibling.previousSibling.textContent;
+    }
+    let index = this.state.ingredients.indexOf(ingredient);
+    this.state.ingredients.splice(index, 1);
+    this.state.ingredientQuantities.splice(index, 1);
+    this.setState({ingredients: this.state.ingredients, ingredientQuantities: this.state.ingredientQuantities})
   },
   newIngredient(e) {
     if (e) {
@@ -43,6 +50,40 @@ export default React.createClass({
     } else {
       this.setState({ingredients: [newIngredient], ingredientQuantities: [newIngredientQuantity]});
     }
+  },
+  showPreview(e) {
+    e.preventDefault();
+    let difficulty;
+    if (this.refs.difficulty.value === '1') {
+      difficulty = 'easy';
+    } else if (this.refs.difficulty.value === '2') {
+      difficulty = 'medium';
+    } else if (this.refs.difficulty.value === '3') {
+      difficulty = 'difficult';
+    }
+    let cocktail = {
+      name: this.refs.name.value,
+      difficulty: difficulty,
+      instructions: this.refs.instructions.value,
+      glass: this.refs.cocktailGlass.value,
+      ingredients: this.state.ingredients,
+      ingredientQuantities: this.state.ingredientQuantities,
+      flavorNotes: this.state.tags
+    }
+    store.editCocktail.updateCocktail(this.state.currCocktail, cocktail);
+  },
+  componentDidMount() {
+    this.props.ingredients.forEach((ingredient) => {
+      this.setState({
+        ingredients: this.state.ingredients.concat(ingredient.ingredientName),
+        ingredientQuantities: this.state.ingredientQuantities.concat(ingredient.quantity)
+      });
+      ingredient.tags.forEach((tag) => {
+        let id = 'custom-' + tag;
+        console.log(id);
+        document.getElementById(id).checked = true;
+      });
+    });
   },
   render() {
     console.log(this.state);
