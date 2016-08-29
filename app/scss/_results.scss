@@ -44,3 +44,23 @@
     }
   }
 }
+
+@media (max-width: 300px) {
+  #results-section {
+    margin: 110px auto;
+    width: 90%;
+    h3 {
+      text-align: center;
+    }
+    #drink-image-results {
+      width: 100%;
+      background-position: center;
+      float: none;
+    }
+    ul {
+      width: 90%;
+      margin: 30px auto;
+      display: block;
+    }
+  }
+}

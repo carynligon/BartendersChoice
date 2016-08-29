@@ -220,6 +220,9 @@ nav {
   #user-info-link {
     display: none; }
 
+  #login-links {
+    display: none; }
+
   header {
     height: 360px; }
     header h2 {
@@ -411,22 +414,30 @@ video {
       cursor: pointer; }
 
 @media (max-width: 500px) {
+  #question-section {
+    margin-top: 110px; }
+    #question-section h3 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #FF3C38;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #EEEEEE; }
+    #question-section #select-answer {
+      width: 90%; }
+      #question-section #select-answer #me, #question-section #select-answer #not-me {
+        font-family: "Fira-Sans", sans-serif;
+        display: block;
+        width: 65%;
+        margin: 0 auto 20px auto;
+        padding: 20px;
+        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+        border: 1px solid #EEEEEE; }
+
   .assessment-section {
     margin: 100px auto;
     width: 80%; }
-
-  #question-section h3 {
-    margin-top: 35%;
-    color: #fff;
-    font-size: 2.2rem; }
-  #question-section div {
-    border: 1px solid #fff;
-    border-radius: 10px;
-    color: #fff;
-    padding: 15px; }
-    #question-section div #not-me:hover, #question-section div #yes-me:hover {
-      background: #fff;
-      color: #FF3C38; } }
+    .assessment-section h3 {
+      font-size: 2.5rem; } }
 .login-signup-form, .user-info-form {
   text-align: center; }
   .login-signup-form h2, .user-info-form h2 {
@@ -651,6 +662,20 @@ video {
       font-family: "Fira-Sans", sans-serif, sans-serif;
       font-weight: bolder; }
 
+@media (max-width: 300px) {
+  #results-section {
+    margin: 110px auto;
+    width: 90%; }
+    #results-section h3 {
+      text-align: center; }
+    #results-section #drink-image-results {
+      width: 100%;
+      background-position: center;
+      float: none; }
+    #results-section ul {
+      width: 90%;
+      margin: 30px auto;
+      display: block; } }
 #filter-bar {
   background: #EEEEEE;
   color: #FF3C38;
@@ -970,6 +995,30 @@ video {
       text-align: center;
       display: block; }
 
+@media (max-width: 300px) {
+  #select-view {
+    width: 90%;
+    margin: 100px auto 0 auto;
+    float: none; }
+
+  #preview-selected-item {
+    width: 90%;
+    float: none;
+    display: inline-block;
+    margin: 0 auto; }
+    #preview-selected-item .saved-item-img {
+      height: 120px;
+      width: 50%; }
+    #preview-selected-item .saved-item-data {
+      float: right;
+      width: 50%;
+      box-sizing: border-box;
+      padding-left: 1%; }
+
+  #dashboard-page #logout-btn {
+    margin: 20px auto 50px auto;
+    width: 75%;
+    display: block; } }
 #oops-page h2 {
   margin-top: 100px;
   font-size: 4rem;

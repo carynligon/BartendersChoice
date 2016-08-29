@@ -69,27 +69,33 @@
 
 
 @media (max-width: 500px) {
+  #question-section {
+    margin-top: 110px;
+    h3 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: $main;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $gray;
+    }
+    #select-answer {
+      width: 90%;
+      #me, #not-me {
+        font-family: $sans;
+        display: block;
+        width: 65%;
+        margin: 0 auto 20px auto;
+        padding: 20px;
+        box-shadow: $shadow;
+        border: 1px solid $gray;
+      }
+    }
+  }
   .assessment-section {
     margin: 100px auto;
     width: 80%;
-  }
-  #question-section {
     h3 {
-      margin-top: 35%;
-      color: $white;
-      font-size: 2.2rem;
-    }
-    div {
-      border: 1px solid $white;
-      border-radius: 10px;
-      color: $white;
-      padding: 15px;
-      #not-me, #yes-me {
-        &:hover {
-          background: $white;
-          color: $main;
-        }
-      }
+      font-size: 2.5rem;
     }
   }
 }

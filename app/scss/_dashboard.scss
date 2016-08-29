@@ -70,3 +70,34 @@
     }
   }
 }
+
+@media (max-width: 300px) {
+  #select-view {
+    width: 90%;
+    margin: 100px auto 0 auto;
+    float: none;
+  }
+  #preview-selected-item {
+    width: 90%;
+    float: none;
+    display: inline-block;
+    margin: 0 auto;
+    .saved-item-img {
+      height: 120px;
+      width: 50%;
+    }
+    .saved-item-data {
+      float: right;
+      width: 50%;
+      box-sizing: border-box;
+      padding-left: 1%;
+    }
+  }
+  #dashboard-page {
+    #logout-btn {
+      margin: 20px auto 50px auto;
+      width: 75%;
+      display: block;
+    }
+  }
+}

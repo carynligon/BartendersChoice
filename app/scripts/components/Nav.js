@@ -57,6 +57,7 @@ export default React.createClass({
     store.session.off('change add update remove', this.listener);
   },
   render() {
+    console.log(this.state);
     let links;
     let showFilter;
     let showModal;
@@ -91,15 +92,17 @@ export default React.createClass({
             <li><Link to="me">Dashboard</Link></li>
             <li><Link to="custom">Add Recipe</Link></li>
             <li><Link to="assessment">Assessment</Link></li>
-            <li><p id="logout-btn" onClick={this.logout}>Logout</p></li>
+            <li><p id="logout-dropdown" onClick={this.logout}>Logout</p></li>
           </ul>
         );
-      } else {
-        <ul id="mobile-menu">
+      } else if (this.state.showMenu && this.state.username === 'Anonymous'){
+        menu = (
+          <ul id="mobile-menu">
           <li><p id="signin-btn" onClick={this.showModal}>Sign in</p></li>
           <li><Link to="assessment">Assessment</Link></li>
         </ul>
-      }
+      );
+    }
     return(
       <nav>
         <SearchBar/>
