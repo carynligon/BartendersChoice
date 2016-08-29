@@ -1,8 +1,10 @@
+import $ from 'jquery';
 import React from 'react';
 import {Link} from 'react-router';
 import _ from 'underscore';
 
 import store from '../store';
+import settings from '../settings';
 
 export default React.createClass({
   getInitialState() {
@@ -39,6 +41,38 @@ export default React.createClass({
     if (e.target.checked === true) {
       this.setState({tags: this.state.tags.concat(flavor)});
     }
+  },
+  uploadImg(e) {
+    let file = e.target.files[0];
+    let fileId;
+    $.ajax({
+      url: `https://baas.kinvey.com/blob/${settings.appKey}`,
+      type: 'POST',
+      contentType: 'application/json',
+      headers: {"X-Kinvey-Content-Type": file.type},
+      data: JSON.stringify({
+        _public: true,
+        _filename: file.name,
+        mimeType: file.type
+      }),
+      success: (data) => {
+        console.log(data);
+        fileId = data._id;
+        this.setState({img: fileId});
+        $.ajax({
+          url: data._uploadURL,
+          headers: data._requiredHeaders,
+          data: file,
+          contentLength: file.size,
+          type: 'PUT',
+          processData: false,
+          contentType: false,
+          success: (data) => {
+            console.log(data);
+          }
+        });
+      }
+    });
   },
   deleteIngredient(e) {
     e.preventDefault();
@@ -85,7 +119,8 @@ export default React.createClass({
       ingredients: this.state.ingredients,
       ingredientQuantities: this.state.ingredientQuantities,
       flavorNotes: this.state.tags,
-      ingredientModels: this.props.ingredients
+      ingredientModels: this.props.ingredients,
+      img: this.state.img
     }
     store.editCocktail.updateCocktail(this.state.currCocktail, cocktail, this.state.ingredientModels);
     this.setState({submitted: true});

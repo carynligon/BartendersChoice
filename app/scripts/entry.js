@@ -8,11 +8,13 @@ import store from './store';
 import settings from './settings';
 
 $(document).ajaxSend(function(evt, xhrAjax, jqueryAjax) {
+  if (jqueryAjax.url.indexOf('kinvey') !== -1) {
     if (localStorage.getItem('authtoken')) {
       xhrAjax.setRequestHeader('Authorization', 'Kinvey ' + localStorage.getItem('authtoken'));
     } else {
       xhrAjax.setRequestHeader('Authorization', 'Basic ' + settings.basicAuth);
     }
+  }
 });
 
 ReactDOM.render(router, document.getElementById('container'));

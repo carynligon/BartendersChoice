@@ -1,7 +1,9 @@
+import $ from 'jquery';
 import _ from 'underscore';
 import React from 'react';
 
 import store from '../../store';
+import settings from '../../settings';
 
 import Nav from '../Nav';
 import CustomPreview from '../CustomPreview';
@@ -71,18 +73,36 @@ export default React.createClass({
     this.setState({ingredients: this.state.ingredients, ingredientQuantities: this.state.ingredientQuantities})
   },
   uploadImg(e) {
-    e.preventDefault();
-    let file = this.refs.file.files[0];
-    let reader = new FileReader();
-    let url = reader.readAsDataURL(file);
-    reader.onloadend = function() {
-      this.setState({
-        image: [reader.result]
-      });
-    }.bind(this);
-    if (reader.readyState === 2) {
-      reader.readAsDataURL(file);
-    }
+    let file = e.target.files[0];
+    let fileId;
+    $.ajax({
+      url: `https://baas.kinvey.com/blob/${settings.appKey}`,
+      type: 'POST',
+      contentType: 'application/json',
+      headers: {"X-Kinvey-Content-Type": file.type},
+      data: JSON.stringify({
+        _public: true,
+        _filename: file.name,
+        mimeType: file.type
+      }),
+      success: (data) => {
+        console.log(data);
+        fileId = data._id;
+        this.setState({img: fileId});
+        $.ajax({
+          url: data._uploadURL,
+          headers: data._requiredHeaders,
+          data: file,
+          contentLength: file.size,
+          type: 'PUT',
+          processData: false,
+          contentType: false,
+          success: (data) => {
+            console.log(data);
+          }
+        });
+      }
+    });
   },
   showPreview(e) {
     let difficulty;
@@ -100,7 +120,8 @@ export default React.createClass({
       glass: this.refs.cocktailGlass.value,
       ingredients: this.state.ingredients,
       ingredientQuantities: this.state.ingredientQuantities,
-      flavorNotes: this.state.tags
+      flavorNotes: this.state.tags,
+      img: this.state.img
     }
     this.setState({cocktail})
     store.customCocktails.createCocktail(cocktail);
