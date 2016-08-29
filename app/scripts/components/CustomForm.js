@@ -76,18 +76,22 @@ export default React.createClass({
     store.editCocktail.updateCocktail(this.state.currCocktail, cocktail, this.state.ingredientModels);
   },
   componentDidMount() {
-    this.props.ingredients.forEach((ingredient) => {
-      console.log(ingredient);
-      this.setState({
-        ingredients: this.state.ingredients.concat(ingredient.ingredientName),
-        ingredientQuantities: this.state.ingredientQuantities.concat(ingredient.quantity)
-      });
+    console.log(this.state.ingredientModels);
+    let ingredients = [];
+    let ingredientQuantities = []
+    this.state.ingredientModels.forEach((ingredient) => {
+      ingredients.push(ingredient.ingredientName);
+      ingredientQuantities.push(ingredient.quantity);
       ingredient.tags.forEach((tag) => {
         let id = 'custom-' + tag;
-        console.log(id);
         document.getElementById(id).checked = true;
       });
     });
+    this.setState({
+      ingredients: ingredients,
+      ingredientQuantities: ingredientQuantities
+    });
+    console.log(ingredients);
   },
   render() {
     console.log(this.state);
@@ -100,6 +104,7 @@ export default React.createClass({
     let newIngredients;
     if (this.state.ingredients !== []) {
       newIngredients = zippedIngredients.map((ingredient, i) => {
+        console.log(ingredient);
         return (
           <li key={i}>
             <p className="ingredient-name">{ingredient[0]}</p>
@@ -143,12 +148,12 @@ export default React.createClass({
 
         <div id="cocktail-instructions-wrapper">
           <label htmlFor="cocktail-instructions">Mixing Instructions:</label>
-          <input type="text" id="cocktail-instructions" autoComplete="off" ref="instructions" defaultValue={this.props.instructions}/>
+          <input type="text" id="cocktail-instructions" autoComplete="off" ref="instructions" defaultValue={this.state.currCocktail.drink__strInstructions}/>
         </div>
 
         <div id="cocktail-glass-wrapper">
           <label htmlFor="cocktail-glass">Serving Glass:</label>
-          <input type="text" id="cocktail-glass" autoComplete="off" ref="cocktailGlass" defaultValue={this.props.glass}/>
+          <input type="text" id="cocktail-glass" autoComplete="off" ref="cocktailGlass" defaultValue={this.state.currCocktail.drink__strGlass}/>
         </div>
 
         <ul id="ingredients-list">
@@ -164,8 +169,9 @@ export default React.createClass({
         <div id="new-ingredient-quantity-wrapper">
           <label htmlFor="new-ingredient-quantity">Quantity:</label>
           <input type="text" id="new-ingredient-quantity" autoComplete="off" ref="newIngredientQuantity"/>
-          <input type="button" id="add-ingredient" value="Add" onClick={this.newIngredient}/>
         </div>
+
+        <input type="button" id="add-ingredient" value="Add" onClick={this.newIngredient}/>
 
         <div id="flavor-profile-wrapper">
           <input type="checkbox" id="custom-sweet" onChange={this.changeStatus}/>
