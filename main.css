@@ -481,6 +481,13 @@ video {
     margin-left: 5px; }
     .login-signup-form a:hover, .user-info-form a:hover {
       color: #454545; }
+  .login-signup-form #signup-btn, .user-info-form #signup-btn {
+    margin-left: 5px;
+    color: #FF3C38;
+    font-weight: bolder; }
+    .login-signup-form #signup-btn:hover, .user-info-form #signup-btn:hover {
+      color: #454545;
+      cursor: pointer; }
 
 .recipe-title {
   font-size: 2.5rem;
