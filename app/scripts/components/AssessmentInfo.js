@@ -21,6 +21,14 @@ export default React.createClass({
   hideModal() {
     this.setState({loggedIn: true});
   },
+  firstQuestion() {
+    if (store.slides.models.length === 49) {
+      hashHistory.push(`/assessment/question/${store.slides.models[0].get('id')}`);
+    }
+  },
+  componentDidMount() {
+    store.slides.on('update', this.firstQuestion);
+  },
   render() {
     let login;
     if (!this.state.loggedIn) {

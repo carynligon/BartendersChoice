@@ -24,7 +24,7 @@ const router = (
     <Route path="/recipe/:cocktail" component={Recipe}/>
     <Route path="/assessment" component={Assessment}>
       <IndexRoute component={AssessmentInfo}/>
-      <Route path="/assessment/question" component={SingleQuestion}/>
+      <Route path="/assessment/question/:id" component={SingleQuestion}/>
       <Route path="/assessment/results" component={Results}/>
     </Route>
     <Route path="/custom" component={Custom}/>
