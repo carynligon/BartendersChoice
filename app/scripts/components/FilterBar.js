@@ -24,9 +24,10 @@ export default React.createClass({
         filter: filterArr
     }
   });
-  this.props.showFilter();
+  this.props.hideFilter();
   },
   render() {
+    console.log(this.props);
     return(
       <div id="filter-bar">
         <FilterFlavor/>

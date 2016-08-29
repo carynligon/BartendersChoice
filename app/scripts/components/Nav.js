@@ -42,9 +42,10 @@ export default React.createClass({
     this.setState({showModal: false});
   },
   showFilter() {
-    this.setState({
-      showFilter: !this.state.showFilter
-    });
+    this.setState({showFilter: true});
+  },
+  hideFilter() {
+    this.setState({showFilter: false})
   },
   showMenu() {
     this.setState({showMenu: !this.state.showMenu});
@@ -80,7 +81,7 @@ export default React.createClass({
         );
       }
       if (this.state.showFilter) {
-        showFilter = (<FilterBar hideFilter={this.showFilter}/>);
+        showFilter = (<FilterBar hideFilter={this.hideFilter}/>);
       } else {
         showFilter;
       }
@@ -104,7 +105,7 @@ export default React.createClass({
     }
     return(
       <nav>
-        <SearchBar/>
+        <SearchBar hideFilter={this.hideFilter}/>
         <button id="show-filter-options" onClick={this.showFilter}>
           <i className="fa fa-filter filter-icon" aria-hidden="true"></i>
         </button>

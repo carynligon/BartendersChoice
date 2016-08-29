@@ -18,7 +18,7 @@ export default React.createClass({
     hashHistory.push(`/recipe/${e.target.parentElement.parentElement.id}`);
   },
   listener() {
-    this.setState({results: store.searchResults.toJSON()})
+    this.setState({results: store.searchResults.toJSON()});
   },
   componentDidMount() {
     store.searchResults.on('update', this.listener);
@@ -36,6 +36,7 @@ export default React.createClass({
     console.log(this.state);
     let results;
     let reduced;
+    let noResultsMsg;
     if (this.state.results !== '') {
       reduced = this.state.results.reduce((rtsf, curr) => {
         let newObj = {};
@@ -51,12 +52,16 @@ export default React.createClass({
           <DrinkPreview id={result.drink._obj._id} img={result.drink._obj.drink__strDrinkThumb} name={result.drink._obj.drink__strDrink} key={i}/>
         )
       });
+      if (this.state.results.length === 0) {
+        noResultsMsg = (<p id="no-results">We didn't find any matching results. Try removing filters to get more results.</p>)
+      }
     }
     return (
       <main id="search-results-page">
         <Nav/>
         <ul id="result-list">
           {results}
+          {noResultsMsg}
         </ul>
       </main>
     );

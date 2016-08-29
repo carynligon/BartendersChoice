@@ -19,6 +19,7 @@ export default React.createClass({
   },
   performSearch(e) {
     e.preventDefault();
+    this.props.hideFilter();
     let searchString = this.refs.searchQuery.value;
     if (e.which === 13) {
       this.setState({hide: true});
@@ -35,11 +36,13 @@ export default React.createClass({
       pathname: 'search',
       query: {q: this.refs.searchQuery.value}
     })
+    this.setState({hide: true});
   },
   listener() {
     this.setState({results: store.searchResults.toJSON()})
   },
   listenToClicks(e) {
+    console.log(e.target);
     if (e.target.id !== 'results-dropdown' && e.target.id !== 'search-input') {
       if (!this.state.hide) {
         this.setState({hide: true});
@@ -48,11 +51,11 @@ export default React.createClass({
   },
   componentDidMount() {
     store.searchResults.on('update', this.listener);
-    document.querySelector('body').addEventListener('click', this.listenToClicks);
+    window.addEventListener('click', this.listenToClicks);
   },
   componentWillUnmount() {
     store.searchResults.off('update', this.listener);
-    document.querySelector('body').removeEventListener('click', this.listenToClicks);
+    window.removeEventListener('click', this.listenToClicks);
   },
   render() {
     let styles;
