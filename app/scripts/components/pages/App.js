@@ -48,11 +48,26 @@ export default React.createClass({
     let drinksWithImgs = data.filter((drink, i) => {
       return drink.drink__strDrinkThumb !== null;
     });
-    console.log(drinksWithImgs);
+    let indices = [];
     let randomDrinks = [];
-    _(6).times(function() {
-      randomDrinks.push(drinksWithImgs[Math.floor(Math.random() * drinksWithImgs.length)]);
-    });
+    function getRandom() {
+      _(6).times(function() {
+        let randomNumber = (Math.floor(Math.random() * drinksWithImgs.length));
+        if (indices.indexOf(randomNumber) === -1) {
+          indices.push(randomNumber);
+        } else {
+          randomNumber = (Math.floor(Math.random() * drinksWithImgs.length));
+        }
+      });
+    }
+    getRandom();
+    if (indices.length !== 6) {
+      getRandom();
+    } else {
+      indices.forEach((index) => {
+        randomDrinks.push(drinksWithImgs[index]);
+      });
+    }
     let drinks;
     if (randomDrinks[0] !== undefined) {
       drinks = randomDrinks.map((drink,i) => {
