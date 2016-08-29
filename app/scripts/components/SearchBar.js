@@ -91,9 +91,6 @@ export default React.createClass({
     return(
       <form id="search-bar-form" autoComplete="off">
         <input type="text" id="search-input" onKeyUp={this.performSearch} placeholder="SEARCH RECIPES..." ref="searchQuery"/>
-        <button id="search-icon-btn" onClick={this.performSearch}>
-          <i className="fa fa-search" aria-hidden="true"></i>
-        </button>
           <ul id="results-dropdown" style={styles}>
             {results}
           </ul>

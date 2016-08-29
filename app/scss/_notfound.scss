@@ -26,3 +26,22 @@
     margin: 0 auto;
   }
 }
+
+@media (max-width: 400px) {
+  #oops-page {
+    h2 {
+      font-size: 3rem;
+      margin: 80px 0 20px 0;
+    }
+    #oops-img {
+      width: 160px;
+      padding: 30px 60px 60px 60px;
+      border: 1px solid $gray;
+    }
+    #safety-btn {
+      margin: 0 auto;
+      position: relative;
+      bottom: 14px;
+    }
+  }
+}

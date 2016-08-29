@@ -108,6 +108,7 @@ export default React.createClass({
     return(
       <nav>
         <SearchBar hideFilter={this.hideFilter}/>
+        <i className="fa fa-search" id="search-icon" aria-hidden="true"></i>
         <button id="show-filter-options" onClick={this.showFilter}>
           <i className="fa fa-filter filter-icon" aria-hidden="true"></i>
         </button>
