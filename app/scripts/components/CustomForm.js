@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router';
 import _ from 'underscore';
 
 import store from '../store';
@@ -11,10 +12,23 @@ export default React.createClass({
       currCocktail: this.props.cocktail.toJSON(),
       id: this.props.id,
       tags: [],
-      ingredientModels: this.props.ingredients
+      ingredientModels: this.props.ingredients,
+      submitted: false
     }
   },
   changeStatus(e) {
+    let flavors = ["sweet","bubbly","fruity","creamy","spicy","dry","sour","salty","spirit-forward","bitter"]
+    flavors.forEach((flavor, i) => {
+      if (document.getElementById('custom-'+flavor).checked === true) {
+        this.setState({tags: this.state.tags.concat(flavor)});
+      } else if (document.getElementById('custom-'+flavor).checked === false){
+        if (this.state.tags.indexOf(flavor) !== -1) {
+          console.log('already tagged');
+          let tags = this.state.tags;
+          this.setState({tags: _.without(tags, flavor)})
+        }
+      }
+    });
     let flavor;
     if (e.target.id !== 'custom-spirit-forward') {
       flavor = e.target.id.split('-')[1];
@@ -74,6 +88,7 @@ export default React.createClass({
       ingredientModels: this.props.ingredients
     }
     store.editCocktail.updateCocktail(this.state.currCocktail, cocktail, this.state.ingredientModels);
+    this.setState({submitted: true});
   },
   componentDidMount() {
     console.log(this.state.ingredientModels);
@@ -92,6 +107,12 @@ export default React.createClass({
       ingredientQuantities: ingredientQuantities
     });
     console.log(ingredients);
+    let flavors = ["sweet","bubbly","fruity","creamy","spicy","dry","sour","salty","spirit-forward","bitter"]
+    flavors.forEach((flavor, i) => {
+      if (document.getElementById('custom-'+flavor).checked) {
+        this.setState({tags: this.state.tags.concat(flavor)});
+      }
+    });
   },
   render() {
     console.log(this.state);
@@ -105,13 +126,15 @@ export default React.createClass({
     if (this.state.ingredients !== []) {
       newIngredients = zippedIngredients.map((ingredient, i) => {
         console.log(ingredient);
-        return (
-          <li key={i}>
-            <p className="ingredient-name">{ingredient[0]}</p>
-            <p className="ingredient-quantity">{ingredient[1]}</p>
-            <button id="delete-btn" className={ingredient} onClick={this.deleteIngredient}><i className="fa fa-times delete-icon" aria-hidden="true"></i></button>
-          </li>
-        )
+        if (ingredient[0] !== null) {
+          return (
+            <li key={i}>
+              <p className="ingredient-name">{ingredient[0]}</p>
+              <p className="ingredient-quantity">{ingredient[1]}</p>
+              <button id="delete-btn" className={ingredient} onClick={this.deleteIngredient}><i className="fa fa-times delete-icon" aria-hidden="true"></i></button>
+            </li>
+          )
+        }
       });
     }
     let styles;
@@ -124,80 +147,95 @@ export default React.createClass({
         backgroundImage: 'url(' + this.props.img + ')'
       }
     }
+    let content;
+    if (this.state.submitted) {
+      content = (
+        <div id="submitted-edits">
+          <h3>{this.state.currCocktail.drink__strDrink}</h3>
+          <Link id="new-recipe-link" to={`recipe/${this.state.currCocktail._id}`}>Click to see your recipe</Link>
+        </div>
+      );
+    } else {
+      content = (
+        <form id="custom-cocktail-form">
+          {title}
+
+          <div id="cocktail-name-wrapper">
+            <label htmlFor="cocktail-name">Name of cocktail:</label>
+            <input type="text" id="cocktail-name" autoComplete="off" ref="name" defaultValue={this.props.name}/>
+          </div>
+
+          <div id="cocktail-image" style={styles}>
+          </div>
+
+          <div id="image-uploader-wrapper">
+            <label htmlFor="image-uploader">Upload image <i className="fa fa-upload upload-icon" aria-hidden="true"></i></label>
+            <input type="file" id="image-uploader" accept="image/*" ref="file" onChange={this.uploadImg}/>
+          </div>
+
+          <div id="cocktail-difficulty-wrapper">
+            <label htmlFor="cocktail-difficulty">How hard is it to make?:</label>
+            <input type="range" id="cocktail-difficulty" min="1" max="3" ref="difficulty"/>
+          </div>
+
+          <div id="cocktail-instructions-wrapper">
+            <label htmlFor="cocktail-instructions">Mixing Instructions:</label>
+            <input type="text" id="cocktail-instructions" autoComplete="off" ref="instructions" defaultValue={this.state.currCocktail.drink__strInstructions}/>
+          </div>
+
+          <div id="cocktail-glass-wrapper">
+            <label htmlFor="cocktail-glass">Serving Glass:</label>
+            <input type="text" id="cocktail-glass" autoComplete="off" ref="cocktailGlass" defaultValue={this.state.currCocktail.drink__strGlass}/>
+          </div>
+
+          <ul id="ingredients-list">
+            {ingredients}
+            {newIngredients}
+          </ul>
+
+          <div id="new-ingredient-wrapper">
+            <label htmlFor="new-ingredient">Ingredient:</label>
+            <input type="text" id="new-ingredient" autoComplete="off" ref="newIngredient"/>
+          </div>
+
+          <div id="new-ingredient-quantity-wrapper">
+            <label htmlFor="new-ingredient-quantity">Quantity:</label>
+            <input type="text" id="new-ingredient-quantity" autoComplete="off" ref="newIngredientQuantity"/>
+          </div>
+
+          <input type="button" id="add-ingredient" value="Add" onClick={this.newIngredient}/>
+
+          <div id="flavor-profile-wrapper">
+            <input type="checkbox" id="custom-sweet" onChange={this.changeStatus}/>
+            <label htmlFor="custom-sweet">sweet</label>
+            <input type="checkbox" id="custom-bubbly" onChange={this.changeStatus}/>
+            <label htmlFor="custom-bubbly">bubbly</label>
+            <input type="checkbox" id="custom-fruity" onChange={this.changeStatus}/>
+            <label htmlFor="custom-fruity">fruity</label>
+            <input type="checkbox" id="custom-creamy" onChange={this.changeStatus}/>
+            <label htmlFor="custom-creamy">creamy</label>
+            <input type="checkbox" id="custom-spicy" onChange={this.changeStatus}/>
+            <label htmlFor="custom-spicy">spicy</label>
+            <input type="checkbox" id="custom-dry" onChange={this.changeStatus}/>
+            <label htmlFor="custom-dry">dry</label>
+            <input type="checkbox" id="custom-sour" onChange={this.changeStatus}/>
+            <label htmlFor="custom-sour">sour</label>
+            <input type="checkbox" id="custom-salty" onChange={this.changeStatus}/>
+            <label htmlFor="custom-salty">salty</label>
+            <input type="checkbox" id="custom-spirit-forward" onChange={this.changeStatus}/>
+            <label htmlFor="custom-spirit-forward">spirit-forward</label>
+            <input type="checkbox" id="custom-bitter" onChange={this.changeStatus}/>
+            <label htmlFor="custom-bitter">bitter</label>
+          </div>
+
+          <input type="submit" id="submit-cocktail" value="submit" onClick={this.showPreview}/>
+        </form>
+      );
+    }
     return (
-      <form id="custom-cocktail-form">
-        {title}
-
-        <div id="cocktail-name-wrapper">
-          <label htmlFor="cocktail-name">Name of cocktail:</label>
-          <input type="text" id="cocktail-name" autoComplete="off" ref="name" defaultValue={this.props.name}/>
-        </div>
-
-        <div id="cocktail-image" style={styles}>
-        </div>
-
-        <div id="image-uploader-wrapper">
-          <label htmlFor="image-uploader">Upload image <i className="fa fa-upload upload-icon" aria-hidden="true"></i></label>
-          <input type="file" id="image-uploader" accept="image/*" ref="file" onChange={this.uploadImg}/>
-        </div>
-
-        <div id="cocktail-difficulty-wrapper">
-          <label htmlFor="cocktail-difficulty">How hard is it to make?:</label>
-          <input type="range" id="cocktail-difficulty" min="1" max="3" ref="difficulty"/>
-        </div>
-
-        <div id="cocktail-instructions-wrapper">
-          <label htmlFor="cocktail-instructions">Mixing Instructions:</label>
-          <input type="text" id="cocktail-instructions" autoComplete="off" ref="instructions" defaultValue={this.state.currCocktail.drink__strInstructions}/>
-        </div>
-
-        <div id="cocktail-glass-wrapper">
-          <label htmlFor="cocktail-glass">Serving Glass:</label>
-          <input type="text" id="cocktail-glass" autoComplete="off" ref="cocktailGlass" defaultValue={this.state.currCocktail.drink__strGlass}/>
-        </div>
-
-        <ul id="ingredients-list">
-          {ingredients}
-          {newIngredients}
-        </ul>
-
-        <div id="new-ingredient-wrapper">
-          <label htmlFor="new-ingredient">Ingredient:</label>
-          <input type="text" id="new-ingredient" autoComplete="off" ref="newIngredient"/>
-        </div>
-
-        <div id="new-ingredient-quantity-wrapper">
-          <label htmlFor="new-ingredient-quantity">Quantity:</label>
-          <input type="text" id="new-ingredient-quantity" autoComplete="off" ref="newIngredientQuantity"/>
-        </div>
-
-        <input type="button" id="add-ingredient" value="Add" onClick={this.newIngredient}/>
-
-        <div id="flavor-profile-wrapper">
-          <input type="checkbox" id="custom-sweet" onChange={this.changeStatus}/>
-          <label htmlFor="custom-sweet">sweet</label>
-          <input type="checkbox" id="custom-bubbly" onChange={this.changeStatus}/>
-          <label htmlFor="custom-bubbly">bubbly</label>
-          <input type="checkbox" id="custom-fruity" onChange={this.changeStatus}/>
-          <label htmlFor="custom-fruity">fruity</label>
-          <input type="checkbox" id="custom-creamy" onChange={this.changeStatus}/>
-          <label htmlFor="custom-creamy">creamy</label>
-          <input type="checkbox" id="custom-spicy" onChange={this.changeStatus}/>
-          <label htmlFor="custom-spicy">spicy</label>
-          <input type="checkbox" id="custom-dry" onChange={this.changeStatus}/>
-          <label htmlFor="custom-dry">dry</label>
-          <input type="checkbox" id="custom-sour" onChange={this.changeStatus}/>
-          <label htmlFor="custom-sour">sour</label>
-          <input type="checkbox" id="custom-salty" onChange={this.changeStatus}/>
-          <label htmlFor="custom-salty">salty</label>
-          <input type="checkbox" id="custom-spirit-forward" onChange={this.changeStatus}/>
-          <label htmlFor="custom-spirit-forward">spirit-forward</label>
-          <input type="checkbox" id="custom-bitter" onChange={this.changeStatus}/>
-          <label htmlFor="custom-bitter">bitter</label>
-        </div>
-
-        <input type="submit" id="submit-cocktail" value="submit" onClick={this.showPreview}/>
-      </form>
+      <main id="edit-cocktail-modal">
+        {content}
+      </main>
     );
   }
 });

@@ -60,7 +60,7 @@ export default Backbone.Model.extend({
             console.log(model);
             model.destroy({
               success: (data) => {
-                cocktailObj.ingredients.forEach((ingredient) => {
+                cocktailObj.ingredients.forEach((ingredient,i) => {
                   console.log(ingredient);
                   if (ingredient !== null) {
                     $.ajax({
@@ -104,6 +104,8 @@ export default Backbone.Model.extend({
                             }
                           });
                         } else {
+                          console.log(cocktailObj);
+                          console.log(i);
                           $.ajax({
                             url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,
                             type: 'POST',
