@@ -1,4 +1,4 @@
-@import 'https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700|Slabo+27px';
+@import 'https://fonts.googleapis.com/css?family=Fira+Sans:300,400|Lora:400,700';
 @import 'variables';
 @import 'nav';
 @import 'confirm';
@@ -16,9 +16,13 @@
 
 body {
   margin: 0;
-  font-family: 'Slabo 27px';
+  font-family: 'Lora', serif;
 }
 
 li {
   list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $sans;
 }

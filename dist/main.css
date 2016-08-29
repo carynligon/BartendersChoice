@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,600,700|Slabo+27px";
+@import "https://fonts.googleapis.com/css?family=Fira+Sans:300,400|Lora:400,700";
 header {
   background: linear-gradient(to bottom, rgba(255, 60, 56, 0.9), rgba(255, 60, 56, 0.6));
   height: 560px; }
@@ -6,7 +6,7 @@ header {
     font-size: 2.5rem;
     color: #fff;
     text-align: center;
-    font-family: Raleway, sans-serif;
+    font-family: "Fira-Sans", sans-serif, sans-serif;
     padding-top: 220px;
     font-weight: 300; }
   header #assessment-link {
@@ -18,7 +18,7 @@ header {
     display: block;
     text-align: center;
     text-decoration: none;
-    font-family: Raleway, sans-serif;
+    font-family: "Fira-Sans", sans-serif, sans-serif;
     padding: 7px;
     border: 4px solid #fff; }
     header #assessment-link:hover {
@@ -32,7 +32,7 @@ header {
   text-align: center; }
   #search-bar-form h2 {
     font-size: 4rem;
-    font-family: Raleway, sans-serif;
+    font-family: "Fira-Sans", sans-serif, sans-serif;
     color: #fff;
     margin: 0; }
   #search-bar-form #search-input {
@@ -177,7 +177,8 @@ nav {
     background: #EEEEEE;
     position: relative;
     bottom: 4px;
-    left: -10px; }
+    left: -10px;
+    animation: dropdown 0.2s ease-in-out; }
     #mobile-menu li {
       display: block;
       text-align: center;
@@ -189,6 +190,11 @@ nav {
       #mobile-menu li p {
         margin: 0; }
 
+  @keyframes dropdown {
+    from {
+      height: 0px; }
+    to {
+      height: 163px; } }
   nav {
     height: 33px; }
     nav a {
@@ -244,7 +250,7 @@ video {
   z-index: 3;
   color: #fff;
   font-size: 2rem;
-  font-family: Raleway, sans-serif;
+  font-family: "Fira-Sans", sans-serif, sans-serif;
   width: 100%;
   text-align: center; }
   #age-validation input {
@@ -281,7 +287,7 @@ video {
   padding: 0; }
   #cocktail-list .app-titles, #result-list .app-titles {
     width: 100%;
-    font-family: Raleway, sans-serif;
+    font-family: "Fira-Sans", sans-serif, sans-serif;
     margin-top: 30px; }
     #cocktail-list .app-titles::after, #result-list .app-titles::after {
       margin-left: 8px; }
@@ -309,7 +315,7 @@ video {
       padding: 10px;
       background: linear-gradient(to bottom, rgba(69, 69, 69, 0.2), rgba(69, 69, 69, 0.4), rgba(69, 69, 69, 0.8));
       color: #fff;
-      font-family: Raleway, sans-serif;
+      font-family: "Fira-Sans", sans-serif, sans-serif;
       margin: 0; }
       #cocktail-list .drink-preview h4:hover, #result-list .drink-preview h4:hover {
         cursor: pointer; }
@@ -353,8 +359,11 @@ video {
         right: 32%; } }
 .assessment-section {
   width: 60%;
-  text-align: center;
   margin: 150px auto; }
+  .assessment-section h2 {
+    text-align: center; }
+  .assessment-section p {
+    font-family: 'Arvo'; }
   .assessment-section img {
     height: 100px; }
   .assessment-section #start-assessment-btn {
@@ -375,7 +384,7 @@ video {
     font-size: 3.5rem;
     text-align: center;
     font-weight: lighter;
-    font-family: Raleway, sans-serif; }
+    font-family: "Fira-Sans", sans-serif, sans-serif; }
   #question-section #not-me, #question-section #me {
     width: 46%;
     margin: 2%;
@@ -402,9 +411,9 @@ video {
       cursor: pointer; }
 
 @media (max-width: 500px) {
-  .assessment {
-    height: 100vh;
-    background: linear-gradient(to bottom, rgba(255, 60, 56, 0.9) 60%, rgba(255, 145, 69, 0.7)); }
+  .assessment-section {
+    margin: 100px auto;
+    width: 80%; }
 
   #question-section h3 {
     margin-top: 35%;
@@ -429,7 +438,7 @@ video {
   .login-signup-form .login-title, .user-info-form .login-title {
     margin-top: 23%;
     letter-spacing: 1px;
-    font-family: Raleway, sans-serif; }
+    font-family: "Fira-Sans", sans-serif, sans-serif; }
   .login-signup-form .signup-title, .user-info-form .signup-title {
     margin-top: 10%; }
   .login-signup-form input, .user-info-form input {
@@ -464,7 +473,7 @@ video {
 
 .recipe-title {
   font-size: 2.5rem;
-  font-family: Raleway, sans-serif;
+  font-family: "Fira-Sans", sans-serif, sans-serif;
   text-align: center; }
 
 #recipe-drink-img {
@@ -531,7 +540,7 @@ video {
   text-align: center; }
   #similar-drinks h4 {
     font-size: 1.3rem;
-    font-family: Raleway, sans-serif; }
+    font-family: "Fira-Sans", sans-serif, sans-serif; }
     #similar-drinks h4::before, #similar-drinks h4::after {
       content: '';
       width: 240px;
@@ -607,7 +616,7 @@ video {
   width: 70%; }
   #results-section h3 {
     font-size: 2rem;
-    font-family: Raleway, sans-serif;
+    font-family: "Fira-Sans", sans-serif, sans-serif;
     margin: 5px 10px;
     display: inline-block; }
   #results-section #drink-image-results {
@@ -618,7 +627,7 @@ video {
     float: left; }
   #results-section a {
     font-size: 1.2rem;
-    font-family: Raleway, sans-serif;
+    font-family: "Fira-Sans", sans-serif, sans-serif;
     font-weight: bolder;
     text-decoration: none;
     color: #FF3C38;
@@ -639,7 +648,7 @@ video {
     #results-section ul h5 {
       font-size: 1rem;
       margin: 5px 0;
-      font-family: Raleway, sans-serif;
+      font-family: "Fira-Sans", sans-serif, sans-serif;
       font-weight: bolder; }
 
 #filter-bar {
@@ -695,7 +704,7 @@ video {
   margin: 0 auto; }
   #how-it-works h2 {
     width: 100%;
-    font-family: Raleway, sans-serif;
+    font-family: "Fira-Sans", sans-serif, sans-serif;
     margin-top: 60px;
     text-align: center; }
     #how-it-works h2::after {
@@ -716,7 +725,7 @@ video {
     #how-it-works div h5 {
       font-size: 1.2rem;
       font-weight: bolder;
-      font-family: Raleway, sans-serif; }
+      font-family: "Fira-Sans", sans-serif, sans-serif; }
 
 @media (min-width: 1600px) {
   #how-it-works {
@@ -755,7 +764,7 @@ video {
   font-size: 1.1rem;
   border: 1px solid #EEEEEE; }
   #custom-cocktail-form h2 {
-    font-family: Raleway;
+    font-family: "Fira-Sans", sans-serif;
     font-weight: lighter;
     text-align: center;
     color: #fff;
@@ -862,6 +871,47 @@ video {
     color: #454545;
     cursor: pointer; }
 
+@media (max-width: 300px) {
+  #custom-cocktail-form {
+    width: 100%;
+    border: none; }
+    #custom-cocktail-form h2 {
+      width: 100%;
+      margin: 0;
+      background: none;
+      color: #FF3C38; }
+    #custom-cocktail-form #cocktail-name {
+      width: 85%;
+      box-sizing: border-box;
+      border: 1px solid #EEEEEE; }
+    #custom-cocktail-form #cocktail-instructions {
+      width: 85%;
+      box-sizing: border-box;
+      border: 1px solid #EEEEEE; }
+    #custom-cocktail-form #cocktail-glass-wrapper input {
+      width: 85%;
+      box-sizing: border-box;
+      border: 1px solid #EEEEEE; }
+    #custom-cocktail-form #new-ingredient-wrapper, #custom-cocktail-form #new-ingredient-quantity-wrapper {
+      display: block;
+      width: 85%;
+      margin: 0 auto; }
+      #custom-cocktail-form #new-ingredient-wrapper input, #custom-cocktail-form #new-ingredient-quantity-wrapper input {
+        width: 100%;
+        box-sizing: border-box;
+        border: 1px solid #EEEEEE; }
+      #custom-cocktail-form #new-ingredient-wrapper #add-ingredient, #custom-cocktail-form #new-ingredient-quantity-wrapper #add-ingredient {
+        width: 75px;
+        margin: 15px auto 5px auto;
+        display: block; }
+    #custom-cocktail-form #flavor-profile-wrapper {
+      margin: 25px auto;
+      padding: 25px 5px 30px 5px;
+      box-sizing: border-box; }
+      #custom-cocktail-form #flavor-profile-wrapper label {
+        padding: 15px; }
+      #custom-cocktail-form #flavor-profile-wrapper input {
+        margin: 25px 5px 25px 5px; } }
 #dashboard-page #logout-btn {
   margin-top: 100px;
   background: #FF3C38;
@@ -888,7 +938,7 @@ video {
   #select-view li {
     padding: 10px 0;
     text-align: center;
-    font-family: Raleway, sans-serif;
+    font-family: "Fira-Sans", sans-serif, sans-serif;
     font-size: 1.2rem; }
     #select-view li:hover {
       background: #FF3C38;
@@ -927,7 +977,7 @@ video {
   text-align: center; }
 #oops-page #safety-btn {
   font-size: 1.4rem;
-  font-family: Raleway, sans-serif;
+  font-family: "Fira-Sans", sans-serif, sans-serif;
   display: block;
   margin: 50px auto;
   border: none;
@@ -945,9 +995,12 @@ video {
 
 body {
   margin: 0;
-  font-family: 'Slabo 27px'; }
+  font-family: 'Lora', serif; }
 
 li {
   list-style: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Fira-Sans", sans-serif; }
 
 /*# sourceMappingURL=main.css.map */

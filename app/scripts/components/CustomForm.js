@@ -164,6 +164,7 @@ export default React.createClass({
         <div id="new-ingredient-quantity-wrapper">
           <label htmlFor="new-ingredient-quantity">Quantity:</label>
           <input type="text" id="new-ingredient-quantity" autoComplete="off" ref="newIngredientQuantity"/>
+          <input type="button" id="add-ingredient" value="Add" onClick={this.newIngredient}/>
         </div>
 
         <div id="flavor-profile-wrapper">
@@ -189,7 +190,6 @@ export default React.createClass({
           <label htmlFor="custom-bitter">bitter</label>
         </div>
 
-        <input type="button" id="add-ingredient" value="Add" onClick={this.newIngredient}/>
         <input type="submit" id="submit-cocktail" value="submit" onClick={this.showPreview}/>
       </form>
     );

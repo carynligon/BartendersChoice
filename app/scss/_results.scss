@@ -3,7 +3,7 @@
   width: 70%;
   h3 {
     font-size: 2rem;
-    font-family: Raleway, sans-serif;
+    font-family: $sans, sans-serif;
     margin: 5px 10px;
     display: inline-block;
   }
@@ -16,7 +16,7 @@
   }
   a {
     font-size: 1.2rem;
-    font-family: Raleway, sans-serif;
+    font-family: $sans, sans-serif;
     font-weight: bolder;
     text-decoration: none;
     color: $main;
@@ -39,7 +39,7 @@
     h5 {
       font-size: 1rem;
       margin: 5px 0;
-      font-family: Raleway, sans-serif;
+      font-family: $sans, sans-serif;
       font-weight: bolder;
     }
   }

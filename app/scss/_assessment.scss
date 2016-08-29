@@ -1,7 +1,12 @@
 .assessment-section{
   width: 60%;
-  text-align: center;
   margin: 150px auto;
+  h2 {
+    text-align: center;
+  }
+  p {
+    font-family: 'Arvo';
+  }
   img{
     height: 100px;
   }
@@ -26,7 +31,7 @@
     font-size: 3.5rem;
     text-align: center;
     font-weight: lighter;
-    font-family: Raleway, sans-serif;
+    font-family: $sans, sans-serif;
   }
 #not-me, #me {
     width: 46%;
@@ -64,9 +69,9 @@
 
 
 @media (max-width: 500px) {
-  .assessment {
-    height: 100vh;
-    background: linear-gradient(to bottom, rgba($main, 0.9) 60%, rgba(#FF9145, 0.7));
+  .assessment-section {
+    margin: 100px auto;
+    width: 80%;
   }
   #question-section {
     h3 {
