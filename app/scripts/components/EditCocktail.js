@@ -36,6 +36,7 @@ export default React.createClass({
   },
   componentWillUnmount() {
     store.allIngredients.off('update', this.updateIngredients);
+    store.cocktails.off('update', this.setCocktail);
   },
   render() {
     console.log(this.state);

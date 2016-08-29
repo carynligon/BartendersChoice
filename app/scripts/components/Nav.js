@@ -15,7 +15,8 @@ export default React.createClass({
       username: localStorage.getItem('username'),
       showFilter: false,
       showModal: false,
-      login: true
+      login: true,
+      showMenu: false
     }
   },
   listener() {
@@ -24,6 +25,9 @@ export default React.createClass({
       username: store.session.get('username'),
       showFilter: false
     });
+  },
+  logout() {
+    store.session.logout();
   },
   showModal() {
     this.setState({showModal: true});
@@ -41,6 +45,9 @@ export default React.createClass({
     this.setState({
       showFilter: !this.state.showFilter
     });
+  },
+  showMenu() {
+    this.setState({showMenu: !this.state.showMenu});
   },
   componentDidMount() {
     store.session.get();
@@ -77,6 +84,22 @@ export default React.createClass({
       } else {
         showFilter;
       }
+      let menu;
+      if (this.state.showMenu && this.state.username !== 'Anonymous') {
+        menu = (
+          <ul id="mobile-menu">
+            <li><Link to="me">Dashboard</Link></li>
+            <li><Link to="custom">Add Recipe</Link></li>
+            <li><Link to="assessment">Assessment</Link></li>
+            <li><p id="logout-btn" onClick={this.logout}>Logout</p></li>
+          </ul>
+        );
+      } else {
+        <ul id="mobile-menu">
+          <li><p id="signin-btn" onClick={this.showModal}>Sign in</p></li>
+          <li><Link to="assessment">Assessment</Link></li>
+        </ul>
+      }
     return(
       <nav>
         <SearchBar/>
@@ -87,6 +110,8 @@ export default React.createClass({
         {links}
         {showFilter}
         {showModal}
+        <i className="fa fa-bars menu-icon" aria-hidden="true" onClick={this.showMenu}></i>
+        {menu}
       </nav>
     );
   }
