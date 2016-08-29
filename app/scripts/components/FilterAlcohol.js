@@ -19,6 +19,8 @@ export default React.createClass({
             <label htmlFor="vodka">Vodka</label>
             <input type="radio" name="alcohol" id="scotch" onChange={this.filterAlcohol}/>
             <label htmlFor="scotch">Scotch</label>
+            <input type="radio" name="alcohol" id="other" onChange={this.clearAll}/>
+            <label htmlFor="other" name="alcohol">Other</label>
         </form>
       </div>
     );

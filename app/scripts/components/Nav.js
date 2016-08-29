@@ -57,7 +57,6 @@ export default React.createClass({
     store.session.off('change add update remove', this.listener);
   },
   render() {
-    console.log(this.state);
     let links;
     let showFilter;
     let showModal;

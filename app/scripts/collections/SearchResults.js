@@ -14,7 +14,7 @@ export default Backbone.Collection.extend({
     let flavors = ['sweet', 'salty', 'sour', 'spirit-forward', 'bitter', 'bubbly', 'fruity', 'creamy', 'spicy', 'dry'];
     let selectedFlavors = [];
     let selectedAlcohol;
-    let alcohols = ['bourbon', 'rye', 'tequila', 'gin', 'vodka', 'scotch'];
+    let alcohols = ['bourbon', 'rye', 'tequila', 'gin', 'vodka', 'scotch', 'other'];
     let queryParams;
     let skillLevel;
     if (filterArr) {
@@ -58,7 +58,7 @@ export default Backbone.Collection.extend({
             alcoholChecker.push(alcohol)
           }
         });
-        if (alcoholChecker.length === 0) {
+        if (alcoholChecker.length === 0 || alcoholChecker.indexOf('other') !== -1) {
           selectedAlcohol = {
             "ingredientName":{
               "$regex":("^.+")
