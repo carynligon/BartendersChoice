@@ -94,6 +94,8 @@ nav {
       color: #fff;
       outline: none;
       cursor: pointer; }
+  nav .menu-icon {
+    display: none; }
   nav #logo {
     position: relative;
     text-align: center;
@@ -157,29 +159,47 @@ nav {
 
 @media (max-width: 300px) {
   #search-bar-form {
-    width: 65%;
+    width: 66%;
     margin-left: 8%; }
-    #search-bar-form::after {
-      content: "";
-      position: absolute;
-      top: 1.5rem;
-      right: 2.5rem;
-      width: 1rem;
-      height: 0.125rem;
-      border-top: 0.375rem double #FF3C38;
-      border-bottom: 0.125rem solid #FF3C38; }
     #search-bar-form #search-input {
       width: 0;
       padding: 0; }
     #search-bar-form #search-icon-btn {
-      left: 45%;
-      bottom: -7px;
+      font-size: 1.5rem;
+      left: 35%;
+      bottom: 1px;
       color: #FF3C38; }
+
+  #mobile-menu {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #EEEEEE;
+    position: relative;
+    bottom: 4px;
+    left: -10px; }
+    #mobile-menu li {
+      display: block;
+      text-align: center;
+      color: #FF3C38;
+      border-top: 1px solid #e1e1e1;
+      padding: 10px 0; }
+      #mobile-menu li:first-child {
+        border-top: none; }
+      #mobile-menu li p {
+        margin: 0; }
 
   nav {
     height: 33px; }
     nav a {
       margin: 0; }
+    nav .menu-icon {
+      display: inline-block;
+      font-size: 1.7rem;
+      padding: 4px;
+      background: #FF3C38;
+      color: #fff;
+      border-radius: 2px; }
     nav #show-filter-options {
       display: none; }
     nav #logo {
