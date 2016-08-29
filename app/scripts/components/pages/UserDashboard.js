@@ -91,7 +91,24 @@ export default React.createClass({
         viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
         viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
         viewYours = (<li onClick={this.setYours}>Your Recipes</li>);
-        savedItems = this.state.favorites.concat(this.state.bookmarks).map((drink, i) => {
+        let combined = this.state.favorites.concat(this.state.bookmarks);
+        let filtered = combined.filter((drink) => {
+          return drink.username === this.state.username;
+        });
+        let dupsRemoved = [];
+        let dupsRemovedIndex = [];
+        let reduced = filtered.reduce((rtsf, curr, i) => {
+          if (dupsRemoved.indexOf(curr.drinkName) === -1) {
+            dupsRemoved.push(curr.drinkName);
+            dupsRemovedIndex.push(i);
+          }
+          return rtsf;
+        }, []);
+        let allSaved = [];
+        dupsRemovedIndex.forEach((index) => {
+          allSaved.push(this.state.favorites.concat(this.state.bookmarks)[index])
+        })
+        savedItems = allSaved.map((drink, i) => {
           if (drink.username === this.state.username) {
             return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._id} key={i}/>);
           }
