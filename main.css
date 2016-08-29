@@ -807,8 +807,8 @@ video {
     font-size: 0.9rem;
     padding: 10px; }
   #custom-cocktail-form #new-ingredient-wrapper, #custom-cocktail-form #new-ingredient-quantity-wrapper {
-    display: inline-block;
-    width: 40%; }
+    width: 40%;
+    margin-left: 25px; }
     #custom-cocktail-form #new-ingredient-wrapper label, #custom-cocktail-form #new-ingredient-quantity-wrapper label {
       margin: 0 5px 0 0; }
     #custom-cocktail-form #new-ingredient-wrapper input, #custom-cocktail-form #new-ingredient-quantity-wrapper input {
@@ -816,8 +816,8 @@ video {
       font-size: 0.9rem;
       padding: 10px;
       box-sizing: border-box; }
-  #custom-cocktail-form #new-ingredient-wrapper {
-    margin-left: 25px; }
+  #custom-cocktail-form #new-ingredient-quantity-wrapper label {
+    margin-right: 18px; }
   #custom-cocktail-form #cocktail-glass-wrapper input {
     display: block;
     width: 90%;
@@ -830,6 +830,17 @@ video {
       display: block;
       width: 50%;
       margin: 5px auto; }
+  #custom-cocktail-form #add-ingredient {
+    display: block;
+    margin: 10px 0 30px 25px;
+    background: #FF3C38;
+    color: #fff;
+    border: none;
+    font-size: 0.9rem;
+    padding: 5px 10px; }
+    #custom-cocktail-form #add-ingredient:hover {
+      background: none;
+      color: #FF3C38; }
   #custom-cocktail-form #image-uploader-wrapper {
     margin-top: 25px; }
     #custom-cocktail-form #image-uploader-wrapper input {
@@ -896,6 +907,11 @@ video {
     color: #454545;
     cursor: pointer; }
 
+#dashboard-page #custom-cocktail-form {
+  width: 100%;
+  margin: 20px auto;
+  border: none; }
+
 @media (max-width: 300px) {
   #custom-cocktail-form {
     width: 100%;
@@ -925,10 +941,10 @@ video {
         width: 100%;
         box-sizing: border-box;
         border: 1px solid #EEEEEE; }
-      #custom-cocktail-form #new-ingredient-wrapper #add-ingredient, #custom-cocktail-form #new-ingredient-quantity-wrapper #add-ingredient {
-        width: 75px;
-        margin: 15px auto 5px auto;
-        display: block; }
+    #custom-cocktail-form #add-ingredient {
+      width: 75px;
+      margin: 15px auto 5px auto;
+      display: block; }
     #custom-cocktail-form #flavor-profile-wrapper {
       margin: 25px auto;
       padding: 25px 5px 30px 5px;
