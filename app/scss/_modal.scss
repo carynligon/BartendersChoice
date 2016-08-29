@@ -51,4 +51,13 @@
       color: $black;
     }
   }
+  #signup-btn {
+    margin-left: 5px;
+    color: $main;
+    font-weight: bolder;
+    &:hover {
+      color: $black;
+      cursor: pointer;
+    }
+  }
 }

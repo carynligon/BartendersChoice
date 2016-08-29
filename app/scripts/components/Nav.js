@@ -5,6 +5,7 @@ import store from '../store';
 
 import UserModal from './UserModal';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import SearchBar from './SearchBar';
 import FilterBar from './FilterBar';
 
@@ -16,7 +17,7 @@ export default React.createClass({
       showFilter: false,
       showModal: false,
       login: true,
-      showMenu: false
+      showMenu: false,
     }
   },
   listener() {
@@ -58,13 +59,14 @@ export default React.createClass({
     store.session.off('change add update remove', this.listener);
   },
   render() {
+    console.log(this.state);
     let links;
     let showFilter;
     let showModal;
     if (this.state.showModal && this.state.login) {
-      showModal = (<UserModal hideModal={this.hideModal} showModal={this.showModal} login={true}><Login hideModal={this.hideModal}/></UserModal>);
-    } else if (this.state.showModal && this.state.sigup) {
-      showModal = (<UserModal hideModal={this.hideModal} showModal={this.showModal} login={false}><Signup/></UserModal>);
+      showModal = (<Login hideModal={this.hideModal} showSignup={this.showSignup}/>);
+    } else if (this.state.showModal && this.state.signup) {
+      showModal = (<Signup hideModal={this.hideModal} showLogin={this.showLogin}/>);
     }
     if (this.state.username === 'Anonymous') {
       links = (

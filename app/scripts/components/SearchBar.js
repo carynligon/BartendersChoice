@@ -42,7 +42,6 @@ export default React.createClass({
     this.setState({results: store.searchResults.toJSON()})
   },
   listenToClicks(e) {
-    console.log(e.target);
     if (e.target.id !== 'results-dropdown' && e.target.id !== 'search-input') {
       if (!this.state.hide) {
         this.setState({hide: true});

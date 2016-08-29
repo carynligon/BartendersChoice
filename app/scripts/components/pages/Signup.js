@@ -17,12 +17,8 @@ export default React.createClass({
     this.props.hideModal();
   },
   render() {
-    let loginBtn = (<p>Don't have an account?<Link to="/assessment/login">Sign in!</Link></p>)
-    if (this.props.route.path === '/login') {
-      loginBtn = (<p>Don't have an account?<Link to="/login">Sign in!</Link></p>);
-    }
     return(
-      <UserModal>
+      <UserModal hideModal={this.props.hideModal}>
         <form className="login-signup-form" onSubmit={this.signup}>
           <h2 className="signup-title">SIGN UP</h2>
           <input type="text" placeholder="first name" id="firstName" ref="firstName"/>
@@ -32,7 +28,7 @@ export default React.createClass({
           <input type="password" placeholder="password" id="password" ref="password"/>
           <input type="password" placeholder="confirm password" id="confirm-password" ref="confirmPassword"/>
           <input type="submit" value="submit" id="submit-login-btn"/>
-          {loginBtn}
+          <p>Already have an account?<span id="signup-btn" onClick={this.props.showLogin}>Sign in!</span></p>
         </form>
       </UserModal>
     );
