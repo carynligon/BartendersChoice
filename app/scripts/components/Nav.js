@@ -98,7 +98,7 @@ export default React.createClass({
     } else if (this.state.showModal && this.state.signup) {
       showModal = (<Signup hideModal={this.hideModal} showLogin={this.showLogin}/>);
     }
-    if (this.state.username === 'Anonymous') {
+    if (this.state.username === 'Anonymous' || !localStorage.getItem('username')) {
       links = (
         <div id="login-links">
           <p onClick={this.showModal}>SIGN IN</p>

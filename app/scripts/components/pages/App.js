@@ -51,7 +51,7 @@ export default React.createClass({
         return drink.drink__strDrinkThumb !== null;
       });
       function get6Random(indices) {
-           if (indices.length === 6) return indices;
+          if (indices.length === 6) return indices;
           let randomNumber = (Math.floor(Math.random() * drinksWithImgs.length));
           console.log(randomNumber);
           if (indices.indexOf(randomNumber) === -1) {
@@ -61,12 +61,8 @@ export default React.createClass({
           } else {
               return get6Random(indices);
           }
-          // } else {
-          //   randomNumber = (Math.floor(Math.random() * drinksWithImgs.length));
           return get6Random(indices);
-
-        // });
-      }
+        }
       let indices = get6Random([]);
       console.log(indices);
       let randomDrinks = indices.map((index) => {

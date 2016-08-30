@@ -27,13 +27,13 @@ export default Backbone.Model.extend({
       });
   },
   login: function(username, password) {
-    localStorage.clear();
     return new Promise((resolve, reject) => {
       store.session.save({
         username: username,
         password: password
       }, {
         success: function(model, response) {
+          localStorage.clear();
           window.localStorage.setItem('authtoken', response._kmd.authtoken);
           window.localStorage.setItem('username', response.username);
           window.localStorage.setItem('ofAge', true);
@@ -47,7 +47,7 @@ export default Backbone.Model.extend({
         },
         error: function(response) {
           resolve();
-          // localStorage.setItem('authtoken', settings.anonymousToken);
+          localStorage.setItem('authtoken', settings.anonymousToken);
         }
       });
     });

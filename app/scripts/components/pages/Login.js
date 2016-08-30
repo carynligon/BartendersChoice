@@ -7,7 +7,7 @@ import UserModal from '../UserModal';
 
 export default React.createClass({
   getInitialState() {
-    return {content: 'login'};
+    return {};
   },
   login(e) {
     e.preventDefault();
@@ -22,11 +22,8 @@ export default React.createClass({
       }
     });
   },
-  showSignup() {
-    this.setState({content: 'signup'});
-  },
-  showLogin() {
-    this.setState({content: 'login'});
+  clearErrors() {
+    this.setState({error: false});
   },
   render() {
     console.log(this.state);
@@ -45,11 +42,11 @@ export default React.createClass({
         <h2 className="login-title">SIGN IN</h2>
         <div className="username">
           <label htmlFor="username"><i className="fa fa-user user-icon" aria-hidden="true"></i></label>
-          <input type="text" placeholder="username" id="username" ref="username" style={styles}/>
+          <input type="text" placeholder="username" id="username" ref="username" onKeyUp={this.clearErrors} style={styles}/>
         </div>
         <div className="password">
           <label htmlFor="password"><i className="fa fa-unlock-alt password-icon" aria-hidden="true"></i></label>
-          <input type="password" placeholder="password" id="password" ref="password" style={styles}/>
+          <input type="password" placeholder="password" id="password" ref="password" onKeyUp={this.clearErrors} style={styles}/>
         </div>
         {errorMsg}
         <button type="submit" value="submit" id="submit-login-btn">submit</button>
