@@ -162,9 +162,6 @@ nav {
   #search-bar-form {
     width: 66%;
     margin-left: 8%; }
-    #search-bar-form #search-input {
-      width: 0;
-      padding: 0; }
 
   #mobile-menu {
     width: 100%;
@@ -172,7 +169,7 @@ nav {
     margin: 0;
     background: #EEEEEE;
     position: relative;
-    bottom: 4px;
+    top: 18px;
     left: -10px;
     animation: dropdown 0.2s ease-in-out; }
     #mobile-menu li {
@@ -194,10 +191,13 @@ nav {
   nav {
     height: 33px; }
     nav a {
-      margin: 0; }
+      margin: 0 auto;
+      display: block;
+      width: 100px;
+      text-align: center; }
     nav #search-icon {
       font-size: 1.5rem;
-      left: 0%;
+      left: 70%;
       bottom: -4px;
       color: #FF3C38; }
     nav .menu-icon {
@@ -231,6 +231,9 @@ nav {
     header h2 {
       padding-top: 110px;
       font-size: 2rem; }
+    header #assessment-link {
+      width: 95%;
+      box-sizing: border-box; }
 
   #how-it-works {
     border-bottom: 1px solid #EEEEEE; }
@@ -243,6 +246,12 @@ nav {
 
   #cocktail-list .app-titles {
     display: none; } }
+@media (max-width: 399px) {
+  #search-bar-form {
+    width: 60%; } }
+@media (max-width: 270px) {
+  #search-bar-form {
+    width: 54%; } }
 video {
   position: fixed;
   top: 0;

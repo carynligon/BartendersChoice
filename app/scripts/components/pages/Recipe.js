@@ -31,6 +31,7 @@ export default React.createClass({
         })
       },
       success: (data) => {
+        console.log(data);
         let drinkName = data.models[0].get('drinkName');
         let flavors = data.models[0].get('tags');
         this.setState({tags: flavors})

@@ -112,7 +112,7 @@ export default React.createClass({
       difficulty = 'difficult';
     }
     let cocktail = {
-      name: this.refs.name.value,
+      name: this.refs.name.value.toLowerCase(),
       difficulty: difficulty,
       instructions: this.refs.instructions.value,
       glass: this.refs.cocktailGlass.value,

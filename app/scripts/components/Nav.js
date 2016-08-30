@@ -18,6 +18,8 @@ export default React.createClass({
       showModal: false,
       login: true,
       showMenu: false,
+      windowWidth: 'big',
+      showSearchbar: true
     }
   },
   listener() {
@@ -51,11 +53,32 @@ export default React.createClass({
   showMenu() {
     this.setState({showMenu: !this.state.showMenu});
   },
+  setWidth() {
+    if (window.innerWidth <= 400) {
+      this.setState({
+        windowWidth: 'small',
+        showSearchbar: false
+      });
+    } else {
+      this.setState({
+        windowWidth: 'big',
+        showSearchbar: true
+      })
+    }
+  },
+  mobileSearch(e) {
+    console.log(e.target);
+    if (this.state.windowWidth === 'small') {
+      this.setState({showSearchbar: !this.state.showSearchbar});
+    }
+  },
   componentDidMount() {
+    window.addEventListener('resize', this.setWidth);
     store.session.get();
     store.session.on('change add update remove', this.listener);
   },
   componentWillUnmount() {
+    window.removeEventListener('resize', this.setWidth);
     store.session.off('change add update remove', this.listener);
   },
   render() {
@@ -105,10 +128,14 @@ export default React.createClass({
         </ul>
       );
     }
+    let searchBar;
+    if (this.state.searchBar || this.state.windowWidth === 'big') {
+      searchBar = (<SearchBar hideFilter={this.hideFilter}/>);
+    }
     return(
       <nav>
-        <SearchBar hideFilter={this.hideFilter}/>
-        <i className="fa fa-search" id="search-icon" aria-hidden="true"></i>
+        <i className="fa fa-search" id="search-icon" aria-hidden="true" onClick={this.mobileSearch}></i>
+        {searchBar}
         <button id="show-filter-options" onClick={this.showFilter}>
           <i className="fa fa-filter filter-icon" aria-hidden="true"></i>
         </button>

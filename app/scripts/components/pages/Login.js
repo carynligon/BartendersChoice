@@ -46,7 +46,7 @@ export default React.createClass({
           <label htmlFor="password"><i className="fa fa-unlock-alt password-icon" aria-hidden="true"></i></label>
           <input type="password" placeholder="password" id="password" ref="password"/>
         </div>
-        <input type="submit" value="submit" id="submit-login-btn"/>
+        <button type="submit" value="submit" id="submit-login-btn">submit</button>
         <p>Don't have an account?<span id="signup-btn" onClick={this.props.showSignup}>Sign up!</span></p>
       </form>
       </UserModal>

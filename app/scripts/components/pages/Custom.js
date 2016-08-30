@@ -114,10 +114,10 @@ export default React.createClass({
       difficulty = 'difficult';
     }
     let cocktail = {
-      name: this.refs.name.value,
+      name: this.refs.name.value.toLowerCase(),
       difficulty: difficulty,
       instructions: this.refs.instructions.value,
-      glass: this.refs.cocktailGlass.value,
+      glass: this.refs.cocktailGlass.value.toLowerCase(),
       ingredients: this.state.ingredients,
       ingredientQuantities: this.state.ingredientQuantities,
       flavorNotes: this.state.tags,
@@ -167,7 +167,7 @@ export default React.createClass({
       <main id="custom-cocktail-page">
         <Nav/>
         <form id="custom-cocktail-form">
-          <h2>ADD YOUR OWN COCKTAIL</h2>
+          <h2>Add Your Own Cocktail</h2>
 
           <div id="cocktail-name-wrapper">
             <label htmlFor="cocktail-name">Name of cocktail:</label>
@@ -206,7 +206,7 @@ export default React.createClass({
           <div id="new-ingredient-quantity-wrapper">
             <label htmlFor="new-ingredient-quantity">Quantity:</label>
             <input type="text" id="new-ingredient-quantity" autoComplete="off" ref="newIngredientQuantity" onKeyUp={this.pressedEnter}/>
-            <input type="button" id="add-ingredient" value="Add" onClick={this.newIngredient}/>
+            <button id="add-ingredient" value="Add" onClick={this.newIngredient}>Add</button>
           </div>
 
           <div id="flavor-profile-wrapper">
@@ -232,7 +232,7 @@ export default React.createClass({
             <label htmlFor="custom-bitter">bitter</label>
           </div>
 
-          <input type="submit" id="submit-cocktail" value="submit" onClick={this.showPreview}/>
+          <button type="submit" id="submit-cocktail" value="submit" onClick={this.showPreview}>submit</button>
         </form>
         {modal}
       </main>

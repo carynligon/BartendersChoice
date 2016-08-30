@@ -27,7 +27,7 @@ export default React.createClass({
           <input type="text" placeholder="username" id="username" ref="username"/>
           <input type="password" placeholder="password" id="password" ref="password"/>
           <input type="password" placeholder="confirm password" id="confirm-password" ref="confirmPassword"/>
-          <input type="submit" value="submit" id="submit-login-btn"/>
+          <button type="submit" id="submit-login-btn">submit</button>
           <p>Already have an account?<span id="signup-btn" onClick={this.props.showLogin}>Sign in!</span></p>
         </form>
       </UserModal>

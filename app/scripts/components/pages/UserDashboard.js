@@ -180,7 +180,7 @@ export default React.createClass({
             {savedItems}
           </ul>
         </section>
-        <input type="button" value="logout" id="logout-btn" onClick={this.logout}/>
+        <button id="logout-btn" onClick={this.logout}>logout</button>
       </main>
     );
   }
