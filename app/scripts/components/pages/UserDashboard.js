@@ -78,6 +78,7 @@ export default React.createClass({
     store.favorites.off('update', this.updateFavorites);
     store.savedForLaterCollection.off('update', this.updateBookmarks);
     store.allIngredients.off('update', this.updateYours);
+    store.session.off('change', this.setSession);
   },
   render() {
     let savedItems;

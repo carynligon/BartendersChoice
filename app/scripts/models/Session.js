@@ -28,28 +28,28 @@ export default Backbone.Model.extend({
   },
   login: function(username, password) {
     localStorage.clear();
-    store.session.save({
-      username: username,
-      password: password
-    }, {
-      success: function(model, response) {
-        window.localStorage.setItem('authtoken', response._kmd.authtoken);
-        window.localStorage.setItem('username', response.username);
-        window.localStorage.setItem('ofAge', true);
-        model.unset('password');
-        store.session.set({
-          username: username,
-          authtoken: response._kmd.authtoken,
-          ofAge: true
-        });
-      },
-      error: function(response) {
-        document.getElementById('username').style.color = '#f32424';
-        document.getElementById('password').style.color = '#f32424';
-        document.getElementById('error-message').textContent = 'Invalid username or password';
-        console.log('error: ' + response);
-        localStorage.setItem('authtoken', settings.anonymousToken);
-      }
+    return new Promise((resolve, reject) => {
+      store.session.save({
+        username: username,
+        password: password
+      }, {
+        success: function(model, response) {
+          window.localStorage.setItem('authtoken', response._kmd.authtoken);
+          window.localStorage.setItem('username', response.username);
+          window.localStorage.setItem('ofAge', true);
+          model.unset('password');
+          store.session.set({
+            username: username,
+            authtoken: response._kmd.authtoken,
+            ofAge: true
+          });
+          resolve(response);
+        },
+        error: function(response) {
+          resolve();
+          // localStorage.setItem('authtoken', settings.anonymousToken);
+        }
+      });
     });
   },
   signup: function(firstName, lastName, username, password, email) {

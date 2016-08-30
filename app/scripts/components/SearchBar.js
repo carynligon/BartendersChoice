@@ -102,13 +102,17 @@ export default React.createClass({
         });
       }
     }
+    let searchIcon;
+    if (this.props.submit) {
+      searchIcon = (<i className="fa fa-search" id="search-icon-btn" aria-hidden="true" onClick={this.submittedForm}></i>);
+    }
     return(
       <form id="search-bar-form" autoComplete="off" onSubmit={this.submittedForm}>
         <input type="text" id="search-input" onKeyUp={this.performSearch} placeholder="SEARCH RECIPES..." ref="searchQuery"/>
           <ul id="results-dropdown" style={styles}>
             {results}
           </ul>
-          <i className="fa fa-search" id="search-icon-btn" aria-hidden="true" onClick={this.submittedForm}></i>
+          {searchIcon}
       </form>
     );
   }

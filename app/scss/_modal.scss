@@ -27,6 +27,9 @@
       box-shadow: 1px 3px 3px 1px rgba($main ,0.9);
     }
   }
+  p {
+    margin-top: 0;
+  }
   input[type="submit"] {
     width: 110px;
     display: block;

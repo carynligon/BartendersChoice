@@ -217,7 +217,7 @@ nav {
     margin: 0;
     background: $main;
     position: relative;
-    top: 18px;
+    top: 51px;
     left: -10px;
     animation: dropdown 0.2s ease-in-out;
     li {
@@ -312,12 +312,6 @@ nav {
       display: block;
       width: 95%;
       margin: 0 auto;
-    }
-  }
-
-  #cocktail-list {
-    .app-titles {
-      display: none;
     }
   }
 }

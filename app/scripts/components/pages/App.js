@@ -44,36 +44,44 @@ export default React.createClass({
     store.cocktails.off('update', this.listener);
   },
   render() {
-    let data = _.toArray(this.state.cocktails);
-    let drinksWithImgs = data.filter((drink, i) => {
-      return drink.drink__strDrinkThumb !== null;
-    });
-    let indices = [];
-    let randomDrinks = [];
-    function getRandom() {
-      _(6).times(function() {
-        let randomNumber = (Math.floor(Math.random() * drinksWithImgs.length));
-        if (indices.indexOf(randomNumber) === -1) {
-          indices.push(randomNumber);
-        } else {
-          randomNumber = (Math.floor(Math.random() * drinksWithImgs.length));
-        }
-      });
-    }
-    getRandom();
-    if (indices.length !== 6) {
-      getRandom();
-    } else {
-      indices.forEach((index) => {
-        randomDrinks.push(drinksWithImgs[index]);
-      });
-    }
     let drinks;
-    if (randomDrinks[0] !== undefined) {
-      drinks = randomDrinks.map((drink,i) => {
-        return <DrinkPreview id={drink._id} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} loggedIn={this.state.loggedIn} key={i}/>;
+    let data = _.toArray(this.state.cocktails);
+    if (data.length) {
+      let drinksWithImgs = data.filter((drink, i) => {
+        return drink.drink__strDrinkThumb !== null;
       });
+      function get6Random(indices) {
+           if (indices.length === 6) return indices;
+          let randomNumber = (Math.floor(Math.random() * drinksWithImgs.length));
+          console.log(randomNumber);
+          if (indices.indexOf(randomNumber) === -1) {
+            indices.push(randomNumber);
+            console.log(indices);
+            console.log(store.cocktails);
+          } else {
+              return get6Random(indices);
+          }
+          // } else {
+          //   randomNumber = (Math.floor(Math.random() * drinksWithImgs.length));
+          return get6Random(indices);
+
+        // });
+      }
+      let indices = get6Random([]);
+      console.log(indices);
+      let randomDrinks = indices.map((index) => {
+        return drinksWithImgs[index];
+      });
+      console.log(randomDrinks);
+      if (randomDrinks[0] !== undefined) {
+        drinks = randomDrinks.map((drink,i) => {
+          return <DrinkPreview id={drink._id} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} loggedIn={this.state.loggedIn} key={i}/>;
+        });
+      } else {
+        console.log(randomDrinks);
+      }
     }
+
     return (
       <main>
         <Header/>

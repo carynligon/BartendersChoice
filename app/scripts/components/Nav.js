@@ -141,7 +141,11 @@ export default React.createClass({
       searchIcon = (<i className="fa fa-search" id="search-icon" aria-hidden="true" onClick={this.mobileSearch}></i>);
     }
     if (this.state.showSearchbar || this.state.windowWidth === 'big') {
-      searchBar = (<SearchBar hideFilter={this.hideFilter} submit={true}/>);
+      let submit = false;
+      if (this.state.windowWidth === 'small') {
+        submit = true;
+      }
+      searchBar = (<SearchBar hideFilter={this.hideFilter} submit={submit}/>);
     }
     return(
       <nav>

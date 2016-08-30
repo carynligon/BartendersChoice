@@ -94,6 +94,14 @@
     .drink-preview {
       width: calc(100%);
     }
+    .app-titles::before {
+      width: 0;
+      overflow: hidden;
+    }
+    .app-titles::after {
+      width: 0;
+      overflow: hidden;
+    }
   }
 }
 
@@ -102,7 +110,7 @@
     width: 100%;
     margin-top: 80px;
     .drink-preview {
-      width: calc(100%);
+      width: 100%;
       margin: 20px 7%;
       .favorite-icon {
         left: 33%;
