@@ -90,7 +90,7 @@ nav {
     border: 1px solid $main;
     color: $main;
     font-size: 1rem;
-    &:hover, &:active {
+    &:hover, &:active, &:focus {
       background: $main;
       color: $white;
       outline: none;

@@ -1,56 +1,57 @@
 #filter-bar {
-  background: $gray;
-  color: $main;
-  font-size: 1rem;
-  width: 70%;
-  position: relative;
-  bottom: -30px;
-  right: 10px;
-  height: 130px;
-  padding: 0 0 15px 0;
-  box-sizing: border-box;
+  background: $white;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  border: 1px solid $gray;
   h6 {
     font-size: 1rem;
-    margin: 0;
+    text-align: center;
+    margin: 0 0 5px 0;
   }
-  ul {
-    margin: 0;
-    display: inline-block;
-    padding: 0;
-  }
-  #filter-flavor-wrapper, #filter-alcohol-wrapper {
-    display: inline-block;
+  div {
     float: left;
+    padding: 10px;
     box-sizing: border-box;
+    text-align: center;
     width: 33%;
-    padding: 10px 20px;
-    #flavor-profile-2, #alcohol-list-2 {
+  }
+  #filter-flavor-wrapper {
+    ul {
+      padding-left: 10%;
+      margin: 0;
       float: left;
-    }
-    li {
-      font-size: 0.8rem;
+      text-align: left;
+      li {
+        margin: 5px 0;
+      }
     }
   }
   #filter-difficulty-wrapper {
-    display: inline-block;
-    float: left;
-    width: 33%;
-    padding: 10px 20px;
-    border-right: 1px solid darken($gray, 5%);
-    border-left: 1px solid darken($gray, 5%);
-    height: 130px;
-    box-sizing: border-box;
+    input {
+      margin-top: 50px;
+    }
   }
-  input[type="button"] {
-    background: $main;
-    color: $white;
-    font-size: 0.8rem;
-    padding: 7px;
-    float: right;
-    margin-right: 10px;
-    &:hover {
-      background: $white;
-      color: $main;
+  #filter-alcohol-wrapper {
+    form {
+      margin-top: 45px;
+    }
+  }
+  input[type=button] {
+    position: relative;
+    top: 12px;
+    left: 58%;
+    background: none;
+    color: $main;
+    border: 1px solid $main;
+    font-size: 0.9rem;
+    padding: 5px;
+    &:hover, &:focus {
+      background: $main;
+      color: $white;
+      outline: none;
+      cursor: pointer;
     }
   }
 }

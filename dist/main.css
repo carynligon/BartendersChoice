@@ -81,7 +81,7 @@ nav {
     border: 1px solid #FF3C38;
     color: #FF3C38;
     font-size: 1rem; }
-    nav #show-filter-options:hover, nav #show-filter-options:active {
+    nav #show-filter-options:hover, nav #show-filter-options:active, nav #show-filter-options:focus {
       background: #FF3C38;
       color: #fff;
       outline: none;
@@ -710,52 +710,47 @@ video {
       margin: 30px auto;
       display: block; } }
 #filter-bar {
-  background: #EEEEEE;
-  color: #FF3C38;
-  font-size: 1rem;
-  width: 70%;
-  position: relative;
-  bottom: -30px;
-  right: 10px;
-  height: 130px;
-  padding: 0 0 15px 0;
-  box-sizing: border-box; }
+  background: #fff;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  border: 1px solid #EEEEEE; }
   #filter-bar h6 {
     font-size: 1rem;
-    margin: 0; }
-  #filter-bar ul {
-    margin: 0;
-    display: inline-block;
-    padding: 0; }
-  #filter-bar #filter-flavor-wrapper, #filter-bar #filter-alcohol-wrapper {
-    display: inline-block;
+    text-align: center;
+    margin: 0 0 5px 0; }
+  #filter-bar div {
     float: left;
+    padding: 10px;
     box-sizing: border-box;
-    width: 33%;
-    padding: 10px 20px; }
-    #filter-bar #filter-flavor-wrapper #flavor-profile-2, #filter-bar #filter-flavor-wrapper #alcohol-list-2, #filter-bar #filter-alcohol-wrapper #flavor-profile-2, #filter-bar #filter-alcohol-wrapper #alcohol-list-2 {
-      float: left; }
-    #filter-bar #filter-flavor-wrapper li, #filter-bar #filter-alcohol-wrapper li {
-      font-size: 0.8rem; }
-  #filter-bar #filter-difficulty-wrapper {
-    display: inline-block;
+    text-align: center;
+    width: 33%; }
+  #filter-bar #filter-flavor-wrapper ul {
+    padding-left: 10%;
+    margin: 0;
     float: left;
-    width: 33%;
-    padding: 10px 20px;
-    border-right: 1px solid #e1e1e1;
-    border-left: 1px solid #e1e1e1;
-    height: 130px;
-    box-sizing: border-box; }
-  #filter-bar input[type="button"] {
-    background: #FF3C38;
-    color: #fff;
-    font-size: 0.8rem;
-    padding: 7px;
-    float: right;
-    margin-right: 10px; }
-    #filter-bar input[type="button"]:hover {
-      background: #fff;
-      color: #FF3C38; }
+    text-align: left; }
+    #filter-bar #filter-flavor-wrapper ul li {
+      margin: 5px 0; }
+  #filter-bar #filter-difficulty-wrapper input {
+    margin-top: 50px; }
+  #filter-bar #filter-alcohol-wrapper form {
+    margin-top: 45px; }
+  #filter-bar input[type=button] {
+    position: relative;
+    top: 12px;
+    left: 58%;
+    background: none;
+    color: #FF3C38;
+    border: 1px solid #FF3C38;
+    font-size: 0.9rem;
+    padding: 5px; }
+    #filter-bar input[type=button]:hover, #filter-bar input[type=button]:focus {
+      background: #FF3C38;
+      color: #fff;
+      outline: none;
+      cursor: pointer; }
 
 #how-it-works {
   width: 90%;
