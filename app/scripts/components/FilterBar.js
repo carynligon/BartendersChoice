@@ -30,10 +30,12 @@ export default React.createClass({
     console.log(this.props);
     return(
       <div id="filter-bar">
-        <FilterFlavor/>
-        <FilterDifficulty/>
-        <FilterAlcohol/>
-        <input type="button" id="submit-filters" onClick={this.filterResults} value="search"/>
+        <div id="filter-wrapper">
+          <FilterFlavor/>
+          <FilterDifficulty/>
+          <FilterAlcohol/>
+          <input type="button" id="submit-filters" onClick={this.filterResults} value="search"/>
+        </div>
       </div>
     );
   }

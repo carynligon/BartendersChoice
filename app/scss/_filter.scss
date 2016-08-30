@@ -10,12 +10,21 @@
     text-align: center;
     margin: 0 0 5px 0;
   }
+  #filter-wrapper {
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+  }
   div {
     float: left;
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
     width: 33%;
+  }
+  #flavor-lists-wrapper {
+    width: 100%;
+    padding: 0;
   }
   #filter-flavor-wrapper {
     ul {
@@ -41,7 +50,7 @@
   input[type=button] {
     position: relative;
     top: 12px;
-    left: 58%;
+    left: 27%;
     background: none;
     color: $main;
     border: 1px solid $main;
@@ -52,6 +61,68 @@
       color: $white;
       outline: none;
       cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 1050px) {
+  #filter-bar {
+    #filter-wrapper {
+      width: 900px;
+    }
+    input[type=button] {
+      left: 29%;
+    }
+  }
+}
+
+@media (max-width: 850px) {
+  #filter-bar {
+    #filter-flavor-wrapper {
+      ul {
+        padding-left: 5%;
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  #filter-bar {
+    width: 100%;
+    h6 {
+
+    }
+    div {
+      float: none;
+      width: 100%;
+      border-top: 1px solid $gray;
+      &:first-child {
+        border: none;
+      }
+      &:after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+    #flavor-lists-wrapper {
+      width: 240px;
+      margin: 0 auto;
+      border: none;
+    }
+    #filter-difficulty-wrapper {
+      input {
+        margin-top: 10px;
+      }
+    }
+    #filter-alcohol-wrapper {
+      form {
+        margin-top: 20px;
+      }
+    }
+    input[type=button] {
+      position: static;
+      margin-top: 10px;
     }
   }
 }

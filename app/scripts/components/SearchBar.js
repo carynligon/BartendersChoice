@@ -17,25 +17,37 @@ export default React.createClass({
       hashHistory.push(`/recipe/${e.target.parentElement.id}`);
     }
   },
-  performSearch(e) {
+  submittedForm(e) {
     e.preventDefault();
+    if (this.props.submit) {
+      this.performSearch();
+    }
+  },
+  performSearch(e) {
     this.props.hideFilter();
     let searchString = this.refs.searchQuery.value;
-    if (e.which === 13) {
+    if (e) {
+      e.preventDefault();
+      if (e.which === 13) {
+        console.log(searchString);
+        this.setState({hide: true});
+        this.toSearchResults();
+      } else {
+        if (searchString.length >= 3 && this.state.windowWidth === 'big') {
+          this.setState({hide: false});
+          store.searchResults.getResults(searchString);
+        }
+      }
+    } else {
       console.log(searchString);
       this.setState({hide: true});
       this.toSearchResults();
-    } else {
-      if (searchString.length >= 3) {
-        this.setState({hide: false});
-        store.searchResults.getResults(searchString);
-      }
     }
   },
   toSearchResults() {
     hashHistory.push({
       pathname: 'search',
-      query: {q: this.refs.searchQuery.value}
+      query: {q: this.refs.searchQuery.value.toLowerCase()}
     })
     this.setState({hide: true});
   },
@@ -71,7 +83,7 @@ export default React.createClass({
         height: '200px'
       };
     }
-    if (this.state.results) {
+    if (this.state.results && !this.props.submit) {
       if (this.state.results.length >= 1) {
       reduced = this.state.results.reduce((rtsf, curr) => {
         if (_.has(rtsf, curr.drinkName)) {
@@ -91,11 +103,12 @@ export default React.createClass({
       }
     }
     return(
-      <form id="search-bar-form" autoComplete="off" onSubmit={(e) => {e.preventDefault()}}>
+      <form id="search-bar-form" autoComplete="off" onSubmit={this.submittedForm}>
         <input type="text" id="search-input" onKeyUp={this.performSearch} placeholder="SEARCH RECIPES..." ref="searchQuery"/>
           <ul id="results-dropdown" style={styles}>
             {results}
           </ul>
+          <i className="fa fa-search" id="search-icon-btn" aria-hidden="true" onClick={this.submittedForm}></i>
       </form>
     );
   }

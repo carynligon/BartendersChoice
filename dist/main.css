@@ -171,6 +171,11 @@ nav {
       font-size: 0.8rem;
       width: 100%;
       border-radius: 5px; }
+    #search-bar-form #search-icon-btn {
+      position: relative;
+      bottom: 26px;
+      left: 40%;
+      font-size: 1.2rem; }
 
   @keyframes slideLeft {
     from {
@@ -378,7 +383,8 @@ video {
     width: calc(100%); } }
 @media (max-width: 550px) {
   #cocktail-list, #result-list {
-    width: 100%; }
+    width: 100%;
+    margin-top: 80px; }
     #cocktail-list .drink-preview, #result-list .drink-preview {
       width: calc(100%);
       margin: 20px 7%; }
@@ -720,12 +726,19 @@ video {
     font-size: 1rem;
     text-align: center;
     margin: 0 0 5px 0; }
+  #filter-bar #filter-wrapper {
+    float: none;
+    width: 100%;
+    margin: 0 auto; }
   #filter-bar div {
     float: left;
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
     width: 33%; }
+  #filter-bar #flavor-lists-wrapper {
+    width: 100%;
+    padding: 0; }
   #filter-bar #filter-flavor-wrapper ul {
     padding-left: 10%;
     margin: 0;
@@ -740,7 +753,7 @@ video {
   #filter-bar input[type=button] {
     position: relative;
     top: 12px;
-    left: 58%;
+    left: 27%;
     background: none;
     color: #FF3C38;
     border: 1px solid #FF3C38;
@@ -752,6 +765,38 @@ video {
       outline: none;
       cursor: pointer; }
 
+@media (min-width: 1050px) {
+  #filter-bar #filter-wrapper {
+    width: 900px; }
+  #filter-bar input[type=button] {
+    left: 29%; } }
+@media (max-width: 850px) {
+  #filter-bar #filter-flavor-wrapper ul {
+    padding-left: 5%; } }
+@media (max-width: 750px) {
+  #filter-bar {
+    width: 100%; }
+    #filter-bar div {
+      float: none;
+      width: 100%;
+      border-top: 1px solid #EEEEEE; }
+      #filter-bar div:first-child {
+        border: none; }
+      #filter-bar div:after {
+        content: '';
+        display: block;
+        clear: both; }
+    #filter-bar #flavor-lists-wrapper {
+      width: 240px;
+      margin: 0 auto;
+      border: none; }
+    #filter-bar #filter-difficulty-wrapper input {
+      margin-top: 10px; }
+    #filter-bar #filter-alcohol-wrapper form {
+      margin-top: 20px; }
+    #filter-bar input[type=button] {
+      position: static;
+      margin-top: 10px; } }
 #how-it-works {
   width: 90%;
   margin: 0 auto; }
