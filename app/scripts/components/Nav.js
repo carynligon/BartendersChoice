@@ -12,7 +12,7 @@ import FilterBar from './FilterBar';
 export default React.createClass({
   getInitialState() {
     let windowWidth;
-    if (window.innerWidth < 401) {
+    if (window.innerWidth < 505) {
       windowWidth = 'small';
     } else {
       windowWidth = 'big';
@@ -60,7 +60,7 @@ export default React.createClass({
     this.setState({showMenu: !this.state.showMenu});
   },
   setWidth() {
-    if (window.innerWidth <= 400) {
+    if (window.innerWidth <= 505) {
       this.setState({
         windowWidth: 'small',
         showSearchbar: false

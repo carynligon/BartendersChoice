@@ -1,32 +1,65 @@
 .assessment-section{
-  width: 60%;
-  margin: 150px auto;
+  width: 100%;
+  margin: 60px auto 0 auto;
   h2 {
     text-align: center;
+    padding: 60px 0;
+    background: linear-gradient(to bottom, rgba($main, 0.9), rgba($main, 0.6));
+    color: $white;
+    font-size: 2rem;
+    font-weight: lighter;
+    margin-bottom: 0;
   }
-  p {
-    font-family: 'Arvo';
+  #assessment-image {
+    width: 100%;
+    height: 330px;
+    background-size: cover;
+    background-position: center;
+  }
+  .assessment-description {
+    width: 70%;
+    max-width: 700px;
+    margin: 30px auto 10px auto;
   }
   img{
     height: 100px;
   }
   #start-assessment-btn {
     background: none;
-    border: none;
-    background: $gray;
-    color: $main;
+    border: 1px solid $main;
+    width: 70%;
+    max-width: 700px;
+    margin: 10px auto 40px auto;
+    display: block;
+    padding: 10px 0;
+    background: $main;
+    color: $white;
     font-size: 1rem;
     &:hover, &:focus {
-      background: $main;
-      color: $white;
+      background: none;
+      color: $main;
       outline: none;
+    }
+  }
+  #about-traitify {
+    background: $gray;
+    text-align: center;
+    padding: 10px 0 40px 0;
+    p {
+      margin: 0 auto;
     }
   }
 }
 
 #question-section {
   padding: 0 20px;
-  margin: 150px auto;
+  margin: 100px auto;
+  #question-count {
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 2px solid $gray;
+    color: $main;
+  }
   h3 {
     font-size: 3.5rem;
     text-align: center;
@@ -38,8 +71,6 @@
     margin: 2%;
     display: inline-block;
     text-align: center;
-    border: 1px solid $black;
-    border-radius: 20px;
     box-sizing: border-box;
     padding: 60px;
     font-size: 1.5rem;
@@ -67,6 +98,58 @@
   }
 }
 
+@media (max-width: 800px) {
+  .assessment-section{
+    width: 100%;
+    margin: 60px auto 0 auto;
+    h2 {
+      text-align: center;
+      padding: 60px 0;
+      background: linear-gradient(to bottom, rgba($main, 0.9), rgba($main, 0.6));
+      color: $white;
+      font-size: 2rem;
+      font-weight: lighter;
+      margin-bottom: 0;
+    }
+    #assessment-image {
+      width: 100%;
+      height: 290px;
+      background-size: cover;
+      background-position: center;
+    }
+    p {
+      width: 80%;
+      margin: 30px auto 10px auto;
+    }
+    img{
+      height: 100px;
+    }
+    #start-assessment-btn {
+      background: none;
+      border: 1px solid $main;
+      width: 80%;
+      margin: 10px auto 40px auto;
+      display: block;
+      padding: 10px 0;
+      background: $main;
+      color: $white;
+      font-size: 1rem;
+      &:hover, &:focus {
+        background: none;
+        color: $main;
+        outline: none;
+      }
+    }
+    #about-traitify {
+      background: $gray;
+      text-align: center;
+      padding: 10px 0 40px 0;
+      p {
+        margin: 0 auto;
+      }
+    }
+  }
+}
 
 @media (max-width: 500px) {
   #question-section {
@@ -74,9 +157,8 @@
     h3 {
       font-size: 2.5rem;
       margin-bottom: 30px;
-      color: $main;
-      padding-bottom: 10px;
-      border-bottom: 1px solid $gray;
+      color: $black;
+      height: 100px;
     }
     #select-answer {
       width: 90%;
@@ -87,15 +169,34 @@
         margin: 0 auto 20px auto;
         padding: 20px;
         box-shadow: $shadow;
-        border: 1px solid $gray;
+        box-sizing: border-box;
+      }
+      #me {
+        background: $main;
+        color: $white;
+        &:hover {
+          background: $main;
+          color: $white;
+        }
+      }
+      #not-me {
+        background: none;
+        border: 1px solid $main;
+        color: $main;
+        &:hover {
+          background: none;
+          border: 1px solid $main;
+          color: $main;
+        }
       }
     }
   }
+}
+
+@media (max-width: 450px) {
   .assessment-section {
-    margin: 100px auto;
-    width: 80%;
-    h3 {
-      font-size: 2.5rem;
+    .assessment-description {
+      width: 85%;
     }
   }
 }

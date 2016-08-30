@@ -77,6 +77,9 @@ export default React.createClass({
     }
     return(
       <section id="question-section">
+        <div id="question-count">
+          {('# ' + (this.state.index + 1) + '/' + (store.slides.models.length))}
+        </div>
         <h3>{question}</h3>
         <div id="select-answer">
           <div id="me" onClick={this.nextQuestion}>ME</div>

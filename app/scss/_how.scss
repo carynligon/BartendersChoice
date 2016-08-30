@@ -54,3 +54,12 @@
     width: 75%;
   }
 }
+
+@media (max-width: 750px) {
+  #how-it-works {
+    div {
+      display: block;
+      width: 100%;
+    }
+  }
+}

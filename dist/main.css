@@ -158,6 +158,20 @@ nav {
     display: inline-block;
     margin: 0 3%; }
 
+#mobile-menu {
+  display: none; }
+
+@media (max-width: 800px) {
+  header {
+    height: 360px; }
+    header h2 {
+      padding-top: 150px;
+      font-size: 2rem;
+      width: 80%;
+      margin: 20px auto; } }
+@media (max-width: 625px) {
+  header h2 {
+    padding-top: 120px; } }
 @media (max-width: 505px) {
   #search-bar-form {
     width: 57%;
@@ -184,6 +198,7 @@ nav {
     to {
       width: 57%; } }
   #mobile-menu {
+    display: block;
     width: 100%;
     padding: 0;
     margin: 0;
@@ -255,16 +270,7 @@ nav {
       margin: 20px auto; }
     header #assessment-link {
       width: 70%;
-      box-sizing: border-box; }
-
-  #how-it-works {
-    border-bottom: 1px solid #EEEEEE; }
-    #how-it-works h2 {
-      display: none; }
-    #how-it-works #about-cocktails, #how-it-works #about-traitify, #how-it-works #about-match {
-      display: block;
-      width: 95%;
-      margin: 0 auto; } }
+      box-sizing: border-box; } }
 @media (max-width: 270px) {
   #search-bar-form {
     width: 54%; } }
@@ -383,7 +389,17 @@ video {
     overflow: hidden; }
   #cocktail-list .app-titles::after, #result-list .app-titles::after {
     width: 0;
+    overflow: hidden; }
+
+  #how-it-works .app-titles::before {
+    width: 0;
+    overflow: hidden; }
+  #how-it-works .app-titles::after {
+    width: 0;
     overflow: hidden; } }
+@media (max-width: 799px) {
+  #cocktail-list, #result-list {
+    width: 65%; } }
 @media (max-width: 550px) {
   #cocktail-list, #result-list {
     width: 100%;
@@ -396,28 +412,57 @@ video {
       #cocktail-list .drink-preview .bookmark-icon, #result-list .drink-preview .bookmark-icon {
         right: 32%; } }
 .assessment-section {
-  width: 60%;
-  margin: 150px auto; }
+  width: 100%;
+  margin: 60px auto 0 auto; }
   .assessment-section h2 {
-    text-align: center; }
-  .assessment-section p {
-    font-family: 'Arvo'; }
+    text-align: center;
+    padding: 60px 0;
+    background: linear-gradient(to bottom, rgba(255, 60, 56, 0.9), rgba(255, 60, 56, 0.6));
+    color: #fff;
+    font-size: 2rem;
+    font-weight: lighter;
+    margin-bottom: 0; }
+  .assessment-section #assessment-image {
+    width: 100%;
+    height: 330px;
+    background-size: cover;
+    background-position: center; }
+  .assessment-section .assessment-description {
+    width: 70%;
+    max-width: 700px;
+    margin: 30px auto 10px auto; }
   .assessment-section img {
     height: 100px; }
   .assessment-section #start-assessment-btn {
     background: none;
-    border: none;
-    background: #EEEEEE;
-    color: #FF3C38;
+    border: 1px solid #FF3C38;
+    width: 70%;
+    max-width: 700px;
+    margin: 10px auto 40px auto;
+    display: block;
+    padding: 10px 0;
+    background: #FF3C38;
+    color: #fff;
     font-size: 1rem; }
     .assessment-section #start-assessment-btn:hover, .assessment-section #start-assessment-btn:focus {
-      background: #FF3C38;
-      color: #fff;
+      background: none;
+      color: #FF3C38;
       outline: none; }
+  .assessment-section #about-traitify {
+    background: #EEEEEE;
+    text-align: center;
+    padding: 10px 0 40px 0; }
+    .assessment-section #about-traitify p {
+      margin: 0 auto; }
 
 #question-section {
   padding: 0 20px;
-  margin: 150px auto; }
+  margin: 100px auto; }
+  #question-section #question-count {
+    display: inline-block;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #EEEEEE;
+    color: #FF3C38; }
   #question-section h3 {
     font-size: 3.5rem;
     text-align: center;
@@ -428,8 +473,6 @@ video {
     margin: 2%;
     display: inline-block;
     text-align: center;
-    border: 1px solid #454545;
-    border-radius: 20px;
     box-sizing: border-box;
     padding: 60px;
     font-size: 1.5rem;
@@ -448,15 +491,56 @@ video {
       border: none;
       cursor: pointer; }
 
+@media (max-width: 800px) {
+  .assessment-section {
+    width: 100%;
+    margin: 60px auto 0 auto; }
+    .assessment-section h2 {
+      text-align: center;
+      padding: 60px 0;
+      background: linear-gradient(to bottom, rgba(255, 60, 56, 0.9), rgba(255, 60, 56, 0.6));
+      color: #fff;
+      font-size: 2rem;
+      font-weight: lighter;
+      margin-bottom: 0; }
+    .assessment-section #assessment-image {
+      width: 100%;
+      height: 290px;
+      background-size: cover;
+      background-position: center; }
+    .assessment-section p {
+      width: 80%;
+      margin: 30px auto 10px auto; }
+    .assessment-section img {
+      height: 100px; }
+    .assessment-section #start-assessment-btn {
+      background: none;
+      border: 1px solid #FF3C38;
+      width: 80%;
+      margin: 10px auto 40px auto;
+      display: block;
+      padding: 10px 0;
+      background: #FF3C38;
+      color: #fff;
+      font-size: 1rem; }
+      .assessment-section #start-assessment-btn:hover, .assessment-section #start-assessment-btn:focus {
+        background: none;
+        color: #FF3C38;
+        outline: none; }
+    .assessment-section #about-traitify {
+      background: #EEEEEE;
+      text-align: center;
+      padding: 10px 0 40px 0; }
+      .assessment-section #about-traitify p {
+        margin: 0 auto; } }
 @media (max-width: 500px) {
   #question-section {
     margin-top: 110px; }
     #question-section h3 {
       font-size: 2.5rem;
       margin-bottom: 30px;
-      color: #FF3C38;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #EEEEEE; }
+      color: #454545;
+      height: 100px; }
     #question-section #select-answer {
       width: 90%; }
       #question-section #select-answer #me, #question-section #select-answer #not-me {
@@ -466,18 +550,30 @@ video {
         margin: 0 auto 20px auto;
         padding: 20px;
         box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
-        border: 1px solid #EEEEEE; }
-
-  .assessment-section {
-    margin: 100px auto;
-    width: 80%; }
-    .assessment-section h3 {
-      font-size: 2.5rem; } }
+        box-sizing: border-box; }
+      #question-section #select-answer #me {
+        background: #FF3C38;
+        color: #fff; }
+        #question-section #select-answer #me:hover {
+          background: #FF3C38;
+          color: #fff; }
+      #question-section #select-answer #not-me {
+        background: none;
+        border: 1px solid #FF3C38;
+        color: #FF3C38; }
+        #question-section #select-answer #not-me:hover {
+          background: none;
+          border: 1px solid #FF3C38;
+          color: #FF3C38; } }
+@media (max-width: 450px) {
+  .assessment-section .assessment-description {
+    width: 85%; } }
 .login-signup-form {
   text-align: center; }
   .login-signup-form h2 {
     padding: 0;
-    color: #454545; }
+    color: #454545;
+    background: none; }
   .login-signup-form i {
     font-size: 1rem;
     margin-top: 1px; }
@@ -486,7 +582,7 @@ video {
     letter-spacing: 1px;
     font-family: "Fira-Sans", sans-serif, sans-serif; }
   .login-signup-form .signup-title {
-    margin-top: 23%; }
+    margin-top: 10%; }
   .login-signup-form p {
     margin-top: 0;
     font-size: 0.8rem;
@@ -855,6 +951,10 @@ video {
 @media (min-width: 1100px) {
   #how-it-works {
     width: 75%; } }
+@media (max-width: 750px) {
+  #how-it-works div {
+    display: block;
+    width: 100%; } }
 #custom-cocktail-page h3 {
   text-align: center;
   font-size: 2.2rem;
@@ -1100,29 +1200,46 @@ video {
 #preview-selected-item {
   width: 66%;
   float: left;
+  display: flex;
+  flex-wrap: wrap;
   padding: 0;
   margin: 180px 0 0 4%;
   box-sizing: border-box; }
   #preview-selected-item li {
-    border-bottom: 2px solid #EEEEEE;
-    padding: 15px 0; }
-    #preview-selected-item li:last-child {
-      border-bottom: none; }
+    display: flex;
+    width: calc(100% / 2 - 20px);
+    max-width: 400px;
+    margin: 10px; }
   #preview-selected-item .saved-item-img {
-    width: 50%;
+    width: 100%;
     height: 230px;
     background-size: cover;
     display: inline-block; }
   #preview-selected-item .saved-item-data {
-    width: 50%;
-    float: right; }
-    #preview-selected-item .saved-item-data h3 {
-      text-align: center; }
+    position: relative;
+    top: 80%;
+    width: 100%;
+    box-sizing: border-box; }
     #preview-selected-item .saved-item-data a {
+      color: #fff;
+      text-decoration: none; }
+    #preview-selected-item .saved-item-data h3 {
       text-align: center;
-      display: block; }
+      width: 100%;
+      font-weight: lighter;
+      background: rgba(69, 69, 69, 0.7);
+      padding: 4px 0;
+      font-size: 1.1rem; }
 
-@media (max-width: 400px) {
+@media (min-width: 1300px) {
+  #preview-selected-item .saved-item-img {
+    height: 280px; }
+  #preview-selected-item .saved-item-data {
+    top: 83.5%; } }
+@media (max-width: 800px) {
+  #preview-selected-item li {
+    width: 100%; } }
+@media (max-width: 700px) {
   #select-view {
     width: 90%;
     margin: 100px auto 0 auto;

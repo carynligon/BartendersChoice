@@ -103,6 +103,22 @@
       overflow: hidden;
     }
   }
+  #how-it-works {
+    .app-titles::before {
+      width: 0;
+      overflow: hidden;
+    }
+    .app-titles::after {
+      width: 0;
+      overflow: hidden;
+    }
+  }
+}
+
+@media (max-width: 799px) {
+  #cocktail-list, #result-list {
+    width: 65%
+  }
 }
 
 @media (max-width: 550px) {
