@@ -189,7 +189,7 @@ nav {
     margin: 0;
     background: #FF3C38;
     position: relative;
-    top: 18px;
+    top: 51px;
     left: -10px;
     animation: dropdown 0.2s ease-in-out; }
     #mobile-menu li {
@@ -264,10 +264,7 @@ nav {
     #how-it-works #about-cocktails, #how-it-works #about-traitify, #how-it-works #about-match {
       display: block;
       width: 95%;
-      margin: 0 auto; }
-
-  #cocktail-list .app-titles {
-    display: none; } }
+      margin: 0 auto; } }
 @media (max-width: 270px) {
   #search-bar-form {
     width: 54%; } }
@@ -380,13 +377,19 @@ video {
     width: calc(100% / 2 - 20px); } }
 @media (max-width: 800px) {
   #cocktail-list .drink-preview, #result-list .drink-preview {
-    width: calc(100%); } }
+    width: calc(100%); }
+  #cocktail-list .app-titles::before, #result-list .app-titles::before {
+    width: 0;
+    overflow: hidden; }
+  #cocktail-list .app-titles::after, #result-list .app-titles::after {
+    width: 0;
+    overflow: hidden; } }
 @media (max-width: 550px) {
   #cocktail-list, #result-list {
     width: 100%;
     margin-top: 80px; }
     #cocktail-list .drink-preview, #result-list .drink-preview {
-      width: calc(100%);
+      width: 100%;
       margin: 20px 7%; }
       #cocktail-list .drink-preview .favorite-icon, #result-list .drink-preview .favorite-icon {
         left: 33%; }
@@ -493,6 +496,8 @@ video {
     .login-signup-form input:hover, .login-signup-form input:active, .login-signup-form input:focus, .user-info-form input:hover, .user-info-form input:active, .user-info-form input:focus {
       outline: none;
       box-shadow: 1px 3px 3px 1px rgba(255, 60, 56, 0.9); }
+  .login-signup-form p, .user-info-form p {
+    margin-top: 0; }
   .login-signup-form input[type="submit"], .user-info-form input[type="submit"] {
     width: 110px;
     display: block;
