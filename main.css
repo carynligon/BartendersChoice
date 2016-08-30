@@ -971,6 +971,7 @@ video {
 #custom-cocktail-page #add-ingredient {
   background: none;
   border: 1px solid #FF3C38;
+  margin-left: 87%;
   color: #FF3C38; }
   #custom-cocktail-page #add-ingredient:hover {
     background: #FF3C38;
@@ -982,6 +983,8 @@ video {
   margin: 120px auto 50px auto;
   font-size: 1.1rem;
   border: 1px solid #EEEEEE; }
+  #custom-cocktail-form input {
+    border: 1px solid #EEEEEE; }
   #custom-cocktail-form h2 {
     font-family: "Fira-Sans", sans-serif;
     font-weight: lighter;
@@ -996,13 +999,14 @@ video {
     margin: 30px auto; }
   #custom-cocktail-form h4 {
     text-align: center;
-    font-weight: lighter; }
+    font-weight: lighter;
+    margin-top: 45px; }
     #custom-cocktail-form h4::before {
       content: '';
       width: 90%;
       margin: 10px auto 20px auto;
       display: block;
-      border-top: 1px solid #EEEEEE; }
+      border-top: 1px solid #d5d5d5; }
   #custom-cocktail-form #flavor-profile-title {
     text-align: left;
     font-family: "Lora", serif;
@@ -1021,7 +1025,7 @@ video {
     height: 100px; }
   #custom-cocktail-form #new-ingredient-wrapper, #custom-cocktail-form #new-ingredient-quantity-wrapper {
     width: 40%;
-    margin-left: 25px; }
+    margin: 5px 0 0 25px; }
     #custom-cocktail-form #new-ingredient-wrapper label, #custom-cocktail-form #new-ingredient-quantity-wrapper label {
       margin: 0 5px 0 0; }
     #custom-cocktail-form #new-ingredient-wrapper input, #custom-cocktail-form #new-ingredient-quantity-wrapper input {
@@ -1029,6 +1033,8 @@ video {
       font-size: 0.9rem;
       padding: 10px;
       box-sizing: border-box; }
+    #custom-cocktail-form #new-ingredient-wrapper #new-ingredient, #custom-cocktail-form #new-ingredient-quantity-wrapper #new-ingredient {
+      margin-left: 14%; }
   #custom-cocktail-form #new-ingredient-quantity-wrapper label {
     margin-right: 18px; }
   #custom-cocktail-form #cocktail-glass-wrapper input {
@@ -1121,7 +1127,7 @@ video {
   margin: 20px auto;
   border: none; }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
   #custom-cocktail-form {
     width: 100%;
     border: none; }
@@ -1150,6 +1156,8 @@ video {
         width: 100%;
         box-sizing: border-box;
         border: 1px solid #EEEEEE; }
+      #custom-cocktail-form #new-ingredient-wrapper #new-ingredient, #custom-cocktail-form #new-ingredient-quantity-wrapper #new-ingredient {
+        margin: 0; }
     #custom-cocktail-form #add-ingredient {
       width: 75px;
       margin: 15px auto 5px auto;
