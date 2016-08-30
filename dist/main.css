@@ -89,10 +89,10 @@ nav {
   nav .menu-icon {
     display: none; }
   nav #search-icon {
-    position: relative;
+    position: absolute;
     font-size: 1.5rem;
-    right: 106px;
-    bottom: -9px;
+    right: 87px;
+    bottom: 20px;
     background: none;
     border: none; }
   nav #logo {
@@ -160,14 +160,29 @@ nav {
 
 @media (max-width: 400px) {
   #search-bar-form {
-    width: 66%;
-    margin-left: 8%; }
+    width: 57%;
+    margin-right: 35%;
+    float: right;
+    animation: slideLeft 0.5s; }
+    #search-bar-form #search-input {
+      padding: 7px;
+      margin-top: 6px;
+      box-sizing: border-box;
+      font-size: 0.8rem;
+      width: 100%;
+      border-radius: 5px; }
 
+  @keyframes slideLeft {
+    from {
+      width: 0;
+      float: right; }
+    to {
+      width: 57%; } }
   #mobile-menu {
     width: 100%;
     padding: 0;
     margin: 0;
-    background: #EEEEEE;
+    background: #FF3C38;
     position: relative;
     top: 18px;
     left: -10px;
@@ -175,9 +190,11 @@ nav {
     #mobile-menu li {
       display: block;
       text-align: center;
-      color: #FF3C38;
-      border-top: 1px solid #e1e1e1;
+      color: #fff;
+      border-top: 1px solid #EEEEEE;
       padding: 10px 0; }
+      #mobile-menu li a {
+        color: #fff; }
       #mobile-menu li:first-child {
         border-top: none; }
       #mobile-menu li p {
@@ -189,7 +206,7 @@ nav {
     to {
       height: 163px; } }
   nav {
-    height: 33px; }
+    height: 40px; }
     nav a {
       margin: 0 auto;
       display: block;
@@ -197,24 +214,22 @@ nav {
       text-align: center; }
     nav #search-icon {
       font-size: 1.5rem;
-      left: 70%;
-      bottom: -4px;
       color: #FF3C38; }
     nav .menu-icon {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      padding: 17px;
       display: inline-block;
-      float: right;
-      margin-right: 30px;
       font-size: 1.7rem;
-      padding: 4px;
       background: #FF3C38;
-      color: #fff;
-      border-radius: 2px; }
+      color: #fff; }
     nav #show-filter-options {
       display: none; }
     nav #logo {
       position: absolute;
       left: 0;
-      bottom: 8px; }
+      bottom: 12px; }
       nav #logo img {
         height: 35px; }
     nav #custom-link {
@@ -248,9 +263,6 @@ nav {
 
   #cocktail-list .app-titles {
     display: none; } }
-@media (max-width: 399px) {
-  #search-bar-form {
-    width: 60%; } }
 @media (max-width: 270px) {
   #search-bar-form {
     width: 54%; } }
@@ -703,8 +715,8 @@ video {
   font-size: 1rem;
   width: 70%;
   position: relative;
-  bottom: 19px;
-  right: 7px;
+  bottom: -30px;
+  right: 10px;
   height: 130px;
   padding: 0 0 15px 0;
   box-sizing: border-box; }
@@ -809,7 +821,7 @@ video {
 
 #custom-cocktail-form {
   width: 680px;
-  margin: 120px auto;
+  margin: 120px auto 50px auto;
   font-size: 1.1rem;
   border: 1px solid #EEEEEE; }
   #custom-cocktail-form h2 {
@@ -824,12 +836,31 @@ video {
     bottom: 45px;
     width: 350px;
     margin: 30px auto; }
+  #custom-cocktail-form h4 {
+    text-align: center;
+    font-weight: lighter; }
+    #custom-cocktail-form h4::before {
+      content: '';
+      width: 90%;
+      margin: 10px auto 20px auto;
+      display: block;
+      border-top: 1px solid #EEEEEE; }
+  #custom-cocktail-form #flavor-profile-title {
+    text-align: left;
+    font-family: "Lora", serif;
+    margin-left: 25px; }
+    #custom-cocktail-form #flavor-profile-title::before {
+      border: none; }
   #custom-cocktail-form #cocktail-name, #custom-cocktail-form #cocktail-instructions {
     display: block;
     width: 90%;
     margin: 15px auto;
     font-size: 0.9rem;
     padding: 10px; }
+  #custom-cocktail-form #cocktail-name-wrapper {
+    margin: 0 0 5px 0; }
+  #custom-cocktail-form #cocktail-instructions {
+    height: 100px; }
   #custom-cocktail-form #new-ingredient-wrapper, #custom-cocktail-form #new-ingredient-quantity-wrapper {
     width: 40%;
     margin-left: 25px; }
@@ -849,22 +880,11 @@ video {
     font-size: 0.9rem;
     padding: 10px; }
   #custom-cocktail-form #cocktail-difficulty-wrapper {
-    margin-top: 25px; }
+    margin-top: 40px; }
     #custom-cocktail-form #cocktail-difficulty-wrapper input {
       display: block;
       width: 50%;
       margin: 5px auto; }
-  #custom-cocktail-form #add-ingredient {
-    display: block;
-    margin: 10px 0 30px 25px;
-    background: #FF3C38;
-    color: #fff;
-    border: none;
-    font-size: 0.9rem;
-    padding: 5px 10px; }
-    #custom-cocktail-form #add-ingredient:hover {
-      background: none;
-      color: #FF3C38; }
   #custom-cocktail-form #image-uploader-wrapper {
     margin-top: 25px; }
     #custom-cocktail-form #image-uploader-wrapper p {
@@ -886,35 +906,40 @@ video {
   #custom-cocktail-form #submit-cocktail {
     display: block;
     margin: 20px auto 5px auto;
-    background: #fff;
+    width: 80%;
+    background: #FF3C38;
     border: 2px solid #FF3C38;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
-    color: #FF3C38;
+    color: #fff;
     padding: 5px 10px;
     font-size: 1rem;
     outline: none; }
     #custom-cocktail-form #submit-cocktail:hover {
-      color: #fff;
-      background: #FF3C38;
+      color: #FF3C38;
+      background: #fff;
       cursor: pointer; }
   #custom-cocktail-form div {
-    margin: 5px 0; }
+    margin: 40px 0 5px 0; }
   #custom-cocktail-form label {
     margin: 0 25px; }
   #custom-cocktail-form #flavor-profile-wrapper {
     width: 80%;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
     background: #EEEEEE;
-    text-align: center; }
+    text-align: left;
+    justify-content: center; }
     #custom-cocktail-form #flavor-profile-wrapper input {
       width: 0;
-      margin: 15px 5px 9px 5px; }
+      display: flex; }
       #custom-cocktail-form #flavor-profile-wrapper input:checked + label {
         background: #FF3C38;
         color: #fff; }
     #custom-cocktail-form #flavor-profile-wrapper label {
       margin: 10px 0;
       padding: 0 15px;
+      display: flex;
       background: #e1e1e1; }
       #custom-cocktail-form #flavor-profile-wrapper label:hover {
         background: #FF3C38;
@@ -944,7 +969,7 @@ video {
     border: none; }
     #custom-cocktail-form h2 {
       width: 100%;
-      margin: 0;
+      margin: 150px 0 0 0;
       background: none;
       color: #FF3C38; }
     #custom-cocktail-form #cocktail-name {
@@ -972,13 +997,15 @@ video {
       margin: 15px auto 5px auto;
       display: block; }
     #custom-cocktail-form #flavor-profile-wrapper {
-      margin: 25px auto;
-      padding: 25px 5px 30px 5px;
+      margin: 0 auto;
+      padding: 25px 5px;
       box-sizing: border-box; }
       #custom-cocktail-form #flavor-profile-wrapper label {
         padding: 15px; }
       #custom-cocktail-form #flavor-profile-wrapper input {
-        margin: 25px 5px 25px 5px; } }
+        margin-right: 5px; }
+        #custom-cocktail-form #flavor-profile-wrapper input:first-child {
+          margin: 0; } }
 #dashboard-page #logout-btn {
   margin-top: 100px;
   background: #FF3C38;

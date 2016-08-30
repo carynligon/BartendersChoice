@@ -29,7 +29,7 @@
 
 #custom-cocktail-form {
   width: 680px;
-  margin: 120px auto;
+  margin: 120px auto 50px auto;
   font-size: 1.1rem;
   border: 1px solid $gray;
   h2 {
@@ -45,12 +45,37 @@
     width: 350px;
     margin: 30px auto;
   }
+  h4 {
+    text-align: center;
+    font-weight: lighter;
+    &::before {
+      content: '';
+      width: 90%;
+      margin: 10px auto 20px auto;
+      display: block;
+      border-top: 1px solid $gray;
+    }
+  }
+  #flavor-profile-title {
+    text-align: left;
+    font-family: $serif;
+    margin-left: 25px;
+    &::before {
+      border: none;
+    }
+  }
   #cocktail-name, #cocktail-instructions {
     display: block;
     width: 90%;
     margin: 15px auto;
     font-size: 0.9rem;
     padding: 10px;
+  }
+  #cocktail-name-wrapper {
+    margin: 0 0 5px 0;
+  }
+  #cocktail-instructions {
+    height: 100px;
   }
   #new-ingredient-wrapper, #new-ingredient-quantity-wrapper {
     width: 40%;
@@ -78,24 +103,11 @@
     }
   }
   #cocktail-difficulty-wrapper {
-    margin-top: 25px;
+    margin-top: 40px;
     input {
       display: block;
       width: 50%;
       margin: 5px auto;
-    }
-  }
-  #add-ingredient {
-    display: block;
-    margin: 10px 0 30px 25px;
-    background: $main;
-    color: $white;
-    border: none;
-    font-size: 0.9rem;
-    padding: 5px 10px;
-    &:hover {
-      background: none;
-      color: $main;
     }
   }
   #image-uploader-wrapper {
@@ -124,21 +136,22 @@
   #submit-cocktail {
     display: block;
     margin: 20px auto 5px auto;
-    background: $white;
+    width: 80%;
+    background: $main;
     border: 2px solid $main;
     box-shadow: 0 2px 3px 0 rgba(0,0,0,0.1);
-    color: $main;
+    color: $white;
     padding: 5px 10px;
     font-size: 1rem;
     outline: none;
     &:hover {
-      color: $white;
-      background: $main;
+      color: $main;
+      background: $white;
       cursor: pointer;
     }
   }
   div {
-    margin: 5px 0;
+    margin: 40px 0 5px 0;
   }
   label {
     margin: 0 25px;
@@ -146,11 +159,14 @@
   #flavor-profile-wrapper {
     width: 80%;
     margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
     background: $gray;
-    text-align: center;
+    text-align: left;
+    justify-content: center;
     input {
       width: 0;
-      margin: 15px 5px 9px 5px;
+      display: flex;
       &:checked + label {
         background: $main;
         color: $white;
@@ -159,6 +175,7 @@
     label {
       margin: 10px 0;
       padding: 0 15px;
+      display: flex;
       background: darken($gray, 5%);
       &:hover {
         background: $main;
@@ -199,7 +216,7 @@
     border: none;
     h2 {
       width: 100%;
-      margin: 0;
+      margin: 150px 0 0 0;
       background: none;
       color: $main;
     }
@@ -236,14 +253,17 @@
       display: block;
     }
     #flavor-profile-wrapper {
-      margin: 25px auto;
-      padding: 25px 5px 30px 5px;
+      margin: 0 auto;
+      padding: 25px 5px;
       box-sizing: border-box;
       label {
         padding: 15px;
       }
       input {
-        margin: 25px 5px 25px 5px;
+        margin-right: 5px;
+        &:first-child {
+          margin: 0;
+        }
       }
     }
   }

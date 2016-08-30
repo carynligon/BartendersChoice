@@ -175,7 +175,7 @@ export default React.createClass({
           </div>
 
           <div id="image-uploader-wrapper">
-            <p id="upload-img-text">Image:</p>  
+            <p id="upload-img-text">Image:</p>
             <label htmlFor="image-uploader">Upload image <i className="fa fa-upload upload-icon" aria-hidden="true"></i></label>
             <input type="file" id="image-uploader" accept="image/*" ref="file" onChange={this.uploadImg}/>
           </div>
@@ -199,8 +199,9 @@ export default React.createClass({
             {ingredientsList}
           </ul>
 
+          <h4>Ingredients</h4>
           <div id="new-ingredient-wrapper">
-            <label htmlFor="new-ingredient">Ingredient:</label>
+            <label htmlFor="new-ingredient">Name:</label>
             <input type="text" id="new-ingredient" autoComplete="off" ref="newIngredient"/>
           </div>
 
@@ -210,6 +211,7 @@ export default React.createClass({
             <button id="add-ingredient" value="Add" onClick={this.newIngredient}>Add</button>
           </div>
 
+          <h4 id="flavor-profile-title">Flavor Notes:</h4>
           <div id="flavor-profile-wrapper">
             <input type="checkbox" id="custom-sweet" onChange={this.changeStatus}/>
             <label htmlFor="custom-sweet">sweet</label>

@@ -101,10 +101,10 @@ nav {
     display: none;
   }
   #search-icon {
-    position: relative;
+    position: absolute;
     font-size: 1.5rem;
-    right: 106px;
-    bottom: -9px;
+    right: 87px;
+    bottom: 20px;
     background: none;
     border: none;
   }
@@ -185,14 +185,31 @@ nav {
 
 @media (max-width: 400px) {
   #search-bar-form {
-    width: 66%;
-    margin-left: 8%;
+    width: 57%;
+    margin-right: 35%;
+    float: right;
+    animation: slideLeft 0.5s;
+    #search-input {
+      padding: 7px;
+      margin-top: 6px;
+      box-sizing: border-box;
+      font-size: 0.8rem;
+      width: 100%;
+      border-radius: 5px;
+    }
+  }
+  @keyframes slideLeft {
+    from {
+      width: 0; float:right;
+    } to {
+      width: 57%;
+    }
   }
   #mobile-menu {
     width: 100%;
     padding: 0;
     margin: 0;
-    background: $gray;
+    background: $main;
     position: relative;
     top: 18px;
     left: -10px;
@@ -200,9 +217,12 @@ nav {
     li {
       display: block;
       text-align: center;
-      color: $main;
-      border-top: 1px solid darken($gray, 5%);
+      color: $white;
+      border-top: 1px solid $gray;
       padding: 10px 0;
+      a {
+        color: $white;
+      }
       &:first-child {
         border-top: none;
       }
@@ -220,7 +240,7 @@ nav {
     }
   }
   nav {
-    height: 33px;
+    height: 40px;
     a {
       margin: 0 auto;
       display: block;
@@ -229,19 +249,17 @@ nav {
     }
     #search-icon {
       font-size: 1.5rem;
-      left: 70%;
-      bottom: -4px;
       color: $main;
     }
     .menu-icon {
+      position: absolute;
+      top: 0;
+      right: 20px;
+      padding: 17px;
       display: inline-block;
-      float: right;
-      margin-right: 30px;
       font-size: 1.7rem;
-      padding: 4px;
       background: $main;
       color: $white;
-      border-radius: 2px;
     }
     #show-filter-options {
       display: none;
@@ -249,7 +267,7 @@ nav {
     #logo {
       position: absolute;
       left: 0;
-      bottom: 8px;
+      bottom: 12px;
       img {
         height: 35px;
       }
@@ -295,12 +313,6 @@ nav {
     .app-titles {
       display: none;
     }
-  }
-}
-
-@media (max-width: 399px) {
-  #search-bar-form {
-    width: 60%;
   }
 }
 

@@ -230,10 +230,11 @@ export default React.createClass({
           </ul>
 
           <div id="new-ingredient-wrapper">
-            <label htmlFor="new-ingredient">Ingredient:</label>
+            <label htmlFor="new-ingredient">Name:</label>
             <input type="text" id="new-ingredient" autoComplete="off" ref="newIngredient"/>
           </div>
 
+          <h4>Ingredients</h4>
           <div id="new-ingredient-quantity-wrapper">
             <label htmlFor="new-ingredient-quantity">Quantity:</label>
             <input type="text" id="new-ingredient-quantity" autoComplete="off" ref="newIngredientQuantity"/>
