@@ -1,6 +1,9 @@
 #how-it-works {
-  width: 95%;
+  width: 90%;
   margin: 0 auto;
+  p {
+    line-height: 1.4rem;
+  }
   h2 {
     width: 100%;
     font-family: $sans, sans-serif;
@@ -27,7 +30,8 @@
     width: calc(100% /3 - 20px);
     h5 {
       font-size: 1.2rem;
-      font-weight: bolder;
+      text-align: center;
+      font-weight: lighter;
       font-family: $sans, sans-serif;
     }
   }

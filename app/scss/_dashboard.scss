@@ -80,17 +80,34 @@
   #preview-selected-item {
     width: 90%;
     float: none;
-    display: inline-block;
     margin: 0 auto;
+    #edit-btn {
+      background: none;
+      font-size: 0.8rem;
+      border: 1px solid $main;
+      margin: 25px auto 0 auto;
+      display: block;
+    }
     .saved-item-img {
-      height: 120px;
-      width: 50%;
+      width: 100%;
     }
     .saved-item-data {
-      float: right;
-      width: 50%;
+      position: relative;
+      top: 80%;
+      width: 100%;
       box-sizing: border-box;
-      padding-left: 1%;
+      a {
+        color: $white;
+        text-decoration: none;
+      }
+      h3 {
+        text-align: center;
+        width: 100%;
+        font-weight: lighter;
+        background: rgba($black, 0.7);
+        padding: 4px 0;
+        font-size: 1.1rem;
+      }
     }
   }
   #dashboard-page {

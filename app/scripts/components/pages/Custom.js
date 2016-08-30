@@ -175,6 +175,7 @@ export default React.createClass({
           </div>
 
           <div id="image-uploader-wrapper">
+            <p id="upload-img-text">Image:</p>  
             <label htmlFor="image-uploader">Upload image <i className="fa fa-upload upload-icon" aria-hidden="true"></i></label>
             <input type="file" id="image-uploader" accept="image/*" ref="file" onChange={this.uploadImg}/>
           </div>

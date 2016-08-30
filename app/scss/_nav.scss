@@ -20,7 +20,7 @@ header {
     text-decoration: none;
     font-family: $sans, sans-serif;
     padding: 7px;
-    border: 4px solid $white;
+    border: 3px solid $white;
     &:hover {
       background: $white;
       color: $main;
@@ -270,9 +270,11 @@ nav {
     h2 {
       padding-top: 110px;
       font-size: 2rem;
+      width: 80%;
+      margin: 20px auto;
     }
     #assessment-link {
-      width: 95%;
+      width: 70%;
       box-sizing: border-box;
     }
   }

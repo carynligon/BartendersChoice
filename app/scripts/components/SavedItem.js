@@ -34,12 +34,12 @@ export default React.createClass({
     }
     return (
       <li>
-        <div className="saved-item-img" style={style}></div>
-        <div className="saved-item-data">
-          <h3>{this.props.name}</h3>
-          <Link to={`recipe/${this.props.id}`}>View Recipe</Link>
-          {editbtn}
+        <div className="saved-item-img" style={style}>
+          <div className="saved-item-data">
+            <Link to={`recipe/${this.props.id}`}><h3>{this.props.name}</h3></Link>
+          </div>
         </div>
+        {editbtn}
         {modal}
       </li>
     );
