@@ -47,7 +47,6 @@ export default Backbone.Model.extend({
         },
         error: function(response) {
           resolve();
-          localStorage.setItem('authtoken', settings.anonymousToken);
         }
       });
     });
@@ -75,7 +74,6 @@ export default Backbone.Model.extend({
         },
         error: function(response) {
           resolve();
-          localStorage.setItem('authtoken', settings.anonymousToken);
           console.log('error: ' + response);
         }
       });

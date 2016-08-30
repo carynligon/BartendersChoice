@@ -1,4 +1,4 @@
-.login-signup-form, .user-info-form {
+.login-signup-form {
   text-align: center;
   h2 {
     padding: 0;
@@ -14,7 +14,7 @@
     font-family: $sans, sans-serif;
   }
   .signup-title {
-    margin-top: 10%;
+    margin-top: 23%;
   }
   p {
     margin-top: 0;
@@ -68,6 +68,20 @@
     &:hover {
       color: $black;
       cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .login-signup-form {
+    .login-title {
+      padding-top: 85px;
+    }
+    .signup-title {
+      padding-top: 20px;
+    }
+    input {
+      border: 1px solid $gray;
     }
   }
 }

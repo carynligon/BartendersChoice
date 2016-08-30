@@ -37,8 +37,8 @@ export default React.createClass({
     if (this.state.windowWidth <= 500) {
       contentStyles = {
         background: 'white',
-        width: '280px',
-        height: '40vh',
+        width: '380px',
+        height: '400px',
         margin: '0 auto'
       };
     } else {

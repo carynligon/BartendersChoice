@@ -98,7 +98,7 @@ export default React.createClass({
     } else if (this.state.showModal && this.state.signup) {
       showModal = (<Signup hideModal={this.hideModal} showLogin={this.showLogin}/>);
     }
-    if (this.state.username === 'Anonymous' || !localStorage.getItem('username')) {
+    if (this.state.username === 'Anonymous' || localStorage.getItem('username') === 'Anonymous') {
       links = (
         <div id="login-links">
           <p onClick={this.showModal}>SIGN IN</p>
@@ -118,7 +118,7 @@ export default React.createClass({
         showFilter;
       }
       let menu;
-      if (this.state.showMenu && this.state.username !== 'Anonymous') {
+      if (this.state.showMenu && localStorage.getItem('username') !== 'Anonymous') {
         menu = (
           <ul id="mobile-menu">
             <li><Link to="me">Dashboard</Link></li>
@@ -127,7 +127,7 @@ export default React.createClass({
             <li><p id="logout-dropdown" onClick={this.logout}>Logout</p></li>
           </ul>
         );
-      } else if (this.state.showMenu && this.state.username === 'Anonymous'){
+      } else if (this.state.showMenu && localStorage.getItem('username') === 'Anonymous'){
         menu = (
           <ul id="mobile-menu">
           <li><p id="signin-btn" onClick={this.showModal}>Sign in</p></li>
