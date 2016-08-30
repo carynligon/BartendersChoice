@@ -42,15 +42,15 @@ export default React.createClass({
         <h2 className="login-title">SIGN IN</h2>
         <div className="username">
           <label htmlFor="username"><i className="fa fa-user user-icon" aria-hidden="true"></i></label>
-          <input type="text" placeholder="username" id="username" ref="username" onKeyUp={this.clearErrors} style={styles}/>
+          <input type="text" placeholder="username" id="username" ref="username" onKeyUp={this.clearErrors} style={styles} required/>
         </div>
         <div className="password">
           <label htmlFor="password"><i className="fa fa-unlock-alt password-icon" aria-hidden="true"></i></label>
-          <input type="password" placeholder="password" id="password" ref="password" onKeyUp={this.clearErrors} style={styles}/>
+          <input type="password" placeholder="password" id="password" ref="password" onKeyUp={this.clearErrors} style={styles} required/>
         </div>
         {errorMsg}
         <button type="submit" value="submit" id="submit-login-btn">submit</button>
-        <p>Don't have an account?<span id="signup-btn" onClick={this.props.showSignup}>Sign up!</span></p>
+        <p id="switch-login">Don't have an account?<span id="signup-btn" onClick={this.props.showSignup}>Sign up!</span></p>
       </form>
       </UserModal>
     );

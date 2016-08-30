@@ -53,28 +53,33 @@ export default Backbone.Model.extend({
     });
   },
   signup: function(firstName, lastName, username, password, email) {
-    localStorage.clear();
-    store.users.create({
-      username: username,
-      password: password,
-      email: email,
-      firstName: firstName,
-      lastName: lastName
-    }, {
-      success: function(response) {
-        console.log(response);
-        window.localStorage.setItem('authtoken', response.get('_kmd').authtoken);
-        window.localStorage.setItem('username', response.get('username'));
-        response.unset('password');
-        store.session.set({
-          username: username,
-          authtoken: response.get('_kmd').authtoken
-        });
-      },
-      error: function(response) {
-        console.log('error: ' + response);
-      }
-    });
+    return new Promise((resolve, reject) => {
+      store.users.create({
+        username: username,
+        password: password,
+        email: email,
+        firstName: firstName,
+        lastName: lastName
+      }, {
+        success: function(response) {
+          localStorage.clear();
+          console.log(response);
+          window.localStorage.setItem('authtoken', response.get('_kmd').authtoken);
+          window.localStorage.setItem('username', response.get('username'));
+          response.unset('password');
+          store.session.set({
+            username: username,
+            authtoken: response.get('_kmd').authtoken
+          });
+          resolve(response);
+        },
+        error: function(response) {
+          resolve();
+          localStorage.setItem('authtoken', settings.anonymousToken);
+          console.log('error: ' + response);
+        }
+      });
+    })
   },
   logout: function() {
     this.save(null, {

@@ -487,6 +487,14 @@ video {
     font-family: "Fira-Sans", sans-serif, sans-serif; }
   .login-signup-form .signup-title, .user-info-form .signup-title {
     margin-top: 10%; }
+  .login-signup-form p, .user-info-form p {
+    margin-top: 0;
+    font-size: 0.8rem;
+    color: #FF3C38; }
+  .login-signup-form #switch-login, .user-info-form #switch-login {
+    margin: 10px;
+    font-size: 1rem;
+    color: #454545; }
   .login-signup-form input, .user-info-form input {
     width: 55%;
     font-size: 0.8rem;
@@ -496,9 +504,7 @@ video {
     .login-signup-form input:hover, .login-signup-form input:active, .login-signup-form input:focus, .user-info-form input:hover, .user-info-form input:active, .user-info-form input:focus {
       outline: none;
       box-shadow: 1px 3px 3px 1px rgba(255, 60, 56, 0.9); }
-  .login-signup-form p, .user-info-form p {
-    margin-top: 0; }
-  .login-signup-form input[type="submit"], .user-info-form input[type="submit"] {
+  .login-signup-form button, .user-info-form button {
     width: 110px;
     display: block;
     margin: 0 auto;
@@ -509,7 +515,7 @@ video {
     padding: 5px 10px;
     border: none;
     box-shadow: 1px 2px 3px 1px rgba(69, 69, 69, 0.3); }
-    .login-signup-form input[type="submit"]:hover, .user-info-form input[type="submit"]:hover {
+    .login-signup-form button:hover, .user-info-form button:hover {
       background: #FF3C38;
       cursor: pointer; }
   .login-signup-form a, .user-info-form a {
