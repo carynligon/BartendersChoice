@@ -18,6 +18,7 @@
   #add-ingredient {
     background: none;
     border: 1px solid $main;
+    margin-left: 87%;
     color: $main;
     &:hover {
       background: $main;
@@ -32,6 +33,9 @@
   margin: 120px auto 50px auto;
   font-size: 1.1rem;
   border: 1px solid $gray;
+  input {
+    border: 1px solid $gray;
+  }
   h2 {
     font-family: $sans;
     font-weight: lighter;
@@ -48,12 +52,13 @@
   h4 {
     text-align: center;
     font-weight: lighter;
+    margin-top: 45px;
     &::before {
       content: '';
       width: 90%;
       margin: 10px auto 20px auto;
       display: block;
-      border-top: 1px solid $gray;
+      border-top: 1px solid darken($gray, 10%);
     }
   }
   #flavor-profile-title {
@@ -79,7 +84,7 @@
   }
   #new-ingredient-wrapper, #new-ingredient-quantity-wrapper {
     width: 40%;
-    margin-left: 25px;
+    margin: 5px 0 0 25px;
     label {
       margin: 0 5px 0 0;
     }
@@ -88,6 +93,9 @@
       font-size: 0.9rem;
       padding: 10px;
       box-sizing: border-box;
+    }
+    #new-ingredient {
+      margin-left: 14%;
     }
   }
   #new-ingredient-quantity-wrapper label {
@@ -210,7 +218,7 @@
   }
 }
 
-@media (max-width:400px) {
+@media (max-width: 500px) {
   #custom-cocktail-form {
     width: 100%;
     border: none;
@@ -245,6 +253,9 @@
         width: 100%;
         box-sizing: border-box;
         border: 1px solid $gray;
+      }
+      #new-ingredient {
+        margin: 0;
       }
     }
     #add-ingredient {
