@@ -100,19 +100,11 @@ export default React.createClass({
       };
     }
     let display;
-    if (this.state.bookmark) {
-      display = {
-        opacity: '1'
-      };
-    } else if (this.state.saveBookmark) {
+    if (this.state.saveBookmark) {
       display = {
         opacity: '1',
         color: '#FF3C38'
       }
-    } else {
-      display = {
-        opacity: '0'
-      };
     }
     let heart;
     let icons;

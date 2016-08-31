@@ -14,8 +14,6 @@ export default React.createClass({
     }
   },
   setCocktail() {
-    console.log(store.cocktails);
-    console.log(this.props.id);
     this.setState({
       cocktail: store.cocktails.get(this.props.id),
       ingredients: store.allIngredients.where({drinkName: this.props.name})

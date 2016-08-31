@@ -1,7 +1,8 @@
 @import "https://fonts.googleapis.com/css?family=Fira+Sans:300,400|Lora:400,700";
 header {
   background: linear-gradient(to bottom, rgba(255, 60, 56, 0.9), rgba(255, 60, 56, 0.6));
-  height: 560px; }
+  height: 560px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.1); }
   header h2 {
     font-size: 2.5rem;
     color: #fff;
@@ -363,7 +364,7 @@ video {
       right: 37%;
       top: -3px;
       color: #454545;
-      transition: opacity 0.5s;
+      opacity: 0.6;
       transition: color 0.5s; }
       #cocktail-list .drink-preview .bookmark-icon:hover, #result-list .drink-preview .bookmark-icon:hover {
         color: #FF3C38;
