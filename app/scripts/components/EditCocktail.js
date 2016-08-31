@@ -13,24 +13,15 @@ export default React.createClass({
       this.props.hideModal();
     }
   },
-  updateIngredients() {
-    this.setState({ingredients: store.allIngredients.toJSON()});
-  },
   setCocktail() {
     console.log(store.cocktails);
     console.log(this.props.id);
-    this.setState({cocktail: store.cocktails.get(this.props.id)})
+    this.setState({
+      cocktail: store.cocktails.get(this.props.id),
+      ingredients: store.allIngredients.where({drinkName: this.props.name})
+    })
   },
   componentDidMount() {
-    store.allIngredients.on('update', this.updateIngredients);
-    store.allIngredients.fetch({
-      data: {
-        "resolve": "drink",
-        "query": JSON.stringify({
-          "drinkName": this.props.name
-        })
-      }
-    });
     store.cocktails.on('update', this.setCocktail);
     store.cocktails.fetch();
   },
@@ -39,8 +30,6 @@ export default React.createClass({
     store.cocktails.off('update', this.setCocktail);
   },
   render() {
-    console.log(this.state);
-    console.log(this.props);
     let containerStyles = {
       position: 'fixed',
       top: 0,

@@ -15,17 +15,6 @@
       text-decoration: underline;
     }
   }
-  #add-ingredient {
-    background: none;
-    border: 1px solid $main;
-    margin-left: 87%;
-    color: $main;
-    &:hover {
-      background: $main;
-      color: $white;
-      cursor: pointer;
-    }
-  }
 }
 
 #custom-cocktail-form {
@@ -35,6 +24,17 @@
   border: 1px solid $gray;
   input, textarea {
     border: 1px solid $gray;
+  }
+  #add-ingredient {
+    background: none;
+    border: 1px solid $main;
+    margin: 10px 0 20px 14%;
+    color: $main;
+    &:hover {
+      background: $main;
+      color: $white;
+      cursor: pointer;
+    }
   }
   h2 {
     font-family: $sans;
@@ -95,7 +95,7 @@
       box-sizing: border-box;
     }
     #new-ingredient {
-      margin-left: 14%;
+      display: block;
     }
   }
   #new-ingredient-quantity-wrapper label {

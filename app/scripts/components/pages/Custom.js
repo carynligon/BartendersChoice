@@ -171,28 +171,28 @@ export default React.createClass({
 
           <div id="cocktail-name-wrapper">
             <label htmlFor="cocktail-name">Name of cocktail:</label>
-            <input type="text" id="cocktail-name" autoComplete="off" ref="name"/>
+            <input type="text" id="cocktail-name" autoComplete="off" ref="name" required/>
           </div>
 
           <div id="image-uploader-wrapper">
             <p id="upload-img-text">Image:</p>
             <label htmlFor="image-uploader">Upload image <i className="fa fa-upload upload-icon" aria-hidden="true"></i></label>
-            <input type="file" id="image-uploader" accept="image/*" ref="file" onChange={this.uploadImg}/>
+            <input type="file" id="image-uploader" accept="image/*" ref="file" onChange={this.uploadImg} required/>
           </div>
 
           <div id="cocktail-difficulty-wrapper">
             <label htmlFor="cocktail-difficulty">How hard is it to make?:</label>
-            <input type="range" id="cocktail-difficulty" min="1" max="3" ref="difficulty"/>
+            <input type="range" id="cocktail-difficulty" min="1" max="3" ref="difficulty" required/>
           </div>
 
           <div id="cocktail-instructions-wrapper">
             <label htmlFor="cocktail-instructions">Mixing Instructions:</label>
-            <textarea id="cocktail-instructions" autoComplete="off" ref="instructions"></textarea>
+            <textarea id="cocktail-instructions" autoComplete="off" ref="instructions" required></textarea>
           </div>
 
           <div id="cocktail-glass-wrapper">
             <label htmlFor="cocktail-glass">Serving Glass:</label>
-            <input type="text" id="cocktail-glass" autoComplete="off" ref="cocktailGlass"/>
+            <input type="text" id="cocktail-glass" autoComplete="off" ref="cocktailGlass" required/>
           </div>
 
           <ul id="ingredients-list">

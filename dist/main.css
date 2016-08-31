@@ -945,15 +945,6 @@ video {
   #custom-cocktail-page #new-recipe-link:hover {
     color: #FF3C38;
     text-decoration: underline; }
-#custom-cocktail-page #add-ingredient {
-  background: none;
-  border: 1px solid #FF3C38;
-  margin-left: 87%;
-  color: #FF3C38; }
-  #custom-cocktail-page #add-ingredient:hover {
-    background: #FF3C38;
-    color: #fff;
-    cursor: pointer; }
 
 #custom-cocktail-form {
   width: 680px;
@@ -962,6 +953,15 @@ video {
   border: 1px solid #EEEEEE; }
   #custom-cocktail-form input, #custom-cocktail-form textarea {
     border: 1px solid #EEEEEE; }
+  #custom-cocktail-form #add-ingredient {
+    background: none;
+    border: 1px solid #FF3C38;
+    margin: 10px 0 20px 14%;
+    color: #FF3C38; }
+    #custom-cocktail-form #add-ingredient:hover {
+      background: #FF3C38;
+      color: #fff;
+      cursor: pointer; }
   #custom-cocktail-form h2 {
     font-family: "Fira-Sans", sans-serif;
     font-weight: lighter;
@@ -1011,7 +1011,7 @@ video {
       padding: 10px;
       box-sizing: border-box; }
     #custom-cocktail-form #new-ingredient-wrapper #new-ingredient, #custom-cocktail-form #new-ingredient-quantity-wrapper #new-ingredient {
-      margin-left: 14%; }
+      display: block; }
   #custom-cocktail-form #new-ingredient-quantity-wrapper label {
     margin-right: 18px; }
   #custom-cocktail-form #cocktail-glass-wrapper input {
