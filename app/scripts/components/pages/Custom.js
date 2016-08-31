@@ -37,6 +37,8 @@ export default React.createClass({
     } else {
       this.setState({ingredients: [newIngredient], ingredientQuantities: [newIngredientQuantity]});
     }
+    document.getElementById('new-ingredient').value = '';
+    document.getElementById('new-ingredient-quantity').value = '';
   },
   pressedEnter(e) {
     if (e.which === 13) {

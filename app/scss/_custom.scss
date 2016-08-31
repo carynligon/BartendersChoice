@@ -95,7 +95,8 @@
       box-sizing: border-box;
     }
     #new-ingredient {
-      display: block;
+      display: inline-block;
+      margin-left: 14%;
     }
   }
   #new-ingredient-quantity-wrapper label {
@@ -251,6 +252,7 @@
       }
       #new-ingredient {
         margin: 0;
+        display: block;
       }
     }
     #add-ingredient {

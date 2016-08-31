@@ -99,6 +99,9 @@ export default React.createClass({
     } else {
       this.setState({ingredients: [newIngredient], ingredientQuantities: [newIngredientQuantity]});
     }
+    console.dir(document.getElementById('new-ingredient'))
+    document.getElementById('new-ingredient').value = '';
+    document.getElementById('new-ingredient-quantity').value = '';
   },
   showPreview(e) {
     e.preventDefault();
