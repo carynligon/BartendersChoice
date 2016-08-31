@@ -46,6 +46,7 @@ export default Backbone.Model.extend({
           resolve(response);
         },
         error: function(response) {
+          console.log(response);
           resolve();
         }
       });
@@ -53,6 +54,7 @@ export default Backbone.Model.extend({
   },
   signup: function(firstName, lastName, username, password, email) {
     return new Promise((resolve, reject) => {
+      localStorage.clear();
       store.users.create({
         username: username,
         password: password,
@@ -61,7 +63,6 @@ export default Backbone.Model.extend({
         lastName: lastName
       }, {
         success: function(response) {
-          localStorage.clear();
           console.log(response);
           window.localStorage.setItem('authtoken', response.get('_kmd').authtoken);
           window.localStorage.setItem('username', response.get('username'));
