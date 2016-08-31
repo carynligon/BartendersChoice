@@ -891,8 +891,21 @@ video {
 #how-it-works {
   width: 90%;
   margin: 0 auto; }
+  #how-it-works #about-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%; }
   #how-it-works p {
     line-height: 1.4rem; }
+  #how-it-works img {
+    height: 100px;
+    width: 100px;
+    display: block;
+    margin: 0 auto; }
+  #how-it-works #about-traitify img {
+    width: 150px; }
   #how-it-works h2 {
     width: 100%;
     font-family: "Fira-Sans", sans-serif, sans-serif;
@@ -912,7 +925,8 @@ video {
   #how-it-works div {
     display: inline-block;
     margin: 10px;
-    width: calc(100% /3 - 20px); }
+    width: calc(100% /3 - 20px);
+    height: 370px; }
     #how-it-works div h5 {
       font-size: 1.2rem;
       text-align: center;
@@ -929,9 +943,15 @@ video {
   #how-it-works {
     width: 75%; } }
 @media (max-width: 750px) {
+  #how-it-works #about-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0; }
   #how-it-works div {
     display: block;
-    width: 100%; } }
+    width: 100%;
+    height: 280px; } }
 #custom-cocktail-page h3 {
   text-align: center;
   font-size: 2.2rem;
