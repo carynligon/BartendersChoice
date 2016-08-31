@@ -76,22 +76,15 @@
 }
 
 #similar-drinks {
-  margin: 150px auto;
+  margin: 150px auto 0 auto;
+  background: $gray;
   padding: 0;
   text-align: center;
+  height: 200px;
   h4 {
     font-size: 1.3rem;
     font-family: $sans, sans-serif;
-    &::before, &::after{
-      content: '';
-      width: 240px;
-      height: 0;
-      border-top: 1px solid $main;
-      display:inline-block;
-      position: relative;
-      bottom: 5px;
-      margin: 0 3px;
-    }
+    margin-bottom: 50px;
   }
   li {
     width: 400px;

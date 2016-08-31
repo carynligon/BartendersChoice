@@ -1,6 +1,8 @@
 #dashboard-page {
   #logout-btn {
-    margin-top: 100px;
+    position: absolute;
+    top: 100px;
+    right: 50px;
     background: $main;
     border: none;
     color: $white;
@@ -141,6 +143,7 @@
   }
   #dashboard-page {
     #logout-btn {
+      position: static;
       margin: 20px auto 50px auto;
       width: 75%;
       display: block;
