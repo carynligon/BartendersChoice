@@ -8,6 +8,14 @@
     - Get a drink recommendation based on the outcome of Traitify's personality assessment.
 
 
+#### Credit
+ - [Cocktail Icon on home page by Ricardo Ruiz](https://thenounproject.com/ricardojorgeruiz/)
+ - [Brain Icon on home page by Sergey Patutin](https://thenounproject.com/bdesign.by/)
+ - [Data Icon on home page by Umseh Vgl](https://thenounproject.com/umesh.vgl/)
+ - [Broken Cup Icon on oops page by Ema Dimitrova](https://thenounproject.com/sesisesi/)
+ - [Logo image by Henry Chung](https://thenounproject.com/henry.chung.16/)
+ - [Stock cocktail image by Vivien Ilett](https://thenounproject.com/vivien.ilett/)
+
 #### basic features:
   - Search Feature: This feature will begin by the user narrowing their search down to a specific spirit. Then, they will be able to filter results by tasting notes, skill level, ingredients, etc. Results will be able to be browsed as soon as they specify spirit, unless they select a 'view all' option
   - Bartender's Choice Feature: This feature will prompt the user to take a 2-3 minute Traitify assessment to determine their core personality traits. Based on the outcome of the assessment, they will randomly be given a cocktail that matched their data (based on tagged traits given to each cocktail).

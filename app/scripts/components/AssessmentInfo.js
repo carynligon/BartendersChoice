@@ -51,13 +51,13 @@ export default React.createClass({
       <section className="assessment-section">
         <h2>About this Assessment</h2>
         <div id="assessment-image" style={{backgroundImage:'url(assets/images/assessment-image.jpeg)'}}></div>
-        <p className="assessment-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p className="assessment-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p className="assessment-description">Traitify's Core Assessment measures overall elements of an individual’s personality, assessing a full range of characterological components in order to gain an overall picture of a person. The personality information derived from this assessment can be used to gain a general understanding of the user’s personality, or to match individual’s with other people.</p>
+        <p className="assessment-description">Simply read each question/statement shown to you at the top of the page and select "ME" if you feel that your personality coorelates with that statement, otherwise select "NOT ME". At the end of this assessment, your results will be generated and you will be able to see your matched drink!</p>
         <input type="button" id="start-assessment-btn" value="Begin" onClick={this.startAssessment}/>
         {login}
         <div id="about-traitify">
-          <img src="assets/images/traitify_logo.png" alt="Traitify(personality API) logo"/>
-          <p className="assessment-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+          <a href="https://www.traitify.com/"><img src="assets/images/traitify_logo.png" alt="Traitify(personality API) logo"/></a>
+          <p className="assessment-description">Traitify is the only visual personality assessment that can be completed in just minutes. Users simply swipe through a short series of images, answer "me" or "not me" and voilà: instant, actionable data!.</p>
         </div>
       </section>
     );

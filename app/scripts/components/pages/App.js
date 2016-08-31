@@ -83,17 +83,22 @@ export default React.createClass({
         <Header/>
         <section id="how-it-works">
           <h2 className="app-titles">How it Works</h2>
-          <div id="about-cocktails">
-            <h5>The Cocktails</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
-          </div>
-          <div id="about-traitify">
-            <h5>The Psychology</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
-          </div>
-          <div id="about-match">
-            <h5>Your Drink</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.</p>
+          <div id="about-section">
+            <div id="about-cocktails">
+              <h5>The Cocktails</h5>
+              <img src="assets/images/data.png"/>
+              <p>Along with the <a href="http://www.cocktaildb.com/">CocktailDB</a> API to gather cocktails, ingredients, and recipes -  we researched people just like you to find out just how certain cocktails make them feel to assign numerical values to the personality traits of cocktails.</p>
+            </div>
+            <div id="about-traitify">
+              <h5>The Psychology</h5>
+              <img src="assets/images/brain.png"/>
+              <p>Now here's where you come in - We used a virtual personality assessment from <a href="https://www.traitify.com/">Traitify</a>, to determine your personality based on psychological big data that is collected from your personality assessment results.</p>
+            </div>
+            <div id="about-match">
+              <h5>Your Drink</h5>
+              <img src="assets/images/yourDrink.png"/>
+              <p>And then it's all just math from there! We crunch the numbers and find a drink that best matches your personality.</p>
+            </div>
           </div>
         </section>
         <ul id="cocktail-list">
