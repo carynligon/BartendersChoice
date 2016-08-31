@@ -345,7 +345,8 @@ video {
     justify-content: space-between; }
     #cocktail-list .drink-preview .drink-img, #result-list .drink-preview .drink-img {
       height: 319px;
-      background-size: cover; }
+      background-size: cover;
+      background-position: center; }
     #cocktail-list .drink-preview h4, #result-list .drink-preview h4 {
       position: relative;
       top: 232px;
