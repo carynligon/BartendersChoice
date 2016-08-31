@@ -9,13 +9,13 @@
     font-size: 1rem;
     margin-top: 1px;
   }
+  .signup-title {
+    padding: 70px 0 0 0;
+  }
   .login-title {
-    margin-top: 23%;
+    padding: 130px 0 0 0;
     letter-spacing: 1px;
     font-family: $sans, sans-serif;
-  }
-  .signup-title {
-    margin-top: 10%;
   }
   p {
     margin-top: 0;
@@ -23,7 +23,7 @@
     color: $main;
   }
   #switch-login {
-    margin: 10px;
+    margin: 10px auto;
     font-size: 1rem;
     color: $black;
   }
@@ -79,7 +79,7 @@
       padding-top: 85px;
     }
     .signup-title {
-      padding-top: 20px;
+      padding-top: 40px;
     }
     input {
       border: 1px solid $gray;

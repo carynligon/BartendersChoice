@@ -38,7 +38,7 @@ export default React.createClass({
         background: 'white',
         width: '380px',
         height: '400px',
-        margin: '0 auto'
+        margin: '12.5% auto 0 auto'
       };
     } else {
       contentStyles = {

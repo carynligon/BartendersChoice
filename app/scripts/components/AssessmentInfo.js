@@ -42,9 +42,9 @@ export default React.createClass({
   render() {
     let login;
     if (!this.state.loggedIn && this.state.login) {
-      login = (<UserModal hideModal={this.hideModal}><Login hideModal={this.hideModal} showSignup={this.showSignup}/></UserModal>);
+      login = (<Login hideModal={this.hideModal} showSignup={this.showSignup}/>);
     } else if (!this.state.loggedIn && this.state.signup) {
-      login = (<UserModal hideModal={this.hideModal}><Signup hideModal={this.hideModal} showLogin={this.showLogin}/></UserModal>);
+      login = (<Signup hideModal={this.hideModal} showLogin={this.showLogin}/>);
     }
     return(
       <section className="assessment-section">
