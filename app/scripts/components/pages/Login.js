@@ -15,7 +15,6 @@ export default React.createClass({
     let password = this.refs.password.value;
     store.session.login(username, password).then((response) => {
       if (response) {
-        console.log(response);
         this.props.hideModal();
       } else {
         this.setState({error: true});
@@ -26,7 +25,6 @@ export default React.createClass({
     this.setState({error: false});
   },
   render() {
-    console.log(this.state);
     let styles;
     let errorMsg;
     if (this.state.error) {

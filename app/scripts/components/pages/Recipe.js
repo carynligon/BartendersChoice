@@ -22,7 +22,6 @@ export default React.createClass({
     hashHistory.push('/');
   },
   listener() {
-    console.log('changed');
     this.setState({cocktail: store.cocktails.get(this.props.params.cocktail).toJSON()});
     store.allIngredients.fetch({
       data: {
@@ -31,7 +30,6 @@ export default React.createClass({
         })
       },
       success: (data) => {
-        console.log(data);
         let drinkName = data.models[0].get('drinkName');
         let flavors = data.models[0].get('tags');
         this.setState({tags: flavors})
@@ -48,7 +46,6 @@ export default React.createClass({
             function findRandomModels() {
               _(3).times(function getRandom () {
                 let resultsIndex = Math.floor(Math.random() * data.models.length);
-                console.log(resultsIndex);
                 let random = data.models[resultsIndex].get('drink')._obj;
                 if (resultsArr.indexOf(random) === -1 && random.drink__strDrink !== drinkName.toLowerCase()) {
                   resultsArr.push(random);
@@ -79,7 +76,6 @@ export default React.createClass({
     store.favorites.forEach((drink) => {
       if (drink.get('drink')._id === this.props.params.cocktail) {
         if (drink.get('username') === store.session.get('username')) {
-          console.log(drink.get('username') + ' ' + store.session.get('username'));
           this.setState({favorite: true, favoriteModel: drink});
         }
       }
@@ -87,8 +83,6 @@ export default React.createClass({
     store.savedForLaterCollection.forEach((drink) => {
       if (drink.get('drink')._id === this.props.params.cocktail) {
         if (drink.get('username') === store.session.get('username')) {
-          console.log(store.session);
-          console.log(drink.get('username') + ' ' + store.session.get('username'));
           this.setState({bookmark: true, bookmarkModel: drink});
         }
       }
@@ -145,12 +139,10 @@ export default React.createClass({
     store.savedForLaterCollection.off('update', this.updateSaved);
   },
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
     this.setState({cocktail: store.cocktails.get(nextProps.params.cocktail).toJSON()});
     this.listener();
   },
   render() {
-    console.log(this.state);
     let display;
     let heart;
     let background;

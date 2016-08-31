@@ -113,7 +113,6 @@ export default Backbone.Collection.extend({
         });
       },
       error: (e) => {
-        console.error(e);
       }
     });
   }

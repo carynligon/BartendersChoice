@@ -23,16 +23,13 @@ store.users.fetch();
 
 if (localStorage.getItem('authtoken') && localStorage.getItem('username') !== 'Anonymous') {
   store.session.retrieve();
-  console.log(store.session);
 } else if (!localStorage.getItem('ofAge')){
-  console.log('not of age');
   store.session.save({
     username: 'Anonymous',
     password: '1234',
     ofAge: true
   }, {
     success: function(data) {
-      console.log('success');
       localStorage.setItem('authtoken', data.get('authtoken'));
       store.session.set({
         username: 'Anonymous',
@@ -50,7 +47,6 @@ if (localStorage.getItem('authtoken') && localStorage.getItem('username') !== 'A
     ofAge: true
   }, {
     success: function(data) {
-      console.log('success');
       localStorage.setItem('authtoken', data.get('authtoken'));
       store.session.set({
         username: 'Anonymous',

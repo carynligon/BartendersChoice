@@ -29,7 +29,6 @@ export default React.createClass({
     if (e) {
       e.preventDefault();
       if (e.which === 13) {
-        console.log(searchString);
         this.setState({hide: true});
         this.toSearchResults();
       } else {
@@ -39,7 +38,6 @@ export default React.createClass({
         }
       }
     } else {
-      console.log(searchString);
       this.setState({hide: true});
       this.toSearchResults();
     }
@@ -70,7 +68,6 @@ export default React.createClass({
     window.removeEventListener('click', this.listenToClicks);
   },
   render() {
-    console.log(this.state);
     let styles;
     let reduced;
     let results;

@@ -3,7 +3,6 @@ import {hashHistory} from 'react-router';
 
 export default React.createClass({
   FilterDifficulty() {
-    console.log(this.props);
     let difficulty;
     if (this.refs.difficulty.value === '3') {
       difficulty = 'difficult'

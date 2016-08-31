@@ -10,7 +10,6 @@ export default Backbone.Collection.extend({
   url: `https://baas.kinvey.com/appdata/${settings.appKey}/Favorites`,
   model: Favorite,
   favorite(drink, user) {
-    console.log(drink, user);
     this.create({
       drinkName: drink.get('drink__strDrink'),
       username: user.get('username'),
@@ -22,12 +21,10 @@ export default Backbone.Collection.extend({
       },
     }, {
       success: (data) => {
-        console.log(data);
       }
     });
   },
   getDrinks() {
-    console.log(store.session.get('username'));
     // this.fetch({
     //   data: {
     //     query: JSON.stringify({

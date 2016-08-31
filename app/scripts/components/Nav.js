@@ -73,8 +73,6 @@ export default React.createClass({
     }
   },
   mobileSearch(e) {
-    console.log(e.target);
-    console.log(this.refs);
     if (this.state.windowWidth === 'small') {
       this.setState({showSearchbar: !this.state.showSearchbar});
     }
@@ -89,7 +87,6 @@ export default React.createClass({
     store.session.off('change add update remove', this.listener);
   },
   render() {
-    console.log(this.state);
     let links;
     let showFilter;
     let showModal;

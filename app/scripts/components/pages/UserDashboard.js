@@ -25,7 +25,6 @@ export default React.createClass({
     this.setState({bookmarks: store.savedForLaterCollection.toJSON()});
   },
   updateYours() {
-    console.log(store.allIngredients);
     this.setState({custom: store.allIngredients.toJSON()});
   },
   setAll() {
@@ -42,7 +41,6 @@ export default React.createClass({
   },
   setSession() {
     if (store.session.get('username')) {
-      console.log('have session', store.session.get('username'));
       store.favorites.fetch({
         data: {
           "resolve": "drink",
@@ -73,7 +71,6 @@ export default React.createClass({
           })
         },
         success: (data) => {
-          console.log(data);
           this.setState({custom: data.toJSON()});
         }
       });
@@ -100,9 +97,7 @@ export default React.createClass({
     let viewBookmarks;
     let viewYours;
     if (store.session.get('username')) {
-      console.log(this.state);
       if (this.state.selected === 'All' && this.state.favorites !== [] && this.state.bookmarks !== []) {
-        console.log(this.state.favorites);
         viewAll = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setAll}>All</li>);
         viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
         viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
@@ -125,7 +120,6 @@ export default React.createClass({
           return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._id} key={i}/>);
         });
       } else if (this.state.selected === 'Favorites' && this.state.favorites !== []) {
-        console.log(this.state.favorites);
         viewFavorites = (<li style={{background:'#FF3C38', color:'#fff'}} onClick={this.setFavorites}>Favorites</li>);
         viewAll = (<li onClick={this.setAll}>All</li>);
         viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
@@ -142,7 +136,6 @@ export default React.createClass({
           return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
         });
       } else if (this.state.selected === 'Yours' && this.state.custom !== []) {
-        console.log(this.state.custom);
         viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
         viewAll = (<li onClick={this.setAll}>All</li>);
         viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
@@ -151,7 +144,6 @@ export default React.createClass({
         let reduced = [];
         let toReduce = this.state.custom.map((drink, i) => {
           if (drink.submittedBy) {
-            console.log(drink);
             drinkArr.push(drink);
           }
           let ids = []
@@ -165,17 +157,13 @@ export default React.createClass({
                 ids.push(curr.drink._id);
                 return rtsf;
               }
-            console.log(rtsf);
             return rtsf;
           },[]);
           });
           savedItems = reduced.map((drink, i) => {
-            console.log(drink);
             return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._id} key={i} edit={true}/>);
           });
       }
-    } else {
-      console.log('problem');
     }
     return (
       <main id="dashboard-page">

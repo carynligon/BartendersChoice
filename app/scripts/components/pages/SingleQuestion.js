@@ -12,7 +12,6 @@ export default React.createClass({
   nextQuestion(e) {
     let model = store.slides.get(this.props.params.id);
     let currIndex = this.state.question.position - 1;
-    console.log(currIndex);
     if (currIndex === 48) {
       if (e.target.id === 'me') {
         model.set({
@@ -68,9 +67,6 @@ export default React.createClass({
     this.setState({question: store.slides.get(nextProps.params.id).toJSON()})
   },
   render() {
-    console.log(store.session);
-    console.log(this.props.params);
-    console.log(this.state);
     let question;
     if (this.state.question) {
       question = this.state.question.question;

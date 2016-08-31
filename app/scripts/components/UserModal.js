@@ -23,7 +23,6 @@ export default React.createClass({
     }
   },
   render() {
-    console.log(this.props);
     let containerStyles = {
       position: 'fixed',
       top: 0,

@@ -28,7 +28,6 @@ export default React.createClass({
     if (localStorage.getItem('username') === 'Anonymous') {
       this.setState({loggedIn: false});
     } else {
-      console.log(store.session);
       this.setState({loggedIn: true});
     }
     store.cocktails.on('update', this.listener);
@@ -53,22 +52,17 @@ export default React.createClass({
       function get6Random(indices) {
           if (indices.length === 6) return indices;
           let randomNumber = (Math.floor(Math.random() * drinksWithImgs.length));
-          console.log(randomNumber);
           if (indices.indexOf(randomNumber) === -1) {
             indices.push(randomNumber);
-            console.log(indices);
-            console.log(store.cocktails);
           } else {
               return get6Random(indices);
           }
           return get6Random(indices);
         }
       let indices = get6Random([]);
-      console.log(indices);
       let randomDrinks = indices.map((index) => {
         return drinksWithImgs[index];
       });
-      console.log(randomDrinks);
       if (randomDrinks[0] !== undefined) {
         drinks = randomDrinks.map((drink,i) => {
           return <DrinkPreview id={drink._id} img={drink.drink__strDrinkThumb} name={drink.drink__strDrink} loggedIn={this.state.loggedIn} key={i}/>;

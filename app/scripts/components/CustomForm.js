@@ -24,7 +24,6 @@ export default React.createClass({
         this.setState({tags: this.state.tags.concat(flavor)});
       } else if (document.getElementById('custom-'+flavor).checked === false){
         if (this.state.tags.indexOf(flavor) !== -1) {
-          console.log('already tagged');
           let tags = this.state.tags;
           this.setState({tags: _.without(tags, flavor)})
         }
@@ -36,7 +35,6 @@ export default React.createClass({
     } else {
       flavor = 'spirit-forward';
     }
-    console.log(flavor);
     if (e.target.checked === true) {
       this.setState({tags: this.state.tags.concat(flavor)});
     }
@@ -55,7 +53,6 @@ export default React.createClass({
         mimeType: file.type
       }),
       success: (data) => {
-        console.log(data);
         fileId = data._id;
         this.setState({img: fileId});
         $.ajax({
@@ -65,10 +62,7 @@ export default React.createClass({
           contentLength: file.size,
           type: 'PUT',
           processData: false,
-          contentType: false,
-          success: (data) => {
-            console.log(data);
-          }
+          contentType: false
         });
       }
     });
@@ -93,13 +87,11 @@ export default React.createClass({
     }
     let newIngredient = this.refs.newIngredient.value;
     let newIngredientQuantity = this.refs.newIngredientQuantity.value;
-    console.log(newIngredient);
     if (this.props.ingredients) {
       this.setState({ingredients: this.state.ingredients.concat(newIngredient), ingredientQuantities: this.state.ingredientQuantities.concat(newIngredientQuantity)});
     } else {
       this.setState({ingredients: [newIngredient], ingredientQuantities: [newIngredientQuantity]});
     }
-    console.dir(document.getElementById('new-ingredient'))
     document.getElementById('new-ingredient').value = '';
     document.getElementById('new-ingredient-quantity').value = '';
   },
@@ -128,12 +120,10 @@ export default React.createClass({
     this.setState({submitted: true});
   },
   componentDidMount() {
-    console.log(this.props);
     let ingredients = [];
     let ingredientQuantities = [];
     let allIngredients = [];
     this.props.ingredients.forEach((ingredient) => {
-      console.log(ingredient);
       allIngredients = allIngredients.concat(ingredient.toJSON());
     })
     this.setState({ingredientModels: allIngredients});
@@ -149,7 +139,6 @@ export default React.createClass({
       ingredients: ingredients,
       ingredientQuantities: ingredientQuantities
     });
-    console.log(ingredients);
     let flavors = ["sweet","bubbly","fruity","creamy","spicy","dry","sour","salty","spirit-forward","bitter"]
     flavors.forEach((flavor, i) => {
       if (document.getElementById('custom-'+flavor).checked) {
@@ -158,7 +147,6 @@ export default React.createClass({
     });
   },
   render() {
-    console.log(this.state);
     let ingredients;
     let title;
     if (location.hash.split('/')[1].split('?')[0] !== 'me') {
@@ -168,7 +156,6 @@ export default React.createClass({
     let newIngredients;
     if (this.state.ingredients !== []) {
       newIngredients = zippedIngredients.map((ingredient, i) => {
-        console.log(ingredient);
         if (ingredient[0] !== null) {
           return (
             <li key={i}>

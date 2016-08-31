@@ -17,7 +17,6 @@ export default Backbone.Collection.extend({
         assessment_id: assessment_id
       },
       success: (data) => {
-        console.log(data);
         data.forEach((question,i) => {
           this.add({
             id: question.id,
@@ -25,17 +24,14 @@ export default Backbone.Collection.extend({
             question: question.caption
           });
         });
-        console.log(this);
       }
     });
   },
   sendAnswers: function(assessment_id) {
-    console.log(assessment_id);
     let answerArr = [];
     store.slides.forEach((question) => {
       answerArr.push(question.get('result'));
     });
-    console.log(answerArr);
     $.ajax({
       url: `https://baas.kinvey.com/rpc/${settings.appKey}/custom/send-answers`,
       type: 'POST',
@@ -44,7 +40,6 @@ export default Backbone.Collection.extend({
         assessment_id: assessment_id
       },
       success: (data) => {
-        console.log(data);
         $.ajax({
           url: `https://baas.kinvey.com/rpc/${settings.appKey}/custom/results`,
           type: 'POST',
@@ -52,7 +47,6 @@ export default Backbone.Collection.extend({
             assessment_id: assessment_id
           },
           success: (data) => {
-            console.log(data);
             store.session.set({
               personality: data
             });

@@ -27,7 +27,6 @@ export default React.createClass({
   this.props.hideFilter();
   },
   render() {
-    console.log(this.props);
     return(
       <div id="filter-bar">
         <div id="filter-wrapper">

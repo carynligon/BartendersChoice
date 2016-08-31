@@ -24,7 +24,6 @@ export default React.createClass({
     if (this.props.loggedIn) {
       this.setState({loggedIn: true});
       if (this.state.saveBookmark) {
-        console.log(this.state);
         this.state.saveBookmarkModel.destroy({
           success: () => {
             this.setState({saveBookmark: false});
@@ -42,7 +41,6 @@ export default React.createClass({
     if (this.props.loggedIn) {
       this.setState({loggedIn: true});
       if (this.state.saveFavorite) {
-        console.log(this.state);
         this.state.saveFavoriteModel.destroy({
           success: () => {
             this.setState({saveFavorite: false});

@@ -32,7 +32,6 @@ export default React.createClass({
     this.setState({loggedIn: true});
   },
   firstQuestion() {
-    console.log('changed');
     if (store.slides.models.length === 49) {
       hashHistory.push(`/assessment/question/${store.slides.models[0].get('id')}`);
     }

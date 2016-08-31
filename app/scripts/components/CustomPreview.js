@@ -26,7 +26,6 @@ export default React.createClass({
     overflow: 'scroll'
   },
   render() {
-    console.log(this.props);
     let containerStyles;
     let contentStyles;
     if (this.state.showing === true) {

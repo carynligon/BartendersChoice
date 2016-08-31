@@ -9,12 +9,9 @@ export default Backbone.Model.extend({
   urlRoot: `https://baas.kinvey.com/appdata/${settings.appKey}/Cocktails`,
   idAttribute: '_id',
   updateCocktail(origModel, cocktailObj, currIngredients) {
-      console.log(origModel);
-      console.log(cocktailObj);
       let ingredients = cocktailObj.ingredients;
       let ingredientQuantities = cocktailObj.ingredientQuantities;
       let ingredientKeys = ['drink__strIngredient1','drink__strIngredient2','drink__strIngredient3','drink__strIngredient4','drink__strIngredient5','drink__strIngredient6','drink__strIngredient7','drink__strIngredient8','drink__strIngredient9'];
-      console.log(ingredients);
       if (ingredients.length < 9) {
         let difference = 9 - ingredients.length;
         for (var i = ingredients.length; i <= (difference+1); i++) {
@@ -26,7 +23,6 @@ export default Backbone.Model.extend({
       $.ajax({
         url: `https://baas.kinvey.com/blob/${settings.appKey}/${cocktailObj.img}`,
         success: (data) => {
-          console.log(data);
           imgSrc = data._downloadURL;
           _.object(ingredientKeys, ingredients);
           this.save({
@@ -61,18 +57,14 @@ export default Backbone.Model.extend({
                   type: 'DELETE'
                 });
               });
-              console.log(store.allIngredients);
               store.allIngredients.models.forEach((model) => {
-                console.log(model);
                 model.destroy({
                   success: (data) => {
                     cocktailObj.ingredients.forEach((ingredient,i) => {
-                      console.log(ingredient);
                       if (ingredient !== null) {
                         $.ajax({
                           url: `https://baas.kinvey.com/appdata/${settings.appKey}/Ingredients?query={"ingredient":"${ingredient.toLowerCase()}"}`,
                           success: (data) => {
-                            console.log(data);
                             if (data.length === 0) {
                               $.ajax({
                                 url: `https://baas.kinvey.com/appdata/${settings.appKey}/Ingredients`,
@@ -81,7 +73,6 @@ export default Backbone.Model.extend({
                                   ingredient: ingredient.toLowerCase()
                                 },
                                 success: (data) => {
-                                  console.log(data);
                                   $.ajax({
                                     url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,
                                     type: 'POST',
@@ -104,14 +95,11 @@ export default Backbone.Model.extend({
                                       submittedBy: store.session.get('username')
                                     }),
                                     success: (data) => {
-                                      console.log(data);
                                     }
                                   });
                                 }
                               });
                             } else {
-                              console.log(cocktailObj);
-                              console.log(i);
                               $.ajax({
                                 url: `https://baas.kinvey.com/appdata/${settings.appKey}/drinkIngredients`,
                                 type: 'POST',
@@ -132,9 +120,6 @@ export default Backbone.Model.extend({
                                   skillLevel: cocktailObj.difficulty,
                                   tags: cocktailObj.flavorNotes,
                                   submittedBy: store.session.get('username')
-                                },
-                                success: (data) => {
-                                  console.log(data);
                                 }
                               });
                             }

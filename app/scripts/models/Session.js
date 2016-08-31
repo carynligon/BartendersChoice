@@ -46,7 +46,6 @@ export default Backbone.Model.extend({
           resolve(response);
         },
         error: function(response) {
-          console.log(response);
           resolve();
         }
       });
@@ -63,7 +62,6 @@ export default Backbone.Model.extend({
         lastName: lastName
       }, {
         success: function(response) {
-          console.log(response);
           window.localStorage.setItem('authtoken', response.get('_kmd').authtoken);
           window.localStorage.setItem('username', response.get('username'));
           window.localStorage.setItem('ofAge', true);
@@ -76,7 +74,6 @@ export default Backbone.Model.extend({
         },
         error: function(response) {
           resolve();
-          console.log('error: ' + response);
         }
       });
     })

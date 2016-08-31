@@ -31,7 +31,6 @@ export default React.createClass({
     }
     let newIngredient = this.refs.newIngredient.value;
     let newIngredientQuantity = this.refs.newIngredientQuantity.value;
-    console.log(newIngredient);
     if (this.state.ingredients) {
       this.setState({ingredients: this.state.ingredients.concat(newIngredient), ingredientQuantities: this.state.ingredientQuantities.concat(newIngredientQuantity)});
     } else {
@@ -52,7 +51,6 @@ export default React.createClass({
     } else {
       flavor = 'spirit-forward';
     }
-    console.log(flavor);
     if (e.target.checked === true) {
       this.setState({tags: this.state.tags.concat(flavor)});
     }
@@ -88,7 +86,6 @@ export default React.createClass({
         mimeType: file.type
       }),
       success: (data) => {
-        console.log(data);
         fileId = data._id;
         this.setState({img: fileId});
         $.ajax({
@@ -98,10 +95,7 @@ export default React.createClass({
           contentLength: file.size,
           type: 'PUT',
           processData: false,
-          contentType: false,
-          success: (data) => {
-            console.log(data);
-          }
+          contentType: false
         });
       }
     });
@@ -145,7 +139,6 @@ export default React.createClass({
     store.customCocktails.off('update', this.listener);
   },
   render() {
-    console.log(this.state);
     let modal;
     if (this.state.cocktailId) {
       modal = <CustomPreview id={this.state.cocktailId} name={this.state.cocktailName}/>

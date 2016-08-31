@@ -33,7 +33,6 @@ export default React.createClass({
     store.searchResults.getResults(nextProps.location.query.q, this.props.location.query.filter);
   },
   render() {
-    console.log(this.state);
     let results;
     let reduced;
     let noResultsMsg;

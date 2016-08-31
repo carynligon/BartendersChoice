@@ -19,9 +19,7 @@ export default React.createClass({
     })
     this.state.results.personality.personality_types.forEach((trait, i) => {
       let traitName = trait.personality_type.name;
-      console.log(traitName);
       let score = trait.score;
-      console.log(score);
       this.state.drinks.forEach((drink) => {
         if (Math.abs(drink[traitName] - score) <= 20) {
           matches.push(drink._id);
@@ -59,7 +57,6 @@ export default React.createClass({
   },
   render() {
     store.slides.sendAnswers(store.session.get('assessment_id'));
-    console.log(this.state);
     let traits;
     let drinkName;
     let drinkId;
