@@ -53,10 +53,19 @@
     max-width: 400px;
     margin: 10px;
   }
+  #edit-btn {
+    background: none;
+    font-size: 0.8rem;
+    border: 1px solid $black;
+    margin: auto 10px auto;
+    height: 20px;
+    display: block;
+  }
   .saved-item-img {
     width: 100%;
     height: 230px;
     background-size: cover;
+    background-position: center;
     display: inline-block;
   }
   .saved-item-data {
@@ -108,13 +117,6 @@
     width: 90%;
     float: none;
     margin: 0 auto;
-    #edit-btn {
-      background: none;
-      font-size: 0.8rem;
-      border: 1px solid $main;
-      margin: 25px auto 0 auto;
-      display: block;
-    }
     .saved-item-img {
       width: 100%;
     }

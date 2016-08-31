@@ -33,7 +33,7 @@
   margin: 120px auto 50px auto;
   font-size: 1.1rem;
   border: 1px solid $gray;
-  input {
+  input, textarea {
     border: 1px solid $gray;
   }
   h2 {
@@ -112,11 +112,6 @@
   }
   #cocktail-difficulty-wrapper {
     margin-top: 40px;
-    input {
-      display: block;
-      width: 50%;
-      margin: 5px auto;
-    }
   }
   #image-uploader-wrapper {
     margin-top: 25px;

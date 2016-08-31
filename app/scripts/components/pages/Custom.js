@@ -114,7 +114,7 @@ export default React.createClass({
       difficulty = 'difficult';
     }
     let cocktail = {
-      name: this.refs.name.value.toLowerCase(),
+      name: this.refs.name.value,
       difficulty: difficulty,
       instructions: this.refs.instructions.value,
       glass: this.refs.cocktailGlass.value.toLowerCase(),
@@ -187,7 +187,7 @@ export default React.createClass({
 
           <div id="cocktail-instructions-wrapper">
             <label htmlFor="cocktail-instructions">Mixing Instructions:</label>
-            <input type="text" id="cocktail-instructions" autoComplete="off" ref="instructions"/>
+            <textarea id="cocktail-instructions" autoComplete="off" ref="instructions"></textarea>
           </div>
 
           <div id="cocktail-glass-wrapper">

@@ -12,6 +12,9 @@ export default React.createClass({
     return {loggedIn: true}
   },
   startAssessment() {
+    if (store.slides.models.length === 49) {
+      this.firstQuestion();
+    }
     if (localStorage.getItem('username') === 'Anonymous') {
       this.setState({loggedIn: false, login: true});
     } else {
@@ -29,6 +32,7 @@ export default React.createClass({
     this.setState({loggedIn: true});
   },
   firstQuestion() {
+    console.log('changed');
     if (store.slides.models.length === 49) {
       hashHistory.push(`/assessment/question/${store.slides.models[0].get('id')}`);
     }
@@ -37,7 +41,6 @@ export default React.createClass({
     store.slides.on('update', this.firstQuestion);
   },
   render() {
-    console.log(this.state);
     let login;
     if (!this.state.loggedIn && this.state.login) {
       login = (<UserModal hideModal={this.hideModal}><Login hideModal={this.hideModal} showSignup={this.showSignup}/></UserModal>);

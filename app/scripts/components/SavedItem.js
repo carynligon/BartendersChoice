@@ -20,6 +20,7 @@ export default React.createClass({
     }
     let style;
     if (this.props.img !== null && this.props.img !== undefined) {
+      console.log(this.props);
       style = {
         backgroundImage: 'url(' + this.props.img + ')'
       };

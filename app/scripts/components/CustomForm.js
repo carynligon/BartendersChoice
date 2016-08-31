@@ -216,7 +216,7 @@ export default React.createClass({
 
           <div id="cocktail-instructions-wrapper">
             <label htmlFor="cocktail-instructions">Mixing Instructions:</label>
-            <input type="text" id="cocktail-instructions" autoComplete="off" ref="instructions" defaultValue={this.state.currCocktail.drink__strInstructions}/>
+            <textarea id="cocktail-instructions" autoComplete="off" ref="instructions">{this.state.currCocktail.drink__strInstructions}</textarea>
           </div>
 
           <div id="cocktail-glass-wrapper">
