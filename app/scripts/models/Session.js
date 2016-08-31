@@ -66,6 +66,7 @@ export default Backbone.Model.extend({
           console.log(response);
           window.localStorage.setItem('authtoken', response.get('_kmd').authtoken);
           window.localStorage.setItem('username', response.get('username'));
+          window.localStorage.setItem('ofAge', true);
           response.unset('password');
           store.session.set({
             username: username,
