@@ -101,7 +101,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 900px) {
   .recipe-title {
     padding: 20px 0 10px 0;
     margin: 20px 0;
@@ -129,7 +129,7 @@
     #recipe-icons {
       padding-left: 5%;
       .favorite-icon {
-        margin-left: 5%;
+        margin-left: 15px;
       }
     }
   }

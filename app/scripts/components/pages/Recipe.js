@@ -8,6 +8,7 @@ import Nav from '../Nav';
 import SimilarDrinks from '../SimilarDrinks';
 import UserModal from '../UserModal';
 import Login from './Login';
+import Signup from './Signup';
 
 export default React.createClass({
   getInitialState() {
@@ -20,6 +21,15 @@ export default React.createClass({
   },
   sendBack() {
     hashHistory.push('/');
+  },
+  showSignup() {
+    this.setState({signup: true, login: false});
+  },
+  showLogin() {
+    this.setState({signup: false, login: true});
+  },
+  hideModal() {
+    this.setState({loggedIn: true});
   },
   listener() {
     this.setState({cocktail: store.cocktails.get(this.props.params.cocktail).toJSON()});
@@ -105,7 +115,7 @@ export default React.createClass({
         store.favorites.favorite(cocktail, store.session);
       }
     } else {
-      this.setState({loggedIn: false});
+      this.setState({loggedIn: false, login: true});
     }
   },
   addBookmark() {
@@ -122,7 +132,7 @@ export default React.createClass({
         store.savedForLaterCollection.bookmark(cocktail, store.session);
       }
     } else {
-      this.setState({loggedIn: false});
+      this.setState({loggedIn: false, login: true});
     }
   },
   componentDidMount() {
@@ -148,8 +158,10 @@ export default React.createClass({
     let background;
     let similarDrinks;
     let login;
-    if (!this.state.loggedIn) {
-      login = (<UserModal hideModal={this.hideModal}><Login hideModal={this.hideModal}/></UserModal>);
+    if (!this.state.loggedIn && this.state.login) {
+      login = (<Login hideModal={this.hideModal} showSignup={this.showSignup}/>);
+    } else if (!this.state.loggedIn && this.state.signup) {
+      login = (<Signup hideModal={this.hideModal} showLogin={this.showLogin}/>);
     }
     if (this.state.cocktail) {
       similarDrinks = (<SimilarDrinks similar={this.state.similar}/>);

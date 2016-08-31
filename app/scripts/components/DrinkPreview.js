@@ -5,14 +5,25 @@ import store from '../store';
 
 import UserModal from './UserModal';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 
 export default React.createClass({
   getInitialState() {
     return {
       bookmark: false,
       user: store.users.get(store.session.get('userId')),
-      loggedIn: true
+      loggedIn: true,
+      signup: false
     };
+  },
+  showSignup() {
+    this.setState({signup: true, login: false});
+  },
+  showLogin() {
+    this.setState({signup: false, login: true});
+  },
+  hideModal() {
+    this.setState({loggedIn: true});
   },
   viewRecipe(e) {
     hashHistory.push(`/recipe/${e.target.parentElement.parentElement.id}`);
@@ -70,9 +81,6 @@ export default React.createClass({
       }
     });
   },
-  hideModal() {
-    this.setState({loggedIn: true});
-  },
   componentDidMount() {
     store.savedForLaterCollection.on('update remove', this.listener);
     store.favorites.on('update remove', this.listener);
@@ -87,7 +95,11 @@ export default React.createClass({
   render() {
     let login;
     if (!this.state.loggedIn) {
-      login = (<UserModal hideModal={this.hideModal}><Login hideModal={this.hideModal}/></UserModal>);
+      if (this.state.signup) {
+        login = (<Signup hideModal={this.hideModal} showLogin={this.showLogin}/>)
+      } else {
+        login = (<Login hideModal={this.hideModal} showSignup={this.showSignup}/>);
+      }
     }
     let styles;
     if (this.props.img !== null) {

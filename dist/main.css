@@ -572,18 +572,18 @@ video {
   .login-signup-form i {
     font-size: 1rem;
     margin-top: 1px; }
+  .login-signup-form .signup-title {
+    padding: 70px 0 0 0; }
   .login-signup-form .login-title {
-    margin-top: 23%;
+    padding: 130px 0 0 0;
     letter-spacing: 1px;
     font-family: "Fira-Sans", sans-serif, sans-serif; }
-  .login-signup-form .signup-title {
-    margin-top: 10%; }
   .login-signup-form p {
     margin-top: 0;
     font-size: 0.8rem;
     color: #FF3C38; }
   .login-signup-form #switch-login {
-    margin: 10px;
+    margin: 10px auto;
     font-size: 1rem;
     color: #454545; }
   .login-signup-form input {
@@ -627,7 +627,7 @@ video {
   .login-signup-form .login-title {
     padding-top: 85px; }
   .login-signup-form .signup-title {
-    padding-top: 20px; }
+    padding-top: 40px; }
   .login-signup-form input {
     border: 1px solid #EEEEEE; } }
 .recipe-title {
@@ -714,7 +714,7 @@ video {
         color: #FF3C38;
         text-decoration: underline; }
 
-@media (max-width: 400px) {
+@media (max-width: 900px) {
   .recipe-title {
     padding: 20px 0 10px 0;
     margin: 20px 0;
@@ -739,7 +739,7 @@ video {
     #recipe-drink-img #recipe-icons {
       padding-left: 5%; }
       #recipe-drink-img #recipe-icons .favorite-icon {
-        margin-left: 5%; }
+        margin-left: 15px; }
 
   .mixing-instructions {
     display: block;
