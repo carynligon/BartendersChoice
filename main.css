@@ -447,7 +447,8 @@ video {
     .assessment-section #start-assessment-btn:hover, .assessment-section #start-assessment-btn:focus {
       background: none;
       color: #FF3C38;
-      outline: none; }
+      outline: none;
+      cursor: pointer; }
   .assessment-section #about-traitify {
     background: #EEEEEE;
     text-align: center;
@@ -456,40 +457,47 @@ video {
       margin: 0 auto; }
 
 #question-section {
-  padding: 0 20px;
-  margin: 100px auto; }
+  margin-top: 110px; }
   #question-section #question-count {
     display: inline-block;
+    margin-left: 3%;
     padding-bottom: 10px;
     border-bottom: 2px solid #EEEEEE;
     color: #FF3C38; }
   #question-section h3 {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #454545;
+    height: 100px;
     text-align: center;
-    font-weight: lighter;
-    font-family: "Fira-Sans", sans-serif, sans-serif; }
-  #question-section #not-me, #question-section #me {
-    width: 46%;
-    margin: 2%;
-    display: inline-block;
-    text-align: center;
-    box-sizing: border-box;
-    padding: 60px;
-    font-size: 1.5rem;
-    letter-spacing: 1.5px; }
+    font-weight: lighter; }
   #question-section #select-answer {
-    width: 60%;
-    margin: 0 auto; }
-    #question-section #select-answer #not-me:hover {
-      background: linear-gradient(80deg, rgba(255, 145, 69, 0.9), rgba(255, 60, 56, 0.7));
+    text-align: center;
+    font-size: 1.3rem; }
+    #question-section #select-answer #me, #question-section #select-answer #not-me {
+      font-family: "Fira-Sans", sans-serif;
+      display: block;
+      width: 65%;
+      max-width: 375px;
+      margin: 0 auto 20px auto;
+      padding: 20px;
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+      box-sizing: border-box; }
+      #question-section #select-answer #me:hover, #question-section #select-answer #not-me:hover {
+        cursor: pointer; }
+    #question-section #select-answer #me {
+      background: #FF3C38;
       color: #fff;
-      border: none;
-      cursor: pointer; }
-    #question-section #select-answer #me:hover {
-      background: linear-gradient(80deg, rgba(255, 60, 56, 0.9), rgba(255, 145, 69, 0.7));
-      color: #fff;
-      border: none;
-      cursor: pointer; }
+      transition: transform 0.2s ease-in-out; }
+      #question-section #select-answer #me:hover {
+        transform: scale(1.05); }
+    #question-section #select-answer #not-me {
+      background: none;
+      border: 1px solid #FF3C38;
+      color: #FF3C38;
+      transition: transform 0.2s ease-in-out; }
+      #question-section #select-answer #not-me:hover {
+        transform: scale(1.05); }
 
 @media (max-width: 800px) {
   .assessment-section {
@@ -533,38 +541,6 @@ video {
       padding: 10px 0 40px 0; }
       .assessment-section #about-traitify p {
         margin: 0 auto; } }
-@media (max-width: 500px) {
-  #question-section {
-    margin-top: 110px; }
-    #question-section h3 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      color: #454545;
-      height: 100px; }
-    #question-section #select-answer {
-      width: 90%; }
-      #question-section #select-answer #me, #question-section #select-answer #not-me {
-        font-family: "Fira-Sans", sans-serif;
-        display: block;
-        width: 65%;
-        margin: 0 auto 20px auto;
-        padding: 20px;
-        box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
-        box-sizing: border-box; }
-      #question-section #select-answer #me {
-        background: #FF3C38;
-        color: #fff; }
-        #question-section #select-answer #me:hover {
-          background: #FF3C38;
-          color: #fff; }
-      #question-section #select-answer #not-me {
-        background: none;
-        border: 1px solid #FF3C38;
-        color: #FF3C38; }
-        #question-section #select-answer #not-me:hover {
-          background: none;
-          border: 1px solid #FF3C38;
-          color: #FF3C38; } }
 @media (max-width: 450px) {
   .assessment-section .assessment-description {
     width: 85%; } }
@@ -983,7 +959,7 @@ video {
   margin: 120px auto 50px auto;
   font-size: 1.1rem;
   border: 1px solid #EEEEEE; }
-  #custom-cocktail-form input {
+  #custom-cocktail-form input, #custom-cocktail-form textarea {
     border: 1px solid #EEEEEE; }
   #custom-cocktail-form h2 {
     font-family: "Fira-Sans", sans-serif;
@@ -1045,10 +1021,6 @@ video {
     padding: 10px; }
   #custom-cocktail-form #cocktail-difficulty-wrapper {
     margin-top: 40px; }
-    #custom-cocktail-form #cocktail-difficulty-wrapper input {
-      display: block;
-      width: 50%;
-      margin: 5px auto; }
   #custom-cocktail-form #image-uploader-wrapper {
     margin-top: 25px; }
     #custom-cocktail-form #image-uploader-wrapper p {
@@ -1218,10 +1190,18 @@ video {
     width: calc(100% / 2 - 20px);
     max-width: 400px;
     margin: 10px; }
+  #preview-selected-item #edit-btn {
+    background: none;
+    font-size: 0.8rem;
+    border: 1px solid #454545;
+    margin: auto 10px auto;
+    height: 20px;
+    display: block; }
   #preview-selected-item .saved-item-img {
     width: 100%;
     height: 230px;
     background-size: cover;
+    background-position: center;
     display: inline-block; }
   #preview-selected-item .saved-item-data {
     position: relative;
@@ -1257,12 +1237,6 @@ video {
     width: 90%;
     float: none;
     margin: 0 auto; }
-    #preview-selected-item #edit-btn {
-      background: none;
-      font-size: 0.8rem;
-      border: 1px solid #FF3C38;
-      margin: 25px auto 0 auto;
-      display: block; }
     #preview-selected-item .saved-item-img {
       width: 100%; }
     #preview-selected-item .saved-item-data {
