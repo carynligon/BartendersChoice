@@ -49,6 +49,9 @@ export default React.createClass({
           "query": JSON.stringify({
             "username": store.session.get('username')
           })
+        },
+        success: (data) => {
+          this.setState({favorites: data.toJSON()});
         }
       });
       store.savedForLaterCollection.fetch({
@@ -57,6 +60,9 @@ export default React.createClass({
           "query": JSON.stringify({
             "username": store.session.get('username')
           })
+        },
+        success: (data) => {
+          this.setState({bookmarks: data.toJSON()});
         }
       });
       store.allIngredients.fetch({
@@ -68,8 +74,10 @@ export default React.createClass({
         },
         success: (data) => {
           console.log(data);
+          this.setState({custom: data.toJSON()});
         }
       });
+
     }
   },
   componentDidMount() {
@@ -134,12 +142,13 @@ export default React.createClass({
           return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._obj._id} key={i}/>);
         });
       } else if (this.state.selected === 'Yours' && this.state.custom !== []) {
+        console.log(this.state.custom);
         viewBookmarks = (<li onClick={this.setBookmarks}>Saved</li>);
         viewAll = (<li onClick={this.setAll}>All</li>);
         viewFavorites = (<li onClick={this.setFavorites}>Favorites</li>);
         viewYours = (<li onClick={this.setYours} style={{background:'#FF3C38', color:'#fff'}}>Your Recipes</li>);
         let drinkArr = [];
-        let reduced;
+        let reduced = [];
         let toReduce = this.state.custom.map((drink, i) => {
           if (drink.submittedBy) {
             console.log(drink);
@@ -165,6 +174,8 @@ export default React.createClass({
             return (<SavedItem name={drink.drinkName} img={drink.drink._obj.drink__strDrinkThumb} id={drink.drink._id} key={i} edit={true}/>);
           });
       }
+    } else {
+      console.log('problem');
     }
     return (
       <main id="dashboard-page">

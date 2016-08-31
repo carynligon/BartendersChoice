@@ -170,6 +170,7 @@
     justify-content: center;
     input {
       width: 0;
+      opacity: 0;
       display: flex;
       &:checked + label {
         background: $main;
