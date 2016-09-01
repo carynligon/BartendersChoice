@@ -1,5 +1,5 @@
 #### Live Site:
-[Here](https;//bartenders-choice.surge.sh)
+View live site [here](http://bartenders-choice.surge.sh)
 
 
 #### elevator pitch:
