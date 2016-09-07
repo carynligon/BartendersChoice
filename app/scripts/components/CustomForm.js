@@ -130,10 +130,12 @@ export default React.createClass({
     allIngredients.forEach((ingredient) => {
       ingredients.push(ingredient.ingredientName);
       ingredientQuantities.push(ingredient.quantity);
-      ingredient.tags.forEach((tag) => {
-        let id = 'custom-' + tag;
-        document.getElementById(id).checked = true;
-      });
+      if (ingredient.tags) {
+        ingredient.tags.forEach((tag) => {
+          let id = 'custom-' + tag;
+          document.getElementById(id).checked = true;
+        });
+      }
     });
     this.setState({
       ingredients: ingredients,

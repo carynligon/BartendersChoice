@@ -52,7 +52,7 @@ export default React.createClass({
         <div id="assessment-image" style={{backgroundImage:'url(assets/images/assessment-image.jpeg)'}}></div>
         <p className="assessment-description">Traitify's Core Assessment measures overall elements of an individual’s personality, assessing a full range of characterological components in order to gain an overall picture of a person. The personality information derived from this assessment can be used to gain a general understanding of the user’s personality, or to match individual’s with other people.</p>
         <p className="assessment-description">Simply read each question/statement shown to you at the top of the page and select "ME" if you feel that your personality coorelates with that statement, otherwise select "NOT ME". At the end of this assessment, your results will be generated and you will be able to see your matched drink!</p>
-        <input type="button" id="start-assessment-btn" value="Begin" onClick={this.startAssessment}/>
+        <button id="start-assessment-btn" onClick={this.startAssessment}>Begin</button>
         {login}
         <div id="about-traitify">
           <a href="https://www.traitify.com/"><img src="assets/images/traitify_logo.png" alt="Traitify(personality API) logo"/></a>
