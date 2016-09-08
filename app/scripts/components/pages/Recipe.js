@@ -57,8 +57,12 @@ export default React.createClass({
               _(3).times(function getRandom () {
                 let resultsIndex = Math.floor(Math.random() * data.models.length);
                 let random = data.models[resultsIndex].get('drink')._obj;
-                if (resultsArr.indexOf(random) === -1 && random.drink__strDrink !== drinkName.toLowerCase()) {
-                  resultsArr.push(random);
+                if (random) {
+                  if (resultsArr.indexOf(random) === -1 && random.drink__strDrink !== drinkName.toLowerCase()) {
+                    resultsArr.push(random);
+                  } else {
+                    getRandom();
+                  }
                 } else {
                   getRandom();
                 }
