@@ -18,15 +18,6 @@ export default React.createClass({
   logout() {
     store.session.logout();
   },
-  updateFavorites() {
-    this.setState({favorites: store.favorites.toJSON()});
-  },
-  updateBookmarks() {
-    this.setState({bookmarks: store.savedForLaterCollection.toJSON()});
-  },
-  updateYours() {
-    this.setState({custom: store.allIngredients.toJSON()});
-  },
   setAll() {
     this.setState({selected: 'All'});
   },
@@ -40,6 +31,7 @@ export default React.createClass({
     this.setState({selected: 'Yours'});
   },
   setSession() {
+    console.log('session ran');
     if (store.session.get('username')) {
       store.favorites.fetch({
         data: {
@@ -49,7 +41,11 @@ export default React.createClass({
           })
         },
         success: (data) => {
-          this.setState({favorites: data.toJSON()});
+          console.log(data);
+          if (data.models[0].get('drink')._obj) {
+            this.setState({favorites: data.toJSON()});
+          }
+
         }
       });
       store.savedForLaterCollection.fetch({
@@ -60,7 +56,11 @@ export default React.createClass({
           })
         },
         success: (data) => {
-          this.setState({bookmarks: data.toJSON()});
+          console.log(data);
+          if (data.models[0].get('drink')._obj) {
+            this.setState({bookmarks: data.toJSON()});
+          }
+
         }
       });
       store.allIngredients.fetch({
@@ -71,23 +71,21 @@ export default React.createClass({
           })
         },
         success: (data) => {
-          this.setState({custom: data.toJSON()});
+          console.log(data);
+          if (data.models[0].get('drink')._obj) {
+            this.setState({custom: data.toJSON()});
+          }
+
         }
       });
 
     }
   },
   componentDidMount() {
-    store.favorites.on('update', this.updateFavorites);
-    store.savedForLaterCollection.on('update', this.updateBookmarks);
-    store.allIngredients.on('update', this.updateYours);
     this.setSession();
     store.session.on('change', this.setSession);
   },
   componentWillUnmount() {
-    store.favorites.off('update', this.updateFavorites);
-    store.savedForLaterCollection.off('update', this.updateBookmarks);
-    store.allIngredients.off('update', this.updateYours);
     store.session.off('change', this.setSession);
   },
   render() {
@@ -184,3 +182,7 @@ export default React.createClass({
     );
   }
 });
+
+
+// v7q3qogwwdij
+// gv-54y2v6jrcdek3d.dv.googlehosted.com.
