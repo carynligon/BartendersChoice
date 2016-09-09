@@ -698,10 +698,7 @@ video {
   background: #EEEEEE;
   padding: 0;
   text-align: center;
-  height: 200px;
-  position: absolute;
-  width: 100%;
-  bottom: 0; }
+  height: 200px; }
   #similar-drinks h4 {
     font-size: 1.3rem;
     font-family: "Fira-Sans", sans-serif, sans-serif;
