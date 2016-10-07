@@ -41,6 +41,7 @@ if (localStorage.getItem('authtoken') && localStorage.getItem('username') !== 'A
   });
   hashHistory.push('/confirm');
 } else {
+  localStorage.clear();
   store.session.save({
     username: 'Anonymous',
     password: '1234',

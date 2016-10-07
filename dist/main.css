@@ -696,7 +696,7 @@ video {
 #similar-drinks {
   margin: 150px auto 0 auto;
   background: #EEEEEE;
-  padding: 0;
+  padding: 1rem;
   text-align: center;
   height: 200px; }
   #similar-drinks h4 {
@@ -755,7 +755,8 @@ video {
   #similar-drinks {
     background: #EEEEEE;
     padding: 5px 0 25px 0;
-    margin: 0; }
+    margin: 0;
+    position: static; }
     #similar-drinks h4 {
       font-size: 1rem; }
     #similar-drinks h4::before {
@@ -1239,6 +1240,8 @@ video {
     margin: auto 10px auto;
     height: 20px;
     display: block; }
+    #preview-selected-item #edit-btn:hover {
+      cursor: pointer; }
   #preview-selected-item .saved-item-img {
     width: 100%;
     height: 230px;
@@ -1268,7 +1271,8 @@ video {
     top: 83.5%; } }
 @media (max-width: 800px) {
   #preview-selected-item li {
-    width: 100%; } }
+    width: 100%;
+    margin: 1rem auto; } }
 @media (max-width: 700px) {
   #select-view {
     width: 90%;
