@@ -193,29 +193,31 @@ export default React.createClass({
       <main>
         <Nav/>
         <button id="back-btn" onClick={this.sendBack}><i className="fa fa-arrow-left back-icon" aria-hidden="true"></i> back</button>
-        <h2 className="recipe-title">{this.state.cocktail.drink__strDrink}</h2>
-        <div id="recipe-drink-img" style={background}>
-          <div id="recipe-icons">
-            <i className="fa fa-bookmark bookmark-icon" aria-hidden="true" style={display} onClick={this.addBookmark}></i>
-            {heart}
+        <div className="recipe-page-wrapper">
+          <h2 className="recipe-title">{this.state.cocktail.drink__strDrink}</h2>
+          <div id="recipe-drink-img" style={background}>
+            <div id="recipe-icons">
+              <i className="fa fa-bookmark bookmark-icon" aria-hidden="true" style={display} onClick={this.addBookmark}></i>
+              {heart}
+            </div>
           </div>
-        </div>
-        <div className="ingredients">
-          <h4>Ingredients</h4>
-          <ul className="ingredients-list">
-            <li>{this.state.cocktail.drink__strIngredient1} {this.state.cocktail.drink__strMeasure1}</li>
-            <li>{this.state.cocktail.drink__strIngredient2} {this.state.cocktail.drink__strMeasure2}</li>
-            <li>{this.state.cocktail.drink__strIngredient3} {this.state.cocktail.drink__strMeasure3}</li>
-            <li>{this.state.cocktail.drink__strIngredient4} {this.state.cocktail.drink__strMeasure4}</li>
-            <li>{this.state.cocktail.drink__strIngredient5} {this.state.cocktail.drink__strMeasure5}</li>
-            <li>{this.state.cocktail.drink__strIngredient6} {this.state.cocktail.drink__strMeasure6}</li>
-            <li>{this.state.cocktail.drink__strIngredient7} {this.state.cocktail.drink__strMeasure7}</li>
-            <li>{this.state.cocktail.drink__strIngredient8} {this.state.cocktail.drink__strMeasure8}</li>
-          </ul>
-        </div>
-        <div className="mixing-instructions">
-          <h4>Mixing Instructions</h4>
-          <p>{this.state.cocktail.drink__strInstructions}</p>
+          <div className="ingredients">
+            <h4>Ingredients</h4>
+            <ul className="ingredients-list">
+              <li>{this.state.cocktail.drink__strIngredient1} {this.state.cocktail.drink__strMeasure1}</li>
+              <li>{this.state.cocktail.drink__strIngredient2} {this.state.cocktail.drink__strMeasure2}</li>
+              <li>{this.state.cocktail.drink__strIngredient3} {this.state.cocktail.drink__strMeasure3}</li>
+              <li>{this.state.cocktail.drink__strIngredient4} {this.state.cocktail.drink__strMeasure4}</li>
+              <li>{this.state.cocktail.drink__strIngredient5} {this.state.cocktail.drink__strMeasure5}</li>
+              <li>{this.state.cocktail.drink__strIngredient6} {this.state.cocktail.drink__strMeasure6}</li>
+              <li>{this.state.cocktail.drink__strIngredient7} {this.state.cocktail.drink__strMeasure7}</li>
+              <li>{this.state.cocktail.drink__strIngredient8} {this.state.cocktail.drink__strMeasure8}</li>
+            </ul>
+          </div>
+          <div className="mixing-instructions">
+            <h4>Mixing Instructions</h4>
+            <p>{this.state.cocktail.drink__strInstructions}</p>
+          </div>
         </div>
         {similarDrinks}
         {login}
